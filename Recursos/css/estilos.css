@@ -1,0 +1,101 @@
+ .textoh7{
+    color: #2e2929;
+    font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.ImagenBannerLogo{
+
+	position: static;
+    width: 120px;
+    height: 80px;
+    margin-left: 40%;
+    margin-top: -2%;
+}
+
+.ContenedorComboBoxDestino{
+    margin-left: 48%;
+    position: absolute;
+    margin-top: -50px;
+    width: 95%;
+}
+
+.ContenedorComboBoxOrigen{
+    margin-top: 20px;
+}
+
+.ContenedorFechaRegreso{
+    margin-left: 48%;
+position: absolute;
+    margin-top: -75px;
+    width: 95%;
+}
+
+.ContenedorFechaSalida{
+
+    margin-top: 50px;
+}
+
+.ContenedorCantidadPasajeros{
+    
+    margin-top: 70px;
+    
+}
+
+.ContenedorTipoVuelos{
+    margin-left: 48%;
+    position: absolute;
+    margin-top: -50px;
+    width: 95%;
+}
+
+.ContenedorBotonBuscarVuelos{
+    margin-top: 60px;
+    margin-left: 42%;
+    position: relative;
+}
+
+.boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #dd2f2f;
+    border-radius: 6px;
+    border: 2px solid rgb(179, 47, 47);
+  }
+  .boton_personalizado:hover{
+    color: #b63c3c;
+    background-color: #ffffff;
+  }
+
+  .navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .navigation ul li {
+    /* uno al lado del otro */
+    display: inline-block;
+  }
+  
+  /* los enlaces dentro del menu */
+  .navigation ul li a {
+    padding: 1rem 3rem;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    color: white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	line-height: 1.1;
+  }
+  
+  .navigation ul li a:hover {
+    background: #d62323;
+  }
+
+  
