@@ -98,4 +98,23 @@ position: absolute;
     background: #d62323;
   }
 
+  .ColorText{
+    color: #087300;
+  }
+
+  .estiloText{
+  color: #2e2929;
+  font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+  }
+
+  .estiloTextTipoUsuario{
+    color: #fff;
+    font-weight: 550;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+  
+  }
+
   

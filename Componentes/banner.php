@@ -38,10 +38,11 @@
                         <ul class="nav navbar-nav">
 
                             <li class="active"><a href="#">Inicio</a></li>
-                            <li><a href="">Menu Empleados</a></li>
+                            <li><a href="Vista/adm_Aerolinea.php">Menu Empleados</a></li>
                             <li><a href="">Registrarse</a></li>
                             <li><a href="">Inicio Sesion</a></li>
-                            <li><a href="">Perfil</a></li>
+                            <li><a href="">Informacion</a></li>
+                            <li><a href="">Te ayudamos</a></li>
                         </ul>
 
                     </div>
