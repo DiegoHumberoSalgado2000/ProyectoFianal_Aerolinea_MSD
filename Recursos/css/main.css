@@ -4955,12 +4955,12 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 }
 .close {
 	float: right;
-	font-size: 21px;
+	font-size: 25px;
 	font-weight: bold;
 	line-height: 1;
 	color: #000;
 	text-shadow: 0 1px 0 #fff;
-	opacity: 0.2;
+	opacity: 10;
 	filter: alpha(opacity=20);
 }
 .close:hover, .close:focus {
@@ -5034,7 +5034,6 @@ button.close {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 1040;
 	background-color: #000;
 }
 .modal-backdrop.fade {
@@ -6140,7 +6139,7 @@ body #myCarousel .item:before {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: url(../img/banner-pattern.png) repeat;
+	background: url(../../img/banner-pattern.png) repeat;
 	background-color: rgba(25, 25, 25, 0.8);
 	z-index: 2;
 }

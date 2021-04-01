@@ -21,7 +21,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a  class="nav-link">Menu Administrador</a>
+                    <a  class="nav-link">Menu Empleado</a>
                 </li>
             </ul>
 
@@ -35,7 +35,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../Vista/adm_Aerolinea.php" class="brand-link">
+            <a href="../Vista/Emp_Aerolinea.php" class="brand-link">
                 <img src="../img/LogoAerolineaMSD.PNG" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
                 <span class="brand-text font-weight-light">Aerolinea MSD</span>
@@ -46,10 +46,10 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="../img/avatar4.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a class="d-block">Alexander Pierce</a>
+                        <a class="d-block">Mateo Gomes</a>
                     </div>
                 </div>
                 <!-- SidebarSearch Form -->
@@ -72,68 +72,13 @@
 
 
                         <li class="nav-item">
-                            <a href="../Vista/Gestion_Aviones.php" class="nav-link">
-                            <i class="fas fa-plane"></i>
-                                <p>
-                                    Gestion Aviones
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="../Vista/Gestion_Vuelos.php" class="nav-link">
-                            <i class="fas fa-plane-departure"></i>
-                                <p>
-                                    Gestion Vuelos
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="../Vista/Gestion_Itinerario.php" class="nav-link">
-                            <i class="fas fa-suitcase-rolling"></i>
-                                <p>
-                                    Gestion Itinerario
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="../Vista/Gestion_Empleados.php" class="nav-link">
-                            <i class="fas fa-user-tie"></i>
-                                <p>
-                                    Gestion Empleados
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="../Vista/Gestion_Reserva_Pasagero.php" class="nav-link">
+                            <a href="../Vista/Administrar_Reserva.php" class="nav-link">
                             <i class="fas fa-money-check"></i>
                                 <p>
-                                    Gestion Reserva Pasagero
+                                    Administrar Reservas
                                 </p>
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a href="../Vista/Gestion_Pasagero.php" class="nav-link">
-                            <i class="fas fa-user-cog"></i>
-                                <p>
-                                    Gestion Pasagero
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="../Vista/Historial_Paga.php" class="nav-link">
-                            <i class="fas fa-clipboard-list"></i>
-                                <p>
-                                    Historial
-                                </p>
-                            </a>
-                        </li>
-
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

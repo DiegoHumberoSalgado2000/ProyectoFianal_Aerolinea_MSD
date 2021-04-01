@@ -117,4 +117,29 @@ position: absolute;
   
   }
 
+  .ContenedorColoriniciarSesion{
+    background-color: #f7a900;
+    border-radius: 6px;
+  }
+
+  .ColorTextoModalIniciarSesion{
+    color: #000000;
+  }
+  .ImagenBannerLogoModaliniciarSesion{
+
+	position: static;
+    width: 150px;
+    height: 120px;
+}
   
+.LineaHorizontal{
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-left: 0%;
+  width: 50%;
+}
+.ContenedorBotonesIniciarSesion{
+  padding-right: 8%;
+  padding-top: 10%;
+}

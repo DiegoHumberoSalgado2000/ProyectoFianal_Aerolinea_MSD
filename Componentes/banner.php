@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="Recursos/css/skin.css">
     <link rel="stylesheet" href="Recursos/css/estilos.css">
     <link rel="stylesheet" type="text/css" href="Recursos/css/css/all.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="Recursos/script/index.js"></script>
     <script src="Recursos/jquery/jquery-3.5.0.min.js"></script>
 </head>
@@ -39,8 +39,8 @@
 
                             <li class="active"><a href="#">Inicio</a></li>
                             <li><a href="Vista/adm_Aerolinea.php">Menu Empleados</a></li>
-                            <li><a href="">Registrarse</a></li>
-                            <li><a href="">Inicio Sesion</a></li>
+                            <li><a href="" data-target="#Registrarse" data-toggle="modal" type="button">Registrarse</a></li>
+                            <li><a href="" data-target="#Iniciar_Sesion" data-toggle="modal" type="button">Inicio Sesion</a></li>
                             <li><a href="">Informacion</a></li>
                             <li><a href="">Te ayudamos</a></li>
                         </ul>

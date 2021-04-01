@@ -7,14 +7,14 @@
     <title>Document</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../Recursos/css/main.css">
-    <link rel="stylesheet" href="../Recursos/css/skin.css">
-    <link rel="stylesheet" href="../Recursos/css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="../css/css/all.min.css">
+    <link rel="stylesheet" href="Recursos/css/main.css">
+    <link rel="stylesheet" href="Recursos/css/skin.css">
+    <link rel="stylesheet" href="Recursos/css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="Recursos/css/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="../Recursos/script/index.js"></script>
-    <script src="../Recursos/jquery/jquery-3.5.0.min.js"></script>
+    <script src="Recursos/script/index.js"></script>
+    <script src="Recursos/jquery/jquery-3.5.0.min.js"></script>
 </head>
 <body style="overflow-x:hidden" id="wrapper">
     
