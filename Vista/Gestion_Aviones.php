@@ -1,12 +1,15 @@
+
+
+
 <?php
 
 include_once 'layouts/header.php';
 ?>
 <title>Menu Administrador</title>
-
+<script src="Recursos/js/gestionAvion.js" type="text/javascript"></script>
 <?php
-include_once 'layouts/nav_Administrador.php';  
-  
+include_once 'layouts/nav_Administrador.php';
+
 ?>
 
 <!-- Modal -->
@@ -145,7 +148,7 @@ include_once 'layouts/nav_Administrador.php';
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
+<!-- Seccion de gestion de avion--->
     <section>
         <div class="content">
             <div class="container-fluid">
@@ -183,7 +186,17 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Placa</label>
                                         <div class="col-sm-9">
-                                            <input type="text" id="Placa" class="form-control">
+                                            <input type="text" id="txtPlaca" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-2 col-form-label">Fabricante</label>
+                                        <div class="col-sm-9">
+                                            <select type="text" id="selFabricante" class="form-control">
+                                                <option value="-1">Seleccione</option>
+                                            </select>
                                         </div>
 
                                     </div>
@@ -191,8 +204,8 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Marca</label>
                                         <div class="col-sm-9">
-                                            <select type="text" id="CmbMarca" class="form-control">
-                                                <option>Seleccione la Marca</option>
+                                            <select type="text" id="selMarca" class="form-control">
+                                                <option value="-1">Seleccione</option>
                                             </select>
                                         </div>
 
@@ -201,8 +214,8 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Color</label>
                                         <div class="col-sm-9">
-                                            <select type="text" id="CmbColor" class="form-control">
-                                                <option>Seleccione el Color</option>
+                                            <select type="text" id="selColor" class="form-control">
+                                                <option value="-1">Seleccione</option>
                                             </select>
                                         </div>
                                     </div>
@@ -210,19 +223,10 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Descripccion</label>
                                         <div class="col-sm-9">
-                                        <textarea class="form-control" id="message-text"></textarea>
+                                        <textarea class="form-control" id="txtDescripcion"></textarea>
                                         </div>
 
                                     </div>
-
-                                    <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Estado</label>
-                                        <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="recipient-name">
-                                        </div>
-
-                                    </div>
-
 
                                     <div class="modal-footer row">
                                         <div class="offset-sm-2 col-sm-12 float-right">
@@ -241,7 +245,7 @@ include_once 'layouts/nav_Administrador.php';
                 </div>
             </div>
     </section>
-
+<!-- Seccion de listar--->
     <section>
         <div class="content">
             <div class="container-fluid">

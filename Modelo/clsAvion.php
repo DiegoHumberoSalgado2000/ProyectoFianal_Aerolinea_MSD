@@ -1,41 +1,43 @@
 <?php
-
 class clsAvion{
-
     private $id;
     private $descripcion;
     private $estado;
     private $placa;
-    private $color;
-    private $marca;
-  
-    function __construct($id, $descripcion, $estado, $placa, $color, $marca) {
+    private $idColor;
+    private $idMarca;
+
+    function __construct($id, $descripcion, $estado, $placa, $idColor, $idMarca) {
         $this->id = $id;
         $this->descripcion = $descripcion;
         $this->estado = $estado;
         $this->placa = $placa;
-        $this->color = $color;
-        $this->marca = $marca;
+        $this->idColor = $idColor;
+        $this->idMarca = $idMarca;
     }
 
     function getId() {
         return $this->id;
     }
+
     function getDescripcion() {
         return $this->descripcion;
     }
+
     function getEstado() {
         return $this->estado;
     }
+
     function getPlaca() {
         return $this->placa;
     }
-    function getColor() {
-        return $this->color;
+
+    function getIdColor() {
+        return $this->idColor;
     }
 
-    function getMarca() {
-        return $this->marca;
+    function getIdMarca() {
+        return $this->idMarca;
     }
 
     function setId($estado) {
@@ -54,14 +56,11 @@ class clsAvion{
         $this->placa = $placa;
     }
 
-    function setColor($color) {
-        $this->color = $color;
+    function setIdColor($idColor) {
+        $this->idColor = $idColor;
     }
 
-    function setMarca($marca) {
-        $this->marca = $marca;
+    function setIdMarca($idMarca) {
+        $this->idMarca = $idMarca;
     }
-
-    
-
 }
