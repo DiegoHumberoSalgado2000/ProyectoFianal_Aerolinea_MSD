@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    cargarColor();
+    prueba();
 });
 
 function prueba(){

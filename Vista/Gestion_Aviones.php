@@ -4,10 +4,12 @@
 <?php
 
 include_once 'layouts/header.php';
+
 ?>
 <title>Menu Administrador</title>
 <script src="Recursos/js/gestionAvion.js" type="text/javascript"></script>
 <?php
+
 include_once 'layouts/nav_Administrador.php';
 
 ?>
