@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    prueba();
+    cargarColor();
 });
 
 function prueba(){
@@ -11,7 +11,7 @@ function prueba(){
 function cargarColor() {
     $.ajax({
         type: 'post',
-        url: "Controlador/gestionAvion.php",
+        url: "../Controlador/gestionAvion.php",
         beforeSend: function () {
 
         },
