@@ -29,4 +29,8 @@ switch ($type) {
     case "fabricante":
         $fabricanteDAO->listarSel();
         break;
+
+    case "list":
+        $avionDAO->listar();
+        break;
 }

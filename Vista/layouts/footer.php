@@ -10,7 +10,7 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="../Recursos/jquery/jquery.min.js"></script>
+
 
     <script src="../Recursos/script/bootstrap.bundle.min.js"></script>
 
