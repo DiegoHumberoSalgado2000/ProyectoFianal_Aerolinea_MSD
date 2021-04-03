@@ -143,3 +143,20 @@ position: absolute;
   padding-right: 8%;
   padding-top: 10%;
 }
+
+.ContenedorFormularioReserva{
+  width: 98%;
+  padding-left: 2%;
+}
+
+.estiloTextReserva{
+  font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.ContenedorFormularioInformacionReserva{
+  margin-left: 30%;
+  margin-top: -45%;
+  width: 120%;
+}
