@@ -193,7 +193,7 @@ include_once 'layouts/nav_Administrador.php';
                                 <h3 class="card-title">Lista Aviones</h3>
                             </div>
                             <div class="card-body p-0">
-                                <table class="table table-over text-nowrap">
+                                <table class="table table-over text-nowrap" id="ListaEmpleados">
                                     <thead class="table-success">
                                         <tr>
                                             <th>Nombre</th>
