@@ -37,7 +37,7 @@
 
                         <ul class="nav navbar-nav">
 
-                            <li class="active"><a href="#">Inicio</a></li>
+                            <li class="active"><a href="index.php">Inicio</a></li>
                             <li><a href="Vista/adm_Aerolinea.php">Menu Empleados</a></li>
                             <li><a href="" data-target="#Registrarse" data-toggle="modal" type="button">Registrarse</a></li>
                             <li><a href="" data-target="#Iniciar_Sesion" data-toggle="modal" type="button">Inicio Sesion</a></li>
