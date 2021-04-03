@@ -2,6 +2,7 @@
 include_once 'layouts/header.php';
 ?>
 <title>Menu Administrador</title>
+<script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Administrador.php';
 ?>

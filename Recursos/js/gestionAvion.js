@@ -36,11 +36,7 @@ function cargarColor() {
                 }
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-        }
+        
     });
 }
 
