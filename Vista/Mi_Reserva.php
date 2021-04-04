@@ -159,6 +159,7 @@ include_once 'layouts/nav_Mi_Reserva.php';
                 </div>
             </form>
         </div>
+    </div>
 </section>
 <?php
 include_once 'layouts/footer_Mi_Reserva.php';

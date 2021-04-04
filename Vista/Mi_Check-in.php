@@ -222,6 +222,7 @@ include_once 'layouts/nav_Check-in.php';
                 </div>
             </form>
         </div>
+    </div>
 </section>
 
 <?php
