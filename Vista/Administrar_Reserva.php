@@ -53,7 +53,7 @@ include_once 'layouts/nav_Empleado.php';
                                                         <div class="col-md-3">
                                                             <div class="card card-success">
                                                                 <div class="card-header">
-                                                                    <h3 class="card-title">Pasagero</h3>
+                                                                    <h3 class="card-title">Pasajero</h3>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <strong class="ColorText">

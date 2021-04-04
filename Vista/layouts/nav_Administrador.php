@@ -108,19 +108,19 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="../Vista/Gestion_Reserva_Pasagero.php" class="nav-link">
+                            <a href="../Vista/Gestion_Reserva_Pasajero.php" class="nav-link">
                             <i class="fas fa-money-check"></i>
                                 <p>
-                                    Gestion Reserva Pasagero
+                                    Gestion Reserva Pasajero
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="../Vista/Gestion_Pasagero.php" class="nav-link">
+                            <a href="../Vista/Gestion_Pasajero.php" class="nav-link">
                             <i class="fas fa-user-cog"></i>
                                 <p>
-                                    Gestion Pasagero
+                                    Gestion Pasajero
                                 </p>
                             </a>
                         </li>

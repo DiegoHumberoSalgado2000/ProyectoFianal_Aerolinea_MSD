@@ -12,7 +12,7 @@ include_once 'layouts/nav_Administrador.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Gestion Reserva Pasagero</h1>
+                    <h1>Gestion Reserva Pasajero</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -51,7 +51,7 @@ include_once 'layouts/nav_Administrador.php';
                                                         <div class="col-md-3">
                                                             <div class="card card-success">
                                                                 <div class="card-header">
-                                                                    <h3 class="card-title">Pasagero</h3>
+                                                                    <h3 class="card-title">Pasajero</h3>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <strong class="ColorText">
