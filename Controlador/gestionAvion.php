@@ -1,36 +1,132 @@
 <?php
 
 require '../Modelo/clsGeneral.php';
+require '../Modelo/clsAvion.php';
 require '../DAO/avionDAO.php';
-require '../DAO/colorDAO.php';
-require '../DAO/fabricanteDAO.php';
-require '../DAO/marcaDAO.php';
 
+
+/**
+ *idFabricanteSel, se utiliza para saber el id del fabricante para así mostrar sus respectivas marcas :)
+ */
 $idFabricanteSel = isset($_REQUEST['idFabricanteSel'])? $_REQUEST['idFabricanteSel'] : "";
+
+$idAvion = isset($_REQUEST['idAvion']) ? $_REQUEST['idAvion'] : "";
+$descripcion = isset($_REQUEST['descripcion']) ? $_REQUEST['descripcion'] : "";
+$estado = isset($_REQUEST['estado']) ? $_REQUEST['estado'] : "";
+$placa = isset($_REQUEST['placa']) ? $_REQUEST['placa'] : "";
+$idColor = isset($_REQUEST['idColor']) ? $_REQUEST['idColor'] : "";
+$idMarca = isset($_REQUEST['idMarca']) ? $_REQUEST['idMarca'] : "";
+
 $type = isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 
-$selectFabricante = new clsGeneral($idFabricanteSel);
-$avionDAO = new avionDAO();
-$colorDAO= new colorDAO();
-$fabricanteDAO= new fabricanteDAO();
-$marcaDAO= new marcaDAO();
 
+
+$selectFabricante = new clsGeneral($idFabricanteSel);
+$avion=new clsAvion($idAvion, $descripcion, $estado, $placa, $idColor, $idMarca);
+$avionDAO= new avionDAO();
+
+
+/**
+ *Expresiones regulares.
+ */
+
+$patronValDescripcion="/^[A-Za-z0-9\s]{7,254}$/";/** el patron regular distingue entre mayusculas y minusculas en caso de que no lo haga se pone así  "/^[a-z0-9_-]{3,16}$/i"*/
+$patronValDescripcionInfo="La descripción puede tener, letras en mayusculas y minusculas, espacios como también números decimales, El tamaño es de 7 a 254 caracteres. No se permitén otros simbolos";
+
+
+$patronValPlaca="/^(HK\-)+[A-Z]{3}[0-9]{2}[A-Z0-9]$/";
+$patronValPlacaInfo="La placa tiene que tener: al principio HK: Aviación General y comercial, ejemplo: HK-XXX99X o HK-XXX999, en mayúsculas";
 
 
 switch ($type) {
-    case "color":
-        $colorDAO->listarSel();
+    case "listColor":
+        $avionDAO->listarColorSel();
+        break;
+    case "listFabricante":
+        $avionDAO->listarFabricanteSel();
+        break;
+    case "listMarca":
+        $avionDAO->listarMarcaSel($selectFabricante);
+        break;
+    case "guardar":
+        $avionDAO->guardar($avion);
         break;
 
-    case "marca":
-        $marcaDAO->listarSel($selectFabricante);
+    case "buscar":
+        $avionDAO->buscar($avion);
         break;
 
-    case "fabricante":
-        $fabricanteDAO->listarSel();
+    case "modificar":
+        $avionDAO->modificar($avion);
+        break;
+
+    case "eliminar":
+        $avionDAO->eliminar($avion);
+        break;
+
+    case "buscarFabricantePorMarca":
+        $avionDAO->buscarFabricantePorIdMarca($avion);
         break;
 
     case "list":
         $avionDAO->listar();
         break;
+
+    case "validarDescripcion":
+        if(preg_match($patronValDescripcion, $descripcion)){
+            echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
+            ]));
+        }else{
+            echo(json_encode(['resultado' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+        }
+
+        break;
+    case "validarPlaca":
+        if(preg_match($patronValPlaca, $placa)){
+            echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
+            ]));
+        }else{
+            echo(json_encode(['resultado' => 'False', "msj" => $patronValPlacaInfo
+            ]));
+        }
+        break;
+
+    case "validarDatos":
+
+        if(!preg_match($patronValPlaca, $placa)){
+            echo(json_encode(['resultado' => 'False', "msj" => $patronValPlacaInfo
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValDescripcion, $descripcion)){
+            echo(json_encode(['resultado' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+            break;
+        }
+
+        if($idFabricanteSel==-1){
+            echo(json_encode(['resultado' => 'False', "msj" => "seleccione un fabricante"
+            ]));
+            break;
+        }
+
+        if($idMarca==-1){
+            echo(json_encode(['resultado' => 'False', "msj" => "seleccione una marca"
+            ]));
+            break;
+        }
+
+        if($idColor==-1){
+            echo(json_encode(['resultado' => 'False', "msj" => "seleccione un color"
+            ]));
+            break;
+        }
+
+        echo(json_encode(['resultado' => 'True', "msj" => "todo correcto"
+            ]));
+        break;
+
+
 }

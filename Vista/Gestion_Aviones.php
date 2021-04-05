@@ -16,6 +16,7 @@ include_once 'layouts/nav_Administrador.php';
 ?>
 
 <!-- Modal -->
+
 <div class="modal fade" id="gestionMarca" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -190,9 +191,13 @@ include_once 'layouts/nav_Administrador.php';
                                         <label for="" class="col-sm-2 col-form-label">Placa</label>
                                         <div class="col-sm-9">
                                             <input type="text" id="txtPlaca" class="form-control">
+                                            <input type="hidden" id="txtIdAvion" class="form-control">
+                                            <input type="hidden" id="txtCondiResultado" class="form-control">
+                                            <input type="hidden" id="txtMsjResultado" class="form-control">
                                         </div>
 
                                     </div>
+
 
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Fabricante</label>
@@ -233,10 +238,11 @@ include_once 'layouts/nav_Administrador.php';
 
                                     <div class="modal-footer row">
                                         <div class="offset-sm-2 col-sm-12 float-right">
-                                            <button type="button" class="btn btn-primary">Guardar</button>
-                                            <button type="button" class="btn btn-primary">Buscar</button>
-                                            <button type="button" class="btn btn-primary">Modificar</button>
-                                            <button type="button" class="btn btn-primary">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                                            <button type="button" class="btn btn-primary" id="btnBuscar">Buscar</button>
+                                            <button type="button" class="btn btn-primary" id="btnModificar">Modificar</button>
+                                            <button type="button" class="btn btn-primary" id="btnEliminar">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
                                         </div>
 
                                     </div>
@@ -264,7 +270,6 @@ include_once 'layouts/nav_Administrador.php';
                                         <tr>
                                             <th>Placa</th>
                                             <th>Marca</th>
-                                            <th>Fabricante</th>
                                             <th>Color</th>
                                             <th>Descripccion</th>
                                             <th>Estado</th>
