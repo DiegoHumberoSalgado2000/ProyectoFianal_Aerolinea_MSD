@@ -1,7 +1,7 @@
 <?php
 include_once 'layouts/header_Pagina_Inicio.php'
 ?>
-<title>Lista de Vuelos</title>
+<title>Confirmar Pagos</title>
 <?php
 include_once 'layouts/nav_Pagina_Inicio.php';
 ?>
