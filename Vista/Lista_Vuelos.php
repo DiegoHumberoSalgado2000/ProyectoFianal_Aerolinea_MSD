@@ -95,18 +95,14 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                     </div>
                 </div>
                 <br>
-                <b class="ColorTextoModalIniciarSesion estiloTextReserva">Declaro que he leído y acepto las políticas de
-                    cambios, términos y condiciones de reembolsos, desistimiento (devolución de tasas)
-                    y de retracto de la aerolínea. Acepto que la tarifa que he seleccionado es promocional y por lo
-                    tanto no es reembolsable a menos que
-                    aplique algunas de las políticas anteriormente mencionadas. Declaro que acepto las condiciones de
-                    esta compra y autorizo recibir información
-                    adicional asociada a esta transacción a mi correo electrónico.</b>
+                 <b class="ColorTextoModalIniciarSesion estiloTextReserva">Declaro que he leído y acepto las políticas de cambios, términos y condiciones de reembolsos, desistimiento (devolución de tasas) 
+                 y de retracto de la aerolínea. Acepto que la tarifa que he seleccionado es promocional y por lo tanto no es reembolsable a menos que 
+                 aplique algunas de las políticas anteriormente mencionadas. Declaro que acepto las condiciones de esta compra y autorizo recibir información 
+                 adicional asociada a esta transacción a mi correo electrónico.</b>
 
                 <div class="modal-footer row">
-                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Al dar click en continuar acepta las
-                        politicas
-                        y condiciones de la Aerolinea</p>
+                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Al dar click en continuar acepta las politicas
+                    y condiciones de la Aerolinea</p>
                     <div class="offset-sm-2 col-sm-12 float-right">
                         <button type="button" class="btn btn-danger">Continuar</button>
                     </div>
