@@ -10,50 +10,7 @@ include_once 'layouts/nav_Administrador.php';
 
 
 <!-- Modal -->
-<div class="modal fade" id="GestionRolEmpleado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Rol Empleado</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Seleccione el Rol</label>
-                        <select type="text" class="form-control" id="recipient-name">
-                            <option>Seleccione el Tipo Rol</option>
-                            <option>Administrador</option>
-                            <option>Empleado</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Empleado</label>
-                        <select type="text" class="form-control" id="recipient-name">
-                            <option>Seleccione el Empleado</option>
-                        </select>
-                    </div> 
 
-                    <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Descripccion:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div> 
-                </form>
-            </div>
-            <div class="modal-footer row">
-                <div class="offset-sm-2 col-sm-11 float-right">
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                    <button type="button" class="btn btn-primary">Buscar</button>
-                    <button type="button" class="btn btn-primary">Modificar</button>
-                    <button type="button" class="btn btn-primary">Eliminar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -77,24 +34,8 @@ include_once 'layouts/nav_Administrador.php';
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-3">
-
-                        <div class="card card-success">
-                            <div class="card-header">
-                                <h3 class="card-title">Gestion</h3>
-                            </div>
-                            <div class="card-body">
-                                <button data-toggle="modal" data-target="#GestionRolEmpleado" type="button"
-                                    class="btn btn-block btn-outline-warning btn-sm">Gestion Rol Empleado</button>
-
-                            </div>
-                            <div class="card-footer">
-                                <p class="text-mited">click en botones para gestionar</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-9">
+                   
+                    <div class="col-md-12">
                         <div class="card card-success">
                             <div class="card-header">
                                 <h3 class="card-title">Empleado</h3>
