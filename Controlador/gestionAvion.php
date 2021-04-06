@@ -49,6 +49,35 @@ switch ($type) {
         $avionDAO->listarMarcaSel($selectFabricante);
         break;
     case "guardar":
+        if(!preg_match($patronValPlaca, $placa)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValPlacaInfo
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValDescripcion, $descripcion)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+            break;
+        }
+
+        if($idFabricanteSel==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione un fabricante"
+            ]));
+            break;
+        }
+
+        if($idMarca==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione una marca"
+            ]));
+            break;
+        }
+
+        if($idColor==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione un color"
+            ]));
+            break;
+        }
         $avionDAO->guardar($avion);
         break;
 
@@ -57,6 +86,29 @@ switch ($type) {
         break;
 
     case "modificar":
+        if(!preg_match($patronValDescripcion, $descripcion)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+            break;
+        }
+
+        if($idFabricanteSel==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione un fabricante"
+            ]));
+            break;
+        }
+
+        if($idMarca==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione una marca"
+            ]));
+            break;
+        }
+
+        if($idColor==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione un color"
+            ]));
+            break;
+        }
         $avionDAO->modificar($avion);
         break;
 
@@ -72,61 +124,6 @@ switch ($type) {
         $avionDAO->listar();
         break;
 
-    case "validarDescripcion":
-        if(preg_match($patronValDescripcion, $descripcion)){
-            echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-            ]));
-        }else{
-            echo(json_encode(['resultado' => 'False', "msj" => $patronValDescripcionInfo
-            ]));
-        }
-
-        break;
-    case "validarPlaca":
-        if(preg_match($patronValPlaca, $placa)){
-            echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-            ]));
-        }else{
-            echo(json_encode(['resultado' => 'False', "msj" => $patronValPlacaInfo
-            ]));
-        }
-        break;
-
-    case "validarDatos":
-
-        if(!preg_match($patronValPlaca, $placa)){
-            echo(json_encode(['resultado' => 'False', "msj" => $patronValPlacaInfo
-            ]));
-            break;
-        }
-
-        if(!preg_match($patronValDescripcion, $descripcion)){
-            echo(json_encode(['resultado' => 'False', "msj" => $patronValDescripcionInfo
-            ]));
-            break;
-        }
-
-        if($idFabricanteSel==-1){
-            echo(json_encode(['resultado' => 'False', "msj" => "seleccione un fabricante"
-            ]));
-            break;
-        }
-
-        if($idMarca==-1){
-            echo(json_encode(['resultado' => 'False', "msj" => "seleccione una marca"
-            ]));
-            break;
-        }
-
-        if($idColor==-1){
-            echo(json_encode(['resultado' => 'False', "msj" => "seleccione un color"
-            ]));
-            break;
-        }
-
-        echo(json_encode(['resultado' => 'True', "msj" => "todo correcto"
-            ]));
-        break;
 
 
 }

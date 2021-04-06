@@ -5,20 +5,11 @@ $(document).ready(function () {
     $("#btnBuscar").click(buscarAvion);
     $("#btnGuardar").click(guardarAvion);
     $("#btnCancelar").click(cancelar);
-    $("#btnModificar").click(guardarAvion);
+    $("#btnModificar").click(modificarAvion);
     $("#btnEliminar").click(eliminarAvion);
 
     cancelar();
 });
-
-var resulPlaca="";
-var msjPlaca="";
-var resuDescripcion="";
-var msjDescripcion="";
-
-var condiResultado="";
-var msjResultado="";
-
 
 function listarAvion() {
 
@@ -63,12 +54,9 @@ function listarAvion() {
 
 
 function guardarAvion() {
-    let validar=validarDatos();
-    /**var resultado=document.getElementById("txtCondiResultado");
-    var msj=document.getElementById("txtMsjResultado");
-    */
-    if (validar ==true) {
+
         let objAvion = {
+            idFabricanteSel:$("#selFabricante").val(),
             idAvion:$("#txtIdAvion").val(),
             descripcion: $("#txtDescripcion").val(),
             placa: $("#txtPlaca").val(),
@@ -81,11 +69,58 @@ function guardarAvion() {
 
 
         if (objAvion.idAvion !== "") {
-            objAvion.type = 'modificar';
+            alert("No se puede guardar, ya que buscó antes un avion. oprima el boton cancelar y luego intente nuevamente.")
         } else {
             objAvion.type = 'guardar';
+            $.ajax({
+                type: 'post',
+                url: "../Controlador/gestionAvion.php",
+                beforeSend: function () {
+
+                },
+                data: objAvion,
+                success: function (data) {
+
+                    var info = JSON.parse(data);
+
+                    if (info.res === "Success") {
+                        alert("Transacción exitosa");
+                        listarAvion();
+                        cancelar();
+                    } else if(info.res === "False"){
+                        alert(info.msj)
+                    }else{
+                        alert("Transacción fallida, verifique que la placa no se encuentre registrada");
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+                    alert("Verifique la ruta del archivo");
+                }
+            });
         }
 
+
+
+}
+
+function modificarAvion() {
+
+    let objAvion = {
+        idFabricanteSel:$("#selFabricante").val(),
+        idAvion:$("#txtIdAvion").val(),
+        descripcion: $("#txtDescripcion").val(),
+        placa: $("#txtPlaca").val(),
+        idColor: $("#selColor").val(),
+        idMarca: $("#selMarca").val(),
+        type: ""
+
+
+    };
+
+
+    if (objAvion.idAvion !== "") {
+        objAvion.type = 'modificar';
         $.ajax({
             type: 'post',
             url: "../Controlador/gestionAvion.php",
@@ -98,11 +133,13 @@ function guardarAvion() {
                 var info = JSON.parse(data);
 
                 if (info.res === "Success") {
-                    alert("Transacción exitosa");
+                    alert("Modificado con exito");
                     listarAvion();
                     cancelar();
-                } else {
-                    alert("Transacción fallida, verifique que la placa no se encuentre registrada");
+                } else if(info.res === "False"){
+                    alert(info.msj)
+                }else{
+                    alert("Error al modificar, no ah modificado datos. Si desea modificar, modifique algun dato");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -110,11 +147,13 @@ function guardarAvion() {
                 alert("Verifique la ruta del archivo");
             }
         });
-
-
+    } else {
+        alert("Para modificar un avión antes hay que buscarlo");
     }
-}
 
+
+
+}
 
 
 function buscarAvion(){
@@ -149,10 +188,12 @@ function buscarAvion(){
                 let btnGuardar = document.getElementById("btnGuardar");
                 let btnModificar = document.getElementById("btnModificar");
                 let btnEliminar = document.getElementById("btnEliminar");
-
+                let txtPlaca = document.getElementById("txtPlaca");
+                txtPlaca.disabled=true;
                 btnGuardar.disabled =true;
                 btnModificar.disabled=false;
                 btnEliminar.disabled=false;
+
 
             } else {
                 alert("No se encuentra el avion");
@@ -194,7 +235,7 @@ function eliminarAvion() {
                     listarAvion();
                     cancelar();
                 } else {
-                    alert("No se ha eliminado");
+                    alert("No se ha eliminado, Antes de eliminar el avión hay que buscarlo.");
                 }
 
 
@@ -210,52 +251,19 @@ function eliminarAvion() {
 }
 
 
-function validarDatoss() {
-    var datos = {
-        descripcion: $("#txtDescripcion").val(),
-        placa : $("#txtPlaca").val(),
-        idColor : $("#selColor").val(),
-        idMarca : $("#selMarca").val(),
-        idFabricanteSel: $("#selFabricante").val(),
-        type: "validarDatos"
-    };
-
-        $.ajax({
-            type: 'post',
-            url: "../Controlador/gestionAvion.php",
-            beforeSend: function () {
-            },
-            data:datos,
-            success: function (res) {
-
-                let resultado = JSON.parse(res);
-
-                $("#txtCondiResultado").val(resultado.resultado);
-                $("#txtMsjResultado").val(resultado.msj);
-                /**
-                alert(condiResultado)
-                alert(msjResultado)
-                */
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-                alert("Verifique la ruta del archivo");
-            }
-        });
-}
 
 function cancelar(){
     limpiar();
-    deshabilitarBotones();
+    habilitar();
 
 }
 
-function deshabilitarBotones(){
+function habilitar(){
     let btnGuardar = document.getElementById("btnGuardar");
     let btnModificar = document.getElementById("btnModificar");
     let btnEliminar = document.getElementById("btnEliminar");
-
+    let txtPlaca = document.getElementById("txtPlaca");
+    txtPlaca.disabled=false;
     btnModificar.disabled =true;
     btnEliminar.disabled =true;
     btnGuardar.disabled=false;
@@ -263,7 +271,7 @@ function deshabilitarBotones(){
 
 
 function limpiar(){
-    $("#txtId").val("");
+    $("#txtIdAvion").val("");
     $("#txtDescripcion").val("");
     $("#txtPlaca").val("");
     let select = document.getElementById("selMarca");
@@ -494,113 +502,4 @@ function buscarFabriantePorIdMarca( id){
     });
 
 }
-
-function validarDatos() {
-
-    let idFabricante = $("#selFabricante").val();
-    let idMarca= $("#selMarca").val();
-    let idColor= $("#selColor").val();
-
-
-    let condi1=true;
-    let condi2=true;
-    let condi3=true;
-    let condi4=true;
-    let condi5=true;
-
-    if (idFabricante==-1) {
-        alert("Seleccione un fabricante.")
-        condi1= false;
-    }
-
-    if(idMarca==-1){
-        alert("Seleccione una marca")
-        condi2= false;
-    }
-    if(idColor==-1){
-        alert("Seleccione un color")
-        condi3= false;
-    }
-    validarPlaca();
-    if(resulPlaca==="False"||resulPlaca==="" ){
-        if(resulPlaca===""){
-            alert("Verifique la placa");
-            condi4= false;
-        }else{
-            alert(msjPlaca)
-            condi4= false;
-        }
-
-    }
-    validarDescripcion();
-    if (resuDescripcion==="False" || resuDescripcion==="") {
-        if(resulPlaca===""){
-            alert("Verifique la descripción");
-            condi5= false;
-        }else{
-            alert(msjDescripcion)
-            condi5= false;
-        }
-
-    }
-
-    if (condi1==true && condi2==true && condi3==true && condi4==true && condi5==true) {
-        return true;
-    }else{
-        return false;
-    }
-
-
-
-}
-function validarPlaca() {
-    let txtPlaca = $("#txtPlaca").val();
-
-        $.ajax({
-            type: 'get',
-            url: "../Controlador/gestionAvion.php",
-            beforeSend: function () {
-
-            },
-            data: {type: "validarPlaca", placa: txtPlaca},
-            success: function (res) {
-
-                let resultado = JSON.parse(res);
-
-                resulPlaca=resultado.resultado;
-                msjPlaca=resultado.msj;
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-                alert("Verifique la ruta del archivo");
-            }
-        });
-}
-
-function validarDescripcion() {
-    let txtDescripcion = $("#txtDescripcion").val();
-
-        $.ajax({
-            type: 'post',
-            url: "../Controlador/gestionAvion.php",
-            beforeSend: function () {
-
-            },
-            data: {type: "validarDescripcion", descripcion: txtDescripcion},
-            success: function (res) {
-
-                let resultado = JSON.parse(res);
-
-                resuDescripcion=resultado.resultado;
-                msjDescripcion=resultado.msj;
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-                alert("Verifique la ruta del archivo");
-            }
-        });
-}
-
 

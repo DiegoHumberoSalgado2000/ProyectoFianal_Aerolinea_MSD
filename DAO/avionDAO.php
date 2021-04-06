@@ -32,7 +32,7 @@ class avionDAO{
     }
 
     public function modificar(clsAvion $obj) {
-        $sql = "UPDATE avion set placa='" . $obj->getPlaca() . "',id_color='" . $obj->getIdColor() . "',id_marca='" . $obj->getIdMarca() . "',descripcion='" . $obj->getDescripcion() . "' where id='" . $obj->getId() . "'";
+        $sql = "UPDATE avion set id_color='" . $obj->getIdColor() . "',id_marca='" . $obj->getIdMarca() . "',descripcion='" . $obj->getDescripcion() . "' where id='" . $obj->getId() . "'";
         $this->objCon->ExecuteTransaction($sql);
     }
 

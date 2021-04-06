@@ -192,8 +192,7 @@ include_once 'layouts/nav_Administrador.php';
                                         <div class="col-sm-9">
                                             <input type="text" id="txtPlaca" class="form-control">
                                             <input type="hidden" id="txtIdAvion" class="form-control">
-                                            <input type="hidden" id="txtCondiResultado" class="form-control">
-                                            <input type="hidden" id="txtMsjResultado" class="form-control">
+
                                         </div>
 
                                     </div>
