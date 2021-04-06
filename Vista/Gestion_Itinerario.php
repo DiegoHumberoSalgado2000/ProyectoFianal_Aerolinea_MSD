@@ -3,6 +3,7 @@ include_once 'layouts/header.php';
 ?>
 <title>Menu Administrador</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../Recursos/js/gestionItinerarioVuelo.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Administrador.php';
 ?>
@@ -141,8 +142,8 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Vuelo</label>
                                         <div class="col-sm-9">
-                                        <select type="text" id="CmbUbicacionLlegada" class="form-control">
-                                                <option>Seleccione el Vuelo</option>
+                                        <select type="text" id="selUbicacion" class="form-control">
+                                                <option value="=-1">Seleccione el Vuelo</option>
                                             </select>
                                         </div>
 
@@ -152,7 +153,7 @@ include_once 'layouts/nav_Administrador.php';
                                         <label for="" class="col-sm-2 col-form-label">Ubicacion llegada</label>
                                         <div class="col-sm-9">
                                             <select type="text" id="CmbUbicacionLlegada" class="form-control">
-                                                <option>Seleccione la Ubicaion llegada</option>
+                                                <option>Seleccione la Ubicacion llegada</option>
                                             </select>
                                         </div>
                                     </div>
@@ -191,7 +192,7 @@ include_once 'layouts/nav_Administrador.php';
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Descripccion</label>
+                                        <label for="" class="col-sm-2 col-form-label">Descripcion</label>
                                         <div class="col-sm-9">
                                         <textarea class="form-control" id="message-text"></textarea>
                                         </div>
