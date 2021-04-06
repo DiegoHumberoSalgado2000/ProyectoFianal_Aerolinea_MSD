@@ -2,6 +2,8 @@
 include_once 'layouts/header.php';
 ?>
 <title>Menu Administrador</title>
+<script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../Recursos/js/gestionVuelo.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Administrador.php';
 ?>
@@ -39,47 +41,46 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Tipo Vuelo</label>
                                         <div class="col-sm-9">
-                                        <select type="text" id="CmbUbicacionLlegada" class="form-control">
-                                                <option>Seleccione el Tipo de Vuelo</option>
+                                        <select type="text" id="selTipoVuelo" class="form-control">
+                                                <option value="-1">Seleccione el Tipo de Vuelo</option>
                                                 <option>Vuelo Nacional</option>
                                                 <option>Vuelo Internacional</option>
                                             </select>
                                         </div>
 
                                     </div>
-
-                                    <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Descripccion</label>
-                                        <div class="col-sm-9">
-                                        <textarea class="form-control" id="message-text"></textarea>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Estado</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" id="Placa" class="form-control">
-                                        </div>
-
-                                    </div>
-
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Avion</label>
                                         <div class="col-sm-9">
-                                            <select  id="Placa" class="form-control">
-                                                <option>Selecione el Avion</option>
+                                            <select type="text" id="selAvion" class="form-control">
+                                                <option value="-1">Seleccione Avion</option>
                                             </select>
                                         </div>
 
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-2 col-form-label">Descripcion</label>
+                                        <div class="col-sm-9">
+                                        <textarea class="form-control" id="txtDescripcion"></textarea>
+                                        <input type="hidden" id="txtIdVuelo" class="form-control">
+                                            <input type="hidden" id="txtCondiResultado" class="form-control">
+                                            <input type="hidden" id="txtMsjResultado" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    
+
+                                    
+
                                     <div class="modal-footer row">
                                         <div class="offset-sm-2 col-sm-12 float-right">
-                                            <button type="button" class="btn btn-primary">Guardar</button>
-                                            <button type="button" class="btn btn-primary">Buscar</button>
-                                            <button type="button" class="btn btn-primary">Modificar</button>
-                                            <button type="button" class="btn btn-primary">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                                            <button type="button" class="btn btn-primary" id="btnBuscar">Buscar</button>
+                                            <button type="button" class="btn btn-primary" id="btnModificar">Modificar</button>
+                                            <button type="button" class="btn btn-primary" id="btnEliminar">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
                                         </div>
 
                                     </div>
@@ -106,12 +107,13 @@ include_once 'layouts/nav_Administrador.php';
                                     <thead class="table-success">
                                         <tr>
                                             <th>Tipo Vuelo</th>
-                                            <th>Descripccion</th>
-                                            <th>Estado</th>
                                             <th>Avion</th>
+                                            <th>Descripcion</th>
+                                            <th>Estado</th>
+                                            
                                         </tr>
                                     </thead>
-                                    <tbody class="table-active" id="ListaAviones">
+                                    <tbody class="table-active" id="ListaVuelo">
 
                                     </tbody>
                                 </table>
