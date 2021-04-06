@@ -3,6 +3,7 @@ include_once 'layouts/header.php';
 ?>
 <title>Menu Administrador</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../Recursos/js/gestionEmpleados.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Administrador.php';
 ?>
@@ -71,7 +72,7 @@ include_once 'layouts/nav_Administrador.php';
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
+<!--Seccion de gestion de empleado --->
     <section>
         <div class="content">
             <div class="container-fluid">
@@ -101,10 +102,20 @@ include_once 'layouts/nav_Administrador.php';
                             <div class="card-body">
                                 <form action="" class="form-horizontal">
 
+                                <div class="form-group row">
+                                        <label for="" class="col-sm-2 col-form-label">Cedula</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" id="txtCedula" class="form-control">
+                                            <input type="hidden" id="txtIdEmpleado" class="form-control">
+                                            <input type="hidden" id="txtCondiResultado" class="form-control">
+                                            <input type="hidden" id="txtMsjResultado" class="form-control">
+                                        </div>
+
+                                    </div> 
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Nombre</label>
                                         <div class="col-sm-9">
-                                            <input type="text" id="Placa" class="form-control">
+                                            <input type="text" id="txtNombre" class="form-control">
                                         </div>
 
                                     </div>
@@ -112,23 +123,17 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Apellido</label>
                                         <div class="col-sm-9">
-                                            <input type="text" id="Placa" class="form-control">
+                                            <input type="text" id="txtApellido" class="form-control">
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Cedula</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" id="Placa" class="form-control">
-                                        </div>
-
-                                    </div>
+                                    
 
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Correo</label>
                                         <div class="col-sm-9">
-                                            <input type="email" id="Placa" class="form-control">
+                                            <input type="email" id="txtCorreo" class="form-control">
                                         </div>
 
                                     </div>
@@ -136,7 +141,7 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Telefono</label>
                                         <div class="col-sm-9">
-                                            <input type="phone" id="Placa" class="form-control">
+                                            <input type="phone" id="txtTelefono" class="form-control">
                                         </div>
 
                                     </div>
@@ -144,33 +149,28 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Contraseña</label>
                                         <div class="col-sm-9">
-                                            <input type="password" id="Placa" class="form-control">
+                                            <input type="password" id="txtContrasena" class="form-control">
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Estado</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" id="Placa" class="form-control">
-                                        </div>
-
-                                    </div>
+                                    
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Descripccion</label>
+                                        <label for="" class="col-sm-2 col-form-label">Descripcion</label>
                                         <div class="col-sm-9">
-                                        <textarea class="form-control" id="message-text"></textarea>
+                                        <textarea class="form-control" id="txtDescripcion"></textarea>
                                         </div>
 
                                     </div>
 
                                     <div class="modal-footer row">
                                         <div class="offset-sm-2 col-sm-12 float-right">
-                                            <button type="button" class="btn btn-primary">Guardar</button>
-                                            <button type="button" class="btn btn-primary">Buscar</button>
-                                            <button type="button" class="btn btn-primary">Modificar</button>
-                                            <button type="button" class="btn btn-primary">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                                            <button type="button" class="btn btn-primary" id="btnBuscar">Buscar</button>
+                                            <button type="button" class="btn btn-primary" id="btnModificar">Modificar</button>
+                                            <button type="button" class="btn btn-primary" id="btnEliminar">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
                                         </div>
 
                                     </div>
@@ -190,7 +190,7 @@ include_once 'layouts/nav_Administrador.php';
                     <div class="col-md-12">
                         <div class="card card-success">
                             <div class="card-header">
-                                <h3 class="card-title">Lista Aviones</h3>
+                                <h3 class="card-title">Lista Empleados</h3>
                             </div>
                             <div class="card-body p-0">
                                 <table class="table table-over text-nowrap" id="ListaEmpleados">
@@ -201,13 +201,12 @@ include_once 'layouts/nav_Administrador.php';
                                             <th>Cedula</th>
                                             <th>Correo</th>
                                             <th>Telefono</th>
-                                            <th>Rol Empleado</th>
                                             <th>Estado</th>
-                                            <th>Descripccion</th>
+                                            <th>Descripcion</th>
                                             
                                         </tr>
                                     </thead>
-                                    <tbody class="table-active" id="ListaAviones">
+                                    <tbody class="table-active" id="ListaEmpleados">
 
                                     </tbody>
                                 </table>

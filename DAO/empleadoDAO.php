@@ -11,12 +11,12 @@ class empleadoDAO {
     }
 
     public function guardar(clsEmpleado $obj){
-        $sql="INSERT INTO empleado(nombres,apellidos,cedula,correo,telefono_celular,contrasena,estado,descripcion) VALUES ('" . $obj->getNombre() . "','" . $obj->getApellidos() . "','" . $obj->getCedula() . "','" . $obj->getCorreo() . "','" . $obj->getTelefonoCelular() . "','" . $obj->getContrasena() . "','" . $obj ->getEstado() . "','" . $obj->getDescripcion() . "')";
+        $sql="INSERT INTO empleado(nombres,apellidos,cedula,correo,telefono_celular,contrasena,estado,descripcion) VALUES ('" . $obj->getNombre() . "','" . $obj->getApellidos() . "','" . $obj->getCedula() . "','" . $obj->getCorreo() . "','" . $obj->getTelefonoCelular() . "','" . $obj->getContrasena() . "','disponible','" . $obj->getDescripcion() . "')";
         $this->objCon->ExecuteTransaction($sql);
     }
 
     public function buscar(clsEmpleado $obj){
-        $sql="SELECT id,nombres,apellidos,cedula,correo,telefono_celular,contrasena,estado,descripcion from empleado where id='" . $obj->getId() . "' and estado='disponible'";
+        $sql="SELECT id,nombres,apellidos,cedula,correo,telefono_celular,contrasena,estado,descripcion from empleado where cedula='" . $obj->getCedula() . "' and estado='disponible'";
         $this ->objCon->Execute($sql);
     }
 
@@ -26,7 +26,7 @@ class empleadoDAO {
     }
 
     public function modificar(clsEmpleado $obj){
-        $sql="UPDATE empleado set correo='" . $obj->getCorreo() . "',telefono_celular='" . $obj->getTelefonoCelular() . "',contrasena='" . $obj->getContrasena() . "',estado='" . $obj->getEstado() . "',descripcion='" . $obj->getEstado() . "' where id='" . $obj->getId() . "'";
+        $sql="UPDATE empleado set correo='" . $obj->getCorreo() . "',telefono_celular='" . $obj->getTelefonoCelular() . "',contrasena='" . $obj->getContrasena() . "',descripcion='" . $obj->getDescripcion() . "' where id='" . $obj->getId() . "'";
         $this->objCon->ExecuteTransaction($sql);
     }
      public function listar(){
