@@ -42,6 +42,45 @@ $patronValDescripcionInfo="La descripción puede tener, letras en mayusculas y m
 switch($type){
 
     case "guardar":
+
+        if(!preg_match($patronValCedula,$cedula)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValCedulaInfo
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValNombre,$nombre)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValNombreInfo
+            ]));
+            break;
+        }
+        if(!preg_match($patronValApellido,$apellido)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValApellidoInfo
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValCorreo,$correo)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValCorreoInfo
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValTelefono,$telefono)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValTelefonoInfo
+            ]));
+            break;
+        }
+        if(!preg_match($patronValContrasena,$contrasena)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValContrasenaInfo
+            ]));
+            break;
+        }
+        if(!preg_match($patronValDescripcion,$descripcion)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+            break;
+        }
         $empleadoDAO->guardar($empleado);
         break;
     
@@ -50,6 +89,30 @@ switch($type){
         break;
     
     case "modificar":
+
+        if(!preg_match($patronValCorreo,$correo)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValCorreoInfo
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValTelefono,$telefono)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValTelefonoInfo
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValContrasena,$contrasena)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValContrasenaInfo
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValDescripcion,$descripcion)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+            break;
+        }
         $empleadoDAO->modificar($empleado);
         break;
     
@@ -60,82 +123,5 @@ switch($type){
         
     case "list":
         $empleadoDAO->listar();
-        break;
-
-        case "validarCedula":
-            if(preg_match($patronValCedula, $cedula)){
-                echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-                ]));
-            }else{
-                echo(json_encode(['resultado' => 'False', "msj" => $patronValCedulaInfo
-                ]));
-            }
-            break;
-
-        case "validarCorreo":
-            if(preg_match($patronValCorreo, $correo)){
-                echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-                ]));
-            }else{
-                echo(json_encode(['resultado' => 'False', "msj" => $patronValCorreoInfo
-                ]));
-            }
-            break;
-
-        case "validarNombre":
-            if(preg_match($patronValNombre, $nombre)){
-                echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-                ]));
-            }else{
-                echo(json_encode(['resultado' => 'False', "msj" => $patronValNombreInfo
-                ]));
-            }
-            break;
-        
-        case "validarApellido":
-            if(preg_match($patronValApellido, $apellido)){
-                echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-                ]));
-            }else{
-                echo(json_encode(['resultado' => 'False', "msj" => $patronValApellidoInfo
-                ]));
-            }
-            break;
-        
-
-        case "validarTelefono":
-            if(preg_match($patronValTelefono, $telefono)){
-                echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-                ]));
-            }else{
-                echo(json_encode(['resultado' => 'False', "msj" => $patronValTelefonoInfo
-                ]));
-            }
-            break;
-        
-        case "validarContrasena":
-            if(preg_match($patronValContrasena, $contrasena)){
-                echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-                ]));
-            }else{
-                echo(json_encode(['resultado' => 'False', "msj" => $patronValContrasenaInfo
-                ]));
-            }
-            break;
-        
-        case "validarDescripcion":
-        if(preg_match($patronValDescripcion, $descripcion)){
-            echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-            ]));
-        }else{
-            echo(json_encode(['resultado' => 'False', "msj" => $patronValDescripcionInfo
-            ]));
-        }
-        
-        
-
-        
-
-
-        
+        break;        
 }

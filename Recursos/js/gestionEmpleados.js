@@ -69,9 +69,7 @@ function listarEmpleado(){
 }
 
 function guardarEmpleado(){
-   // let validar = validarDatos();
-    
-   // if(validar == true){
+   
         let objEmpleado ={
             idEmpleado:$("#txtIdEmpleado").val(),
             cedula: $("#txtCedula").val(),
@@ -84,10 +82,12 @@ function guardarEmpleado(){
             type:""
 
         };
-        objEmpleado.type='guardar';
-        
 
-        $.ajax({
+        if(objEmpleado.idEmpleado !== ""){
+            alert("No se puede guardar, ya que buscó antes un avion. oprima el boton cancelar y luego intente nuevamente.")
+        }else{
+            objEmpleado.type='guardar';
+         $.ajax({
             type:"post",
             url:"../Controlador/gestionEmpleado.php",
             beforeSend:function(){
@@ -101,8 +101,10 @@ function guardarEmpleado(){
                     alert("Se guardo correctamente");
                     listarEmpleado();
                     cancelar();
+                }else if(info.res === "False"){
+                    alert(info.msj)
                 }else{
-                    alert("Transacción fallida, verifique que la cedula no se encuentre registrada")
+                    alert("Transacción fallida, verifique que la cedula no se encuentre registrada");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -111,7 +113,7 @@ function guardarEmpleado(){
             }
 
         });
-    //}
+    }
 
 }
 
@@ -146,11 +148,16 @@ function buscarEmpleado(){
                 let btnModificar=document.getElementById("btnModificar");
                 let btnEliminar = document.getElementById("btnEliminar");
                 let txtCedula=document.getElementById("txtCedula");
+                let txtNombre=document.getElementById("txtNombre");
+                let txtApellido=document.getElementById("txtApellido");
+
 
                 btnGuardar.disabled=true;
                 btnModificar.disabled=false;
                 btnEliminar.disabled=false;
                 txtCedula.disabled=true;
+                txtNombre.disabled=true;
+                txtApellido.disabled=true;
                 
             }else{
                 alert("No se encuentra el empleado");
@@ -178,7 +185,9 @@ function modificarEmpleado(){
         type:""
 
     };
-    objEmpleado.type='modificar';
+
+    if(objEmpleado.idEmpleado!==""){
+        objEmpleado.type='modificar';
     $.ajax({
         type:"post",
         url:"../Controlador/gestionEmpleado.php",
@@ -193,8 +202,10 @@ function modificarEmpleado(){
                 alert("Se modifico correctamente");
                 listarEmpleado();
                 cancelar();
+            }else if(info.res === "False"){
+                alert(info.msj)
             }else{
-                alert("Transacción fallida, verifique que la cedula no se encuentre registrada")
+                alert("Error al modificar, no ha modificado datos. Si desea modificar, modifique algun dato");
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -203,7 +214,9 @@ function modificarEmpleado(){
         }
 
     });
-//}
+}else{
+    alert("Para modificar un Empleado antes hay que buscarlo");
+}
 }
 function eliminarEmpleado(){
     var objEmpleado={
@@ -250,11 +263,15 @@ function deshabilitarBotones(){
     let btnModificar = document.getElementById("btnModificar");
     let btnEliminar = document.getElementById("btnEliminar");
     let txtCedula=document.getElementById("txtCedula");
+    let txtNombre =document.getElementById("txtNombre");
+    let txtApellido=document.getElementById("txtApellido");
 
     btnModificar.disabled =true;
     btnEliminar.disabled =true;
     btnGuardar.disabled=false;
     txtCedula.disabled=false;
+    txtNombre.disabled=false;
+    txtApellido.disabled=false;
 }
 function limpiar(){
     $("#txtIdEmpleado").val("");
@@ -271,277 +288,3 @@ function cargarDatos(){
     listarEmpleado();
 
 }
-function validarDatos(){
-    let condicion1=true;
-    let condicion2=true;
-    let condicion3=true;
-    let condicion4=true;
-    let condicion5=true;
-    let condicion6=true;
-    let condicion7=true;
-
-    validarCedula();
-    if(resulCedula==="False" || resulCedula===""){
-        if(resulCedula===""){
-            alert("Verifique la cedula");
-            condicion1=false;
-        }else{
-            alert(msjCedula)
-            condicion1=false;
-        }
-
-    }
-
-    validarNombre();
-    if(resulNombre==="False" || resulNombre===""){
-        if(resulCedula===""){
-            alert("verifique el nombre");
-            condicion2=false;
-        }else{
-            alert(msjNombre)
-            condicion2=false;
-        }
-    }
-
-    validarApellido();
-    if(resulApellido==="False" || resulApellido===""){
-        if(resulCedula===""){
-            alert("verifique el apellido");
-            condicion3=false;
-        }else{
-            alert(msjApellido)
-            condicion3=false;
-        }
-    }
-
-    validarCorreo();
-
-    if(resulCorreo==="False" || resulCorreo===""){
-        if(resulCedula===""){
-            alert("verifique el correo");
-            condicion4=false;
-        }else{
-            alert(msjCorreo)
-            condicion4=false;
-        }
-    }
-
-    validarTelefono();
-
-    if(resulTelefono==="False" || resulTelefono===""){
-        if(resulCedula===""){
-            alert("verifique el telefono");
-            condicion5=false;
-        }else{
-            alert(msjTelefono)
-            condicion5=false;
-        }
-    }
-
-    validarContrasena();
-
-    if(resulContrasena==="False" || resulContrasena===""){
-        if(resulCedula===""){
-            alert("verifique la contrasena");
-            condicion6=false;
-        }else{
-            alert(msjContrasena)
-            condicion6=false;
-        }
-    }
-
-    validarDescripcion();
-
-    if(resuDescripcion==="False" || resuDescripcion===""){
-        if(resulCedula===""){
-            alert("verifique la descripción");
-            condicion7=false;
-        }else{
-            alert(msjDescripcion)
-            condicion7=false;
-        }
-    }
-
-    if(condicion1===true && condicion2 ==true && condicion3==true && condicion4==true && condicion5==true && condicion6==true && condicion7==true){
-        return true;
-    }else{
-        return false;
-    }
-
-
-}
-
-function validarCedula(){
-    let txtCedula=$("#txtCedula").val();
-
-    $.ajax({
-        type:'post',
-        url:"../Controlador/gestionEmpleado.php",
-        beforeSend: function(){
-
-        },
-        data:{type:"validarCedula",cedula:txtCedula},
-        success: function(res){
-            let resultado = JSON.parse(res);
-
-            resulCedula=resultado.resultado;
-            msjCedula=resultado.msj;
-        },
-        error:function(jqXHR,textStatus,errorThrown){
-            alert("Error detectado: " +textStatus +"\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-        }
-
-
-    });
-
-}
-
-function validarNombre(){
-    let txtnombre=$("#txtNombre").val();
-
-    $.ajax({
-        type:'post',
-        url:"../Controlador/gestionEmpleado.php",
-        beforeSend: function(){
-
-        },
-        data:{type:"validarNombre",nombre:txtnombre},
-        success:function(res){
-            let resultado =JSON.parse(res);
-
-            resulNombre=resultado.resultado;
-            msjNombre=resultado.msj;
-        },
-        error: function(jqXHR,textStatus,errorThrown){
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-            
-        }
-    });
-}
-
-function validarApellido(){
-    let txtapellido=$("#txtApellido").val();
-
-    $.ajax({
-        type:'post',
-        url:"../Controlador/gestionEmpleado.php",
-        beforeSend: function(){
-
-        },
-        data:{type:"validarApellido",apellido:txtapellido},
-        success:function(res){
-            let resultado =JSON.parse(res);
-
-            resulApellido=resultado.resultado;
-            msjApellido=resultado.msj;
-        },
-        error: function(jqXHR,textStatus,errorThrown){
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-            
-        }
-    });
-}
-function validarCorreo(){
-    let txtcorreo=$("#txtCorreo").val();
-
-    $.ajax({
-        type:'post',
-        url:"../Controlador/gestionEmpleado.php",
-        beforeSend: function(){
-
-        },
-        data:{type:"validarCorreo",correo:txtcorreo},
-        success:function(res){
-            let resultado =JSON.parse(res);
-
-            resulCorreo=resultado.resultado;
-            msjCorreo=resultado.msj;
-        },
-        error: function(jqXHR,textStatus,errorThrown){
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-            
-        }
-    });
-}
-function validarTelefono(){
-    let txttelefono=$("#txtTelefono").val();
-
-    $.ajax({
-        type:'post',
-        url:"../Controlador/gestionEmpleado.php",
-        beforeSend: function(){
-
-        },
-        data:{type:"validarTelefono",correo:txttelefono},
-        success:function(res){
-            let resultado =JSON.parse(res);
-
-            resulTelefono=resultado.resultado;
-            msjTelefono=resultado.msj;
-        },
-        error: function(jqXHR,textStatus,errorThrown){
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-            
-        }
-    });
-}
-
-function validarContrasena(){
-    let txtcontrasena=$("#txtContrasena").val();
-
-    $.ajax({
-        type:'post',
-        url:"../Controlador/gestionEmpleado.php",
-        beforeSend: function(){
-
-        },
-        data:{type:"validarContrasena",contrasena:txtcontrasena},
-        success:function(res){
-            let resultado =JSON.parse(res);
-
-            resulContrasena=resultado.resultado;
-            msjContrasena=resultado.msj;
-        },
-        error: function(jqXHR,textStatus,errorThrown){
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-            
-        }
-    });
-}
-
-function validarDescripcion() {
-    let txtDescripcion = $("#txtDescripcion").val();
-
-        $.ajax({
-            type: 'post',
-            url: "../Controlador/gestionAvion.php",
-            beforeSend: function () {
-
-            },
-            data: {type: "validarDescripcion", descripcion: txtDescripcion},
-            success: function (res) {
-
-                let resultado = JSON.parse(res);
-
-                resuDescripcion=resultado.resultado;
-                msjDescripcion=resultado.msj;
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-                alert("Verifique la ruta del archivo");
-            }
-        });
-}
-
-
-
-
-
-
