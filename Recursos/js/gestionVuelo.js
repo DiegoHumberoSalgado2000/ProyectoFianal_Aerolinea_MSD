@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     cargarDatos();
     $("#btnGuardar").click(guardarVuelo);
+    $("#btnBuscar").click(buscarVuelo);
     
 });
 var resuDescripcion="";
@@ -51,9 +52,7 @@ function listarVuelo(){
 }
 
 function guardarVuelo() {
-    let validar=validarDatos();
-    
-    if (validar ==true) {
+ 
         let objVuelo = {
             idVuelo:$("#txtIdVuelo").val(),
             descripcion: $("#txtDescripcion").val(),
@@ -66,11 +65,9 @@ function guardarVuelo() {
 
 
         if (objVuelo.idVuelo !== "") {
-            objVuelo.type = 'modificar';
+            alert("No se puede guardar, ya que buscó antes un Vuelo. oprima el boton cancelar y luego intente nuevamente.")
         } else {
             objVuelo.type = 'guardar';
-        }
-
         $.ajax({
             type: 'post',
             url: "../Controlador/gestionVuelo.php",
@@ -86,8 +83,10 @@ function guardarVuelo() {
                     alert("Transacción exitosa");
                     listarVuelo();
                     cancelar();
-                } else {
-                    alert("Transacción fallida, verifique que la placa no se encuentre registrada");
+                } else if(info.res === "False"){
+                    alert(info.msj)
+                }else{
+                    alert("Transacción fallida, verifique que el avion no se encuentre registrada");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -96,8 +95,58 @@ function guardarVuelo() {
             }
         });
 
-
     }
+    
+}
+
+function buscarVuelo(){
+    var objVuelo = {
+        $idAvion:$("#selAvion").val(),
+        type:"buscar" 
+    };
+    
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionVuelo.php",
+        beforeSend: function () {
+
+        },
+        data: objVuelo,
+        success: function (res) {
+
+            var info = JSON.parse(res);
+            var data = JSON.parse(info.data);
+
+            if (info.msj === "Success") {
+                /**alert(data[0].id+ data[0].descripcion+ data[0].placa+ data[0].id_color+data[0].id_marca)*/
+                $("#txtIdVuelo").val(data[0].id);
+                $("#selTipoVuelo").val(data[0].tipo_vuelo);
+                $("#selAvion").val(data[0].id_avion);
+                $("#txtDescripcion").val(data[0].descripcion);
+                
+
+                /** $("#selMarca").val(data[0].id_marca);*/
+                let btnGuardar = document.getElementById("btnGuardar");
+                let btnModificar = document.getElementById("btnModificar");
+                let btnEliminar = document.getElementById("btnEliminar");
+                let selAvion = document.getElementById("selAvion");
+                selAvion.disabled=true;
+                btnGuardar.disabled =true;
+                btnModificar.disabled=false;
+                btnEliminar.disabled=false;
+
+
+            } else {
+                alert("No se encuentra el vuelo");
+                limpiar();
+            }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
 }
 function cargarDatos(){
     cargarAvion();
@@ -162,52 +211,6 @@ function limpiar(){
 
 
 }
-function validarDatos() {
-
-    let idAvion= $("#selAvion").val();
-    let idTipoVuelo= $("#selTipoVuelo").val();
 
 
-    let condi1=true;
-    let condi2=true;
-    
-    if(idTipoVuelo==-1){
-        alert("Seleccione un tipo de vuelo")
-        condi1= false;
-    }
-    if(idAvion==-1){
-        alert("Seleccione un Avion")
-        condi2= false;
-    }
-    
-    if (condi1==true && condi2==true) {
-        return true;
-    }else{
-        return false;
-    }
-}
 
-function validarDescripcion() {
-    let txtDescripcion = $("#txtDescripcion").val();
-
-        $.ajax({
-            type: 'post',
-            url: "../Controlador/gestionVuelo.php",
-            beforeSend: function () {
-
-            },
-            data: {type: "validarDescripcion", descripcion: txtDescripcion},
-            success: function (res) {
-
-                let resultado = JSON.parse(res);
-
-                resuDescripcion=resultado.resultado;
-                msjDescripcion=resultado.msj;
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-                alert("Verifique la ruta del archivo");
-            }
-        });
-}

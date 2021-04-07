@@ -15,7 +15,7 @@ class vueloDAO{
         $this->objCon->ExecuteTransaction($sql);
     }
     public function buscar(clsVuelo $obj){
-        $sql="SELECT id,tipo_vuelo,descripcion,estado,id_avion from vuelo where id_avion='" . $obj->getIdAvion() . "' and estado='disponible'";
+        $sql="SELECT id,tipo_vuelo,descripcion,estado,id_avion from vuelo where id_avion='" . $obj->getTipoVuelo() . "' and estado='disponible'";
         $this->objCon->Execute($sql);
     }
     public function eliminar(clsVuelo $obj){

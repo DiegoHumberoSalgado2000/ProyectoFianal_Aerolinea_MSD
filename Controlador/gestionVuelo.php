@@ -22,9 +22,40 @@ $patronValDescripcionInfo="La descripción puede tener, letras en mayusculas y m
 switch($type){
 
     case "guardar":
+
+        if(!preg_match($patronValDescripcion, $descripcion)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+            break;
+        }
+
+        if($tipovuelo==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione un tipo vuelo"
+            ]));
+            break;
+        }
+
+        if($idAvion==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione un Avion"
+            ]));
+            break;
+        }
+    
+
         $vueloDAO->guardar($vuelo);
         break;
     
+    
+    case "buscar":
+
+        if($idAvion==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione un Avion"
+            ]));
+            break;
+        }
+        
+        $vueloDAO->buscar($avion);
+        break;
 
     case "list":
         $vueloDAO->listar();
@@ -34,14 +65,5 @@ switch($type){
         $vueloDAO->listarAvionSel();
         break;
 
-    case "validarDescripcion":
-        if(preg_match($patronValDescripcion, $descripcion)){
-            echo(json_encode(['resultado' => 'True', "msj" => "Correcto"
-            ]));
-        }else{
-            echo(json_encode(['resultado' => 'False', "msj" => $patronValDescripcionInfo
-            ]));
-        }
-
-        break;
+    
 }
