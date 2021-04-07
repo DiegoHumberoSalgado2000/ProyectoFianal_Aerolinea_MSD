@@ -11,11 +11,11 @@ class ubicacionDAO{
     }
 
     public function guardar(clsUbicacion $obj){
-        $sql="INSERT INTO ubicacion(nombre,descripcion,estado) VALUES ('" . $obj->getNombre() . "','" . $obj->getDescripcion() . "','" . $obj->getEstado() . "')";
+        $sql="INSERT INTO ubicacion(nombre,descripcion,estado) VALUES ('" . $obj->getNombre() . "','" . $obj->getDescripcion() . "','disponible')";
         $this->objCon->ExecuteTransaction($sql);
     }
     public function buscar(clsUbicacion $obj){
-        $sql="SELECT id,nombre,descripcion,estado from ubicacion where id='" . $obj->getId() . "' and estado='disponible'";
+        $sql="SELECT id,nombre,descripcion,estado from ubicacion where nombre='" . $obj->getNombre() . "' and estado='disponible'";
         $this->objCon->Execute($sql);
     }
     public function eliminar(clsUbicacion $obj){
@@ -23,7 +23,7 @@ class ubicacionDAO{
         $this->objCon->ExecuteTransaction($sql);
     }
     public function modificar(clsUbicacion $obj){
-        $sql="UPDATE ubicacion set descripcion='" . $obj->getDescripcion() . "',estado='" . $obj->getEstado() . "' where id='" . $obj->getId() . "'";
+        $sql="UPDATE ubicacion set descripcion='" . $obj->getDescripcion() . "' where id='" . $obj->getId() . "'";
         $this->objCon->ExecuteTransaction($sql);
     }
 }

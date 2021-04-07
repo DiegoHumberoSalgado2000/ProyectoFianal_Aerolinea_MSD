@@ -4,6 +4,7 @@ include_once 'layouts/header.php';
 <title>Menu Administrador</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
 <script src="../Recursos/js/gestionItinerarioVuelo.js" type="text/javascript"></script>
+<script src="../Recursos/js/gestionUbicacion.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Administrador.php';
 ?>
@@ -23,24 +24,25 @@ include_once 'layouts/nav_Administrador.php';
                 <form>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Ubicacion</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="txtUbicacion">
+                        <input type="hidden" id="txtIdUbicacion" class="form-control">
+                        <input type="hidden" id="txtCondiResultadoUbicacion" class="form-control">
+                        <input type="hidden" id="txtMsjResultadoUbicacion" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Descripccion:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <label for="message-text" class="col-form-label">Descripcion:</label>
+                        <textarea class="form-control" id="txtDescripcionUbicacion"></textarea>
                     </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Estado</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
+                        
                 </form>
             </div>
             <div class="modal-footer row">
                 <div class="offset-sm-2 col-sm-11 float-right">
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                    <button type="button" class="btn btn-primary">Buscar</button>
-                    <button type="button" class="btn btn-primary">Modificar</button>
-                    <button type="button" class="btn btn-primary">Eliminar</button>
+                    <button type="button" class="btn btn-primary" id="btnGuardarUbicacion">Guardar</button>
+                    <button type="button" class="btn btn-primary" id="btnBuscarUbicacion">Buscar</button>
+                    <button type="button" class="btn btn-primary" id="btnModificarUbicacion">Modificar</button>
+                    <button type="button" class="btn btn-primary"id="btnEliminarUbicacion">Eliminar</button>
+                    <button type="button" class="btn btn-primary"id="btnCancelarUbicacion">Cancelar</button>
                 </div>
             </div>
         </div>
