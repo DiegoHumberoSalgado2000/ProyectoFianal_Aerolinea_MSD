@@ -1,9 +1,10 @@
 $(document).ready(function () {
-
     cargarDatos();
     $("#btnGuardar").click(guardarVuelo);
     $("#btnBuscar").click(buscarVuelo);
-    
+    $("#btnModificar").click(modificarVuelo);
+    $("#btnEliminar").click(eliminarVuelo);
+    $("#btnCancelar").click(cancelar);
 });
 var resuDescripcion="";
 var msjDescripcion="";
@@ -99,12 +100,60 @@ function guardarVuelo() {
     
 }
 
-function buscarVuelo(){
-    var objVuelo = {
-        $idAvion:$("#selAvion").val(),
-        type:"buscar" 
+function modificarVuelo() {
+ 
+    let objVuelo = {
+        idVuelo:$("#txtIdVuelo").val(),
+        descripcion: $("#txtDescripcion").val(),
+        tipovuelo: $("#selTipoVuelo").val(),
+        idAvion: $("#selAvion").val(),
+        type: ""
+
+
     };
-    
+
+
+    if (objVuelo.idVuelo !== "") {
+        objVuelo.type = 'modificar';
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionVuelo.php",
+        beforeSend: function () {
+
+        },
+        data: objVuelo,
+        success: function (data) {
+
+            var info = JSON.parse(data);
+
+            if (info.res === "Success") {
+                alert("Transacción exitosa");
+                listarVuelo();
+                cancelar();
+            } else if(info.res === "False"){
+                alert(info.msj)
+            }else{
+                alert("Transacción fallida, verifique que el avion se encuentre registrado");
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+
+}
+
+}
+
+function buscarVuelo(){
+
+    var objVuelo = {
+        
+        idAvion:$("#selAvion").val(),
+        type: "buscar" 
+    };
+
     $.ajax({
         type: 'post',
         url: "../Controlador/gestionVuelo.php",
@@ -125,7 +174,7 @@ function buscarVuelo(){
                 $("#txtDescripcion").val(data[0].descripcion);
                 
 
-                /** $("#selMarca").val(data[0].id_marca);*/
+                
                 let btnGuardar = document.getElementById("btnGuardar");
                 let btnModificar = document.getElementById("btnModificar");
                 let btnEliminar = document.getElementById("btnEliminar");
@@ -147,6 +196,47 @@ function buscarVuelo(){
             alert("Verifique la ruta del archivo");
         }
     });
+}
+
+
+function eliminarVuelo() {
+
+    var objVuelo = {
+        idVuelo:$("#txtIdVuelo").val(),
+        type: "eliminar"
+    };
+
+    if (confirm("Esta seguro")) {
+
+
+        $.ajax({
+            type: 'post',
+            url: "../Controlador/gestionVuelo.php",
+            beforeSend: function () {
+
+            },
+            data: objVuelo,
+            success: function (res) {
+                var info = JSON.parse(res);
+
+                if (info.res === "Success") {
+                    alert("Eliminado con exito");
+                    listarVuelo();
+                    cancelar();
+                } else {
+                    alert("No se ha eliminado, Antes de eliminar el vuelo hay que buscarlo.");
+                }
+
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+                alert("Verifique la ruta del archivo");
+            }
+        });
+    }else{
+        alert("Vale")
+    }
 }
 function cargarDatos(){
     cargarAvion();
@@ -198,7 +288,8 @@ function deshabilitarBotones(){
     let btnGuardar = document.getElementById("btnGuardar");
     let btnModificar = document.getElementById("btnModificar");
     let btnEliminar = document.getElementById("btnEliminar");
-
+    let selAvion = document.getElementById("selAvion");
+    selAvion.disabled=false;
     btnModificar.disabled =true;
     btnEliminar.disabled =true;
     btnGuardar.disabled=false;

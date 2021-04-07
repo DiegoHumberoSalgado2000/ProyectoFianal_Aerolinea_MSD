@@ -53,8 +53,29 @@ switch($type){
             ]));
             break;
         }
-        
-        $vueloDAO->buscar($avion);
+
+        $vueloDAO->buscar($vuelo);
+        break;
+
+    case "modificar":
+        if(!preg_match($patronValDescripcion, $descripcion)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+            break;
+        }
+
+        if($tipovuelo==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione un tipo vuelo"
+            ]));
+            break;
+        }
+
+        $vueloDAO->modificar($vuelo);
+        break;
+    
+    case "eliminar":
+
+        $vueloDAO->eliminar($vuelo);
         break;
 
     case "list":
