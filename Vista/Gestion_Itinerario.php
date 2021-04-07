@@ -146,6 +146,8 @@ include_once 'layouts/nav_Administrador.php';
                                         <div class="col-sm-9">
                                         <select type="text" id="selUbicacion" class="form-control">
                                                 <option value="=-1">Seleccione el Vuelo</option>
+                                                <input type="hidden" id="txtIdItinerarioVuelo" class="form-control">
+                                            
                                             </select>
                                         </div>
 
@@ -155,7 +157,7 @@ include_once 'layouts/nav_Administrador.php';
                                         <label for="" class="col-sm-2 col-form-label">Ubicacion llegada</label>
                                         <div class="col-sm-9">
                                             <select type="text" id="CmbUbicacionLlegada" class="form-control">
-                                                <option>Seleccione la Ubicacion llegada</option>
+                                                <option value="-1">Seleccione la Ubicacion llegada</option>
                                             </select>
                                         </div>
                                     </div>
@@ -163,8 +165,8 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Ubicacion Salida</label>
                                         <div class="col-sm-9">
-                                            <select type="text" id="CombubicacionSalida" class="form-control">
-                                                <option>Seleccione la Ubicacion Salida</option>
+                                            <select type="text" id="CmbUbicacionSalida" class="form-control">
+                                                <option value="-1">Seleccione la Ubicacion Salida</option>
                                             </select>
                                         </div>
                                     </div>
@@ -172,7 +174,7 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Fecha llegada</label>
                                         <div class="col-sm-9">
-                                            <input type="date" id="Placa" class="form-control">
+                                            <input type="date" id="DateFechaLlegada" class="form-control">
                                         </div>
 
                                     </div>
@@ -180,23 +182,17 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Fecha Salida</label>
                                         <div class="col-sm-9">
-                                            <input type="date" id="Placa" class="form-control">
+                                            <input type="date" id="DateFechaSalida" class="form-control">
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Estado</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" id="Placa" class="form-control">
-                                        </div>
-
-                                    </div>
+                                    
 
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Descripcion</label>
                                         <div class="col-sm-9">
-                                        <textarea class="form-control" id="message-text"></textarea>
+                                        <textarea class="form-control" id="txtDescripcionItinerario"></textarea>
                                         </div>
 
                                     </div>
@@ -204,10 +200,11 @@ include_once 'layouts/nav_Administrador.php';
 
                                     <div class="modal-footer row">
                                         <div class="offset-sm-2 col-sm-12 float-right">
-                                            <button type="button" class="btn btn-primary">Guardar</button>
-                                            <button type="button" class="btn btn-primary">Buscar</button>
-                                            <button type="button" class="btn btn-primary">Modificar</button>
-                                            <button type="button" class="btn btn-primary">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnGuardarItinerario">Guardar</button>
+                                            <button type="button" class="btn btn-primary" id="btnBuscarItinerario">Buscar</button>
+                                            <button type="button" class="btn btn-primary" id="btnModificarItinerario">Modificar</button>
+                                            <button type="button" class="btn btn-primary" id="btnEliminarItinerario">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnCancelarItinerario">Cancelar</button>
                                         </div>
 
                                     </div>
@@ -242,7 +239,7 @@ include_once 'layouts/nav_Administrador.php';
                                             <th>Descripccion</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="table-active" id="ListaAviones">
+                                    <tbody class="table-active" id="ListaItinerarioVuelo">
 
                                     </tbody>
                                 </table>
