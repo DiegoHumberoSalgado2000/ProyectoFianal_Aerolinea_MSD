@@ -16,7 +16,7 @@ class PasajeroDAO {
         $this->objCon->ExecuteTransaction($sql);
     }
 
-    public function buscar($obj) {
+    public function buscar(ClsPasajero $obj) {
         $sql="SELECT id,nombre,apellido,cedula,correo,telefono,contrasena,estado,descripcion from pasajero where cedula='". $obj->getCedula()."' and estado='activo'";
         $this->objCon->Execute($sql);
     }
