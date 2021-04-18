@@ -7,18 +7,18 @@ class ClsPasajero{
     private $Cedula;
     private $Correo;
     private $Telefono;
-    private $Contraseña;
+    private $Contrasena;
     private $Estado;
     private $Descripcion;
     
-    function __construct($id, $Nombre, $Apellido, $Cedula, $Correo, $Telefono, $Contraseña, $Estado, $Descripcion) {
+    function __construct($id, $Nombre, $Apellido, $Cedula, $Correo, $Telefono, $Contrasena, $Estado, $Descripcion) {
         $this->id = $id;
         $this->Nombre = $Nombre;
         $this->Apellido = $Apellido;
         $this->Cedula = $Cedula;
         $this->Correo = $Correo;
         $this->Telefono = $Telefono;
-        $this->Contraseña = $Contraseña;
+        $this->Contrasena = $Contrasena;
         $this->Estado = $Estado;
         $this->Descripcion = $Descripcion;
     }
@@ -47,8 +47,8 @@ class ClsPasajero{
         return $this->Telefono;
     }
 
-    function getContraseña() {
-        return $this->Contraseña;
+    function getContrasena() {
+        return $this->Contrasena;
     }
 
     function getEstado() {
@@ -83,8 +83,8 @@ class ClsPasajero{
         $this->Telefono = $Telefono;
     }
 
-    function setContraseña($Contraseña){
-        $this->Contraseña = $Contraseña;
+    function setContrasena($Contrasena){
+        $this->Contrasena = $Contrasena;
     }
 
     function setEstado($Estado){
@@ -99,4 +99,3 @@ class ClsPasajero{
     
 }
 
-?>
