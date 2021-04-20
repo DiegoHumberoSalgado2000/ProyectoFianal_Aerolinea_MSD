@@ -144,8 +144,8 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Vuelo</label>
                                         <div class="col-sm-9">
-                                        <select type="text" id="selUbicacion" class="form-control">
-                                                <option value="=-1">Seleccione el Vuelo</option>
+                                        <select type="text" id="CmbVuelo" class="form-control">
+                                                <option value="-1">Seleccione el Vuelo</option>
                                                 <input type="hidden" id="txtIdItinerarioVuelo" class="form-control">
                                             
                                             </select>
@@ -236,7 +236,7 @@ include_once 'layouts/nav_Administrador.php';
                                             <th>Fecha llegada</th>
                                             <th>Fecha Salida</th>
                                             <th>Estado</th>
-                                            <th>Descripccion</th>
+                                            <th>Descripcion</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-active" id="ListaItinerarioVuelo">

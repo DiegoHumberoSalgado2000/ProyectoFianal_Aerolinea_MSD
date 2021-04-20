@@ -18,10 +18,16 @@ $type=isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 $itinerarioVuelo=new clsItinerarioVuelo($idItinerarioVuelo,$idVuelo,$idUbicacionllegada,$idUbicacionsalida,$fechallegada,$fechasalida,$estado,$descripcion);
 $itinerarioVueloDAO = new itinerarioVueloDao();
 
-
+/**
+ * Expresiones regulares
+ */
 $patronValDescripcion="/^[A-Za-z0-9\s]{7,254}$/";/** el patron regular distingue entre mayusculas y minusculas en caso de que no lo haga se pone así  "/^[a-z0-9_-]{3,16}$/i"*/
 $patronValDescripcionInfo="La descripción puede tener, letras en mayusculas y minusculas, espacios como también números decimales, El tamaño es de 7 a 254 caracteres. No se permitén otros simbolos";
 
+
+/**
+ * Usado para recibir $type el cual ayuda para controlar que peticion se requiere
+ */
 switch($type){
 
     case "guardar":
@@ -48,6 +54,42 @@ switch($type){
         }
 
         $itinerarioVueloDAO->guardar($itinerarioVuelo);
+        break;
+
+
+    case "buscar":
+        $itinerarioVueloDAO->buscar($itinerarioVuelo);
+        break;
+    
+    case "modificar":
+
+        if(!preg_match($patronValDescripcion, $descripcion)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValDescripcionInfo
+            ]));
+            break;
+        }
+
+        if($idVuelo==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione Vuelo"
+            ]));
+            break;
+        }
+        if($idUbicacionllegada==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione Ubicacion de llegada"
+            ]));
+            break;
+        }
+        if($idUbicacionsalida==-1){
+            echo(json_encode(['res' => 'False', "msj" => "seleccione Ubicacion de salida"
+            ]));
+            break;
+        }
+        $itinerarioVueloDAO->modificar($itinerarioVuelo);
+        break;
+
+
+    case "eliminar":
+        $itinerarioVueloDAO->eliminar($itinerarioVuelo);
         break;
     
     case "list":
