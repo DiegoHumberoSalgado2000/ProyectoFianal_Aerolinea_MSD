@@ -17,7 +17,7 @@ class PasajeroDAO {
     }
 
     public function buscar(ClsPasajero $obj) {
-        $sql = "SELECT id,nombre,apellido,cedula,correo,telefono_celular,contrasena,estado,descripcion from pasajero where cedula='" . $obj->getCedula() . "' and estado='activo'";
+        $sql = "SELECT id,nombres,apellidos,cedula,correo,telefono_celular,estado,descripcion from pasajero where cedula='" . $obj->getCedula() . "' and estado='activo'";
         $this->objCon->Execute($sql);
     }
 
