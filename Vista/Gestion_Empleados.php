@@ -98,7 +98,7 @@ include_once 'layouts/nav_Administrador.php';
                                     
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Descripcion</label>
+                                        <label for="" class="col-sm-2 col-form-label">Descripción</label>
                                         <div class="col-sm-9">
                                         <textarea class="form-control" id="txtDescripcion"></textarea>
                                         </div>
@@ -143,7 +143,7 @@ include_once 'layouts/nav_Administrador.php';
                                             <th>Correo</th>
                                             <th>Telefono</th>
                                             <th>Estado</th>
-                                            <th>Descripcion</th>
+                                            <th>Descripción</th>
                                             
                                         </tr>
                                     </thead>

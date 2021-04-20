@@ -8,25 +8,10 @@ $(document).ready(function(){
     cancelar();
 });
 
-var resulCedula="";
-var msjCedula="";
-var resulNombre="";
-var msjNombre="";
-var resulApellido="";
-var msjApellido="";
-var resulCorreo="";
-var msjCorreo="";
-var resulTelefono="";
-var msjTelefono="";
-var resulContrasena="";
-var msjContrasena="";
-var resuDescripcion="";
-var msjDescripcion="";
 
-
-var condiResultado="";
-var msjResultado="";
-
+/**
+ *Función utilizada para listar los empleados con el estado en disponible
+ */
 function listarEmpleado(){
     $.ajax({
         type: 'post',
@@ -67,7 +52,9 @@ function listarEmpleado(){
 
     });
 }
-
+/**
+ *Función utilizada para guardar un empleado
+ */
 function guardarEmpleado(){
    
         let objEmpleado ={
@@ -116,7 +103,9 @@ function guardarEmpleado(){
     }
 
 }
-
+/**
+ *función utilizada para buscar un empleado
+ */
 function buscarEmpleado(){
     var objEmpleado={
         cedula: $("#txtCedula").val(),
@@ -171,7 +160,9 @@ function buscarEmpleado(){
 
     });
 }
-
+/**
+ *Función utilizada para modificar un empleado
+ */
 function modificarEmpleado(){
     let objEmpleado ={
         idEmpleado:$("#txtIdEmpleado").val(),
@@ -218,6 +209,11 @@ function modificarEmpleado(){
     alert("Para modificar un Empleado antes hay que buscarlo");
 }
 }
+
+/**
+ *funcion utilizada para eliminar un empleado,
+ *en este caso actualizar el estado a no disponible.
+ */
 function eliminarEmpleado(){
     var objEmpleado={
         idEmpleado:$("#txtIdEmpleado").val(),
@@ -253,11 +249,17 @@ function eliminarEmpleado(){
         alert("Vale")
     }
 }
+/**
+ *función utilizada para limpiar los inputs y habilitar los botones y inputs.
+ */
 function cancelar(){
     limpiar();
     deshabilitarBotones();
 
 }
+/**
+ *función utilizada para habilitar los botones y inputs
+ */
 function deshabilitarBotones(){
     let btnGuardar = document.getElementById("btnGuardar");
     let btnModificar = document.getElementById("btnModificar");
@@ -273,6 +275,9 @@ function deshabilitarBotones(){
     txtNombre.disabled=false;
     txtApellido.disabled=false;
 }
+/**
+ *funcion utilizada para limpiar los inputs
+ */
 function limpiar(){
     $("#txtIdEmpleado").val("");
     $("#txtCedula").val("");
@@ -283,7 +288,9 @@ function limpiar(){
     $("#txtContrasena").val("");
     $("#txtDescripcion").val("");
 }
-
+/**
+ *función utilizada para cargar la lista de Empleados
+ */
 function cargarDatos(){
     listarEmpleado();
 
