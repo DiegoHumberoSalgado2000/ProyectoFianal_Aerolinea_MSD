@@ -10,6 +10,11 @@ $(document).ready(function () {
 
     cancelar();
 });
+/**
+ *Función utilizada para listar los aviones con el estado en disponible
+ */
+
+var color;
 
 function listarAvion() {
 
@@ -25,13 +30,12 @@ function listarAvion() {
             var info = JSON.parse(res.data);
 
             var lista ="";
-
             if (info.length > 0) {
                 for (f = 0; f < info.length; f++) {
                     lista = lista + "<tr>";
                     lista = lista + "<td>" + info[f].placa + "</td>";
-                    lista = lista + "<td>" + info[f].id_marca + "</td>";
-                    lista = lista + "<td>" + info[f].id_color + "</td>";
+                    lista = lista + "<td>" + info[f].nombreMarca + "</td>";
+                    lista = lista + "<td>" + info[f].nombreColor + "</td>";
                     lista = lista + "<td>" + info[f].descripcion + "</td>";
                     lista = lista + "<td>" + info[f].estado + "</td>";
                     lista = lista + "</tr>";
@@ -52,7 +56,9 @@ function listarAvion() {
 }
 
 
-
+/**
+ *Función utilizada para guardar un avion
+ */
 function guardarAvion() {
 
         let objAvion = {
@@ -103,7 +109,9 @@ function guardarAvion() {
 
 
 }
-
+/**
+ *Función utilizada para modificar un avión
+ */
 function modificarAvion() {
 
     let objAvion = {
@@ -154,7 +162,9 @@ function modificarAvion() {
 
 
 }
-
+/**
+ *función utilizada para buscar un avion
+ */
 
 function buscarAvion(){
 
@@ -209,7 +219,9 @@ function buscarAvion(){
 
 
 }
-
+/**
+ *funcion utilizada para eliminar un avión, en este caso actualizar el estado a no disponible.
+ */
 function eliminarAvion() {
 
     var objAvion = {
@@ -251,13 +263,17 @@ function eliminarAvion() {
 }
 
 
-
+/**
+ *función utilizada para limpiar los inputs y habilitar los botones y inputs.
+ */
 function cancelar(){
     limpiar();
     habilitar();
 
 }
-
+/**
+ *función utilizada para habilitar los botones y inputs
+ */
 function habilitar(){
     let btnGuardar = document.getElementById("btnGuardar");
     let btnModificar = document.getElementById("btnModificar");
@@ -269,7 +285,9 @@ function habilitar(){
     btnGuardar.disabled=false;
 }
 
-
+/**
+ *funcion utilizada para limpiar los inputs
+ */
 function limpiar(){
     $("#txtIdAvion").val("");
     $("#txtDescripcion").val("");
@@ -284,7 +302,9 @@ function limpiar(){
 
 
 }
-
+/**
+ *función utilizada para cargar los select
+ */
 function cargarDatos(){
     listarAvion();
     cargarColor();
@@ -293,6 +313,9 @@ function cargarDatos(){
     $("#selMarca").change(vldMarca);
 
 }
+/**
+ *función utilizada para cargar el select de color
+ */
 function cargarColor() {
 
     $.ajax({
@@ -328,7 +351,9 @@ function cargarColor() {
         }
     });
 }
-
+/**
+ *función utilizada para cargar el select de los fabricantes
+ */
 function cargarFabricante() {
 
     $.ajax({
@@ -365,7 +390,9 @@ function cargarFabricante() {
     });
 }
 
-
+/**
+ *función utilizada para validar cuando el ususario selecciona 'seleccione' en un select
+ */
 function vldMarca() {
     let idMarca = $("#selMarca").val();
 
@@ -377,8 +404,8 @@ function vldMarca() {
 
 
 /**
- *
- * @param {*} idFabricante , para cargar todas las marcas.
+ *función utilizada para cargar todas las marcas que le pertenecen a un fabricante y posteriormente seleccionar la marca.
+ * @param {*} idFabricante , para cargar todas las marcas que le pertenecen a ese id Fabricante.
  * @param {*} idMarca , para seleccionar la marca.
  */
 function crMarca(idFabricante,idMarca) {
@@ -423,7 +450,9 @@ function crMarca(idFabricante,idMarca) {
 
 }
 
-
+/**
+ *función utilizada para cargar las marcas en un select.
+ */
 function cargarMarca() {
 
     let idFabricante = $("#selFabricante").val();
@@ -471,8 +500,11 @@ function cargarMarca() {
 
 
 
-
-function buscarFabriantePorIdMarca( id){
+/**
+ *función utilizada para buscar un fabricante por el id de la marca.
+ * @param {*} id id de la marca.
+ */
+function buscarFabriantePorIdMarca(id){
     var objAvion = {
         idMarca:id,
         type: "buscarFabricantePorMarca"
@@ -502,4 +534,3 @@ function buscarFabriantePorIdMarca( id){
     });
 
 }
-

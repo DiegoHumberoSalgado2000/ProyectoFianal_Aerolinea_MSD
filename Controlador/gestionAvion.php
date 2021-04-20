@@ -5,6 +5,7 @@ require '../Modelo/clsAvion.php';
 require '../DAO/avionDAO.php';
 
 
+
 /**
  *idFabricanteSel, se utiliza para saber el id del fabricante para así mostrar sus respectivas marcas :)
  */
@@ -37,7 +38,9 @@ $patronValDescripcionInfo="La descripción puede tener, letras en mayusculas y m
 $patronValPlaca="/^(HK\-)+[A-Z]{3}[0-9]{2}[A-Z0-9]$/";
 $patronValPlacaInfo="La placa tiene que tener: al principio HK: Aviación General y comercial, ejemplo: HK-XXX99X o HK-XXX999, en mayúsculas";
 
-
+/**
+ *Usado para recibir un $type el cual ayuda para controlar que petición se requiere
+ */
 switch ($type) {
     case "listColor":
         $avionDAO->listarColorSel();
@@ -123,7 +126,5 @@ switch ($type) {
     case "list":
         $avionDAO->listar();
         break;
-
-
 
 }
