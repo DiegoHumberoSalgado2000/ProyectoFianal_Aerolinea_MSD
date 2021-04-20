@@ -63,7 +63,6 @@ function RegistrarPasajero() {
         contrasena: $("#txtContrasena").val(),
         type: ""
     };
-
     if (objPasajero.idPasajero !== "") {
         alert("No se puede guardar, ya que buscó antes un avion. oprima el boton cancelar y luego intente nuevamente.")
     } else {
@@ -83,7 +82,7 @@ function RegistrarPasajero() {
                     LimpiarText();
                 } else if (info.res === "False") {
                     alert(info.msj)
-                } else {
+                }else{
                     alert("Transacción fallida, Este usuario ya esta registrado");
                 }
             },

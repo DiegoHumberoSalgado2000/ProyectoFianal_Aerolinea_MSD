@@ -85,7 +85,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Cedula</label>
-                                                <input type="number" class="form-control" id="txtCedula">
+                                                <input type="text" class="form-control" id="txtCedula">
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Correo</label>

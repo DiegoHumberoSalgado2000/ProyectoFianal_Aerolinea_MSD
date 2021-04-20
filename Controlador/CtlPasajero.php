@@ -17,8 +17,8 @@ $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
 $pasajero = new ClsPasajero($idPasajero, $nombre, $apellido, $cedula, $correo, $telefono, $contrasena, $estado, $descripcion);
 $pasajeroDAO = new PasajeroDAO();
 
-$patronValCedula = "/^([0-9])*$/";
-$patronValCedulaInfo = "La cedula tiene que tener dato numerico";
+$patronValCedula = "/^[0-9\s]{5,10}$/";
+$patronValCedulaInfo = "La cedula tiene que ser solo números, tiene que estar en un rango de 5 a 10 números y no puede tener espacios.";
 
 $patronValNombre = "/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/";
 $patronValNombreInfo = "El nombre tiene que tener dato alfabetico y entre 3 y 18 caracteres";
@@ -30,11 +30,11 @@ $patronValCorreo = "/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/";
 $patronValCorreoInfo = "El correo tiene que tener un formato tipo :alguien@algunlugar.es";
 
 
-$patronValTelefono = "/^[1-9]\d{9}$/";
-$patronValTelefonoInfo = "El telefono solo recibe numeros de celular";
+$patronValTelefono = "/^[0-9]{10}$/";
+$patronValTelefonoInfo = "El telefono celular solo recibe números, Tiene que tener una longuitud de 10 números, Sin espacios";
 
 $patronValContrasena = "/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/";
-$patronValContrasenaInfo = "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.NO puede tener otros símbolos";
+$patronValContrasenaInfo = "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.NO puede tener otros símbolos Ejemplo: w3Unpocodet0d0";
 
 $patronValDescripcion = "/^[A-Za-z0-9\s]{7,254}$/";/** el patron regular distingue entre mayusculas y minusculas en caso de que no lo haga se pone así  "/^[a-z0-9_-]{3,16}$/i" */
 $patronValDescripcionInfo = "La descripción puede tener, letras en mayusculas y minusculas, espacios como también números decimales, El tamaño es de 7 a 254 caracteres. No se permitén otros simbolos";
@@ -53,6 +53,7 @@ switch ($type) {
         }
 
         if (!preg_match($patronValCedula, $cedula)) {
+
             echo (json_encode(['res' => 'False', "msj" => $patronValCedulaInfo]));
             break;
         }
@@ -67,15 +68,16 @@ switch ($type) {
             break;
         }
 
-        
-        if (!preg_match($patronValDescripcionInfo, $patronValDescripcion)) {
-            echo (json_encode(['res' => 'False', "msj" => $descripcion]));
+        if (!preg_match($patronValContrasena, $contrasena)) {
+            echo (json_encode(['res' => 'False', "msj" => $patronValContrasenaInfo]));
             break;
         }
-   
+
+
+
         $pasajeroDAO->guardar($pasajero);
         break;
-        
+
     case "buscar":
         $pasajeroDAO->buscar($pasajero);
         break;
