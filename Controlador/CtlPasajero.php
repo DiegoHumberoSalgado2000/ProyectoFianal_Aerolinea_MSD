@@ -9,7 +9,7 @@ $apellido = isset($_REQUEST['apellido']) ? $_REQUEST['apellido'] : "";
 $cedula = isset($_REQUEST['cedula']) ? $_REQUEST['cedula'] : "";
 $correo = isset($_REQUEST['correo']) ? $_REQUEST['correo'] : "";
 $telefono = isset($_REQUEST['telefono']) ? $_REQUEST['telefono'] : "";
-$contrasena = isset($_REQUEST['contrasena']) ? $_REQUEST['contrasena'] : "";
+$contrasena= isset($_REQUEST['contrasena']) ? $_REQUEST['contrasena'] : "";
 $estado = isset($_REQUEST['estado']) ? $_REQUEST['estado'] : "";
 $descripcion = isset($_REQUEST['descripcion']) ? $_REQUEST['descripcion'] : "";
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
@@ -67,11 +67,7 @@ switch ($type) {
             break;
         }
 
-        if (!preg_match($patronValContrasena, $contrasena)) {
-            echo (json_encode(['res' => 'False', "msj" => $patronValContrasenaInfo]));
-            break;
-        }
-
+        
         if (!preg_match($patronValDescripcionInfo, $patronValDescripcion)) {
             echo (json_encode(['res' => 'False', "msj" => $descripcion]));
             break;

@@ -2,6 +2,8 @@
 include_once 'layouts/header.php';
 ?>
 <title>Manu Administrador</title>
+<script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../Recursos/js/gestionPasajero.js" type="text/javascript"></script>    
 <?php
 include_once 'layouts/nav_Administrador.php';
 ?>
@@ -37,11 +39,14 @@ include_once 'layouts/nav_Administrador.php';
                             <div class="card-body">
                                 <form action="" class="form-horizontal">
 
-                                    
-                                <div class="form-group row">
+
+                                    <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Nombre</label>
                                         <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="message-text">
+                                            <input type="text" class="form-control" id="txtNombre">
+                                            <input type="hidden" id="txtIdPasajero" class="form-control">
+                                            <input type="hidden" id="txtCondiResultado" class="form-control">
+                                            <input type="hidden" id="txtMsjResultado" class="form-control">
                                         </div>
 
                                     </div>
@@ -49,7 +54,7 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Apellido</label>
                                         <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="message-text">
+                                            <input type="text" class="form-control" id="txtApellido">
                                         </div>
 
                                     </div>
@@ -57,28 +62,15 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Cedula</label>
                                         <div class="col-sm-9">
-                                            <input type="number" id="Placa" class="form-control">
+                                            <input type="number" id="txtCedula" class="form-control">
                                         </div>
 
                                     </div>
 
-                                    
-                                    <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Genero</label>
-                                        <div class="col-sm-9">
-                                        <select class="form-control" id="message-text">
-                                            <option>Seleccione el Genero</option>
-                                            <option>Masculino</option>
-                                            <option>Femenino</option>
-                                        </select>
-                                        </div>
-                                    </div>
-
-                                    
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Correo</label>
                                         <div class="col-sm-9">
-                                        <input type="email" class="form-control" id="message-text">
+                                            <input type="email" class="form-control" id="txtCorreo">
                                         </div>
 
                                     </div>
@@ -86,7 +78,7 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Telefono</label>
                                         <div class="col-sm-9">
-                                        <input type="phone" class="form-control" id="message-text">
+                                            <input type="phone" class="form-control" id="txtTelefono">
                                         </div>
 
                                     </div>
@@ -94,18 +86,28 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Estado</label>
                                         <div class="col-sm-9">
-                                        <select class="form-control" id="message-text">
-                                            <option>Seleccione el Estado</option>
-                                        </select>
+                                            <select class="form-control" id="message-text">
+                                                <option>Seleccione el Estado</option>
+                                                <option>Activo</option>
+                                                <option>Inactivo</option>
+                                            </select>
                                         </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-2 col-form-label">Descripccion</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" id="txtDescripcion"></textarea>
+                                        </div>
+
                                     </div>
 
                                     <div class="modal-footer row">
                                         <div class="offset-sm-2 col-sm-12 float-right">
-                                            <button type="button" class="btn btn-primary">Guardar</button>
-                                            <button type="button" class="btn btn-primary">Buscar</button>
-                                            <button type="button" class="btn btn-primary">Modificar</button>
-                                            <button type="button" class="btn btn-primary">Eliminar</button>
+                                            <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                                            <button type="button" class="btn btn-primary" id="btnBuscar">Buscar</button>
+                                            <button type="button" class="btn btn-primary" id="btnModificar">Modificar</button>
+                                            <button type="button" class="btn btn-primary" id="btnEliminar">Eliminar</button>
                                         </div>
 
                                     </div>

@@ -12,13 +12,13 @@ class PasajeroDAO {
     }
 
     public function guardar(ClsPasajero $obj) {
-        $sql = "INSERT INTO pasajero(id,nombre,apellido,cedula,correo,telefono,contrasena,estado,descripcion)VALUES('" . $obj->getId() . "','" . $obj->getNombre() . "','" . $obj->getApellido() . "','" . $obj->getCedula() . "','" . $obj->getCorreo() . "','" . $obj->getTelefono() . "','" . $obj->getContrasena() . "','" . $obj->getEstado() . "','" . $obj->getDescripcion() . "')";
+        $sql = "INSERT INTO Pasajero(id,nombre,apellido,cedula,correo,telefono_celular,contrasena,estado,descripcion)VALUES('" . $obj->getId() . "','" . $obj->getNombre() . "','" . $obj->getApellido() . "','" . $obj->getCedula() . "','" . $obj->getCorreo() . "','" . $obj->getTelefono() . "','" . $obj->getContrasena() . "','disponible','ninguno')";
         $this->objCon->ExecuteTransaction($sql);
     }
 
     public function buscar(ClsPasajero $obj) {
-        $sql="SELECT id,nombre,apellido,cedula,correo,telefono,contrasena,estado,descripcion from pasajero where cedula='". $obj->getCedula()."' and estado='activo'";
+        $sql = "SELECT id,nombre,apellido,cedula,correo,telefono_celular,contrasena,estado,descripcion from pasajero where cedula='" . $obj->getCedula() . "' and estado='activo'";
         $this->objCon->Execute($sql);
     }
-    
+
 }
