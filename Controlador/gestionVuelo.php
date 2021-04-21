@@ -16,9 +16,15 @@ $type = isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 $vuelo=new clsVuelo($idVuelo,$tipovuelo,$descripcion,$estado,$idAvion);
 $vueloDAO =new vueloDAO();
 
+/**
+ *Expresiones regulares.
+ */
 $patronValDescripcion="/^[A-Za-z0-9\s]{7,254}$/";/** el patron regular distingue entre mayusculas y minusculas en caso de que no lo haga se pone así  "/^[a-z0-9_-]{3,16}$/i"*/
 $patronValDescripcionInfo="La descripción puede tener, letras en mayusculas y minusculas, espacios como también números decimales, El tamaño es de 7 a 254 caracteres. No se permitén otros simbolos";
 
+/**
+ *Usado para recibir un $type el cual ayuda para controlar que petición se requiere
+ */
 switch($type){
 
     case "guardar":

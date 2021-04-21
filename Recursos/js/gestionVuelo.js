@@ -6,14 +6,12 @@ $(document).ready(function () {
     $("#btnEliminar").click(eliminarVuelo);
     $("#btnCancelar").click(cancelar);
 });
-var resuDescripcion="";
-var msjDescripcion="";
-
-var condiResultado="";
-var msjResultado="";
 
 
 
+/**
+ *Función utilizada para listar los vuelos con el estado en disponible
+ */
 function listarVuelo(){
     $.ajax({
         type: 'post',
@@ -32,7 +30,7 @@ function listarVuelo(){
                 for (f = 0; f < info.length; f++) {
                     lista = lista + "<tr>";
                     lista = lista + "<td>" + info[f].tipo_vuelo + "</td>";
-                    lista = lista + "<td>" + info[f].id_avion + "</td>";
+                    lista = lista + "<td>" + info[f].nombreavion + "</td>";
                     lista = lista + "<td>" + info[f].descripcion + "</td>";
                     lista = lista + "<td>" + info[f].estado + "</td>";
                     lista = lista + "</tr>";
@@ -52,6 +50,9 @@ function listarVuelo(){
     });
 }
 
+/**
+ *Función utilizada para guardar un vuelo
+ */
 function guardarVuelo() {
  
         let objVuelo = {
@@ -99,7 +100,9 @@ function guardarVuelo() {
     }
     
 }
-
+/**
+ *Función utilizada para modificar un vuelo
+ */
 function modificarVuelo() {
  
     let objVuelo = {
@@ -145,7 +148,9 @@ function modificarVuelo() {
 }
 
 }
-
+/**
+ *función utilizada para buscar un vuelo
+ */
 function buscarVuelo(){
 
     var objVuelo = {
@@ -198,7 +203,9 @@ function buscarVuelo(){
     });
 }
 
-
+/**
+ *funcion utilizada para eliminar un vuelo, en este caso actualizar el estado a no disponible.
+ */
 function eliminarVuelo() {
 
     var objVuelo = {
@@ -238,11 +245,16 @@ function eliminarVuelo() {
         alert("Vale")
     }
 }
+/**
+ *función utilizada para cargar los select
+ */
 function cargarDatos(){
     cargarAvion();
     listarVuelo();
 }
-
+/**
+ *función utilizada para cargar el select de Avion
+ */
 function cargarAvion() {
 
     $.ajax({
@@ -278,12 +290,17 @@ function cargarAvion() {
         }
     });
 }
+/**
+ *función utilizada para limpiar los inputs y habilitar los botones y inputs.
+ */
 function cancelar(){
     limpiar();
     deshabilitarBotones();
 
 }
-
+/**
+ *función utilizada para habilitar los botones y inputs
+ */
 function deshabilitarBotones(){
     let btnGuardar = document.getElementById("btnGuardar");
     let btnModificar = document.getElementById("btnModificar");
@@ -294,6 +311,9 @@ function deshabilitarBotones(){
     btnEliminar.disabled =true;
     btnGuardar.disabled=false;
 }
+/**
+ *funcion utilizada para limpiar los inputs
+ */
 function limpiar(){
     $("#txtIdVuelo").val("");
     $("#txtDescripcion").val("");
