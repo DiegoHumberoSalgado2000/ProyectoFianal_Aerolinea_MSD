@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Inicio</title>
         <script src="Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
-        <script src="Recursos/js/gestionPasajero.js" type="text/javascript"></script>
+        <script src="Recursos/js/gestionLogin.js" type="text/javascript"></script>
     </head>
 
     <body style="overflow-x:hidden">

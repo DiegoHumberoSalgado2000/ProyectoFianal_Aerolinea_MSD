@@ -84,17 +84,6 @@ include_once 'layouts/nav_Administrador.php';
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Estado</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control" id="message-text">
-                                                <option>Seleccione el Estado</option>
-                                                <option>Activo</option>
-                                                <option>Inactivo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Descripccion</label>
                                         <div class="col-sm-9">
                                             <textarea class="form-control" id="txtDescripcion"></textarea>
@@ -104,10 +93,10 @@ include_once 'layouts/nav_Administrador.php';
 
                                     <div class="modal-footer row">
                                         <div class="offset-sm-2 col-sm-12 float-right">
-                                            <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
                                             <button type="button" class="btn btn-primary" id="btnBuscar">Buscar</button>
                                             <button type="button" class="btn btn-primary" id="btnModificar">Modificar</button>
-                                            <button type="button" class="btn btn-primary" id="btnEliminar">Eliminar</button>
+                                             <button type="button" class="btn btn-primary" id="btnEliminar">Eliminar</button>
+                                              <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
                                         </div>
 
                                     </div>
@@ -119,6 +108,47 @@ include_once 'layouts/nav_Administrador.php';
                 </div>
             </div>
     </section>
+    
+    
+    <section>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h3 class="card-title">Lista Pasajero</h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table table-over text-nowrap">
+                                    <thead class="table-success">
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Cedula</th>
+                                            <th>Correo</th>
+                                            <th>Telefono</th>
+                                            <th>Estado</th>
+                                            <th>Descripcion</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-active" id="ListaPasajero">
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="card-footer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 </div>
 
 
