@@ -5,6 +5,7 @@ $(document).ready(function () {
     $("#btnModificar").click(modificarVuelo);
     $("#btnEliminar").click(eliminarVuelo);
     $("#btnCancelar").click(cancelar);
+    cancelar();
 });
 
 
