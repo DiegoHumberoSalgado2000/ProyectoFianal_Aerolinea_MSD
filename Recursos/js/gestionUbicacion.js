@@ -8,10 +8,10 @@ $(document).ready(function(){
     cancelar();
 });
 
-var condiResultado="";
-var msjResultado="";
 
-
+/**
+ *Función utilizada para guardar una ubicación 
+ */
 function guardarUbicacion(){
     let objUbicacion={
         idUbicacion:$("#txtIdUbicacion").val(),
@@ -54,6 +54,9 @@ function guardarUbicacion(){
         });
     }
 }
+/**
+ *Función utilizada para buscar una ubicación
+ */
 function buscarUbicacion(){
     var objUbicacion={
         nombre:$("#txtUbicacion").val(),
@@ -102,7 +105,9 @@ function buscarUbicacion(){
 
     });
 }
-
+/**
+ *Función utilizada para modificar una ubicación
+ */
 function ModificarUbicacion(){
     let objUbicacion={
         idUbicacion:$("#txtIdUbicacion").val(),
@@ -143,7 +148,10 @@ function ModificarUbicacion(){
         alert("Para modificar una ubicación antes hay que buscarlo");
     }
 }
-
+/**
+ *Función utilizada para eliminar una ubicación,
+ * en este caso actualizar el estado a no disponible.
+ */
 function eliminarUbicacion(){
     var objUbicacion={
         idUbicacion:$("#txtIdUbicacion").val(),
@@ -179,12 +187,17 @@ function eliminarUbicacion(){
     }
 }
 
+/**
+ *función utilizada para limpiar los inputs y habilitar los botones y inputs.
+ */
 function cancelar(){
     limpiar();
     deshabilitarBotones();
 
 }
-
+/**
+ *función utilizada para habilitar los botones y inputs
+ */
 function deshabilitarBotones(){
     let btnGuardar = document.getElementById("btnGuardarUbicacion");
     let btnModificar = document.getElementById("btnModificarUbicacion");
@@ -198,6 +211,9 @@ function deshabilitarBotones(){
     txtUbicacion.disabled=false;
     
 }
+/**
+ *funcion utilizada para limpiar los inputs
+ */
 function limpiar(){
     $("#txtIdUbicacion").val("");
     $("#txtUbicacion").val("");
