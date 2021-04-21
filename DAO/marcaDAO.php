@@ -18,6 +18,10 @@ class marcaDAO{
         $this->objCon->Execute($sql);
     }
 
+    /**
+     *funcion utilizada para listar las marcas disponibles.
+     */
+
     public function listar() {
         $sql = "SELECT nombre,descripcion,estado,id_fabricante from marca where estado='disponible'";
         $this->objCon->Execute($sql);
