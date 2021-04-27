@@ -68,5 +68,13 @@ class itinerarioVueloDAO{
         $this->objCon->Execute($sql);
 
     }
+    /**
+     * Función utilizada para listar una lista dependiendo de la ubicacion de ida ,
+     * utilizando en la gestion del Itinerario vuelo
+     */
+    public function listarubicacionSalida(clsGeneral $obj){
+        $sql="SELECT id,nombre from ubicacion where id!='" . $obj->getId() . "' and estado='disponible' ORDER BY nombre";
+        $this->objCon->Execute($sql);
+    }
     
 }

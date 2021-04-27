@@ -2,7 +2,10 @@
 
 require '../Modelo/clsItinerarioVuelo.php';
 require '../DAO/itinerarioVueloDAO.php';
+require '../Modelo/clsGeneral.php';
 
+
+$idUbicacionSel= isset($_REQUEST['idUbicacionSel'])? $_REQUEST['idUbicacionSel']:"";
 
 $idItinerarioVuelo=isset($_REQUEST['idItinerarioVuelo'])? $_REQUEST['idItinerarioVuelo']:"";
 $idVuelo=isset($_REQUEST['idVuelo'])? $_REQUEST['idVuelo']:"";
@@ -15,6 +18,7 @@ $descripcion=isset($_REQUEST['descripcion'])? $_REQUEST['descripcion']:"";
 
 $type=isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 
+$selectUbicacion = new clsGeneral($idUbicacionSel);
 $itinerarioVuelo=new clsItinerarioVuelo($idItinerarioVuelo,$idVuelo,$idUbicacionllegada,$idUbicacionsalida,$fechallegada,$fechasalida,$estado,$descripcion);
 $itinerarioVueloDAO = new itinerarioVueloDao();
 
@@ -102,5 +106,8 @@ switch($type){
         break;
     case "listUbicacion":
         $itinerarioVueloDAO->listarUbicacion();
+        break;
+    case "listUbicacionSalida":
+        $itinerarioVueloDAO->listarubicacionSalida($selectUbicacion);
         break;
 }

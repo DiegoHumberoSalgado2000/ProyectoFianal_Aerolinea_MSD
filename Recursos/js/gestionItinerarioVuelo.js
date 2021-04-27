@@ -292,11 +292,23 @@ function limpiarformulario(){
 function cargarDatos(){
     cargarVuelo();
     cargarubicacionLlegada();
-    cargarubicacionSalida();
+    $("#CmbUbicacionLlegada").change(cargarubicacionSalida)
+    $("#CmbUbicacionSalida").change(vldUbicacionSalida);
     listarItinearioVuelo();
+
     
 }
+/**
+ *función utilizada para validar cuando el ususario selecciona 'seleccione' en un select
+ */
+function vldUbicacionSalida() {
+    let idUbicacionsalida = $("#CmbUbicacionLlegada").val();
 
+    if (idUbicacionsalida === "-1") {
+        alert("Por favor, seleccione una marca valida 😉");
+    }
+
+}
 /**
  * Función utilizada para cargar el select de Vuelo
  */
@@ -377,38 +389,50 @@ function cargarubicacionLlegada(){
  * Función utilizada para cargar el select de las ubicaciones
  */
 function cargarubicacionSalida(){
-    $.ajax({
-        type:'post',
-        url: "../Controlador/gestionItinerarioVuelo.php",
-        beforeSend: function(){
 
-        },
-        data:{type:"listUbicacion"},
-        success:function(res){
-            let info = JSON.parse(res);
-            let data = JSON.parse(info.data);
+    let idUbicacion=$("CmbUbicacionLlegada").val();
 
-            let select = document.getElementById("CmbUbicacionSalida");
+    if(idUbicacion!=="-1"){
 
-            while(select.length >1){
-                select.remove(select.length-1);
-            }
+        $.ajax({
+            type:'post',
+            url:"../Controlador/gestionItinerarioVuelo.php",
+            beforeSend:function(){
 
-            if(data.length >0){
-                let opt=null;
-                for (var i =0 ;i<data.length;i++){
-                    opt=new Option(data[i].nombre,data[i].id);
-                    select.options[select.length]=opt;
+            },
+            data:{type:"listUbicacionSalida",idUbicacionSel:idUbicacion},
+            success:function(res){
+                let info=JSON.parse(res);
+                let data=JSON.parse(info.data);
+
+                let select=document.getElementById("CmbUbicacionSalida");
+
+                //Limpiar select
+
+                while(select.length>1){
+                    select.remove(select.length-1);
                 }
+
+                //se llena el select
+
+                if(data.length>0){
+                    let opt=null;
+                    for (var i =0;i<data.length;i++){
+                        opt = new Option(data[i].nombre,data[i].id);
+                        select.options[select.length]=opt;
+                    }
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+                alert("Verifique la ruta del archivo");
             }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
 
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-        }
-        
+        });
 
-    });
+    }else{
+        alert("Por favor, seleccione una ubicacion de ida");
+    }
+    
 }
 
