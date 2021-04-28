@@ -4,7 +4,7 @@ $(document).ready(function (){
     $("#btnBuscarItinerario").click(buscarItinerarioVuelo);
     $("#btnEliminarItinerario").click(eliminarItinerarioVuelo);
     $("#btnModificarItinerario").click(ModificarItinerarioVuelo);
-    $("#btnCancelarItinerario").click(cancelarItinerario);
+    $("#btnCancelarItinerario").click(validacionFechas);
 
     
     cancelarItinerario();
@@ -70,6 +70,7 @@ function guardarItinerarioVuelo(){
         
     };
 
+    validacionFechas();
     if(objItinerarioVuelo.idItinerarioVuelo!==""){
         alert("No se puede guardar, ya que buscó antes un registro de itinerario. oprima el boton cancelar y luego intente nuevamente.")
     }else{
@@ -121,6 +122,7 @@ function ModificarItinerarioVuelo(){
 
     };
 
+    validacionFechas();
     if(objItinerarioVuelo.idItinerarioVuelo!== ""){
         objItinerarioVuelo.type='modificar';
 
@@ -390,7 +392,7 @@ function cargarubicacionLlegada(){
  */
 function cargarubicacionSalida(){
 
-    let idUbicacion=$("CmbUbicacionLlegada").val();
+    let idUbicacion=$("#CmbUbicacionLlegada").val();
 
     if(idUbicacion!=="-1"){
 
@@ -434,5 +436,15 @@ function cargarubicacionSalida(){
         alert("Por favor, seleccione una ubicacion de ida");
     }
     
+}
+
+function validacionFechas(){
+    var fecha_llegada=new Date(document.getElementById('DateFechaLlegada').value);
+    var fecha_salida=new Date(document.getElementById('DateFechaSalida').value);
+    
+    
+    if(fecha_llegada.getTime() == fecha_salida.getTime()){
+        alert("Las dos fecha de llegada y de salida son iguales");
+    }
 }
 
