@@ -27,7 +27,14 @@ class itinerarioVueloDAO{
         $sql="SELECT id,id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,descripcion from itinerario_vuelo where id_vuelo='" . $obj->getIdVuelo() . "' and estado='disponible'";
         $this->objCon->Execute($sql);
     }
-
+    /**
+     *Función utilizada para buscar un ubicacion de salida por el id de la ubicacion, 
+     *entra como parametro un objeto de tipo ItinerarioVuelo
+     */
+    public function buscarUbicacionSalidaPorId(clsItinerarioVuelo $obj) {
+        $sql ="SELECT id,nombre from ubicacion where id='" . $obj->getIdUbicacionSalida() . "'";
+        $this->objCon->Execute($sql);
+    }
     /**
      * Función utilizada para eliminar ItinerarioVuelo ,en este caso realiza un actualizar 
      * el cual cambia el estado a 'no disponible'
@@ -74,6 +81,13 @@ class itinerarioVueloDAO{
      */
     public function listarubicacionSalida(clsGeneral $obj){
         $sql="SELECT id,nombre from ubicacion where id!='" . $obj->getId() . "' and estado='disponible' ORDER BY nombre";
+        $this->objCon->Execute($sql);
+    }
+    /**
+     *funcion utilizada para listar una Lista dependiendo del ubicacion de salidas, utilizado en la gestión del itinerario vuelo.
+     */
+    public function listarUbicacionSalidaSel(clsGeneral $obj) {
+        $sql = "SELECT id,nombre from ubicacion where id='" . $obj->getId() . "' and estado='disponible'";
         $this->objCon->Execute($sql);
     }
     
