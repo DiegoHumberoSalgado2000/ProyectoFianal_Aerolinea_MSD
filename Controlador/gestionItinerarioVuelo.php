@@ -150,4 +150,8 @@ switch($type){
     case "buscarUbicacionSalidaId":
         $itinerarioVueloDAO->buscarUbicacionSalidaPorId($itinerarioVuelo);
         break;
+
+    case "buscarVueloReserva":
+        $itinerarioVueloDAO->buscarVueloReserva($itinerarioVuelo);
+        break;
 }

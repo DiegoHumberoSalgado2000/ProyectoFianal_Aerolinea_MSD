@@ -35,6 +35,11 @@ class itinerarioVueloDAO{
         $sql ="SELECT id,nombre from ubicacion where id='" . $obj->getIdUbicacionSalida() . "'";
         $this->objCon->Execute($sql);
     }
+
+    public function buscarVueloReserva(clsItinerarioVuelo $obj){
+        $sql="SELECT id,id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,descripcion from itinerario_vuelo where id_ubicacion_llegada='" . $obj->getIdUbicacionLlegada() . "' and id_ubicacion_salida='" . $obj->getIdUbicacionSalida() . "' and DATE(fecha_llegada)='". $obj->getFechaLlegada() . "' and DATE(fecha_salida)='" . $obj->getFechaSalida() . "'";
+        $this->objCon->Execute($sql);
+    }
     /**
      * Función utilizada para eliminar ItinerarioVuelo ,en este caso realiza un actualizar 
      * el cual cambia el estado a 'no disponible'

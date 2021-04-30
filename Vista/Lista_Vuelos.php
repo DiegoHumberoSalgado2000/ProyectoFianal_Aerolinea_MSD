@@ -5,7 +5,11 @@ include_once 'layouts/header_Pagina_Inicio.php'
 <?php
 include_once 'layouts/nav_Pagina_Inicio.php';
 ?>
-
+<?php
+  print_r($_GET["data"]);
+  $data=$_GET["data"];
+  echo $data[0];
+?>
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
 

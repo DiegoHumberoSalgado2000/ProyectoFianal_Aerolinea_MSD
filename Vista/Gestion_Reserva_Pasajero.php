@@ -81,9 +81,7 @@ include_once 'layouts/nav_Administrador.php';
                                                                     </strong>
                                                                     <p class="text-muted"></p>
 
-                                                                    <strong class="ColorText">
-                                                                        <i class="fas fa-users mr-1">Genero</i>
-                                                                    </strong>
+                                                                    
                                                                     <p class="text-muted"></p>
 
                                                                 </div>
@@ -99,32 +97,17 @@ include_once 'layouts/nav_Administrador.php';
                                                                 <div class="card-body">
                                                                     <form action="" class="form-horizontal">
 
-                                                                        <div class="form-group row">
+                                                                    <div class="form-group row">
                                                                             <label for=""
-                                                                                class="col-sm-2 col-form-label">Estado</label>
+                                                                                class="col-sm-2 col-form-label">Tipo
+                                                                                Vuelo</label>
                                                                             <div class="col-sm-10">
-                                                                                <select id="CmbEstadoReserva"
-                                                                                    class="form-control">
-                                                                                    <option>Seleccine el estado</option>
-                                                                                    <option>Desabilitado</option>
-                                                                                    <option>Activo</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                        <div class="form-group row">
-                                                                            <label for=""
-                                                                                class="col-sm-2 col-form-label">Hora
-                                                                                Salida</label>
-                                                                            <div class="col-sm-10">
-                                                                                <input type="date" id="FechaSalida"
+                                                                                <input type="text" id="TipoVuelo"
                                                                                     class="form-control">
                                                                             </div>
-
                                                                         </div>
 
-                                                                        <div class="form-group row">
+                                                                    <div class="form-group row">
                                                                             <label for=""
                                                                                 class="col-sm-2 col-form-label">Silla</label>
                                                                             <div class="col-sm-10">
@@ -133,6 +116,26 @@ include_once 'layouts/nav_Administrador.php';
                                                                                     class="form-control">
                                                                             </div>
                                                                         </div>
+
+                                                                        <div class="form-group row">
+                                                                            <label for=""
+                                                                                class="col-sm-2 col-form-label">Fecha
+                                                                                Reserva</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="date" id="FechaLlegada"
+                                                                                    class="form-control">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group row">
+                                                                        <label for="" class="col-sm-2 col-form-label">Descripción</label>
+                                                                        <div class="col-sm-10">
+                                                                        <textarea class="form-control" id="txtDescripcion"></textarea>
+                                                                        </div>
+                                                                        </div>
+                                                                        
+
+                                                                        
 
                                                                         <div class="form-group row">
                                                                             <label for=""
@@ -173,32 +176,8 @@ include_once 'layouts/nav_Administrador.php';
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="form-group row">
-                                                                            <label for=""
-                                                                                class="col-sm-2 col-form-label">Tipo
-                                                                                Vuelo</label>
-                                                                            <div class="col-sm-10">
-                                                                                <input type="text" id="TipoVuelo"
-                                                                                    class="form-control">
-                                                                            </div>
-                                                                        </div>
 
-                                                                        <div class="form-group row">
-                                                                            <label for=""
-                                                                                class="col-sm-2 col-form-label">Estado
-                                                                                Vuelo</label>
-                                                                            <div class="col-sm-10">
-                                                                                <input type="text" id="EstadoVuelo"
-                                                                                    class="form-control">
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card-footer">
-                                                                            <div
-                                                                                class="offset-sm-2 col-sm-12 float-right">
-                                                                                <button
-                                                                                    class="btn btn-block btn-primary">Guardar</button>
-                                                                            </div>
+                                                                       
                                                                         </div>
                                                                     </form>
                                                                 </div>

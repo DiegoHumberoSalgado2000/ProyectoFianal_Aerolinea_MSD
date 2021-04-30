@@ -7,6 +7,7 @@
         <title>Inicio</title>
         <script src="Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
         <script src="Recursos/js/gestionLogin.js" type="text/javascript"></script>
+        <script src="Recursos/js/gestionReserva.js" type="text/javascript"></script>
     </head>
 
     <body style="overflow-x:hidden">
@@ -383,7 +384,7 @@
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-plane-departure"></i></span>
                                     <select type="text" class="form-control" id="CmbOrigen" aria-describedby="basic-addon1">
-                                        <option>Seleccione el Origen</option>
+                                        <option value="-1">Seleccione el Origen</option>
 
                                     </select>
                                 </div>
@@ -394,9 +395,8 @@
 
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-plane-arrival"></i></span>
-                                    <select type="text" class="form-control" id="CmbDestiono"
-                                            aria-describedby="basic-addon1">
-                                        <option>Seleccione el Destino</option>
+                                    <select type="text" class="form-control" id="CmbDestino" aria-describedby="basic-addon1">
+                                        <option value="-1">Seleccione el Destino</option>
                                     </select>
                                 </div>
                             </div>
@@ -422,32 +422,16 @@
                             </div>
 
                             <div class="ContenedorCantidadPasajeros">
+                            <h6>Seleccione numeros de Pasajeros</h6>
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
-                                    <select type="text" class="form-control" id="CmbPasajeros"
-                                            aria-describedby="basic-addon1">
-                                        <option>Seleccione la cantidad de pasajeros</option>
-                                        <option>Pasajeros 1</option>
-                                        <option>Pasajeros 2</option>
-                                        <option>Pasajeros 3</option>
-                                        <option>Pasajeros 4</option>
-                                    </select>
+                                    <div class="col-sm-2">
+                                    <input type="number" id="Origen"class="form-control" min="1" max="2" step="1" name="num"></div>
+                                
                                 </div>
                             </div>
 
-                            <div class="ContenedorTipoVuelos">
-                                <div class="input-group form-group">
-                                    <span class="input-group-addon" id="basic-addon1"><i
-                                            class="fas fa-globe-americas"></i></span>
-                                    <select type="text" class="form-control" id="CmbTipoVuelo"
-                                            aria-describedby="basic-addon1">
-                                        <option>Seleccione el tipo de vuelo</option>
-                                        <option>Nacional</option>
-                                        <option>Internacional</option>
-
-                                    </select>
-                                </div>
-                            </div>
+                            
 
                             <div class="ContenedorBotonBuscarVuelos">
                                 <button type="button" id="btnBuscarVuelo" class="boton_personalizado">Buscar Vuelo</button>
