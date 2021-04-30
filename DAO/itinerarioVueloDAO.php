@@ -37,7 +37,7 @@ class itinerarioVueloDAO{
     }
 
     public function buscarVueloReserva(clsItinerarioVuelo $obj){
-        $sql="SELECT id,id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,descripcion from itinerario_vuelo where id_ubicacion_llegada='" . $obj->getIdUbicacionLlegada() . "' and id_ubicacion_salida='" . $obj->getIdUbicacionSalida() . "' and DATE(fecha_llegada)='". $obj->getFechaLlegada() . "' and DATE(fecha_salida)='" . $obj->getFechaSalida() . "'";
+        $sql="SELECT id,(select a.placa from vuelo v join avion a on v.id_avion=a.id where v.id=id_vuelo)as placa,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,descripcion from itinerario_vuelo where id_ubicacion_llegada='" . $obj->getIdUbicacionLlegada() . "' and id_ubicacion_salida='" . $obj->getIdUbicacionSalida() . "' and DATE(fecha_llegada)='". $obj->getFechaLlegada() . "' and DATE(fecha_salida)='" . $obj->getFechaSalida() . "'";
         $this->objCon->Execute($sql);
     }
     /**

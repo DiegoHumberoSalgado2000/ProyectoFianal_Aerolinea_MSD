@@ -8,7 +8,7 @@ $("#btnBuscarVuelo").click(buscarVueloReserva);
 
 function buscarVueloReserva(){
 
-   
+
     var objReservaItinerario={
         idUbicacionllegada:$("#CmbOrigen").val(),
         idUbicacionsalida:$("#CmbDestino").val(),
@@ -28,12 +28,32 @@ function buscarVueloReserva(){
         data:objReservaItinerario,
         success:function(res){
             var info=JSON.parse(res);
-            var data=JSON.parse(info.data);
+            var arreglo=JSON.parse(info.data);
 
             if(info.msj === "Success"){
-                alert("paso");
-               
-                window.location.href='Vista/Lista_Vuelos.php?data='+data;
+
+                var lista ="";
+                if (arreglo.length > 0) {
+                    for (f = 0; f < arreglo.length; f++) {
+                        lista = lista + "<tr>";
+                        lista = lista + "<td>" + arreglo[f].placa + "</td>";
+                        lista = lista + "<td>" + arreglo[f].id_ubicacion_llegada + "</td>";
+                        lista = lista + "<td>" + arreglo[f].id_ubicacion_salida + "</td>";
+                        lista = lista + "<td>" + arreglo[f].fecha_llegada + "</td>";
+                        lista = lista + "<td>" + arreglo[f].fecha_salida + "</td>";
+                        lista = lista + "<td>" + arreglo[f].descripcion + "</td>";
+                        lista = lista + "</tr>";
+                    }
+
+
+                    window.location.href='Vista/Lista_Vuelos.php?lista='+lista;
+
+                } else {
+                    var x="No se encuentra informacion"
+                    window.location.href='Vista/Lista_Vuelos.php?lista='+x;
+                }
+
+
 
             }else{
                 alert("No se encuentra vuelo con esos datos");
@@ -48,12 +68,16 @@ function buscarVueloReserva(){
 }
 
 
-    
+
+
+
+
 
 
 
 
 function cargarDatosReserva(){
+    habilitar();
     cargarubicacionLlegada();
     $("#CmbOrigen").change(cargarubicacionSalida)
     $("#CmbDestino").change(vldorigenSalida);

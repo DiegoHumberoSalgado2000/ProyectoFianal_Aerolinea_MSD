@@ -1,14 +1,24 @@
 <?php
 include_once 'layouts/header_Pagina_Inicio.php'
+
+
 ?>
 <title>Lista de Vuelos</title>
 <?php
 include_once 'layouts/nav_Pagina_Inicio.php';
 ?>
+
 <?php
-  print_r($_GET["data"]);
-  $data=$_GET["data"];
-  echo $data[0];
+
+if(isset($_GET['lista'])){
+    $lista=$_GET['lista'];
+    //echo($lista);
+
+
+}
+
+
+
 ?>
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
@@ -34,18 +44,22 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                                                     <table class="table table-over text-nowrap">
                                                         <thead class="table-success">
                                                             <tr>
-                                                                <th>Salida</th>
-                                                                <th>Llegada</th>
-                                                                <th>Tiempo Vuelo</th>
-                                                                <th>Precio</th>
+                                                                <th>Vuelo</th>
+                                                                <th>Ubicacion llegada</th>
+                                                                <th>Ubicacion Salida</th>
+                                                                <th>fecha llegada</th>
+                                                                <th>fecha Salida</th>
+                                                                <th>Descripcion</th>
 
                                                             </tr>
                                                         </thead>
-                                                        <tbody class="table-active" id="ListaVueloSalida">
+                                                        <tbody class="table-active" id="ListaVuelos">
 
                                                         </tbody>
                                                     </table>
-                                                </div>
+                                                    <div class="offset-sm-2 col-sm-12 float-right">
+
+
 
                                                 <div class="card-footer">
 
@@ -58,6 +72,10 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                         </section>
                     </div>
                 </div>
+
+                </div>
+                    <button onclick="listarItinerarios(list='<?php echo $lista?>')" type="button" id="actualizar" class="btn btn-danger" >Actualizar</button>
+                    </div>
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
