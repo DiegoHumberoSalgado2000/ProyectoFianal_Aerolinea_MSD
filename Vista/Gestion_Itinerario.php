@@ -172,7 +172,7 @@ include_once 'layouts/nav_Administrador.php';
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Fecha llegada</label>
+                                        <label for="" class="col-sm-2 col-form-label">Fecha Salida</label>
                                         <div class="col-sm-9">
                                             <input type="date" id="DateFechaLlegada" class="form-control">
                                         </div>
@@ -180,7 +180,7 @@ include_once 'layouts/nav_Administrador.php';
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Fecha Salida</label>
+                                        <label for="" class="col-sm-2 col-form-label">Fecha llegada</label>
                                         <div class="col-sm-9">
                                             <input type="date" id="DateFechaSalida" class="form-control">
                                         </div>
@@ -233,8 +233,8 @@ include_once 'layouts/nav_Administrador.php';
                                             <th>Vuelo</th>
                                             <th>Ubicacion llegada</th>
                                             <th>Ubicacion Salida</th>
-                                            <th>Fecha llegada</th>
                                             <th>Fecha Salida</th>
+                                            <th>Fecha llegada</th>
                                             <th>Estado</th>
                                             <th>Descripcion</th>
                                         </tr>

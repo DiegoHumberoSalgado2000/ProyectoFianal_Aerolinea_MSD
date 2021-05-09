@@ -62,7 +62,7 @@
                         <li class="nav-header">NAVEGACION</li>
 
                         <li class="nav-item">
-                            <a href="../index.php" class="nav-link">
+                            <a href="../Inicio_Empleado.php" class="nav-link">
                             <i class="fas fa-sign-out-alt"></i>
                                 <p>
                                     Volver a la Pagina Principal
