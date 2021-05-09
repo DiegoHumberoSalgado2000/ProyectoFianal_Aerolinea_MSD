@@ -80,6 +80,12 @@ class avionDAO{
         $this->objCon->Execute($sql);
     }
 
-
+    /**
+     *funcion utilizada para mostrar la cantidad de aviones registrados.
+     */
+    public function cantidadAviones() {
+        $sql = "SELECT count(id) cantidad from avion";
+        $this->objCon->Execute($sql);
+    }
 
 }

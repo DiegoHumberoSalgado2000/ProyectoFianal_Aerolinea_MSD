@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     cargarDatos();
     $("#btnBuscar").click(buscarAvion);
-    $("#btnGuardar").click(guardarAvion);
+    $("#btnGuardar").click(validarDatos);
     $("#btnCancelar").click(cancelar);
     $("#btnModificar").click(modificarAvion);
     $("#btnEliminar").click(eliminarAvion);
@@ -59,7 +59,7 @@ function listarAvion() {
 /**
  *Función utilizada para guardar un avion
  */
-function guardarAvion() {
+function guardarAvion(cantidad) {
 
         let objAvion = {
             idFabricanteSel:$("#selFabricante").val(),
@@ -72,7 +72,10 @@ function guardarAvion() {
 
 
         };
-
+        alert(cantidad);
+        if(cantidad>19){
+            alert("hay 20 aviones resgistrados, no puede registrar mas")
+        }else{
 
         if (objAvion.idAvion !== "") {
             alert("No se puede guardar, ya que buscó antes un avion. oprima el boton cancelar y luego intente nuevamente.")
@@ -87,8 +90,11 @@ function guardarAvion() {
                 data: objAvion,
                 success: function (data) {
 
-                    var info = JSON.parse(data);
+                //alert(data);
+                //alert(typeof data);
+                //alert(data.length);
 
+                var info = JSON.parse(data);
                     if (info.res === "Success") {
                         alert("Transacción exitosa");
                         listarAvion();
@@ -98,6 +104,7 @@ function guardarAvion() {
                     }else{
                         alert("Transacción fallida, verifique que la placa no se encuentre registrada");
                     }
+
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
@@ -105,10 +112,46 @@ function guardarAvion() {
                 }
             });
         }
-
+    }
 
 
 }
+
+function validarDatos(){
+    validarCantidad();
+}
+
+function validarCantidad() {
+
+    return $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionAvion.php",
+        beforeSend: function () {
+        },
+        data: {type: "validarCantidad"},
+        success: function (res) {
+            let info = JSON.parse(res);
+            let data = JSON.parse(info.data);
+            var cantidad=0;
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    cantidad = data[i].cantidad;
+                }
+            }
+            guardarAvion(cantidad);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+}
+
+
+
+
+
 /**
  *Función utilizada para modificar un avión
  */

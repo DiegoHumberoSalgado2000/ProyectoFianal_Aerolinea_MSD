@@ -127,4 +127,7 @@ switch ($type) {
         $avionDAO->listar();
         break;
 
+    case "validarCantidad":
+        $avionDAO->cantidadAviones();
+        break;
 }
