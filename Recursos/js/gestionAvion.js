@@ -72,7 +72,6 @@ function guardarAvion(cantidad) {
 
 
         };
-        alert(cantidad);
         if(cantidad>19){
             alert("hay 20 aviones resgistrados, no puede registrar mas")
         }else{
