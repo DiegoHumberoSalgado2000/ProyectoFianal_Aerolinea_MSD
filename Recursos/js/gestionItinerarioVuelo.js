@@ -30,12 +30,13 @@ function listarItinearioVuelo() {
             if (info.length > 0) {
                 for (f = 0; f < info.length; f++) {
                     lista = lista + "<tr>";
-                    lista = lista + "<td>" + info[f].vuelo + "</td>";
+                    lista = lista + "<td>" + info[f].vuelo +" - "+info[f].placa + "</td>";
                     lista = lista + "<td>" + info[f].nombreUbicacionLlegada + "</td>";
                     lista = lista + "<td>" + info[f].nombreUbicacionSalida + "</td>";
                     lista = lista + "<td>" + info[f].fecha_llegada + "</td>";
                     lista = lista + "<td>" + info[f].fecha_salida + "</td>";
                     lista = lista + "<td>" + info[f].estado + "</td>";
+                    lista = lista + "<td>" + info[f].precio + "</td>";
                     lista = lista + "<td>" + info[f].descripcion + "</td>";
                     lista = lista + "</tr>";
                 }
@@ -65,6 +66,7 @@ function guardarItinerarioVuelo(){
         idUbicacionsalida : $("#CmbUbicacionSalida").val(),
         fechallegada : $("#DateFechaLlegada").val(),
         fechasalida : $("#DateFechaSalida").val(),
+        precio : $("#txtPrecio").val(),
         descripcion : $("#txtDescripcionItinerario").val(),
         fechaactual :new Date(),
         type:""
@@ -120,6 +122,7 @@ function ModificarItinerarioVuelo(){
         idUbicacionsalida : $("#CmbUbicacionSalida").val(),
         fechallegada : $("#DateFechaLlegada").val(),
         fechasalida : $("#DateFechaSalida").val(),
+        precio : $("#txtPrecio").val(),
         descripcion : $("#txtDescripcionItinerario").val(),
         type:""
 
@@ -189,6 +192,7 @@ function buscarItinerarioVuelo(){
                // $("#CmbUbicacionSalida").val(data[0].id_ubicacion_salida);
                 $("#DateFechaLlegada").val(data[0].fecha_llegada);
                 $("#DateFechaSalida").val(data[0].fecha_salida);
+                $("#txtPrecio").val(data[0].precio);
                 $("#txtDescripcionItinerario").val(data[0].descripcion);
                buscarUbicacionSalidaPorId(data[0].id_ubicacion_salida);
 
@@ -289,6 +293,7 @@ function limpiarformulario(){
     $("#CmbUbicacionSalida").val("-1");
     $("#DateFechaLlegada").val("dd/mm/aaaa");
     $("#DateFechaSalida").val("dd/mm/aaaa");
+    $("#txtPrecio").val("");
     $("#txtDescripcionItinerario").val("");
 }
 
@@ -339,7 +344,7 @@ function cargarVuelo(){
             if(data.length >0){
                 let opt=null;
                 for (var i =0 ;i<data.length;i++){
-                    opt=new Option(data[i].tipo_vuelo,data[i].id);
+                    opt=new Option(data[i].tipo_vuelo +"-"+ data[i].placa ,data[i].id);
                     select.options[select.length]=opt;
                 }
             }

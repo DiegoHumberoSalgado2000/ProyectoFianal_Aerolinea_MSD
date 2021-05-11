@@ -154,19 +154,19 @@ include_once 'layouts/nav_Administrador.php';
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Ubicacion llegada</label>
+                                        <label for="" class="col-sm-2 col-form-label">Ubicación llegada</label>
                                         <div class="col-sm-9">
                                             <select type="text" id="CmbUbicacionLlegada" class="form-control">
-                                                <option value="-1">Seleccione la Ubicacion llegada</option>
+                                                <option value="-1">Seleccione la Ubicación llegada</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Ubicacion Salida</label>
+                                        <label for="" class="col-sm-2 col-form-label">Ubicación Salida</label>
                                         <div class="col-sm-9">
                                             <select type="text" id="CmbUbicacionSalida" class="form-control">
-                                                <option value="-1">Seleccione la Ubicacion Salida</option>
+                                                <option value="-1">Seleccione la Ubicación Salida</option>
                                             </select>
                                         </div>
                                     </div>
@@ -187,10 +187,15 @@ include_once 'layouts/nav_Administrador.php';
 
                                     </div>
 
-                                    
+                                    <div class="form-group row">
+                                     <label for="" class="col-sm-2 col-form-label">Precio Del Vuelo</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" id="txtPrecio" class="form-control">
+                                        </div>
+                                        </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Descripcion</label>
+                                        <label for="" class="col-sm-2 col-form-label">Descripción</label>
                                         <div class="col-sm-9">
                                         <textarea class="form-control" id="txtDescripcionItinerario"></textarea>
                                         </div>
@@ -231,12 +236,13 @@ include_once 'layouts/nav_Administrador.php';
                                     <thead class="table-success">
                                         <tr>
                                             <th>Vuelo</th>
-                                            <th>Ubicacion llegada</th>
-                                            <th>Ubicacion Salida</th>
+                                            <th>Ubicación llegada</th>
+                                            <th>Ubicación Salida</th>
                                             <th>Fecha Salida</th>
                                             <th>Fecha llegada</th>
                                             <th>Estado</th>
-                                            <th>Descripcion</th>
+                                            <th>Precio Vuelo</th>
+                                            <th>Descripción</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-active" id="ListaItinerarioVuelo">

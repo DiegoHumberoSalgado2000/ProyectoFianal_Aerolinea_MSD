@@ -15,7 +15,7 @@ class itinerarioVueloDAO{
      * entra como parametro un objeto tipo ItinerarioVuelo
      */
     public function guardar(clsItinerarioVuelo $obj){
-        $sql="INSERT INTO itinerario_vuelo(id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,descripcion) VALUES ('" . $obj->getIdVuelo() . "','" . $obj->getIdUbicacionLlegada() . "','" . $obj->getIdUbicacionSalida() . "','" . $obj->getFechaLlegada() . "','" . $obj->getFechaSalida() . "','disponible','" . $obj->getDescripcion() . "')";
+        $sql="INSERT INTO itinerario_vuelo(id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,precio,descripcion) VALUES ('" . $obj->getIdVuelo() . "','" . $obj->getIdUbicacionLlegada() . "','" . $obj->getIdUbicacionSalida() . "','" . $obj->getFechaLlegada() . "','" . $obj->getFechaSalida() . "','disponible','" . $obj->getDescripcion() . "')";
         $this->objCon->ExecuteTransaction($sql);
     }
 
@@ -24,7 +24,7 @@ class itinerarioVueloDAO{
      * entra como parametro un objeto tipo ItinerarioVuelo
      */
     public function buscar(clsItinerarioVuelo $obj){
-        $sql="SELECT id,id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,descripcion from itinerario_vuelo where id_vuelo='" . $obj->getIdVuelo() . "' and estado='disponible'";
+        $sql="SELECT id,id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,precio,descripcion from itinerario_vuelo where id_vuelo='" . $obj->getIdVuelo() . "' and estado='disponible'";
         $this->objCon->Execute($sql);
     }
     /**
@@ -37,7 +37,7 @@ class itinerarioVueloDAO{
     }
 
     public function buscarVueloReserva(clsItinerarioVuelo $obj){
-        $sql="SELECT id,(select a.placa from vuelo v join avion a on v.id_avion=a.id where v.id=id_vuelo)as placa,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,descripcion from itinerario_vuelo where id_ubicacion_llegada='" . $obj->getIdUbicacionLlegada() . "' and id_ubicacion_salida='" . $obj->getIdUbicacionSalida() . "' and DATE(fecha_llegada)='". $obj->getFechaLlegada() . "' and DATE(fecha_salida)='" . $obj->getFechaSalida() . "'";
+        $sql="SELECT id,(select a.placa from vuelo v join avion a on v.id_avion=a.id where v.id=id_vuelo)as placa,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,precio,descripcion from itinerario_vuelo where id_ubicacion_llegada='" . $obj->getIdUbicacionLlegada() . "' and id_ubicacion_salida='" . $obj->getIdUbicacionSalida() . "' and DATE(fecha_llegada)='". $obj->getFechaLlegada() . "' and DATE(fecha_salida)='" . $obj->getFechaSalida() . "'";
         $this->objCon->Execute($sql);
     }
     /**
@@ -54,7 +54,7 @@ class itinerarioVueloDAO{
      * entra como parametro un objeto de tipo ItinerarioVuelo
      */
     public function modificar(clsItinerarioVuelo $obj){
-        $sql="UPDATE itinerario_vuelo set id_vuelo='" . $obj->getIdVuelo() . "',id_ubicacion_llegada='" . $obj->getIdUbicacionLlegada() . "',id_ubicacion_salida='" . $obj->getIdUbicacionSalida() . "',fecha_llegada='" . $obj->getFechaLlegada() . "',fecha_salida='" . $obj->getFechaSalida() . "',descripcion='" . $obj->getDescripcion() . "' where id='" . $obj->getId() . "'";
+        $sql="UPDATE itinerario_vuelo set id_vuelo='" . $obj->getIdVuelo() . "',id_ubicacion_llegada='" . $obj->getIdUbicacionLlegada() . "',id_ubicacion_salida='" . $obj->getIdUbicacionSalida() . "',fecha_llegada='" . $obj->getFechaLlegada() . "',fecha_salida='" . $obj->getFechaSalida() . "',precio='" . $obj->getPrecio() . "',descripcion='" . $obj->getDescripcion() . "' where id='" . $obj->getId() . "'";
         $this->objCon->ExecuteTransaction($sql);
     }
 
@@ -62,14 +62,14 @@ class itinerarioVueloDAO{
      * Función utilizada para listar todos los ItinerarioVuelo con el estado en 'disponible'
      */
     public function listar(){
-        $sql="SELECT (SELECT tipo_vuelo from vuelo where id=id_vuelo)as vuelo,(SELECT nombre from ubicacion where id=id_ubicacion_llegada)as nombreUbicacionLlegada,(SELECT nombre from ubicacion where id=id_ubicacion_salida) as nombreUbicacionSalida,fecha_llegada,fecha_salida,estado,descripcion from itinerario_vuelo where estado='disponible'";
+        $sql="SELECT (SELECT tipo_vuelo from vuelo where id=id_vuelo)as vuelo,(SELECT a.placa from vuelo v join avion a on v.id_avion=a.id where v.id=id_vuelo)as placa,(SELECT nombre from ubicacion where id=id_ubicacion_llegada)as nombreUbicacionLlegada,(SELECT nombre from ubicacion where id=id_ubicacion_salida) as nombreUbicacionSalida,fecha_llegada,fecha_salida,estado,precio,descripcion from itinerario_vuelo where estado='disponible'";
         $this->objCon->Execute($sql);
     }
     /**
      * Funcion utilizada para listar una lista de vuelos
      */
     public function listarVueloSel(){
-        $sql="SELECT id,tipo_vuelo from vuelo where estado='disponible' ORDER BY tipo_vuelo";
+        $sql="SELECT id,tipo_vuelo,(SELECT placa from avion where id=id_avion)as placa from vuelo where estado='disponible' ORDER BY tipo_vuelo";
         $this->objCon->Execute($sql);
     }
     /**

@@ -8,9 +8,10 @@ class clsItinerarioVuelo{
     private $fechaLlegada;
     private $fechaSalida;
     private $estado;
+    private $precio;
     private $descripcion;
 
-    function __construct($id, $idVuelo, $idUbicacionLlegada, $idUbicacionSalida, $fechaLlegada, $fechaSalida, $estado, $descripcion){ 
+    function __construct($id, $idVuelo, $idUbicacionLlegada, $idUbicacionSalida, $fechaLlegada, $fechaSalida, $estado,$precio,$descripcion){ 
     $this->id = $id;
     $this->idVuelo = $idVuelo;
     $this->idUbicacionLlegada = $idUbicacionLlegada;
@@ -18,6 +19,7 @@ class clsItinerarioVuelo{
     $this->fechaLlegada = $fechaLlegada;
     $this->fechaSalida = $fechaSalida;
     $this->estado = $estado;
+    $this->precio=$precio;
     $this->descripcion = $descripcion;  
     }
 
@@ -42,6 +44,9 @@ class clsItinerarioVuelo{
     function getEstado(){
         return $this->estado;
     }
+    function getPrecio(){
+        return $this->precio;
+    }
     function getDescripcion(){
         return $this->descripcion;
     }
@@ -65,6 +70,9 @@ class clsItinerarioVuelo{
     }
     function setEstado($estado) {
         $this->estado = $estado;
+    }
+    function setPrecio($precio){
+        $this->precio=$precio;
     }
     function setDescripcion($descripcion) {
         $this->descripcion = $descripcion;
