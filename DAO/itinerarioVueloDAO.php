@@ -15,7 +15,7 @@ class itinerarioVueloDAO{
      * entra como parametro un objeto tipo ItinerarioVuelo
      */
     public function guardar(clsItinerarioVuelo $obj){
-        $sql="INSERT INTO itinerario_vuelo(id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,precio,descripcion) VALUES ('" . $obj->getIdVuelo() . "','" . $obj->getIdUbicacionLlegada() . "','" . $obj->getIdUbicacionSalida() . "','" . $obj->getFechaLlegada() . "','" . $obj->getFechaSalida() . "','disponible','" . $obj->getDescripcion() . "')";
+        $sql="INSERT INTO itinerario_vuelo(id_vuelo,id_ubicacion_llegada,id_ubicacion_salida,fecha_llegada,fecha_salida,estado,precio,descripcion) VALUES ('" . $obj->getIdVuelo() . "','" . $obj->getIdUbicacionLlegada() . "','" . $obj->getIdUbicacionSalida() . "','" . $obj->getFechaLlegada() . "','" . $obj->getFechaSalida() . "','disponible','" .$obj->getPrecio() . "','" . $obj->getDescripcion() . "')";
         $this->objCon->ExecuteTransaction($sql);
     }
 
