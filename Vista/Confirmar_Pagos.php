@@ -31,7 +31,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                                 <option>Seleccione el tipo de targeta de Credito</option>
                                 <option>Visa</option>
                                 <option>Mastercard</option>
-                                <option>Anerican Express</option>
+                                <option>American Express</option>
                                 <option>Diners</option>
                                 </select>
                             </div>
@@ -147,7 +147,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Numero de Verificacion</label>
                             <div class="col-sm-5">
-                                <input type="text" id="txtNumeroVerificacion" class="form-control">
+                                <input type="number" id="txtNumeroVerificacion" class="form-control">
                             </div>
 
                         </div>
@@ -213,14 +213,6 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                             <label for="" class="col-sm-2 col-form-label">Ciudad</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtCiudad" class="form-control">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Codigo Postal</label>
-                            <div class="col-sm-5">
-                                <input type="number" id="txtCodigoPostal" class="form-control">
                             </div>
 
                         </div>

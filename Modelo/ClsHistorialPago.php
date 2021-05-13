@@ -5,7 +5,7 @@ class ClsHistorialPago{
     private $id_Reserva;
     private $total_Pagos;
     private $estado;
-    private $targeta_creditp;
+    private $targeta_credito;
     private $mes_vencimiento;
     private $opcion_pago;
     private $Avencimiento;
@@ -13,12 +13,12 @@ class ClsHistorialPago{
     private $numero_verificacion;
     private $descripcion;
     
-    function __construct($id, $id_Reserva, $total_Pagos, $estado, $targeta_creditp, $mes_vencimiento, $opcion_pago, $Avencimiento, $numero_targeta, $numero_verificacion, $descripcion) {
+    function __construct($id, $id_Reserva, $total_Pagos, $estado, $targeta_credito, $mes_vencimiento, $opcion_pago, $Avencimiento, $numero_targeta, $numero_verificacion, $descripcion) {
         $this->id = $id;
         $this->id_Reserva = $id_Reserva;
         $this->total_Pagos = $total_Pagos;
         $this->estado = $estado;
-        $this->targeta_creditp = $targeta_creditp;
+        $this->targeta_credito = $targeta_credito;
         $this->mes_vencimiento = $mes_vencimiento;
         $this->opcion_pago = $opcion_pago;
         $this->Avencimiento = $Avencimiento;
@@ -43,8 +43,8 @@ class ClsHistorialPago{
         return $this->estado;
     }
 
-    function getTargeta_creditp() {
-        return $this->targeta_creditp;
+    function getTargeta_credito() {
+        return $this->targeta_credito;
     }
 
     function getMes_vencimiento() {
@@ -87,8 +87,8 @@ class ClsHistorialPago{
         $this->estado = $estado;
     }
 
-    function setTargeta_creditp($targeta_creditp){
-        $this->targeta_creditp = $targeta_creditp;
+    function setTargeta_credito($targeta_credito){
+        $this->targeta_credito = $targeta_credito;
     }
 
     function setMes_vencimiento($mes_vencimiento){
