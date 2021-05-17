@@ -383,8 +383,8 @@
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-plane-departure"></i></span>
-                                    <select type="text" class="form-control" id="CmbOrigen" aria-describedby="basic-addon1">
-                                        <option value="-1">Seleccione el Origen</option>
+                                    <select type="text" class="form-control" id="cmbSalida" aria-describedby="basic-addon1">
+                                        <option value="-1">Seleccione la ubicacion de salida</option>
 
                                     </select>
                                 </div>
@@ -395,8 +395,8 @@
 
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-plane-arrival"></i></span>
-                                    <select type="text" class="form-control" id="CmbDestino" aria-describedby="basic-addon1">
-                                        <option value="-1">Seleccione el Destino</option>
+                                    <select type="text" class="form-control" id="cmdLlegada" aria-describedby="basic-addon1">
+                                        <option value="-1">Seleccione la ubicacion de llegada</option>
                                     </select>
                                 </div>
                             </div>

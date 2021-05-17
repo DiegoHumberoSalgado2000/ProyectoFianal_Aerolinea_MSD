@@ -4,10 +4,7 @@ $("#btnBuscarVuelo").click(buscarVueloReserva);
 
 });
 
-
-
 function buscarVueloReserva(){
-
 
     var objReservaItinerario={
         idUbicacionllegada:$("#CmbOrigen").val(),
@@ -15,23 +12,17 @@ function buscarVueloReserva(){
         fechallegada:$("#FechaSalida").val(),
         fechasalida:$("#FechaRegreso").val(),
         type: "buscarVueloReserva"
-
     };
-
     $.ajax({
         type:'post',
         url:"Controlador/gestionItinerarioVuelo.php",
         beforeSend:function(){
-
         },
-
         data:objReservaItinerario,
         success:function(res){
             var info=JSON.parse(res);
             var arreglo=JSON.parse(info.data);
-
             if(info.msj === "Success"){
-
                 var lista ="";
                 if (arreglo.length > 0) {
                     for (f = 0; f < arreglo.length; f++) {
@@ -44,17 +35,11 @@ function buscarVueloReserva(){
                         lista = lista + "<td>" + arreglo[f].descripcion + "</td>";
                         lista = lista + "</tr>";
                     }
-
-
                     window.location.href='Vista/Lista_Vuelos.php?lista='+lista;
-
                 } else {
                     var x="No se encuentra informacion"
                     window.location.href='Vista/Lista_Vuelos.php?lista='+x;
                 }
-
-
-
             }else{
                 alert("No se encuentra vuelo con esos datos");
             }
@@ -63,27 +48,16 @@ function buscarVueloReserva(){
             alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
             alert("Verifique la ruta del archivo");
         }
-
     });
 }
 
-
-
-
-
-
-
-
-
-
 function cargarDatosReserva(){
     habilitar();
-    cargarubicacionLlegada();
-    $("#CmbOrigen").change(cargarubicacionSalida)
-    $("#CmbDestino").change(vldorigenSalida);
+    cargarubicacionSalida();
+    $("#cmbSalida").change(cargarubicacionLlegada)
+    $("#cmdLlegada").change(vldLlegada);
 
 }
-
 
 function habilitar(){
     document.getElementById("chk1").onclick = function(){
@@ -95,35 +69,30 @@ function habilitar(){
     }
 }
 
-function vldorigenSalida() {
-    let idUbicacionsalida = $("#CmbOrigen").val();
-
+function vldLlegada() {
+    let idUbicacionsalida = $("#cmdLlegada").val();
     if (idUbicacionsalida === "-1") {
-        alert("Por favor, seleccione una origen valido 😉");
+        alert("Por favor, seleccione una ubicación de llegada valida 😉");
     }
 
 }
 /**
  * Función utilizada para cargar el select de las ubicaciones
  */
- function cargarubicacionLlegada(){
+function cargarubicacionSalida(){
     $.ajax({
         type:'post',
         url: "Controlador/gestionReserva.php",
         beforeSend: function(){
-
         },
-        data:{type:"listUbicacionLLegada"},
+        data:{type:"listUbicacionSalida"},
         success:function(res){
             let info = JSON.parse(res);
             let data = JSON.parse(info.data);
-
-            let select = document.getElementById("CmbOrigen");
-
+            let select = document.getElementById("cmbSalida");
             while(select.length >1){
                 select.remove(select.length-1);
             }
-
             if(data.length >0){
                 let opt=null;
                 for (var i =0 ;i<data.length;i++){
@@ -133,41 +102,31 @@ function vldorigenSalida() {
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-
             alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
             alert("Verifique la ruta del archivo");
         }
-        
-
     });
 }
-function cargarubicacionSalida(){
+function cargarubicacionLlegada(){
 
-    let idUbicacion=$("#CmbOrigen").val();
+    let idUbicacion=$("#cmbSalida").val();
 
     if(idUbicacion!=="-1"){
-
         $.ajax({
             type:'post',
             url:"Controlador/gestionReserva.php",
             beforeSend:function(){
-
             },
-            data:{type:"listUbicacionSalida",idUbicacionSel:idUbicacion},
+            data:{type:"listUbicacionLlegada",idUbicacionSel:idUbicacion},
             success:function(res){
                 let info=JSON.parse(res);
                 let data=JSON.parse(info.data);
-
-                let select=document.getElementById("CmbDestino");
-
+                let select=document.getElementById("cmdLlegada");
                 //Limpiar select
-
                 while(select.length>1){
                     select.remove(select.length-1);
                 }
-
                 //se llena el select
-
                 if(data.length>0){
                     let opt=null;
                     for (var i =0;i<data.length;i++){
@@ -180,11 +139,9 @@ function cargarubicacionSalida(){
                 alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
                 alert("Verifique la ruta del archivo");
             }
-
         });
-
     }else{
-        alert("Por favor, seleccione una ubicacion de ida");
+        alert("Por favor, seleccione una ubicacion de salida");
     }
-    
+
 }

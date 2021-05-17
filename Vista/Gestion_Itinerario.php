@@ -160,7 +160,7 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Fecha Salida</label>
                                         <div class="col-sm-9">
-                                            <input type="date" id="DateFechaLlegada" class="form-control">
+                                            <input type="date" id="DateFechaSalida" class="form-control">
                                         </div>
 
                                     </div>
@@ -175,7 +175,7 @@ include_once 'layouts/nav_Administrador.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Fecha llegada</label>
                                         <div class="col-sm-9">
-                                            <input type="date" id="DateFechaSalida" class="form-control">
+                                            <input type="date" id="DateFechaLlegada" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">

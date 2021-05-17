@@ -4,13 +4,8 @@
 require '../Modelo/ClsReserva.php';
 require '../DAO/reservaDAO.php';
 require '../Modelo/clsGeneral.php';
-//require '../DAO/itinerarioVueloDAO.php';
-//require '../Modelo/clsItinerarioVuelo.php';
-
-
 
 $idUbicacionSel= isset($_REQUEST['idUbicacionSel'])? $_REQUEST['idUbicacionSel']:"";
-$idUbicacionrange= isset($_REQUEST['idUbicacionrange'])? $_REQUEST['idUbicacionrange']:"";
 
 $idItinerarioVuelo=isset($_REQUEST['idItinerarioVuelo'])? $_REQUEST['idItinerarioVuelo']:"";
 $idVuelo=isset($_REQUEST['idVuelo'])? $_REQUEST['idVuelo']:"";
@@ -24,30 +19,16 @@ $fechaactual=isset($_REQUEST['fechaactual'])? $_REQUEST['fechaactual']:"";
 
 $type=isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 
-$selectubicacionsel = new clsGeneral($idUbicacionrange);
-$selectUbicacion = new clsGeneral($idUbicacionSel);
-$reservaDAO=new reservaDAO();
-//$itinerarioVueloDAO= new itinerarioVueloDAO();
 
-//$itinerarioVuelo=new clsItinerarioVuelo($idItinerarioVuelo,$idVuelo,$idUbicacionllegada,$idUbicacionsalida,$fechallegada,$fechasalida,$estado,$descripcion);
+$reservaDAO=new reservaDAO();
 
 
 switch ($type) {
-
-    
-
-    case "listUbicacionLLegada":
-        $reservaDAO->listarUbicacionLlegada();
-        break;
-
-    case "listUbicacionIdSalida":
-        $reservaDAO->listarUbicacionSalidaSel($selectubicacionsel);
-        break;
     case "listUbicacionSalida":
-        $reservaDAO->listarubicacionSalida($selectUbicacion);
+        $reservaDAO->listarUbicaciones();
         break;
-    
-   
-    
-
+    case "listUbicacionLlegada":
+        $ubicacionSalida = new clsGeneral($idUbicacionSel);
+        $reservaDAO->listarubicacionLlegada($ubicacionSalida);
+        break;
 }

@@ -57,7 +57,6 @@ switch($type){
 
         }
 
-        
         if($idVuelo==-1){
             echo(json_encode(['res' => 'False', "msj" => "seleccione Vuelo"
             ]));
@@ -78,20 +77,19 @@ switch($type){
             ]));
             break;
         }
-        if($fecha_salida<$fecha_llegada){
-            echo(json_encode(['res' => 'False', "msj" => "Las fecha de salida es menor al de llegada"
+        if($fecha_llegada<$fecha_salida){
+            echo(json_encode(['res' => 'False', "msj" => "Las fecha de llegada es menor a la de salida"
             ]));
             break;
         }
-        
-        /** 
-      *  if($fecha_hoy<$fecha_llegada){
-       *     echo(json_encode(['res' => 'False', "msj" => "Ingrese fecha actual"
+        /**
+        *if($fecha_salida<$fecha_hoy){
+        *    echo(json_encode(['res' => 'False', "msj" => "La fecha de salida no puede ser menor a la fecha de hoy"
         *    ]));
-         *   break;
+        *    break;
         *}
-        */
 
+        */
 
         $itinerarioVueloDAO->guardar($itinerarioVuelo);
         break;
@@ -100,7 +98,7 @@ switch($type){
     case "buscar":
         $itinerarioVueloDAO->buscar($itinerarioVuelo);
         break;
-    
+
     case "modificar":
 
         if(!preg_match($patronValDescripcion, $descripcion)){
@@ -135,13 +133,13 @@ switch($type){
             ]));
             break;
         }
-        if($fecha_salida<$fecha_llegada){
-            echo(json_encode(['res' => 'False', "msj" => "Las fecha de salida es menor al de llegada"
+        if($fecha_llegada<$fecha_salida){
+            echo(json_encode(['res' => 'False', "msj" => "Las fecha de llegada es menor a la de salida"
             ]));
             break;
         }
 
-        
+
         $itinerarioVueloDAO->modificar($itinerarioVuelo);
         break;
 
@@ -149,7 +147,7 @@ switch($type){
     case "eliminar":
         $itinerarioVueloDAO->eliminar($itinerarioVuelo);
         break;
-    
+
     case "list":
         $itinerarioVueloDAO->listar();
         break;

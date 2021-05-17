@@ -16,31 +16,27 @@ class reservaDAO{
         $this->objCon->ExecuteTransaction($sql);
     }
 
-     /**
-    *Funcion utilizada para listar una lista de ubicacion del vuelo  
+    /**
+    *Funcion utilizada para listar las ubicaciones disponibles
     */
-    public function listarUbicacionLlegada(){
+    public function listarUbicaciones(){
         $sql= "SELECT id,nombre from ubicacion where estado='disponible' ORDER BY nombre";
         $this->objCon->Execute($sql);
     }
 
     /**
-     * Función utilizada para listar una lista dependiendo de la ubicacion de ida ,
-     * utilizando en la gestion del Itinerario vuelo
+     * Función utilizada para listar una lista dependiendo de la ubicacion de salida.
      */
-    public function listarubicacionSalida(clsGeneral $obj){
+    public function listarubicacionLlegada(clsGeneral $obj){
         $sql="SELECT id,nombre from ubicacion where id!='" . $obj->getId() . "' and estado='disponible' ORDER BY nombre";
         $this->objCon->Execute($sql);
     }
     /**
-     *funcion utilizada para listar una Lista dependiendo del ubicacion de salidas, utilizado en la gestión del itinerario vuelo.
+     *funcion utilizada para listar una Lista dependiendo del ubicacion de llegada.
      */
-    public function listarUbicacionSalidaSel(clsGeneral $obj) {
+    public function listarUbicacionLlegadaSel(clsGeneral $obj) {
         $sql = "SELECT id,nombre from ubicacion where id='" . $obj->getId() . "' and estado='disponible'";
         $this->objCon->Execute($sql);
     }
 
-    
-
-    
 }
