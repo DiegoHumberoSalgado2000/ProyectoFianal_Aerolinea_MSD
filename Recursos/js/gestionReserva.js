@@ -3,9 +3,7 @@ cargarDatosReserva();
 $("#btnBuscarVuelo").click(buscarVueloReserva);
 
 });
-
 function buscarVueloReserva(){
-
     var objReservaItinerario={
         idUbicacionllegada:$("#CmbOrigen").val(),
         idUbicacionsalida:$("#CmbDestino").val(),
