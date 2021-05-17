@@ -6,7 +6,7 @@ $(document).ready(function (){
     $("#btnModificarItinerario").click(ModificarItinerarioVuelo);
     $("#btnCancelarItinerario").click(cancelarItinerario);
 
-    
+
     cancelarItinerario();
 });
 /**
@@ -31,13 +31,13 @@ function listarItinearioVuelo() {
                 for (f = 0; f < info.length; f++) {
                     lista = lista + "<tr>";
                     lista = lista + "<td>" + info[f].vuelo +" - "+info[f].placa + "</td>";
-                    lista = lista + "<td>" + info[f].nombreUbicacionLlegada + "</td>";
                     lista = lista + "<td>" + info[f].nombreUbicacionSalida + "</td>";
-                    lista = lista + "<td>" + info[f].fecha_llegada + "</td>";
                     lista = lista + "<td>" + info[f].fecha_salida + "</td>";
-                    lista = lista + "<td>" + info[f].estado + "</td>";
+                    lista = lista + "<td>" + info[f].nombreUbicacionLlegada + "</td>";
+                    lista = lista + "<td>" + info[f].fecha_llegada + "</td>";
                     lista = lista + "<td>" + info[f].precio + "</td>";
                     lista = lista + "<td>" + info[f].descripcion + "</td>";
+                    lista = lista + "<td>" + info[f].estado + "</td>";
                     lista = lista + "</tr>";
                 }
 
@@ -70,11 +70,11 @@ function guardarItinerarioVuelo(){
         descripcion : $("#txtDescripcionItinerario").val(),
         fechaactual :new Date(),
         type:""
-        
+
     };
-/** 
+/**
  * */
-    
+
 
     if(objItinerarioVuelo.idItinerarioVuelo!==""){
         alert("No se puede guardar, ya que buscó antes un registro de itinerario. oprima el boton cancelar y luego intente nuevamente.")
@@ -128,7 +128,7 @@ function ModificarItinerarioVuelo(){
 
     };
 
-    
+
     if(objItinerarioVuelo.idItinerarioVuelo!== ""){
         objItinerarioVuelo.type='modificar';
 
@@ -194,7 +194,7 @@ function buscarItinerarioVuelo(){
                 $("#DateFechaSalida").val(data[0].fecha_salida);
                 $("#txtPrecio").val(data[0].precio);
                 $("#txtDescripcionItinerario").val(data[0].descripcion);
-               buscarUbicacionSalidaPorId(data[0].id_ubicacion_salida);
+                buscarUbicacionSalidaPorId(data[0].id_ubicacion_salida);
 
                 let btnGuardar=document.getElementById("btnGuardarItinerario");
                 let btnModificar = document.getElementById("btnModificarItinerario");
@@ -219,7 +219,7 @@ function buscarItinerarioVuelo(){
 }
 
 /**
- * Función utilizada para eliminar un ItinerarioVuelo,en este caso actualizar 
+ * Función utilizada para eliminar un ItinerarioVuelo,en este caso actualizar
  * al estado a no disponible
  */
 function eliminarItinerarioVuelo(){
@@ -275,13 +275,13 @@ function habilitarBotones(){
     let btnModificaritinerario = document.getElementById("btnModificarItinerario");
     let btnEliminaritinerario = document.getElementById("btnEliminarItinerario");
     let CmbVuelo = document.getElementById("CmbVuelo");
-    
+
 
     btnModificaritinerario.disabled =true;
     btnEliminaritinerario.disabled =true;
     btnGuardaritinerario.disabled=false;
     CmbVuelo.disabled=false;
-    
+
 }
 
 /**
@@ -307,7 +307,6 @@ function cargarDatos(){
     $("#CmbUbicacionSalida").change(vldUbicacionSalida);
     listarItinearioVuelo();
 
-    
 }
 /**
  *función utilizada para validar cuando el ususario selecciona 'seleccione' en un select
@@ -354,7 +353,7 @@ function cargarVuelo(){
             alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
             alert("Verifique la ruta del archivo");
         }
-        
+
 
     });
 }

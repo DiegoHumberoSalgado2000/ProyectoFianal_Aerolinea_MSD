@@ -33,7 +33,6 @@ include_once 'layouts/nav_Administrador.php';
                         <label for="message-text" class="col-form-label">Descripcion:</label>
                         <textarea class="form-control" id="txtDescripcionUbicacion"></textarea>
                     </div>
-                        
                 </form>
             </div>
             <div class="modal-footer row">
@@ -140,28 +139,15 @@ include_once 'layouts/nav_Administrador.php';
                             </div>
                             <div class="card-body">
                                 <form action="" class="form-horizontal">
-
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Vuelo</label>
                                         <div class="col-sm-9">
                                         <select type="text" id="CmbVuelo" class="form-control">
                                                 <option value="-1">Seleccione el Vuelo</option>
                                                 <input type="hidden" id="txtIdItinerarioVuelo" class="form-control">
-                                            
-                                            </select>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Ubicación llegada</label>
-                                        <div class="col-sm-9">
-                                            <select type="text" id="CmbUbicacionLlegada" class="form-control">
-                                                <option value="-1">Seleccione la Ubicación llegada</option>
                                             </select>
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Ubicación Salida</label>
                                         <div class="col-sm-9">
@@ -178,31 +164,32 @@ include_once 'layouts/nav_Administrador.php';
                                         </div>
 
                                     </div>
-
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-2 col-form-label">Ubicación llegada</label>
+                                        <div class="col-sm-9">
+                                            <select type="text" id="CmbUbicacionLlegada" class="form-control">
+                                                <option value="-1">Seleccione la Ubicación llegada</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Fecha llegada</label>
                                         <div class="col-sm-9">
                                             <input type="date" id="DateFechaSalida" class="form-control">
                                         </div>
-
                                     </div>
-
                                     <div class="form-group row">
-                                     <label for="" class="col-sm-2 col-form-label">Precio Del Vuelo</label>
+                                    <label for="" class="col-sm-2 col-form-label">Precio Del Vuelo</label>
                                         <div class="col-sm-9">
                                             <input type="number" id="txtPrecio" class="form-control">
                                         </div>
                                         </div>
-
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Descripción</label>
                                         <div class="col-sm-9">
                                         <textarea class="form-control" id="txtDescripcionItinerario"></textarea>
                                         </div>
-
                                     </div>
-
-
                                     <div class="modal-footer row">
                                         <div class="offset-sm-2 col-sm-12 float-right">
                                             <button type="button" class="btn btn-primary" id="btnGuardarItinerario">Guardar</button>
@@ -236,13 +223,13 @@ include_once 'layouts/nav_Administrador.php';
                                     <thead class="table-success">
                                         <tr>
                                             <th>Vuelo</th>
-                                            <th>Ubicación llegada</th>
                                             <th>Ubicación Salida</th>
                                             <th>Fecha Salida</th>
+                                            <th>Ubicación llegada</th>
                                             <th>Fecha llegada</th>
-                                            <th>Estado</th>
                                             <th>Precio Vuelo</th>
                                             <th>Descripción</th>
+                                            <th>Estado</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-active" id="ListaItinerarioVuelo">
