@@ -4,24 +4,26 @@ $("#btnBuscarVuelo").click(buscarVueloReserva);
 
 });
 
-function buscarVueloReserva(){
-    var fecha_salida=$("#FechaSalida").val();
-    var fecha_llegada=$("#FechaLlegada").val();
-    if(fecha_salida===""){
-        fecha_salida="dd/mm/aaaa"
-    }
+function asignarFechaHoy(){
+    let hoy=new Date();
 
-    if(fecha_llegada===""){
-        fecha_llegada="dd/mm/aaaa"
-    }
-    alert(fecha_salida);
-    alert(fecha_llegada);
+    let dia=hoy.getDate();
+    let mes=hoy.getMonth()+1;
+    let agnio=hoy.getFullYear();
+
+    let formato="";
+}
+
+
+
+function buscarVueloReserva(){
+
 
     var objReservaItinerario={
         idUbicacionSalida:$("#cmbSalida").val(),
         idUbicacionLlegada:$("#cmdLlegada").val(),
-        fechaSalida:fecha_salida,
-        fechaLlegada:fecha_llegada,
+        fechaSalida:$("#FechaSalida").val(),
+        fechaLlegada:$("#FechaSalida").val(),
         type: "buscarVueloReserva"
     };
     $.ajax({
