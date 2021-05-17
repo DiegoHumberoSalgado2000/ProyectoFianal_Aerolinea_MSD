@@ -3,17 +3,70 @@ cargarDatosReserva();
 $("#btnBuscarVuelo").click(buscarVueloReserva);
 
 });
+
 function buscarVueloReserva(){
+    var fecha_salida=$("#FechaSalida").val();
+    var fecha_llegada=$("#FechaLlegada").val();
+    if(fecha_salida===""){
+        fecha_salida="dd/mm/aaaa"
+    }
+
+    if(fecha_llegada===""){
+        fecha_llegada="dd/mm/aaaa"
+    }
+    alert(fecha_salida);
+    alert(fecha_llegada);
+
     var objReservaItinerario={
-        idUbicacionllegada:$("#CmbOrigen").val(),
-        idUbicacionsalida:$("#CmbDestino").val(),
-        fechallegada:$("#FechaSalida").val(),
-        fechasalida:$("#FechaRegreso").val(),
+        idUbicacionSalida:$("#cmbSalida").val(),
+        idUbicacionLlegada:$("#cmdLlegada").val(),
+        fechaSalida:fecha_salida,
+        fechaLlegada:fecha_llegada,
         type: "buscarVueloReserva"
     };
     $.ajax({
         type:'post',
-        url:"Controlador/gestionItinerarioVuelo.php",
+        url:"Controlador/gestionReserva.php",
+        beforeSend:function(){
+        },
+        data:objReservaItinerario,
+        success:function(res){
+            alert(res);
+            var info=JSON.parse(res);
+
+            if(info.res === "False"){
+               // alert (info.msj);
+            }else {
+                if(info.msj === "Success"){
+                    var arreglo=JSON.parse(info.data);
+                }else{
+                    alert ("No se han encontrado vuelos")
+                }
+            }
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+}
+
+
+
+
+function x(){
+    var objReservaItinerario={
+        idUbicacionSalida:$("#cmbSalida").val(),
+        idUbicacionLlegada:$("#cmdLlegada").val(),
+        fechaLlegada:$("#FechaSalida").val(),
+        fechaSalida:$("#FechaRegreso").val(),
+        type: "buscarVueloReserva"
+    };
+    $.ajax({
+        type:'post',
+        url:"Controlador/gestionReserva.php",
         beforeSend:function(){
         },
         data:objReservaItinerario,

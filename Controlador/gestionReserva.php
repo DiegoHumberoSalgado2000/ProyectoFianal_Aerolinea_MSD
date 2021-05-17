@@ -7,15 +7,17 @@ require '../Modelo/clsGeneral.php';
 
 $idUbicacionSel= isset($_REQUEST['idUbicacionSel'])? $_REQUEST['idUbicacionSel']:"";
 
-$idItinerarioVuelo=isset($_REQUEST['idItinerarioVuelo'])? $_REQUEST['idItinerarioVuelo']:"";
-$idVuelo=isset($_REQUEST['idVuelo'])? $_REQUEST['idVuelo']:"";
-$idUbicacionllegada=isset($_REQUEST['idUbicacionllegada'])? $_REQUEST['idUbicacionllegada']:"";
-$idUbicacionsalida=isset($_REQUEST['idUbicacionsalida'])? $_REQUEST['idUbicacionsalida']:"";
-$fechallegada=isset($_REQUEST['fechallegada'])? $_REQUEST['fechallegada']:"";
-$fechasalida=isset($_REQUEST['fechasalida'])? $_REQUEST['fechasalida']:"";
-$estado=isset($_REQUEST['estado'])? $_REQUEST['estado']:"";
-$descripcion=isset($_REQUEST['descripcion'])? $_REQUEST['descripcion']:"";
-$fechaactual=isset($_REQUEST['fechaactual'])? $_REQUEST['fechaactual']:"";
+$idUbicacionSalida=isset($_REQUEST['idUbicacionSalida'])? $_REQUEST['idUbicacionSalida']:"";
+$idUbicacionLlegada=isset($_REQUEST['idUbicacionLlegada'])? $_REQUEST['idUbicacionLlegada']:"";
+$fechaSalida=isset($_REQUEST['fechaSalida'])? $_REQUEST['fechaSalida']:"";
+$fechaLlegada=isset($_REQUEST['fechaLlegada'])? $_REQUEST['fechaLlegada']:"";
+
+
+//$fecha_llegada=strtotime($fechallegada);
+//$fecha_salida=strtotime($fechasalida);
+
+
+
 
 $type=isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 
@@ -24,6 +26,7 @@ $reservaDAO=new reservaDAO();
 
 
 switch ($type) {
+
     case "listUbicacionSalida":
         $reservaDAO->listarUbicaciones();
         break;
@@ -31,4 +34,37 @@ switch ($type) {
         $ubicacionSalida = new clsGeneral($idUbicacionSel);
         $reservaDAO->listarubicacionLlegada($ubicacionSalida);
         break;
+
+    case "buscarVueloReserva":
+
+        if($idUbicacionSalida==-1){
+            echo(json_encode(['res' => 'False', "msj" => "No ha seleccionano una ubicacion de salida"
+            ]));
+            break;
+        }
+
+        if($idUbicacionLlegada==-1){
+            echo(json_encode(['res' => 'False', "msj" => "No ha seleccionano una ubicacion de llegada"
+            ]));
+            break;
+        }
+
+        if($fechaSalida==='dd/mm/aaaa'){
+            echo(json_encode(['res' => 'False', "msj" => "Seleccione una fecha de llegada"
+            ]));
+            break;
+        }
+
+        if($fecha_llegada==='dd/mm/aaaa'){
+            echo(json_encode(['res' => 'False', "msj" => "Seleccione una fecha de llegada"
+            ]));
+            break;
+        }
+
+
+
+
+        //$reservaDAO->buscarVueloReserva($fechaLlegada,$fechaSalida,$idUbicacionLlegada,$idUbicacionSalida);
+        break;
 }
+

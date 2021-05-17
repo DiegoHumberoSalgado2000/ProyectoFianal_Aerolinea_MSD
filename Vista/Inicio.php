@@ -407,17 +407,17 @@
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-calendar-alt"></i></span>
                                     <input type="date" class="form-control" id="FechaSalida"
-                                           aria-describedby="basic-addon1">
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
 
                             <div class="ContenedorFechaRegreso">
-                                <h6>Seleccione la Fecha de Regreso</h6>
+                                <h6>Seleccione la Fecha de llegada</h6>
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-calendar-alt"></i></span>
-                                    <input type="date" class="form-control" id="FechaRegreso"
-                                           aria-describedby="basic-addon1">
+                                    <input type="date" class="form-control" id="FechaLlegada"
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
 
