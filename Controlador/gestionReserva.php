@@ -49,22 +49,8 @@ switch ($type) {
             break;
         }
 
-        if($fechaSalida==='dd/mm/aaaa'){
-            echo(json_encode(['res' => 'False', "msj" => "Seleccione una fecha de llegada"
-            ]));
-            break;
-        }
 
-        if($fecha_llegada==='dd/mm/aaaa'){
-            echo(json_encode(['res' => 'False', "msj" => "Seleccione una fecha de llegada"
-            ]));
-            break;
-        }
-
-
-
-
-        //$reservaDAO->buscarVueloReserva($fechaLlegada,$fechaSalida,$idUbicacionLlegada,$idUbicacionSalida);
+        $reservaDAO->buscarVueloReserva($fechaLlegada,$fechaSalida,$idUbicacionLlegada,$idUbicacionSalida);
         break;
 }
 

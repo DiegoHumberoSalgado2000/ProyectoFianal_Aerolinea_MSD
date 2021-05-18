@@ -95,7 +95,7 @@ include_once 'layouts/nav_Administrador.php';
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Descripccion</label>
+                                        <label for="" class="col-sm-2 col-form-label">descripción</label>
                                         <div class="col-sm-9">
                                         <textarea class="form-control" id="txtDescripcion"></textarea>
                                         </div>

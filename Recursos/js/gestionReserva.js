@@ -1,5 +1,6 @@
 $(document).ready(function () {
 cargarDatosReserva();
+asignarFechaHoy();
 $("#btnBuscarVuelo").click(buscarVueloReserva);
 
 });
@@ -11,7 +12,13 @@ function asignarFechaHoy(){
     let mes=hoy.getMonth()+1;
     let agnio=hoy.getFullYear();
 
-    let formato="";
+    dia=('0'+dia).slice(-2);
+    mes=('0'+mes).slice(-2);
+
+
+    let formato=`${agnio}-${mes}-${dia}`;// Utilizando una literal de plantilla. yyyy-MM-dd
+    document.querySelector("#FechaSalida").value = formato;
+    document.querySelector("#FechaLlegada").value = formato;
 }
 
 
@@ -23,7 +30,7 @@ function buscarVueloReserva(){
         idUbicacionSalida:$("#cmbSalida").val(),
         idUbicacionLlegada:$("#cmdLlegada").val(),
         fechaSalida:$("#FechaSalida").val(),
-        fechaLlegada:$("#FechaSalida").val(),
+        fechaLlegada:$("#FechaLlegada").val(),
         type: "buscarVueloReserva"
     };
     $.ajax({
@@ -33,13 +40,13 @@ function buscarVueloReserva(){
         },
         data:objReservaItinerario,
         success:function(res){
-            alert(res);
             var info=JSON.parse(res);
 
             if(info.res === "False"){
-               // alert (info.msj);
+                alert (info.msj);
             }else {
                 if(info.msj === "Success"){
+                    alert(res);
                     var arreglo=JSON.parse(info.data);
                 }else{
                     alert ("No se han encontrado vuelos")
