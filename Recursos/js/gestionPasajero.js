@@ -231,4 +231,3 @@ function desabilitarBotones() {
     txtApellido.disabled = false;
     txtCedula.disabled = false;
 }
-
