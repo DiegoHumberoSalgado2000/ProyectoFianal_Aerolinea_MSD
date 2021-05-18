@@ -426,7 +426,7 @@
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
                                     <div class="col-sm-2">
-                                    <input type="number" id="Origen"class="form-control" min="1" max="2" step="1" name="num"></div>
+                                    <input type="number" id="Origen"class="form-control" min="1" max="1" step="1" value="1" name="num"></div>
                                 
                                 </div>
                             </div>

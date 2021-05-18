@@ -46,8 +46,8 @@ function buscarVueloReserva(){
                 alert (info.msj);
             }else {
                 if(info.msj === "Success"){
-                    alert(res);
-                    var arreglo=JSON.parse(info.data);
+                    //alert(res);
+                    window.location.href='Vista/Lista_Vuelos.php?res='+res;
                 }else{
                     alert ("No se han encontrado vuelos")
                 }
@@ -63,53 +63,6 @@ function buscarVueloReserva(){
 }
 
 
-
-
-function x(){
-    var objReservaItinerario={
-        idUbicacionSalida:$("#cmbSalida").val(),
-        idUbicacionLlegada:$("#cmdLlegada").val(),
-        fechaLlegada:$("#FechaSalida").val(),
-        fechaSalida:$("#FechaRegreso").val(),
-        type: "buscarVueloReserva"
-    };
-    $.ajax({
-        type:'post',
-        url:"Controlador/gestionReserva.php",
-        beforeSend:function(){
-        },
-        data:objReservaItinerario,
-        success:function(res){
-            var info=JSON.parse(res);
-            var arreglo=JSON.parse(info.data);
-            if(info.msj === "Success"){
-                var lista ="";
-                if (arreglo.length > 0) {
-                    for (f = 0; f < arreglo.length; f++) {
-                        lista = lista + "<tr>";
-                        lista = lista + "<td>" + arreglo[f].placa + "</td>";
-                        lista = lista + "<td>" + arreglo[f].id_ubicacion_llegada + "</td>";
-                        lista = lista + "<td>" + arreglo[f].id_ubicacion_salida + "</td>";
-                        lista = lista + "<td>" + arreglo[f].fecha_llegada + "</td>";
-                        lista = lista + "<td>" + arreglo[f].fecha_salida + "</td>";
-                        lista = lista + "<td>" + arreglo[f].descripcion + "</td>";
-                        lista = lista + "</tr>";
-                    }
-                    window.location.href='Vista/Lista_Vuelos.php?lista='+lista;
-                } else {
-                    var x="No se encuentra informacion"
-                    window.location.href='Vista/Lista_Vuelos.php?lista='+x;
-                }
-            }else{
-                alert("No se encuentra vuelo con esos datos");
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-        }
-    });
-}
 
 function cargarDatosReserva(){
     habilitar();

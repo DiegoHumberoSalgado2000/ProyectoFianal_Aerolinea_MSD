@@ -1,5 +1,5 @@
 <?php
-include_once 'layouts/header_Pagina_Inicio.php'
+include_once 'layouts/header_lista_vuelos.php'
 
 
 ?>
@@ -10,16 +10,25 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 
 <?php
 
-if(isset($_GET['lista'])){
-    $lista=$_GET['lista'];
+if(isset($_GET['res'])){
+    $lista=$_GET['res'];
     //echo($lista);
+   // print_r($lista);
 
 
 }
 
 
 
+
 ?>
+<!--
+<script type="text/javascript">
+    listarTabla(list='<?php echo $lista ?>');
+</script>
+-->
+<input type="hidden" id="txtJson" value=<?php echo $lista ?> class="form-control">
+
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
 
@@ -31,7 +40,7 @@ if(isset($_GET['lista'])){
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Vuelo Ida</h3>
+                        <h3 class="panel-title">Vuelos</h3>
                     </div>
                     <div class="panel-body">
                         <section>
@@ -45,15 +54,18 @@ if(isset($_GET['lista'])){
                                                         <thead class="table-success">
                                                             <tr>
                                                                 <th>Vuelo</th>
-                                                                <th>Ubicacion llegada</th>
                                                                 <th>Ubicacion Salida</th>
-                                                                <th>fecha llegada</th>
                                                                 <th>fecha Salida</th>
+                                                                <th>Ubicacion llegada</th>
+                                                                <th>fecha llegada</th>
+                                                                <th>Precio</th>
                                                                 <th>Descripcion</th>
+                                                                <th>Estado</th>
+                                                                <th>Seleccionar</th>
 
                                                             </tr>
                                                         </thead>
-                                                        <tbody class="table-active" id="ListaVuelos">
+                                                        <tbody class="table-active" id="tablaVuelos">
 
                                                         </tbody>
                                                     </table>
@@ -73,13 +85,10 @@ if(isset($_GET['lista'])){
                     </div>
                 </div>
 
-                </div>
-                    <button onclick="listarItinerarios(list='<?php echo $lista?>')" type="button" id="actualizar" class="btn btn-danger" >Actualizar</button>
-                    </div>
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Vuelo de Regreso</h3>
+                        <h3 class="panel-title">Vuelo internacional</h3>
                     </div>
                     <div class="panel-body">
 
@@ -93,10 +102,15 @@ if(isset($_GET['lista'])){
                                                     <table class="table table-over text-nowrap">
                                                         <thead class="table-success">
                                                             <tr>
-                                                                <th>Salida</th>
-                                                                <th>Llegada</th>
-                                                                <th>Tiempo Vuelo</th>
+                                                                <th>Vuelo</th>
+                                                                <th>Ubicacion Salida</th>
+                                                                <th>fecha Salida</th>
+                                                                <th>Ubicacion llegada</th>
+                                                                <th>fecha llegada</th>
                                                                 <th>Precio</th>
+                                                                <th>Descripcion</th>
+                                                                <th>Estado</th>
+                                                                <th>Seleccionar</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="table-active" id="ListaVueloRegreso">
