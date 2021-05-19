@@ -5,7 +5,7 @@ class ClsHistorialPago{
     private $id_Reserva;
     private $total_Pagos;
     private $estado;
-    private $targeta_credito;
+    private $tarjeta_credito;
     private $mes_vencimiento;
     private $opcion_pago;
     private $Avencimiento;
@@ -13,12 +13,12 @@ class ClsHistorialPago{
     private $numero_verificacion;
     private $descripcion;
     
-    function __construct($id, $id_Reserva, $total_Pagos, $estado, $targeta_credito, $mes_vencimiento, $opcion_pago, $Avencimiento, $numero_targeta, $numero_verificacion, $descripcion) {
+    function __construct($id, $id_Reserva, $total_Pagos, $estado, $tarjeta_credito, $mes_vencimiento, $opcion_pago, $Avencimiento, $numero_targeta, $numero_verificacion, $descripcion) {
         $this->id = $id;
         $this->id_Reserva = $id_Reserva;
         $this->total_Pagos = $total_Pagos;
         $this->estado = $estado;
-        $this->targeta_credito = $targeta_credito;
+        $this->tarjeta_credito = $tarjeta_credito;
         $this->mes_vencimiento = $mes_vencimiento;
         $this->opcion_pago = $opcion_pago;
         $this->Avencimiento = $Avencimiento;
@@ -43,8 +43,8 @@ class ClsHistorialPago{
         return $this->estado;
     }
 
-    function getTargeta_credito() {
-        return $this->targeta_credito;
+    function getTarjeta_credito() {
+        return $this->tarjeta_credito;
     }
 
     function getMes_vencimiento() {
@@ -71,24 +71,24 @@ class ClsHistorialPago{
         return $this->descripcion;
     }
 
-    function setId($id){
+    function setId($id): void {
         $this->id = $id;
     }
 
-    function setId_Reserva($id_Reserva){
+    function setId_Reserva($id_Reserva): void {
         $this->id_Reserva = $id_Reserva;
     }
 
-    function setTotal_Pagos($total_Pagos){
+    function setTotal_Pagos($total_Pagos): void {
         $this->total_Pagos = $total_Pagos;
     }
 
-    function setEstado($estado){
+    function setEstado($estado): void {
         $this->estado = $estado;
     }
 
-    function setTargeta_credito($targeta_credito){
-        $this->targeta_credito = $targeta_credito;
+    function setTarjeta_credito($tarjeta_credito){
+        $this->tarjeta_credito = $tarjeta_credito;
     }
 
     function setMes_vencimiento($mes_vencimiento){

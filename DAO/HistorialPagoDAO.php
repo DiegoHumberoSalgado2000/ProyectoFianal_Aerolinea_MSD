@@ -25,11 +25,12 @@ class HistorialPagoDAO {
     }
 
     /**
-     * Función utilizada para guardar el pago del pasagero, 
-     * entra como parametro un objeto de tipo pago
+     * Función utilizada para Guardar la Confirmacion del Pago, 
+     * entra como parametro un objeto de tipo historial Pafo
      */
-    public function guardar(ClsHistorialPago $obj) {
-        $sql = "INSERT INTO historial_pago(id,id_reserva,total_pagar,estado,targeta_credito,mes_vencimiento,opcion_pago,Avencimiento,numero_targeta,numero_verificacion,descripcion)VALUES('" . $obj->getId() . "','" . $obj->getId_Reserva . "','" . $obj->getTotal_Pagos() . "','disponible','" . $obj->getTargeta_creditp() . "','" . $obj->getMes_vencimiento() . "','" . $obj->getOpcion_pago() . "','" . $obj->getAvencimiento() . "','" . $obj->getNumero_targeta() . "','" . $obj->getNumero_verificacion() . "','ninguno')";
+    public function GuardarHistorialPagos(ClsHistorialPago $obj) {
+
+        $sql = "UPDATE historial_pago set total_pagar='" . $obj->getTotal_Pagos() . "',targeta_credito='" . $obj->getTarjeta_credito() . "',mes_vencimiento='" . $obj->getMes_vencimiento() . "',opcion_pago='" . $obj->getOpcion_pago() . "',Avencimiento='" . $obj->getAvencimiento() . "',numero_targeta='" . $obj->getNumero_targeta() . "',numero_verificacion='" . $obj->getNumero_verificacion() . "',estado='" . "pagado" . "',descripcion='" . "reserva pagada" . "' where id_reserva='" . $obj->getId_Reserva() . "'";
         $this->objCon->ExecuteTransaction($sql);
     }
 

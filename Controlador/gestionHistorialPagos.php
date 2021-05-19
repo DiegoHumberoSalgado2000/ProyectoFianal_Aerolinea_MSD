@@ -4,18 +4,19 @@ require '../Modelo/ClsHistorialPago.php';
 require '../DAO/HistorialPagoDAO.php';
 
 $idHistorialPagos = isset($_REQUEST['idHistorialPagos']) ? $_REQUEST['idHistorialPagos'] : "";
-$id_reserva = isset($_REQUEST['id_reserva']) ? $_REQUEST['id_reserva'] : "";
-$total_pagar = isset($_REQUEST['total_pagar']) ? $_REQUEST['total_pagar'] : "";
+$idReserva = isset($_REQUEST['idReserva']) ? $_REQUEST['idReserva'] : "";
+$totalPrecio = isset($_REQUEST['totalPrecio']) ? $_REQUEST['totalPrecio'] : "";
 $estado = isset($_REQUEST['estado']) ? $_REQUEST['estado'] : "";
-$targeta_credito = isset($_REQUEST['targeta_credito']) ? $_REQUEST['targeta_credito'] : "";
-$mes_vencimiento = isset($_REQUEST['mes_vencimiento']) ? $_REQUEST['mes_vencimiento'] : "";
-$opcion_pago = isset($_REQUEST['opcion_pago']) ? $_REQUEST['opcion_pago'] : "";
+$tarjeraCredito = isset($_REQUEST['tarjeraCredito']) ? $_REQUEST['tarjeraCredito'] : "";
+$mesVencimiento = isset($_REQUEST['mesVencimiento']) ? $_REQUEST['mesVencimiento'] : "";
+$opcionPago = isset($_REQUEST['opcionPago']) ? $_REQUEST['opcionPago'] : "";
 $Avencimiento = isset($_REQUEST['Avencimiento']) ? $_REQUEST['Avencimiento'] : "";
-$numero_targeta = isset($_REQUEST['numero_targeta']) ? $_REQUEST['numero_targeta'] : "";
-$numero_verificacion = isset($_REQUEST['numero_verificacion']) ? $_REQUEST['numero_verificacion'] : "";
+$numeroTarjetaCredtiro = isset($_REQUEST['numeroTarjetaCredtiro']) ? $_REQUEST['numeroTarjetaCredtiro'] : "";
+$numeroVerificado = isset($_REQUEST['numeroVerificado']) ? $_REQUEST['numeroVerificado'] : "";
 $descripcion = isset($_REQUEST['descripcion']) ? $_REQUEST['descripcion'] : "";
+$type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
 
-$historialPagos = new ClsHistorialPago($idHistorialPagos, $id_reserva, $total_pagar, $estado, $targeta_credito, $mes_vencimiento, $opcion_pago, $Avencimiento, $numero_targeta, $numero_verificacion, $descripcion);
+$historialPagos = new ClsHistorialPago($idHistorialPagos, $idReserva, $totalPrecio, $estado, $tarjeraCredito, $mesVencimiento, $opcionPago, $Avencimiento, $numeroTarjetaCredtiro, $numeroVerificado, $descripcion);
 $HistorialPagosDAO = new HistorialPagoDAO();
 
 /**
@@ -33,71 +34,14 @@ $patronValTarjetaAmericanExpressInf = "numero de tarjeta no valido las tarjetas 
 $patronValTarjetaDiners = "/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/";
 $patronValTarjetaDinersInf = "numero de tarjeta no valido las tarjetas Diners siempre comienzan con el numero 3 o los digitos de la tarjeta no son validos";
 
-$patronValCedula = "/^([0-9])*$/";
-$patronValCedulaInfo = "La cedula tiene que tener dato numerico";
 
-$patronValNombre = "/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/";
-$patronValNombreInfo = "El nombre tiene que tener dato alfabetico y entre 3 y 18 caracteres";
-
-$patronValApellido = "/^(?=.{3,36}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/";
-$patronValApellidoInfo = "El apellido tiene que tener dato alfabetico y entre 3 y 36 caracteres";
-
-$patronValCorreo = "/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/";
-$patronValCorreoInfo = "El correo tiene que tener un formato tipo :alguien@algunlugar.es";
-
-$patronValTelefono = "/^[1-9]\d{9}$/";
-$patronValTelefonoInfo = "El telefono solo recibe numeros de celular";
 
 /**
  * Usado para recibir un $type el cual ayuda para controlar que petición se requiere
  */
 switch ($type) {
     case "guardar":
-
-        if (!preg_match($patronValMastercard, $numero_targeta)) {
-            echo (json_encode(['res' => 'False', "msj" => $patronValMastercardInfo]));
-            break;
-        } else if (!preg_match($patronValMastercard, $numero_targeta)) {
-            echo (json_encode(['res' => 'False', "msj" => $patronValTarjetaVisaInfo]));
-            break;
-        } else if (!preg_match($patronValMastercard, $numero_targeta)) {
-            echo (json_encode(['res' => 'False', "msj" => $patronValTarjetaAmericanExpressInf]));
-            break;
-        } else if (preg_match($patronValMastercard, $numero_targeta)) {
-            echo (json_encode(['res' => 'False', "msj" => $patronValTarjetaDinersInf]));
-            break;
-        }
-
-        if (!preg_match($patronValCedula, $cedula)) {
-            echo(json_encode(['res' => 'False', "msj" => $patronValCedulaInfo
-            ]));
-            break;
-        }
-
-        if (!preg_match($patronValNombre, $nombre)) {
-            echo(json_encode(['res' => 'False', "msj" => $patronValNombreInfo
-            ]));
-            break;
-        }
-        if (!preg_match($patronValApellido, $apellido)) {
-            echo(json_encode(['res' => 'False', "msj" => $patronValApellidoInfo
-            ]));
-            break;
-        }
-
-        if (!preg_match($patronValCorreo, $correo)) {
-            echo(json_encode(['res' => 'False', "msj" => $patronValCorreoInfo
-            ]));
-            break;
-        }
-
-        if (!preg_match($patronValTelefono, $telefono)) {
-            echo(json_encode(['res' => 'False', "msj" => $patronValTelefonoInfo
-            ]));
-            break;
-        }
-
-        $HistorialPagosDAO->guardar($historialPagos);
+        $HistorialPagosDAO->GuardarHistorialPagos($historialPagos);
         break;
 
     case "list":

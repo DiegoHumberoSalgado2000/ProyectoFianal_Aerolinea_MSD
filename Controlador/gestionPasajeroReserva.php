@@ -19,8 +19,14 @@ $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
 $pasajeroReserva = new DTOPasajeroReserva($nombre, $apellido, $cedula, $correo, $telefono, $id);
 $pasajeroReservaDAO = new pasajeroReservaDAO();
 
+
+/**
+ * Usado para recibir un $type el cual ayuda para controlar que petición se requiere
+ */
 switch ($type) {
+
     case "cargarDatos":
+
         $pasajeroReservaDAO->CargarDatos($pasajeroReserva);
         break;
 }

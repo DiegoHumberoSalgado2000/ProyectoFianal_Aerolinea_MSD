@@ -119,7 +119,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Año de Vencimiento</label>
                             <div class="col-sm-5">
-                                <select id="CmbAñoVencimiento" class="form-control">
+                                <select id="CmbAvencimiento" class="form-control">
                                     <option>Seleccion el Año de Vencimiento</option>
                                     <option>2021</option>
                                     <option>2022</option>
@@ -149,7 +149,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Numero de Targeta</label>
                             <div class="col-sm-5">
-                                <input type="number" id="txtNumeroTargetaCredito" class="form-control">
+                                <input type="text" id="txtNumeroTargetaCredito" class="form-control">
                             </div>
 
                         </div>
@@ -157,7 +157,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Numero de Verificacion</label>
                             <div class="col-sm-5">
-                                <input type="number" id="txtNumeroVerificacion" class="form-control">
+                                <input type="text" id="txtNumeroVerificacion" class="form-control">
                             </div>
 
                         </div>
