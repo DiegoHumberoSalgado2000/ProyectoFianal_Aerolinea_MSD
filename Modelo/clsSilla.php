@@ -2,16 +2,16 @@
 
 class clsSilla{
     private $id;
-    private $idVuelo;
+    private $idItinerarioVuelo;
     private $numeroSilla;
     private $estado;
     private $tipo;
     private $descripcion;
     private $precio;
 
-    public function __construct($id, $idVuelo, $numeroSilla, $estado, $tipo, $descripcion,$precio){
+    public function __construct($id, $idItinerarioVuelo, $numeroSilla, $estado, $tipo, $descripcion,$precio){
     $this->$id = $id;
-    $this->idVuelo = $idVuelo;
+    $this->idItinerarioVuelo = $idItinerarioVuelo;
     $this->numeroSilla = $numeroSilla;
     $this->estado = $estado;
     $this->tipo = $tipo;
@@ -22,8 +22,8 @@ class clsSilla{
     function getId(){
         return $this->id;
     }
-    function getIdVuelo(){
-        return $this->idVuelo;
+    function getIdItinerarioVuelo(){
+        return $this->idItinerarioVuelo;
     }
     function getNumeroSilla(){
         return $this->numeroSilla;
@@ -45,8 +45,8 @@ class clsSilla{
     function setId($id) {
         $this->id = $id;
     }
-    function setIdVuelo($idVuelo) {
-        $this->idVuelo = $idVuelo;
+    function setIdItinerarioVuelo($idItinerarioVuelo) {
+        $this->idItinerarioVuelo = $idItinerarioVuelo;
     }
     function setNumeroSilla($numeroSilla) {
         $this->numeroSilla = $numeroSilla;

@@ -138,7 +138,7 @@ include_once 'layouts/nav_Administrador.php';
                                             <th>Estado</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="table-active" id="ListaAviones">
+                                    <tbody class="table-active" id="tablaListaAviones">
 
                                     </tbody>
                                 </table>

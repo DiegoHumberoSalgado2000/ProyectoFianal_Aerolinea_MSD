@@ -134,11 +134,11 @@ if(isset($_GET['res'])){
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-sm-13">
-                                    <div class="col-4">
-
-                                        <div class="text-center">
+                                <div class="text-center">
                                             <img src="../img/LogoAerolineaMSD.png" class="ImagenBannerLogoModaliniciarSesion">
                                         </div>
+                                    <div class="col-4 col-sm-6">
+
 
                                         <h3>Información</h3>
                                         <hr class="LineaHorizontal">
@@ -162,9 +162,30 @@ if(isset($_GET['res'])){
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Descripcion</label>
                                                 <textarea class="form-control"  rows="5" id="txtDescripcionSilla"></textarea>
+                                                <input type="text" class="form-control" id="txtIdSilla">
                                             </div>
                                             <div class="modal-footer row">
-                                                <button type="button" class="btn btn-block btn-danger" id="btnSilla">Seleccionar Silla</button>
+                                                <button type="button" class="btn btn-block btn-danger" id="btnSeleccionarSilla">Seleccionar Silla</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                    <div class="col-4 col-sm-6">
+
+                                        <h3>Información Personal</h3>
+                                        <hr class="LineaHorizontal">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="control-label">Correo</label>
+                                                <input type="text" class="form-control" id="txtCorreoSilla">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">Contraseña</label>
+                                                <input type="text" class="form-control" id="txtContrasenaSilla">
+                                            </div>
+                                            <div class="modal-footer row">
+                                                <button type="button" class="btn btn-block btn-danger" id="btnValidarDatos">Validar Datos</button>
                                             </div>
                                         </form>
 
@@ -192,9 +213,9 @@ if(isset($_GET['res'])){
                     <table>
                         <tr>
                             <td><button id="Uno"  data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase2">1</button></td>
-                            <td><button id="Dos" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase2">2</button></td>
-                            <td><button id="Tres" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase">3</button></td>
-                            <td><button id="Cuatro" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase">4</button></td>
+                            <td><button id="Dos"  data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase2">2</button></td>
+                            <td><button id="Tres"  data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase">3</button></td>
+                            <td><button id="Cuatro"  data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase">4</button></td>
                         </tr>
                     </table>
                 </section>

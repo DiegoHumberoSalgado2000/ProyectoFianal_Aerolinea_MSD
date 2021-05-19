@@ -41,10 +41,10 @@ function listarAvion() {
                     lista = lista + "</tr>";
                 }
 
-                $("#ListaVuelos").html(lista);
+                $("#tablaListaAviones").html(lista);
 
             } else {
-                $("#ListaVuelos").html("<b>No se encuentra informacion</b>");
+                $("#tablaListaAviones").html("<b>No se encuentra informacion</b>");
 
             }
         },

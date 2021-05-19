@@ -57,213 +57,213 @@ $(document).ready(function () {
 let codigoItinerario;
 function datosRequeridos(){
     codigoItinerario=$("#txtIdItinerarioVuelo").val();
+    let btnReserva = document.getElementById("btnReservar");
+    let btnSeleccionarSilla = document.getElementById("btnSeleccionarSilla");
+    btnReserva.disabled =true;
+    btnSeleccionarSilla.disabled =true;
+}
+
+function buscarSilla(numSilla){
+
+    var objAvion = {
+        idItinerario: codigoItinerario,
+        numeroSilla: numSilla,
+        type: "buscarSilla"
+    };
+
+
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionSilla.php",
+        beforeSend: function () {
+
+        },
+        data: objAvion,
+        success: function (res) {
+            //alert(res);
+            var info = JSON.parse(res);
+            var data = JSON.parse(info.data);
+
+            if (info.msj === "Success") {
+
+                $("#txtNumeroSilla").val(data[0].numero_silla);
+                $("#txtPrecio").val(data[0].precio);
+                $("#txtEstadoSilla").val(data[0].estado);
+                $("#txtTipo").val(data[0].tipo);
+                $("#txtIdSilla").val(data[0].id);
+                $("#txtDescripcionSilla").val(data[0].descripcion);
+
+                //let btnSeleccionarSilla = document.getElementById("btnSeleccionarSilla");
+                //btnSeleccionarSilla.disabled =false;
+
+            } else {
+                alert("La silla no se encuentra disponible");
+            }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+
+
 }
 
 
-
-
 function uno() {
-    alert("hola mundo "+codigoItinerario)
-    document.getElementById("Uno").style.backgroundColor= "red";
+    buscarSilla(1);
+    //document.getElementById("Uno").style.backgroundColor= "red";
 }
 
 
 function dos() {
-    alert("hola mundo")
-    document.getElementById("Dos").style.backgroundColor= "red";
+    buscarSilla(2);
 }
 
 function tres() {
-    alert("hola mundo")
-    document.getElementById("Tres").style.backgroundColor= "red";
+    buscarSilla(3);
 }
 function cuatro() {
-    alert("hola mundo")
-    document.getElementById("Cuatro").style.backgroundColor= "red";
+    buscarSilla(4);
 }
 function cinco() {
-    alert("hola mundo")
-    document.getElementById("Cinco").style.backgroundColor= "red";
+    buscarSilla(5);
 }
 function seis() {
-    alert("hola mundo")
-    document.getElementById("Seis").style.backgroundColor= "red";
+    buscarSilla(6);
 }
 function siete() {
-    alert("hola mundo")
-    document.getElementById("Siete").style.backgroundColor= "red";
+    buscarSilla(7);
 }
 function ocho() {
-    alert("hola mundo")
-    document.getElementById("Ocho").style.backgroundColor= "red";
+    buscarSilla(8);
 }
 function nueve() {
-    alert("hola mundo")
-    document.getElementById("Nueve").style.backgroundColor= "red";
+    buscarSilla(9);
 }
 function diez() {
-    alert("hola mundo")
-    document.getElementById("Diez").style.backgroundColor= "red";
+    buscarSilla(10);
 }
 function once() {
-    alert("hola mundo")
-    document.getElementById("Once").style.backgroundColor= "red";
+    buscarSilla(11);
 }
 function doce() {
-    alert("hola mundo")
-    document.getElementById("Doce").style.backgroundColor= "red";
+    buscarSilla(12);
 }
 function trece() {
-    alert("hola mundo")
-    document.getElementById("Trece").style.backgroundColor= "red";
+    buscarSilla(13);
 }
 function catorce() {
-    alert("hola mundo")
-    document.getElementById("Catorce").style.backgroundColor= "red";
+    buscarSilla(14);
 }
 function quince() {
-    alert("hola mundo")
-    document.getElementById("Quince").style.backgroundColor= "red";
+    buscarSilla(15);
 }
 function dieciseis() {
-    alert("hola mundo")
-    document.getElementById("Dieciseis").style.backgroundColor= "red";
+    buscarSilla(16);
 }
 function diecisiete() {
-    alert("hola mundo")
-    document.getElementById("Diecisiete").style.backgroundColor= "red";
+    buscarSilla(17);
 }
 function dieciocho() {
-    alert("hola mundo")
-    document.getElementById("Dieciocho").style.backgroundColor= "red";
+    buscarSilla(18);
 }
 function diecinieve() {
-    alert("hola mundo")
-    document.getElementById("Diecinieve").style.backgroundColor= "red";
+    buscarSilla(19);
 }
 function veinte() {
-    alert("hola mundo")
-    document.getElementById("Veinte").style.backgroundColor= "red";
+    buscarSilla(20);
 }
 function veintiUno() {
-    alert("hola mundo")
-    document.getElementById("VeintiUno").style.backgroundColor= "red";
+    buscarSilla(21);
 }
 function veintiDos() {
-    alert("hola mundo")
-    document.getElementById("VeintiDos").style.backgroundColor= "red";
+    buscarSilla(22);
 }
 function veintiTres() {
-    alert("hola mundo")
-    document.getElementById("VeintiTres").style.backgroundColor= "red";
+    buscarSilla(23);
 }
 function veintiCuatro() {
-    alert("hola mundo")
-    document.getElementById("VeintiCuatro").style.backgroundColor= "red";
+    buscarSilla(24);
 }
 function veintiCinco() {
-    alert("hola mundo")
-    document.getElementById("VeintiCinco").style.backgroundColor= "red";
+    buscarSilla(25);
 }
 function veintiSeis() {
-    alert("hola mundo")
-    document.getElementById("veintiSeis").style.backgroundColor= "red";
+    buscarSilla(26);
 }
 function veintiSiete() {
-    alert("hola mundo")
-    document.getElementById("VeintiSiete").style.backgroundColor= "red";
+    buscarSilla(27);
 }
 function veintiOcho() {
-    alert("hola mundo")
-    document.getElementById("VeintiOcho").style.backgroundColor= "red";
+    buscarSilla(28);
 }
 function veintiNueve() {
-    alert("hola mundo")
-    document.getElementById("VeintiNueve").style.backgroundColor= "red";
+    buscarSilla(29);
 }
 function treinta() {
-    alert("hola mundo")
-    document.getElementById("Treinta").style.backgroundColor= "red";
+    buscarSilla(30);
 }
 function treintaUno() {
-    alert("hola mundo")
-    document.getElementById("TreintaUno").style.backgroundColor= "red";
+    buscarSilla(31);
 }
 function treintaDos() {
-    alert("hola mundo")
-    document.getElementById("TreintaDos").style.backgroundColor= "red";
+    buscarSilla(32);
 }
 function treintaTres() {
-    alert("hola mundo")
-    document.getElementById("TreintaTres").style.backgroundColor= "red";
+    buscarSilla(33);
 }
 function treintaCuatro() {
-    alert("hola mundo")
-    document.getElementById("TreintaCuatro").style.backgroundColor= "red";
+    buscarSilla(34);
 }
 function treintaCinco() {
-    alert("hola mundo")
-    document.getElementById("TreintaCinco").style.backgroundColor= "red";
+    buscarSilla(35);
 }
 function treintaSeis() {
-    alert("hola mundo")
-    document.getElementById("TreintaSeis").style.backgroundColor= "red";
+    buscarSilla(36);
 }
 function treintaSiete() {
-    alert("hola mundo")
-    document.getElementById("TreintaSiete").style.backgroundColor= "red";
+    buscarSilla(37);
 }
 function treintaOcho() {
-    alert("hola mundo")
-    document.getElementById("TreintaOcho").style.backgroundColor= "red";
+    buscarSilla(38);
 }
 function treintaNueve() {
-    alert("hola mundo")
-    document.getElementById("TreintaNueve").style.backgroundColor= "red";
+    buscarSilla(39);
 }
 function cuarenta() {
-    alert("hola mundo")
-    document.getElementById("Cuarenta").style.backgroundColor= "red";
+    buscarSilla(40);
 }
 function cuarentaUno() {
-    alert("hola mundo")
-    document.getElementById("CuarentaUno").style.backgroundColor= "red";
+    buscarSilla(41);
 }
 function cuarentaDos() {
-    alert("hola mundo")
-    document.getElementById("CuarentaDos").style.backgroundColor= "red";
+    buscarSilla(42);
 }
 function cuarentaTres() {
-    alert("hola mundo")
-    document.getElementById("CuarentaTres").style.backgroundColor= "red";
+    buscarSilla(43);
 }
 function cuarentaCuatro() {
-    alert("hola mundo")
-    document.getElementById("CuarentaCuatro").style.backgroundColor= "red";
+    buscarSilla(44);
 }
 function cuarentaCinco() {
-    alert("hola mundo")
-    document.getElementById("CuarentaCinco").style.backgroundColor= "red";
+    buscarSilla(45);
 }
 function cuarentaSeis() {
-    alert("hola mundo")
-    document.getElementById("CuarentaSeis").style.backgroundColor= "red";
+    buscarSilla(46);
 }
 function cuarentaSiete() {
-    alert("hola mundo")
-    document.getElementById("CuarentaSiete").style.backgroundColor= "red";
+    buscarSilla(47);
 }
 function cuarentaOcho() {
-    alert("hola mundo")
-    document.getElementById("CuarentaOcho").style.backgroundColor= "red";
+    buscarSilla(48);
 }
 function cuarentaNueve() {
-    alert("hola mundo")
-    document.getElementById("CuarentaNueve").style.backgroundColor= "red";
+    buscarSilla(49);
 }
 function cincuenta() {
-    alert("hola mundo")
-    document.getElementById("Cincuenta").style.backgroundColor= "red";
+    buscarSilla(50);
 }
 
 /**
