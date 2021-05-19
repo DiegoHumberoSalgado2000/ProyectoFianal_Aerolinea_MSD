@@ -4,10 +4,19 @@ include_once 'layouts/header_seleccion_asientos.php'
 <title>Seleccionar Asiento</title>
 <?php
 include_once 'layouts/nav_seleccion_asientos.php';
+
+
+if(isset($_GET['res'])){
+    $codigo=$_GET['res'];
+    //echo($lista);
+    print_r($codigo);
+
+
+}
 ?>
 
 <body style="overflow-x:hidden">
-
+<input type="text" class="form-control" id="txtIdItinerarioVuelo" value=<?php echo $codigo ?> >
 
         <!--Modal-->
         <div class="modal fade" id="Registrarse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -135,34 +144,27 @@ include_once 'layouts/nav_seleccion_asientos.php';
                                         <hr class="LineaHorizontal">
                                         <form action="">
                                             <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Nombre</label>
-                                                <input type="text" class="form-control" id="txtNombre">
-                                                <input type="hidden" id="txtIdPasajero" class="form-control">
-                                                <input type="hidden" id="txtCondiResultado" class="form-control">
-                                                <input type="hidden" id="txtMsjResultado" class="form-control">
+                                                <label for="recipient-name" class="control-label">Numero silla</label>
+                                                <input type="text" class="form-control" id="txtNumeroSilla">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">Apellido</label>
-                                                <input type="text" class="form-control" id="txtApellido">
+                                                <label for="message-text" class="control-label">Precio</label>
+                                                <input type="text" class="form-control" id="txtPrecio">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">Cedula</label>
-                                                <input type="text" class="form-control" id="txtCedula">
+                                                <label for="message-text" class="control-label">Estado</label>
+                                                <input type="text" class="form-control" id="txtEstadoSilla">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">Correo</label>
-                                                <input type="email" class="form-control" id="txtCorreo">
+                                                <label for="message-text" class="control-label">Tipo silla</label>
+                                                <input type="email" class="form-control" id="txtTipo">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">Telefono</label>
-                                                <input type="phone" class="form-control" id="txtTelefono">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">Contraseña</label>
-                                                <input type="password" class="form-control" id="txtContrasena">
+                                                <label for="message-text" class="control-label">Descripcion</label>
+                                                <textarea class="form-control"  rows="5" id="txtDescripcionSilla"></textarea>
                                             </div>
                                             <div class="modal-footer row">
-                                                <button type="button" class="btn btn-block btn-danger" id="btnRegistrar">Registrarse</button>
+                                                <button type="button" class="btn btn-block btn-danger" id="btnSilla">Seleccionar Silla</button>
                                             </div>
                                         </form>
 
@@ -200,10 +202,10 @@ include_once 'layouts/nav_seleccion_asientos.php';
                 <section class="ContenedorSillasAvion">
                     <table>
                         <tr>
-                            <td><button id="Cinco" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase2">5</button></td>
-                            <td><button id="Seis" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase2">6</button></td>
-                            <td><button id="Siete" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase">7</button></td>
-                            <td><button id="Ocho" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase">8</button></td>
+                            <td><button id="Cinco" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase2">5</button></td>
+                            <td><button id="Seis" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase2">6</button></td>
+                            <td><button id="Siete" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase">7</button></td>
+                            <td><button id="Ocho" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones sombra MoverBotonesSillaPrimeraClase">8</button></td>
                         </tr>
                     </table>
 
@@ -212,12 +214,12 @@ include_once 'layouts/nav_seleccion_asientos.php';
                 <section class="ContenedorSillasAvionSegundaClase">
                     <table>
                         <tr>
-                            <td><button id="Nueve" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">9</button></td>
-                            <td><button id="Diez" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">10</button></td>
-                            <td><button id="Once" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">11</button></td>
-                            <td><button id="Doce" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">12</button></td>
-                            <td><button id="Trece" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">13</button></td>
-                            <td><button id="Catorce" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">14</button></td>
+                            <td><button id="Nueve" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">9</button></td>
+                            <td><button id="Diez" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">10</button></td>
+                            <td><button id="Once" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">11</button></td>
+                            <td><button id="Doce" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">12</button></td>
+                            <td><button id="Trece" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">13</button></td>
+                            <td><button id="Catorce" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">14</button></td>
                         </tr>
                     </table>
 
@@ -225,12 +227,12 @@ include_once 'layouts/nav_seleccion_asientos.php';
                 <section class="ContenedorSillasAvionSegundaClase">
                     <table>
                         <tr>
-                            <td><button id="Quince" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">15</button></td>
-                            <td><button id="Dieciseis" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">16</button></td>
-                            <td><button id="Diecisiete" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">17</button></td>
-                            <td><button id="Dieciocho" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">18</button></td>
-                            <td><button id="Diecinieve" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">19</button></td>
-                            <td><button id="Veinte" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">20</button></td>
+                            <td><button id="Quince" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">15</button></td>
+                            <td><button id="Dieciseis" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">16</button></td>
+                            <td><button id="Diecisiete" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">17</button></td>
+                            <td><button id="Dieciocho" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">18</button></td>
+                            <td><button id="Diecinieve" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">19</button></td>
+                            <td><button id="Veinte" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">20</button></td>
                         </tr>
                     </table>
 
@@ -238,12 +240,12 @@ include_once 'layouts/nav_seleccion_asientos.php';
                 <section class="ContenedorSillasAvionSegundaClase">
                     <table>
                         <tr>
-                            <td><button id="VeintiUno" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">21</button></td>
-                            <td><button id="VeintiDos" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">22</button></td>
-                            <td><button id="VeintiTres" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">23</button></td>
-                            <td><button id="VeintiCuatro" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">24</button></td>
-                            <td><button id="VeintiCinco" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">25</button></td>
-                            <td><button id="veintiSeis" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">26</button></td>
+                            <td><button id="VeintiUno" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">21</button></td>
+                            <td><button id="VeintiDos" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">22</button></td>
+                            <td><button id="VeintiTres" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">23</button></td>
+                            <td><button id="VeintiCuatro" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">24</button></td>
+                            <td><button id="VeintiCinco" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">25</button></td>
+                            <td><button id="veintiSeis" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">26</button></td>
                         </tr>
                     </table>
 
@@ -251,12 +253,12 @@ include_once 'layouts/nav_seleccion_asientos.php';
                 <section class="ContenedorSillasAvionSegundaClase">
                     <table>
                         <tr>
-                            <td><button id="VeintiSiete" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">27</button></td>
-                            <td><button id="VeintiOcho" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">28</button></td>
-                            <td><button id="VeintiNueve" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">29</button></td>
-                            <td><button id="Treinta" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">30</button></td>
-                            <td><button id="TreintaUno" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">31</button></td>
-                            <td><button id="TreintaDos" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">32</button></td>
+                            <td><button id="VeintiSiete" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">27</button></td>
+                            <td><button id="VeintiOcho" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">28</button></td>
+                            <td><button id="VeintiNueve" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">29</button></td>
+                            <td><button id="Treinta" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">30</button></td>
+                            <td><button id="TreintaUno" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">31</button></td>
+                            <td><button id="TreintaDos" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">32</button></td>
                         </tr>
                     </table>
 
@@ -264,12 +266,12 @@ include_once 'layouts/nav_seleccion_asientos.php';
                 <section class="ContenedorSillasAvionSegundaClase">
                     <table>
                         <tr>
-                            <td><button id="TreintaTres" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">33</button></td>
-                            <td><button id="TreintaCuatro" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">34</button></td>
-                            <td><button id="TreintaCinco" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">35</button></td>
-                            <td><button id="TreintaSeis" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">36</button></td>
-                            <td><button id="TreintaSiete" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">37</button></td>
-                            <td><button id="TreintaOcho" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">38</button></td>
+                            <td><button id="TreintaTres" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">33</button></td>
+                            <td><button id="TreintaCuatro" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">34</button></td>
+                            <td><button id="TreintaCinco" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">35</button></td>
+                            <td><button id="TreintaSeis" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">36</button></td>
+                            <td><button id="TreintaSiete" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">37</button></td>
+                            <td><button id="TreintaOcho" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">38</button></td>
                         </tr>
                     </table>
 
@@ -277,12 +279,12 @@ include_once 'layouts/nav_seleccion_asientos.php';
                 <section class="ContenedorSillasAvionSegundaClase">
                     <table>
                         <tr>
-                            <td><button id="TreintaNueve" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">39</button></td>
-                            <td><button id="Cuarenta" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">40</button></td>
-                            <td><button id="CuarentaUno" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">41</button></td>
-                            <td><button id="CuarentaDos" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">42</button></td>
-                            <td><button id="CuarentaTres" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">43</button></td>
-                            <td><button id="CuarentaCuatro" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">44</button></td>
+                            <td><button id="TreintaNueve" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">39</button></td>
+                            <td><button id="Cuarenta" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">40</button></td>
+                            <td><button id="CuarentaUno" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">41</button></td>
+                            <td><button id="CuarentaDos" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">42</button></td>
+                            <td><button id="CuarentaTres" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">43</button></td>
+                            <td><button id="CuarentaCuatro" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">44</button></td>
                         </tr>
                     </table>
 
@@ -290,12 +292,12 @@ include_once 'layouts/nav_seleccion_asientos.php';
                 <section class="ContenedorSillasAvionSegundaClase">
                     <table>
                         <tr>
-                            <td><button id="CuarentaCinco" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">45</button></td>
-                            <td><button id="CuarentaSeis" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">46</button></td>
-                            <td><button id="CuarentaSiete" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">47</button></td>
-                            <td><button id="CuarentaOcho" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">48</button></td>
-                            <td><button id="CuarentaNueve" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">49</button></td>
-                            <td><button id="Cincuenta" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">50</button></td>
+                            <td><button id="CuarentaCinco" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">45</button></td>
+                            <td><button id="CuarentaSeis" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">46</button></td>
+                            <td><button id="CuarentaSiete" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase2">47</button></td>
+                            <td><button id="CuarentaOcho" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">48</button></td>
+                            <td><button id="CuarentaNueve" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">49</button></td>
+                            <td><button id="Cincuenta" data-target="#InfoAsiento" data-toggle="modal" class="DiseñoBotones2 MoverBotonesSillaSegundaClase">50</button></td>
                         </tr>
                     </table>
 

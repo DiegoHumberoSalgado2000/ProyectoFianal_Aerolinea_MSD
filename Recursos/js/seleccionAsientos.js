@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $("#btnRegistrar").click(RegistrarPasajero);
+    datosRequeridos();
     $("#Uno").click(uno);
     $("#Dos").click(dos);
     $("#Tres").click(tres);
@@ -53,14 +54,16 @@ $(document).ready(function () {
 
 });
 
-
-
+let codigoItinerario;
+function datosRequeridos(){
+    codigoItinerario=$("#txtIdItinerarioVuelo").val();
+}
 
 
 
 
 function uno() {
-    alert("hola mundo")
+    alert("hola mundo "+codigoItinerario)
     document.getElementById("Uno").style.backgroundColor= "red";
 }
 
