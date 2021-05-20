@@ -3,6 +3,7 @@
 include_once 'layouts/header_Pagina_Inicio.php'
 ?>
 <title>Pagos</title>
+<script src="../Recursos/js/detalleReserva.js" type="text/javascript"></script>  
 <?php
 
 include_once 'layouts/nav_Pagina_Inicio.php';
