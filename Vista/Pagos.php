@@ -1,8 +1,11 @@
 <?php
+
 include_once 'layouts/header_Pagina_Inicio.php'
 ?>
 <title>Pagos</title>
+<script src="../Recursos/js/detalleReserva.js" type="text/javascript"></script>  
 <?php
+
 include_once 'layouts/nav_Pagina_Inicio.php';
 ?>
 
@@ -43,6 +46,14 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                             <label for="" class="col-sm-2 col-form-label">Fecha de Salida</label>
                             <div class="col-sm-5">
                                 <input type="date" id="txtFechaSalida" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Fecha de Llegada</label>
+                            <div class="col-sm-5">
+                                <input type="date" id="txtFechaLlegada" class="form-control">
                             </div>
 
                         </div>
@@ -103,13 +114,6 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Genero</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtGenero" class="form-control">
-                            </div>
-
-                        </div>
                     </div>
                 </div>
 
@@ -126,11 +130,11 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                         </div>
                     </div>
                 </div>
-                    <div class="modal-footer row">
-                        <div class="offset-sm-2 col-sm-12 float-right">
-                            <button type="button" class="btn btn-danger">Pagar</button>
-                        </div>
+                <div class="modal-footer row">
+                    <div class="offset-sm-2 col-sm-12 float-right">
+                        <button type="button" class="btn btn-danger">Pagar</button>
                     </div>
+                </div>
             </form>
         </div>
     </div>
@@ -138,5 +142,6 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 
 
 <?php
+
 include_once 'layouts/footer_Pagina_Inicio.php';
 ?>

@@ -9,11 +9,11 @@ class ClsHistorialPago{
     private $mes_vencimiento;
     private $opcion_pago;
     private $Avencimiento;
-    private $numero_targeta;
+    private $numero_tarjeta;
     private $numero_verificacion;
     private $descripcion;
     
-    function __construct($id, $id_Reserva, $total_Pagos, $estado, $tarjeta_credito, $mes_vencimiento, $opcion_pago, $Avencimiento, $numero_targeta, $numero_verificacion, $descripcion) {
+    function __construct($id, $id_Reserva, $total_Pagos, $estado, $tarjeta_credito, $mes_vencimiento, $opcion_pago, $Avencimiento, $numero_tarjeta, $numero_verificacion, $descripcion) {
         $this->id = $id;
         $this->id_Reserva = $id_Reserva;
         $this->total_Pagos = $total_Pagos;
@@ -22,7 +22,7 @@ class ClsHistorialPago{
         $this->mes_vencimiento = $mes_vencimiento;
         $this->opcion_pago = $opcion_pago;
         $this->Avencimiento = $Avencimiento;
-        $this->numero_targeta = $numero_targeta;
+        $this->numero_tarjeta = $numero_tarjeta;
         $this->numero_verificacion = $numero_verificacion;
         $this->descripcion = $descripcion;
     }
@@ -59,8 +59,8 @@ class ClsHistorialPago{
         return $this->Avencimiento;
     }
 
-    function getNumero_targeta() {
-        return $this->numero_targeta;
+    function getNumero_tarjeta() {
+        return $this->numero_tarjeta;
     }
 
     function getNumero_verificacion() {
@@ -103,8 +103,8 @@ class ClsHistorialPago{
         $this->Avencimiento = $Avencimiento;
     }
 
-    function setNumero_targeta($numero_targeta){
-        $this->numero_targeta = $numero_targeta;
+    function setNumero_tarjeta($numero_tarjeta){
+        $this->numero_tarjeta = $numero_tarjeta;
     }
 
     function setNumero_verificacion($numero_verificacion){
