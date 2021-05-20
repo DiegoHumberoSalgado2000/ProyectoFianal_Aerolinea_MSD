@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#btnRegistrar").click(RegistrarPasajero);
     datosRequeridos();
+    $("#btnValidarDatos").click(validarDatosPersona);
     $("#Uno").click(uno);
     $("#Dos").click(dos);
     $("#Tres").click(tres);
@@ -61,6 +62,7 @@ function datosRequeridos(){
     let btnSeleccionarSilla = document.getElementById("btnSeleccionarSilla");
     btnReserva.disabled =true;
     btnSeleccionarSilla.disabled =true;
+    bloquearAsientos();
 }
 
 function buscarSilla(numSilla){
@@ -98,6 +100,402 @@ function buscarSilla(numSilla){
 
             } else {
                 alert("La silla no se encuentra disponible");
+            }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+
+
+}
+
+
+
+function validarDatosPersona(){
+
+    var objAvion = {
+        correo: $("#txtCorreoSilla").val(),
+        contrasena: $("#txtContrasenaSilla").val(),
+        type: "buscarPersona"
+    };
+
+
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionSilla.php",
+        beforeSend: function () {
+
+        },
+        data: objAvion,
+        success: function (res) {
+            alert(res);
+            var info = JSON.parse(res);
+            var data = JSON.parse(info.data);
+
+            if (info.msj === "Success") {
+
+                $("#txtCorreoSilla").val(data[0].correo);
+                $("#txtContrasenaSilla").val(data[0].contrasena);
+                $("#txtIdPersona").val(data[0].id);
+                alert("Se encontró el pasajero")
+
+            } else {
+                alert("No se encontró a el pasajero");
+                $("#txtIdPersona").val(-1);
+            }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+
+
+}
+
+
+function bloquearAsientos(){
+
+    var objAvion = {
+        idItinerario: codigoItinerario,
+        type: "listSillasDisponibles"
+    };
+
+
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionSilla.php",
+        beforeSend: function () {
+
+        },
+        data: objAvion,
+        success: function (res) {
+            alert(res);
+            var info = JSON.parse(res);
+            var data = JSON.parse(info.data);
+
+            if (info.msj === "Success") {
+                if (data.length > 0) {
+                    for (f = 0; f < data.length; f++) {
+                        switch (parseInt(data[f].numero_silla)) {
+                            case 1:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Uno").style.backgroundColor= "red";
+                                    document.getElementById("Uno").disabled=true;
+                                }
+                                break;
+                            case 2:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Dos").style.backgroundColor= "red";
+                                    document.getElementById("Dos").disabled=true;
+                                }
+                                break;
+                            case 3:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Tres").style.backgroundColor= "red";
+                                    document.getElementById("Tres").disabled=true;
+                                }
+                                break;
+                            case 4:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Cuatro").style.backgroundColor= "red";
+                                    document.getElementById("Cuatro").disabled=true;
+                                }
+                                break;
+                            case 5:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Cinco").style.backgroundColor= "red";
+                                    document.getElementById("Cinco").disabled=true;
+                                }
+                                break;
+                            case 6:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Seis").style.backgroundColor= "red";
+                                    document.getElementById("Seis").disabled=true;
+                                }
+                                break;
+                            case 7:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Siete").style.backgroundColor= "red";
+                                    document.getElementById("Siete").disabled=true;
+                                }
+                                break;
+                            case 8:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Ocho").style.backgroundColor= "red";
+                                    document.getElementById("Ocho").disabled=true;
+                                }
+                                break;
+                            case 9:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Nueve").style.backgroundColor= "red";
+                                    document.getElementById("Nueve").disabled=true;
+                                }
+                                break;
+                            case 10:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Diez").style.backgroundColor= "red";
+                                    document.getElementById("Diez").disabled=true;
+                                }
+                                break;
+                            case 11:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Once").style.backgroundColor= "red";
+                                    document.getElementById("Once").disabled=true;
+                                }
+                                break;
+                            case 12:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Doce").style.backgroundColor= "red";
+                                    document.getElementById("Doce").disabled=true;
+                                }
+                                break;
+                            case 13:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Trece").style.backgroundColor= "red";
+                                    document.getElementById("Trece").disabled=true;
+                                }
+                                break;
+                            case 14:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Catorce").style.backgroundColor= "red";
+                                    document.getElementById("Catorce").disabled=true;
+                                }
+                                break;
+                            case 15:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Quince").style.backgroundColor= "red";
+                                    document.getElementById("Quince").disabled=true;
+                                }
+                                break;
+                            case 16:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Dieciseis").style.backgroundColor= "red";
+                                    document.getElementById("Dieciseis").disabled=true;
+                                }
+                                break;
+                            case 17:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Diecisiete").style.backgroundColor= "red";
+                                    document.getElementById("Diecisiete").disabled=true;
+                                }
+                                break;
+                            case 18:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Dieciocho").style.backgroundColor= "red";
+                                    document.getElementById("Dieciocho").disabled=true;
+                                }
+                                break;
+                            case 19:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Diecinieve").style.backgroundColor= "red";
+                                    document.getElementById("Diecinieve").disabled=true;
+                                }
+                                break;
+                            case 20:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Veinte").style.backgroundColor= "red";
+                                    document.getElementById("Veinte").disabled=true;
+                                }
+                                break;
+                            case 21:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("VeintiUno").style.backgroundColor= "red";
+                                    document.getElementById("VeintiUno").disabled=true;
+                                }
+                                break;
+                            case 22:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("VeintiDos").style.backgroundColor= "red";
+                                    document.getElementById("VeintiDos").disabled=true;
+                                }
+                                break;
+                            case 23:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("VeintiTres").style.backgroundColor= "red";
+                                    document.getElementById("VeintiTres").disabled=true;
+                                }
+                                break;
+                            case 24:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("VeintiCuatro").style.backgroundColor= "red";
+                                    document.getElementById("VeintiCuatro").disabled=true;
+                                }
+                                break;
+                            case 25:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("VeintiCinco").style.backgroundColor= "red";
+                                    document.getElementById("VeintiCinco").disabled=true;
+                                }
+                                break;
+                            case 26:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("veintiSeis").style.backgroundColor= "red";
+                                    document.getElementById("veintiSeis").disabled=true;
+                                }
+                                break;
+                            case 27:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("VeintiSiete").style.backgroundColor= "red";
+                                    document.getElementById("VeintiSiete").disabled=true;
+                                }
+                                break;
+                            case 28:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("VeintiOcho").style.backgroundColor= "red";
+                                    document.getElementById("VeintiOcho").disabled=true;
+                                }
+                                break;
+                            case 29:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("VeintiNueve").style.backgroundColor= "red";
+                                    document.getElementById("VeintiNueve").disabled=true;
+                                }
+                                break;
+                            case 30:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Treinta").style.backgroundColor= "red";
+                                    document.getElementById("Treinta").disabled=true;
+                                }
+                                break;
+                            case 31:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaUno").style.backgroundColor= "red";
+                                    document.getElementById("TreintaUno").disabled=true;
+                                }
+                                break;
+                            case 32:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaDos").style.backgroundColor= "red";
+                                    document.getElementById("TreintaDos").disabled=true;
+                                }
+                                break;
+                            case 33:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaTres").style.backgroundColor= "red";
+                                    document.getElementById("TreintaTres").disabled=true;
+                                }
+                                break;
+                            case 34:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaCuatro").style.backgroundColor= "red";
+                                    document.getElementById("TreintaCuatro").disabled=true;
+                                }
+                                break;
+                            case 35:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaCinco").style.backgroundColor= "red";
+                                    document.getElementById("TreintaCinco").disabled=true;
+                                }
+                                break;
+                            case 36:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaSeis").style.backgroundColor= "red";
+                                    document.getElementById("TreintaSeis").disabled=true;
+                                }
+                                break;
+                            case 37:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaSiete").style.backgroundColor= "red";
+                                    document.getElementById("TreintaSiete").disabled=true;
+                                }
+                                break;
+                            case 38:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaOcho").style.backgroundColor= "red";
+                                    document.getElementById("TreintaOcho").disabled=true;
+                                }
+                                break;
+                            case 39:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("TreintaNueve").style.backgroundColor= "red";
+                                    document.getElementById("TreintaNueve").disabled=true;
+                                }
+                                break;
+                            case 40:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Cuarenta").style.backgroundColor= "red";
+                                    document.getElementById("Cuarenta").disabled=true;
+                                }
+                                break;
+                            case 41:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaUno").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaUno").disabled=true;
+                                }
+                                break;
+                            case 42:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaDos").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaDos").disabled=true;
+                                }
+                                break;
+                            case 43:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaTres").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaTres").disabled=true;
+                                }
+                                break;
+                            case 44:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaCuatro").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaCuatro").disabled=true;
+                                }
+                                break;
+                            case 45:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaCinco").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaCinco").disabled=true;
+                                }
+                                break;
+                            case 46:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaSeis").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaSeis").disabled=true;
+                                }
+                                break;
+                            case 47:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaSiete").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaSiete").disabled=true;
+                                }
+                                break;
+                            case 48:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaOcho").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaOcho").disabled=true;
+                                }
+                                break;
+                            case 49:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("CuarentaNueve").style.backgroundColor= "red";
+                                    document.getElementById("CuarentaNueve").disabled=true;
+                                }
+                                break;
+                            case 50:
+                                if(data[f].estado!=="disponible"){
+                                    document.getElementById("Cincuenta").style.backgroundColor= "red";
+                                    document.getElementById("Cincuenta").disabled=true;
+                                }
+                                break;
+                            default:
+                                alert("Hola mundo")
+                        }
+                    }
+                }else {
+
+                        alert("Error al realizar la consulta");
+
+                }
+
+
+
+            } else {
+                alert("No se han encotrado las sillas");
             }
 
         },
