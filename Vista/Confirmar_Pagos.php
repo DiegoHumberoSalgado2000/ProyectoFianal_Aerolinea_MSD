@@ -223,7 +223,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Resumen de Pago</h3>
+                        <h3 class="panel-title">Total Costo</h3>
                     </div>
                     <div class="panel-body">
                         <div class="form-group row">
