@@ -2,6 +2,8 @@ $(document).ready(function () {
     $("#btnRegistrar").click(RegistrarPasajero);
     datosRequeridos();
     $("#btnValidarDatos").click(validarDatosPersona);
+    $("#btnSeleccionarSilla").click(seleccionarSilla);
+    $("#btnReservar").click(reservar);
     $("#Uno").click(uno);
     $("#Dos").click(dos);
     $("#Tres").click(tres);
@@ -58,12 +60,129 @@ $(document).ready(function () {
 let codigoItinerario;
 function datosRequeridos(){
     codigoItinerario=$("#txtIdItinerarioVuelo").val();
-    let btnReserva = document.getElementById("btnReservar");
-    let btnSeleccionarSilla = document.getElementById("btnSeleccionarSilla");
-    btnReserva.disabled =true;
-    btnSeleccionarSilla.disabled =true;
+    $("#txtIdPersona").val(-1);
+    $("#txtIdSillaSeleccionada").val(-1);
+
+    document.getElementById("btnReservar").disabled =true;
+    document.getElementById("btnSeleccionarSilla").disabled =true;
+
+    document.getElementById("txtNumeroSilla").disabled=true;
+    document.getElementById("txtPrecio").disabled=true;
+    document.getElementById("txtEstadoSilla").disabled=true;
+    document.getElementById("txtTipo").disabled=true;
+    document.getElementById("txtDescripcionSilla").disabled=true;
+
     bloquearAsientos();
 }
+
+function reservar(){
+
+    var objDatos = {
+        type: "obtenerNuevoCodigoReserva"
+    };
+
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionSilla.php",
+        beforeSend: function () {
+
+        },
+        data: objDatos,
+        success: function (res) {
+            //alert(res);
+            var info = JSON.parse(res);
+            var data = JSON.parse(info.data);
+            var codigoReserva;
+            if (info.msj === "Success") {
+
+                //alert(data[0].ultimo);
+                if(data[0].ultimo===null){
+                    //alert("Es nulo");
+                    codigoReserva=1;
+                }else{
+                    codigoReserva=data[0].ultimo;
+                }
+
+                reservarObtencionDatos(codigoReserva);
+
+                //let btnSeleccionarSilla = document.getElementById("btnSeleccionarSilla");
+                //btnSeleccionarSilla.disabled =false;
+
+            } else {
+                alert("No se pudo obtener el nuevo codigo de la reserva")
+            }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+
+}
+
+function reservarObtencionDatos(codigoReserva){
+    let idSilla=$("#txtIdSillaSeleccionada").val();
+    let idPasajeroPrincipal=$("#txtIdPersona").val();
+
+    if(idSilla===-1){
+        alert("Debe de seleccionar una silla antes de reservarla");
+    }else if(idPasajeroPrincipal===-1){
+        alert("Debe de validar sus datos personales para realizar una reserva");
+    }else{
+        let hoy=new Date();
+
+        let dia=hoy.getDate();
+        let mes=hoy.getMonth()+1;
+        let agnio=hoy.getFullYear();
+
+        let hora=hoy.getHours();
+        let minutos=hoy.getMinutes();
+        let segundos=hoy.getSeconds();
+
+        dia=('0'+dia).slice(-2);
+        mes=('0'+mes).slice(-2);
+
+        hora=('0'+hora).slice(-2);
+        minutos=('0'+minutos).slice(-2);
+        segundos=('0'+segundos).slice(-2);
+
+        let formato=`${agnio}-${mes}-${dia} ${hora}:${minutos}:${segundos}`;// Utilizando una literal de plantilla. yyyy-MM-dd
+        //alert("Fecha de reserva "+formato)
+
+        var objDatos = {
+            silla:idSilla,
+            pasajeroPrincipal:idPasajeroPrincipal,
+            fechaHoy:formato,
+            codigo:codigoReserva,
+            type: "guardarReserva"
+        };
+
+        $.ajax({
+            type: 'post',
+            url: "../Controlador/gestionSilla.php",
+            beforeSend: function () {
+
+            },
+            data: objDatos,
+            success: function (res) {
+                alert("Reserva realizada con exito");
+                window.location.href='../index.php';
+
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+                alert("Verifique la ruta del archivo");
+            }
+        });
+
+
+    }
+
+
+}
+
 
 function buscarSilla(numSilla){
 
@@ -100,6 +219,8 @@ function buscarSilla(numSilla){
 
             } else {
                 alert("La silla no se encuentra disponible");
+                document.getElementById("btnSeleccionarSilla").disabled =true;
+                document.getElementById("btnReservar").disabled =true;
             }
 
         },
@@ -131,21 +252,40 @@ function validarDatosPersona(){
         },
         data: objAvion,
         success: function (res) {
-            alert(res);
+            //alert(res);
             var info = JSON.parse(res);
-            var data = JSON.parse(info.data);
+
+            if(info.res==="False"){
+                alert(info.msj);
+                alert("Si seleccionó alguna silla antes se quitó esa selección.")
+                $("#txtIdPersona").val(-1);
+                $("#txtIdSillaSeleccionada").val(-1);
+                document.getElementById("btnReservar").disabled =true;
+                document.getElementById("btnSeleccionarSilla").disabled =true;
+                quitarColorSeleccionSilla();
+            }else{
 
             if (info.msj === "Success") {
-
+                var data = JSON.parse(info.data);
                 $("#txtCorreoSilla").val(data[0].correo);
                 $("#txtContrasenaSilla").val(data[0].contrasena);
                 $("#txtIdPersona").val(data[0].id);
                 alert("Se encontró el pasajero")
+                document.getElementById("btnSeleccionarSilla").disabled =false;
 
             } else {
-                alert("No se encontró a el pasajero");
+                alert("No se encontró a el pasajero. Si seleccionó alguna silla antes se quitó esa selección.");
                 $("#txtIdPersona").val(-1);
+                $("#txtIdSillaSeleccionada").val(-1);
+                document.getElementById("btnReservar").disabled =true;
+                document.getElementById("btnSeleccionarSilla").disabled =true;
+                quitarColorSeleccionSilla();
             }
+            }
+
+
+
+
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -157,6 +297,379 @@ function validarDatosPersona(){
 
 }
 
+
+
+
+function seleccionarSilla(){
+    let idSilla=  $("#txtIdSilla").val();
+    $("#txtIdSillaSeleccionada").val(idSilla);
+    alert("Silla número "+$("#txtNumeroSilla").val()+" Seleccionada");
+    document.getElementById("btnReservar").disabled =false;
+    quitarColorSeleccionSilla();
+    agregarColorSillaSeleccionada($("#txtNumeroSilla").val());
+
+}
+
+function agregarColorSillaSeleccionada(numeroSilla){
+    switch (parseInt(numeroSilla)) {
+        case 1:
+                document.getElementById("Uno").style.backgroundColor= "green";
+            break;
+        case 2:
+                document.getElementById("Dos").style.backgroundColor= "green";
+            break;
+        case 3:
+                document.getElementById("Tres").style.backgroundColor= "green";
+            break;
+        case 4:
+                document.getElementById("Cuatro").style.backgroundColor= "green";
+            break;
+        case 5:
+                document.getElementById("Cinco").style.backgroundColor= "green";
+            break;
+        case 6:
+                document.getElementById("Seis").style.backgroundColor= "green";
+            break;
+        case 7:
+                document.getElementById("Siete").style.backgroundColor= "green";
+            break;
+        case 8:
+                document.getElementById("Ocho").style.backgroundColor= "green";
+            break;
+        case 9:
+                document.getElementById("Nueve").style.backgroundColor= "green";
+            break;
+        case 10:
+                document.getElementById("Diez").style.backgroundColor= "green";
+            break;
+        case 11:
+                document.getElementById("Once").style.backgroundColor= "green";
+            break;
+        case 12:
+                document.getElementById("Doce").style.backgroundColor= "green";
+            break;
+        case 13:
+                document.getElementById("Trece").style.backgroundColor= "green";
+            break;
+        case 14:
+                document.getElementById("Catorce").style.backgroundColor= "green";
+            break;
+        case 15:
+                document.getElementById("Quince").style.backgroundColor= "green";
+            break;
+        case 16:
+                document.getElementById("Dieciseis").style.backgroundColor= "green";
+            break;
+        case 17:
+                document.getElementById("Diecisiete").style.backgroundColor= "green";
+            break;
+        case 18:
+                document.getElementById("Dieciocho").style.backgroundColor= "green";
+            break;
+        case 19:
+                document.getElementById("Diecinieve").style.backgroundColor= "green";
+            break;
+        case 20:
+                document.getElementById("Veinte").style.backgroundColor= "green";
+            break;
+        case 21:
+                document.getElementById("VeintiUno").style.backgroundColor= "green";
+            break;
+        case 22:
+                document.getElementById("VeintiDos").style.backgroundColor= "green";
+            break;
+        case 23:
+                document.getElementById("VeintiTres").style.backgroundColor= "green";
+            break;
+        case 24:
+                document.getElementById("VeintiCuatro").style.backgroundColor= "green";
+            break;
+        case 25:
+                document.getElementById("VeintiCinco").style.backgroundColor= "green";
+            break;
+        case 26:
+                document.getElementById("veintiSeis").style.backgroundColor= "green";
+            break;
+        case 27:
+                document.getElementById("VeintiSiete").style.backgroundColor= "green";
+            break;
+        case 28:
+                document.getElementById("VeintiOcho").style.backgroundColor= "green";
+            break;
+        case 29:
+                document.getElementById("VeintiNueve").style.backgroundColor= "green";
+            break;
+        case 30:
+                document.getElementById("Treinta").style.backgroundColor= "green";
+            break;
+        case 31:
+                document.getElementById("TreintaUno").style.backgroundColor= "green";
+            break;
+        case 32:
+                document.getElementById("TreintaDos").style.backgroundColor= "green";
+            break;
+        case 33:
+                document.getElementById("TreintaTres").style.backgroundColor= "green";
+            break;
+        case 34:
+                document.getElementById("TreintaCuatro").style.backgroundColor= "green";
+            break;
+        case 35:
+                document.getElementById("TreintaCinco").style.backgroundColor= "green";
+            break;
+        case 36:
+                document.getElementById("TreintaSeis").style.backgroundColor= "green";
+            break;
+        case 37:
+                document.getElementById("TreintaSiete").style.backgroundColor= "green";
+            break;
+        case 38:
+                document.getElementById("TreintaOcho").style.backgroundColor= "green";
+            break;
+        case 39:
+                document.getElementById("TreintaNueve").style.backgroundColor= "green";
+            break;
+        case 40:
+                document.getElementById("Cuarenta").style.backgroundColor= "green";
+            break;
+        case 41:
+                document.getElementById("CuarentaUno").style.backgroundColor= "green";
+            break;
+        case 42:
+                document.getElementById("CuarentaDos").style.backgroundColor= "green";
+            break;
+        case 43:
+                document.getElementById("CuarentaTres").style.backgroundColor= "green";
+            break;
+        case 44:
+                document.getElementById("CuarentaCuatro").style.backgroundColor= "green";
+            break;
+        case 45:
+                document.getElementById("CuarentaCinco").style.backgroundColor= "green";
+            break;
+        case 46:
+                document.getElementById("CuarentaSeis").style.backgroundColor= "green";
+            break;
+        case 47:
+                document.getElementById("CuarentaSiete").style.backgroundColor= "green";
+            break;
+        case 48:
+                document.getElementById("CuarentaOcho").style.backgroundColor= "green";
+            break;
+        case 49:
+                document.getElementById("CuarentaNueve").style.backgroundColor= "green";
+            break;
+        case 50:
+                document.getElementById("Cincuenta").style.backgroundColor= "green";
+            break;
+        default:
+            alert("Error al cambiar el color de la selección de la silla");
+    }
+}
+
+function quitarColorSeleccionSilla(){
+
+if(document.getElementById("Uno").style.backgroundColor==="green"){
+    document.getElementById("Uno").style.backgroundColor="yellow";
+}
+
+if(document.getElementById("Dos").style.backgroundColor==="green"){
+    document.getElementById("Dos").style.backgroundColor="yellow";
+}
+
+if(document.getElementById("Tres").style.backgroundColor==="green"){
+    document.getElementById("Tres").style.backgroundColor="yellow";
+}
+
+if(document.getElementById("Cuatro").style.backgroundColor==="green"){
+    document.getElementById("Cuatro").style.backgroundColor="yellow";
+}
+
+if(document.getElementById("Cinco").style.backgroundColor==="green"){
+    document.getElementById("Cinco").style.backgroundColor="yellow";
+}
+
+if(document.getElementById("Seis").style.backgroundColor==="green"){
+    document.getElementById("Seis").style.backgroundColor="yellow";
+}
+
+if(document.getElementById("Siete").style.backgroundColor==="green"){
+    document.getElementById("Siete").style.backgroundColor="yellow";
+}
+
+if(document.getElementById("Ocho").style.backgroundColor==="green"){
+    document.getElementById("Ocho").style.backgroundColor="yellow";
+}
+
+if(document.getElementById("Nueve").style.backgroundColor==="green"){
+    document.getElementById("Nueve").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Diez").style.backgroundColor==="green"){
+    document.getElementById("Diez").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Once").style.backgroundColor==="green"){
+    document.getElementById("Once").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Doce").style.backgroundColor==="green"){
+    document.getElementById("Doce").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Trece").style.backgroundColor==="green"){
+    document.getElementById("Trece").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Catorce").style.backgroundColor==="green"){
+    document.getElementById("Catorce").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Quince").style.backgroundColor==="green"){
+    document.getElementById("Quince").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Dieciseis").style.backgroundColor==="green"){
+    document.getElementById("Dieciseis").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Diecisiete").style.backgroundColor==="green"){
+    document.getElementById("Diecisiete").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Dieciocho").style.backgroundColor==="green"){
+    document.getElementById("Dieciocho").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Diecinieve").style.backgroundColor==="green"){
+    document.getElementById("Diecinieve").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Veinte").style.backgroundColor==="green"){
+    document.getElementById("Veinte").style.backgroundColor="blue";
+}
+
+if(document.getElementById("VeintiUno").style.backgroundColor==="green"){
+    document.getElementById("VeintiUno").style.backgroundColor="blue";
+}
+
+if(document.getElementById("VeintiDos").style.backgroundColor==="green"){
+    document.getElementById("VeintiDos").style.backgroundColor="blue";
+}
+
+if(document.getElementById("VeintiTres").style.backgroundColor==="green"){
+    document.getElementById("VeintiTres").style.backgroundColor="blue";
+}
+
+if(document.getElementById("VeintiCuatro").style.backgroundColor==="green"){
+    document.getElementById("VeintiCuatro").style.backgroundColor="blue";
+}
+
+if(document.getElementById("VeintiCinco").style.backgroundColor==="green"){
+    document.getElementById("VeintiCinco").style.backgroundColor="blue";
+}
+
+if(document.getElementById("veintiSeis").style.backgroundColor==="green"){
+    document.getElementById("veintiSeis").style.backgroundColor="blue";
+}
+
+if(document.getElementById("VeintiSiete").style.backgroundColor==="green"){
+    document.getElementById("VeintiSiete").style.backgroundColor="blue";
+}
+
+if(document.getElementById("VeintiOcho").style.backgroundColor==="green"){
+    document.getElementById("VeintiOcho").style.backgroundColor="blue";
+}
+
+if(document.getElementById("VeintiNueve").style.backgroundColor==="green"){
+    document.getElementById("VeintiNueve").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Treinta").style.backgroundColor==="green"){
+    document.getElementById("Treinta").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaUno").style.backgroundColor==="green"){
+    document.getElementById("TreintaUno").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaDos").style.backgroundColor==="green"){
+    document.getElementById("TreintaDos").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaTres").style.backgroundColor==="green"){
+    document.getElementById("TreintaTres").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaCuatro").style.backgroundColor==="green"){
+    document.getElementById("TreintaCuatro").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaCinco").style.backgroundColor==="green"){
+    document.getElementById("TreintaCinco").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaSeis").style.backgroundColor==="green"){
+    document.getElementById("TreintaSeis").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaSiete").style.backgroundColor==="green"){
+    document.getElementById("TreintaSiete").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaOcho").style.backgroundColor==="green"){
+    document.getElementById("TreintaOcho").style.backgroundColor="blue";
+}
+
+if(document.getElementById("TreintaNueve").style.backgroundColor==="green"){
+    document.getElementById("TreintaNueve").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Cuarenta").style.backgroundColor==="green"){
+    document.getElementById("Cuarenta").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaUno").style.backgroundColor==="green"){
+    document.getElementById("CuarentaUno").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaDos").style.backgroundColor==="green"){
+    document.getElementById("CuarentaDos").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaTres").style.backgroundColor==="green"){
+    document.getElementById("CuarentaTres").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaCuatro").style.backgroundColor==="green"){
+    document.getElementById("CuarentaCuatro").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaCinco").style.backgroundColor==="green"){
+    document.getElementById("CuarentaCinco").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaSeis").style.backgroundColor==="green"){
+    document.getElementById("CuarentaSeis").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaSiete").style.backgroundColor==="green"){
+    document.getElementById("CuarentaSiete").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaOcho").style.backgroundColor==="green"){
+    document.getElementById("CuarentaOcho").style.backgroundColor="blue";
+}
+
+if(document.getElementById("CuarentaNueve").style.backgroundColor==="green"){
+    document.getElementById("CuarentaNueve").style.backgroundColor="blue";
+}
+
+if(document.getElementById("Cincuenta").style.backgroundColor==="green"){
+    document.getElementById("Cincuenta").style.backgroundColor="blue";
+}
+
+}
 
 function bloquearAsientos(){
 
@@ -174,7 +687,7 @@ function bloquearAsientos(){
         },
         data: objAvion,
         success: function (res) {
-            alert(res);
+            //alert(res);
             var info = JSON.parse(res);
             var data = JSON.parse(info.data);
 

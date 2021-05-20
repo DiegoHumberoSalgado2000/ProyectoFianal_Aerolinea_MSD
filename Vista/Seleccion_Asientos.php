@@ -17,7 +17,7 @@ if(isset($_GET['res'])){
 
 <body style="overflow-x:hidden">
 <input type="hidden" class="form-control" id="txtIdItinerarioVuelo" value=<?php echo $codigo ?> >
-
+<input type="hidden" class="form-control" id="txtIdSillaSeleccionada" >
         <!--Modal-->
         <div class="modal fade" id="Registrarse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
             <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
@@ -162,7 +162,7 @@ if(isset($_GET['res'])){
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Descripcion</label>
                                                 <textarea class="form-control"  rows="5" id="txtDescripcionSilla"></textarea>
-                                                <input type="text" class="form-control" id="txtIdSilla">
+                                                <input type="hidden" class="form-control" id="txtIdSilla">
                                             </div>
                                             <div class="modal-footer row">
                                                 <button type="button" class="btn btn-block btn-danger" id="btnSeleccionarSilla">Seleccionar Silla</button>
@@ -183,7 +183,7 @@ if(isset($_GET['res'])){
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Contraseña</label>
                                                 <input type="text" class="form-control" id="txtContrasenaSilla">
-                                                <input type="text" class="form-control" id="txtIdPersona">
+                                                <input type="hidden" class="form-control" id="txtIdPersona">
                                             </div>
                                             <div class="modal-footer row">
                                                 <button type="button" class="btn btn-block btn-danger" id="btnValidarDatos">Validar Datos</button>

@@ -35,6 +35,21 @@ class sillaDAO{
         $this->objCon->Execute($sql);
     }
 
+    /*
+    *Función utilizada para obtener el nuevo codigo de la reserva
+    */
+    public function obtenerNuevoCodigoReserva(){
+        $sql="SELECT MAX(codigo)+1 ultimo FROM reserva";
+        $this->objCon->Execute($sql);
+    }
+
+    /*
+    *Función utilizada para guardar una reserva
+    */
+    public function guardarReserva($silla,$pasajeroPrincipal,$fechaHoy,$codigo){
+        $sql="INSERT INTO reserva (id_silla,id_pasajero_principal,codigo,estado,fecha_hora_reserva,descripcion) values($silla,$pasajeroPrincipal,$codigo,'disponible','$fechaHoy','ninguna')";
+        $this->objCon->ExecuteTransaction($sql);
+    }
 
 
 }

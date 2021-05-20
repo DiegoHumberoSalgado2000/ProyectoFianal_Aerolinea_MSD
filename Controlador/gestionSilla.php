@@ -11,6 +11,12 @@ $type = isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 $correo = isset($_REQUEST['correo'])? $_REQUEST['correo'] : "";
 $contrasena = isset($_REQUEST['contrasena'])? $_REQUEST['contrasena'] : "";
 
+$silla = isset($_REQUEST['silla'])? $_REQUEST['silla'] : "";
+$pasajeroPrincipal = isset($_REQUEST['pasajeroPrincipal'])? $_REQUEST['pasajeroPrincipal'] : "";
+$fechaHoy = isset($_REQUEST['fechaHoy'])? $_REQUEST['fechaHoy'] : "";
+$codigo = isset($_REQUEST['codigo'])? $_REQUEST['codigo'] : "";
+
+
 $sillaDAO= new sillaDAO();
 
 
@@ -50,4 +56,13 @@ switch ($type) {
         }
         $sillaDAO->buscarPasajero($correo,$contrasena);
         break;
+    case "obtenerNuevoCodigoReserva":
+        $sillaDAO->obtenerNuevoCodigoReserva();
+        break;
+
+    case "guardarReserva":
+        $sillaDAO->guardarReserva($silla,$pasajeroPrincipal,$fechaHoy,$codigo);
+        break;
 }
+
+
