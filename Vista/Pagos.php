@@ -103,13 +103,6 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Genero</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtGenero" class="form-control">
-                            </div>
-
-                        </div>
                     </div>
                 </div>
 

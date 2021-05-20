@@ -6,6 +6,7 @@
 $(document).ready(function () {
     $("#btnCargarInformacion").click(cargarDatos);
     $("#btnPagarReserva").click(GuardarHistorialPasajero);
+    Bloquear();
 });
 
 function cargarDatos() {
@@ -121,4 +122,23 @@ function LimpiarTextInformacionBancaria() {
     $("#CmbAvencimiento").val("-1");
     $("#txtNumeroTargetaCredito").val("");
     $("#txtNumeroVerificacion").val("");
+}
+
+function Bloquear() {
+    DesabilitarText();
+}
+
+function DesabilitarText() {
+
+    let txtNombre = document.getElementById("txtNombre");
+    let txtApellido = document.getElementById("txtApellido");
+    let txtCorreo = document.getElementById("txtCorreo");
+    let txtTelefono = document.getElementById("txtTelefono");
+    let txtTotalPagar = document.getElementById("txtTotalPagar");
+
+    txtNombre.disabled = true;
+    txtApellido.disabled = true;
+    txtCorreo.disabled = true;
+    txtTelefono.disabled = true;
+    txtTotalPagar.disabled = true;
 }

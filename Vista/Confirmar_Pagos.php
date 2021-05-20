@@ -227,66 +227,6 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                     </div>
                     <div class="panel-body">
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Total Tarifa</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtTotalTarifa" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Total Tasa e Impuestos</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtTotalTasaImpuestos" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Check-in en el Aeropuerto</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtCheck-inAeropuerto" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Compra Tranquilo</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtCompraTranquilo" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Fila Express</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtFilaExpress" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Segun por perdida de Equipaje</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtPerdidaEquipaje" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Segun Medico</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtSegunMedico" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Segun por Cancelacion</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtSegunCancelacion" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Total Sobrecargos</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtTotalSobrecargos" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Total IVA</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtTotalIVA" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">TOTAL A PAGAR</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtTotalPagar" class="form-control">
