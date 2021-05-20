@@ -26,7 +26,7 @@ function listarTabla() {
             lista = lista + "<td>" + arreglo[f].precio + "</td>";
             lista = lista + "<td>" + arreglo[f].descripcion + "</td>";
             lista = lista + "<td>" + arreglo[f].estado + "</td>";
-            lista = lista + "<td>" +   '<a href=http://localhost:3000/Aerolinea_MSD/Vista/Seleccion_Asientos.php?res='+arreglo[f].id+' type="button" id="Ir" class="btn btn-danger" >Seleccionar</a>' + "</td>";
+            lista = lista + "<td>" +   '<a href=http://localhost/Aerolinea_MSD/Vista/Seleccion_Asientos.php?res='+arreglo[f].id+' type="button" id="Ir" class="btn btn-danger" >Seleccionar</a>' + "</td>";
             lista = lista + "</tr>";
             }
 
