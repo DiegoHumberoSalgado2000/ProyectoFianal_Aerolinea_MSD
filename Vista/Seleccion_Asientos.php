@@ -9,14 +9,14 @@ include_once 'layouts/nav_seleccion_asientos.php';
 if(isset($_GET['res'])){
     $codigo=$_GET['res'];
     //echo($lista);
-    print_r($codigo);
+    //print_r($codigo);
 
 
 }
 ?>
 
 <body style="overflow-x:hidden">
-<input type="text" class="form-control" id="txtIdItinerarioVuelo" value=<?php echo $codigo ?> >
+<input type="hidden" class="form-control" id="txtIdItinerarioVuelo" value=<?php echo $codigo ?> >
 
         <!--Modal-->
         <div class="modal fade" id="Registrarse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -175,7 +175,7 @@ if(isset($_GET['res'])){
 
                                         <h3>Información Personal</h3>
                                         <hr class="LineaHorizontal">
-                                        <form action="">
+
                                             <div class="form-group">
                                                 <label for="recipient-name" class="control-label">Correo</label>
                                                 <input type="text" class="form-control" id="txtCorreoSilla">
@@ -183,11 +183,12 @@ if(isset($_GET['res'])){
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Contraseña</label>
                                                 <input type="text" class="form-control" id="txtContrasenaSilla">
+                                                <input type="text" class="form-control" id="txtIdPersona">
                                             </div>
                                             <div class="modal-footer row">
                                                 <button type="button" class="btn btn-block btn-danger" id="btnValidarDatos">Validar Datos</button>
                                             </div>
-                                        </form>
+
 
                                     </div>
 
