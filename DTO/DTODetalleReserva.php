@@ -25,8 +25,10 @@ class DTODetalleReserva {
     private $FechaSalida;
     private $FechaLlegada;
     private $NumeroVuelo;
+    private $PrecioSilla;
+    private $PrecioTiquete;
 
-    function __construct($Nombre, $Apellido, $Cedula, $Telefono, $Correo, $UbicacionSalida, $UbicacionLlegada, $FechaSalida, $FechaLlegada, $NumeroVuelo) {
+    function __construct($Nombre, $Apellido, $Cedula, $Telefono, $Correo, $UbicacionSalida, $UbicacionLlegada, $FechaSalida, $FechaLlegada, $NumeroVuelo, $PrecioSilla, $PrecioTiquete) {
         $this->Nombre = $Nombre;
         $this->Apellido = $Apellido;
         $this->Cedula = $Cedula;
@@ -37,6 +39,8 @@ class DTODetalleReserva {
         $this->FechaSalida = $FechaSalida;
         $this->FechaLlegada = $FechaLlegada;
         $this->NumeroVuelo = $NumeroVuelo;
+        $this->PrecioSilla = $PrecioSilla;
+        $this->PrecioTiquete = $PrecioTiquete;
     }
 
     function getNombre() {
@@ -79,6 +83,14 @@ class DTODetalleReserva {
         return $this->NumeroVuelo;
     }
 
+    function getPrecioSilla() {
+        return $this->PrecioSilla;
+    }
+
+    function getPrecioTiquete() {
+        return $this->PrecioTiquete;
+    }
+
     function setNombre($Nombre) {
         $this->Nombre = $Nombre;
     }
@@ -117,6 +129,14 @@ class DTODetalleReserva {
 
     function setNumeroVuelo($NumeroVuelo) {
         $this->NumeroVuelo = $NumeroVuelo;
+    }
+
+    function setPrecioSilla($PrecioSilla) {
+        $this->PrecioSilla = $PrecioSilla;
+    }
+
+    function setPrecioTiquete($PrecioTiquete) {
+        $this->PrecioTiquete = $PrecioTiquete;
     }
 
 }

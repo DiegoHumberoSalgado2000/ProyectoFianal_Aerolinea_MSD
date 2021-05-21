@@ -1,27 +1,33 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class DTOPasajeroReserva{
-    
+
+class DTOPasajeroReserva {
+
     private $Nombre;
     private $Apellido;
     private $Cedula;
     private $Correo;
     private $Telefono;
     private $idReserva;
-    
-    function __construct($Nombre, $Apellido, $Cedula, $Correo, $Telefono, $idReserva) {
+    private $PrecioSilla;
+    private $PrecioTiquete;
+
+    function __construct($Nombre, $Apellido, $Cedula, $Correo, $Telefono, $idReserva, $PrecioSilla, $PrecioTiquete) {
         $this->Nombre = $Nombre;
         $this->Apellido = $Apellido;
         $this->Cedula = $Cedula;
         $this->Correo = $Correo;
         $this->Telefono = $Telefono;
         $this->idReserva = $idReserva;
+        $this->PrecioSilla = $PrecioSilla;
+        $this->PrecioTiquete = $PrecioTiquete;
     }
+
     function getNombre() {
         return $this->Nombre;
     }
@@ -46,31 +52,44 @@ class DTOPasajeroReserva{
         return $this->idReserva;
     }
 
-    function setNombre($Nombre){
+    function getPrecioSilla() {
+        return $this->PrecioSilla;
+    }
+
+    function getPrecioTiquete() {
+        return $this->PrecioTiquete;
+    }
+
+    function setNombre($Nombre) {
         $this->Nombre = $Nombre;
     }
 
-    function setApellido($Apellido){
+    function setApellido($Apellido) {
         $this->Apellido = $Apellido;
     }
 
-    function setCedula($Cedula){
+    function setCedula($Cedula) {
         $this->Cedula = $Cedula;
     }
 
-    function setCorreo($Correo){
+    function setCorreo($Correo) {
         $this->Correo = $Correo;
     }
 
-    function setTelefono($Telefono){
+    function setTelefono($Telefono) {
         $this->Telefono = $Telefono;
     }
 
-    function setIdReserva($idReserva){
+    function setIdReserva($idReserva) {
         $this->idReserva = $idReserva;
     }
 
+    function setPrecioSilla($PrecioSilla) {
+        $this->PrecioSilla = $PrecioSilla;
+    }
+
+    function setPrecioTiquete($PrecioTiquete) {
+        $this->PrecioTiquete = $PrecioTiquete;
+    }
 
 }
-
-
