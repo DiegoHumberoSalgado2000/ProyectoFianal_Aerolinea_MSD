@@ -159,15 +159,15 @@ switch($type){
     case "listUbicacion":
         $itinerarioVueloDAO->listarUbicacion();
         break;
-    case "listUbicacionIdSalida":
-        $itinerarioVueloDAO->listarUbicacionSalidaSel($selectubicacionsel);
+    case "listUbicacionIdLlegada":
+        $itinerarioVueloDAO->listarUbicacionLlegadaSel($selectubicacionsel);
         break;
-    case "listUbicacionSalida":
-        $itinerarioVueloDAO->listarubicacionSalida($selectUbicacion);
+    case "listUbicacionLlegada":
+        $itinerarioVueloDAO->listarubicacionLlegada($selectUbicacion);
         break;
 
-    case "buscarUbicacionSalidaId":
-        $itinerarioVueloDAO->buscarUbicacionSalidaPorId($itinerarioVuelo);
+    case "buscarUbicacionLlegadaId":
+        $itinerarioVueloDAO->buscarUbicacionLlegadaPorId($itinerarioVuelo);
         break;
 
     case "buscarVueloReserva":

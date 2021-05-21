@@ -188,13 +188,13 @@ function buscarItinerarioVuelo(){
             if(info.msj === "Success"){
                 $("#txtIdItinerarioVuelo").val(data[0].id);
                 $("#CmbVuelo").val(data[0].id_vuelo);
-                $("#CmbUbicacionLlegada").val(data[0].id_ubicacion_llegada);
+                $("#CmbUbicacionSalida").val(data[0].id_ubicacion_salida);
                // $("#CmbUbicacionSalida").val(data[0].id_ubicacion_salida);
                 $("#DateFechaLlegada").val(data[0].fecha_llegada);
                 $("#DateFechaSalida").val(data[0].fecha_salida);
                 $("#txtPrecio").val(data[0].precio);
                 $("#txtDescripcionItinerario").val(data[0].descripcion);
-                buscarUbicacionSalidaPorId(data[0].id_ubicacion_salida);
+                buscarUbicacionLlegadaPorId(data[0].id_ubicacion_llegada);
 
                 let btnGuardar=document.getElementById("btnGuardarItinerario");
                 let btnModificar = document.getElementById("btnModificarItinerario");
@@ -302,17 +302,17 @@ function limpiarformulario(){
  */
 function cargarDatos(){
     cargarVuelo();
-    cargarubicacionLlegada();
-    $("#CmbUbicacionLlegada").change(cargarubicacionSalida)
-    $("#CmbUbicacionSalida").change(vldUbicacionSalida);
+    cargarubicacionSalida();
+    $("#CmbUbicacionSalida").change(cargarubicacionLlegada)
+    $("#CmbUbicacionLlegada").change(vldUbicacionLlegada);
     listarItinearioVuelo();
 
 }
 /**
  *función utilizada para validar cuando el ususario selecciona 'seleccione' en un select
  */
-function vldUbicacionSalida() {
-    let idUbicacionsalida = $("#CmbUbicacionLlegada").val();
+function vldUbicacionLlegada() {
+    let idUbicacionsalida = $("#CmbUbicacionSalida").val();
 
     if (idUbicacionsalida === "-1") {
         alert("Por favor, seleccione una marca valida 😉");
@@ -360,7 +360,7 @@ function cargarVuelo(){
 /**
  * Función utilizada para cargar el select de las ubicaciones
  */
-function cargarubicacionLlegada(){
+function cargarubicacionSalida(){
     $.ajax({
         type:'post',
         url: "../Controlador/gestionItinerarioVuelo.php",
@@ -372,7 +372,7 @@ function cargarubicacionLlegada(){
             let info = JSON.parse(res);
             let data = JSON.parse(info.data);
 
-            let select = document.getElementById("CmbUbicacionLlegada");
+            let select = document.getElementById("CmbUbicacionSalida");
 
             while(select.length >1){
                 select.remove(select.length-1);
@@ -398,9 +398,9 @@ function cargarubicacionLlegada(){
 /**
  * Función utilizada para cargar el select de las ubicaciones
  */
-function cargarubicacionSalida(){
+function cargarubicacionLlegada(){
 
-    let idUbicacion=$("#CmbUbicacionLlegada").val();
+    let idUbicacion=$("#CmbUbicacionSalida").val();
 
     if(idUbicacion!=="-1"){
 
@@ -410,12 +410,12 @@ function cargarubicacionSalida(){
             beforeSend:function(){
 
             },
-            data:{type:"listUbicacionSalida",idUbicacionSel:idUbicacion},
+            data:{type:"listUbicacionLlegada",idUbicacionSel:idUbicacion},
             success:function(res){
                 let info=JSON.parse(res);
                 let data=JSON.parse(info.data);
 
-                let select=document.getElementById("CmbUbicacionSalida");
+                let select=document.getElementById("CmbUbicacionLlegada");
 
                 //Limpiar select
 
@@ -448,12 +448,12 @@ function cargarubicacionSalida(){
 
 /**
  *función utilizada para buscar una ubicacion por el id de la ubicacion.
- * @param {*} id id de la ubicacion salida.
+ * @param {*} id id de la ubicacion llegada.
  */
- function buscarUbicacionSalidaPorId(id){
+ function buscarUbicacionLlegadaPorId(id){
     var objItinerarioVuelo = {
-        idUbicacionsalida:id,
-        type: "buscarUbicacionSalidaId"
+        idUbicacionllegada:id,
+        type: "buscarUbicacionLlegadaId"
             };
     $.ajax({
         type: 'post',
@@ -468,7 +468,7 @@ function cargarubicacionSalida(){
             let data = JSON.parse(info.data);
 
             if (data.length > 0) {
-                $("#CmbUbicacionSalida").val(data[0].nombre);
+                $("#CmbUbicacionLlegada").val(data[0].nombre);
                 crUbicacion(data[0].id);
                 
 
@@ -482,10 +482,10 @@ function cargarubicacionSalida(){
 
 }
 /**
- *función utilizada para cargar todas las ubicaciones que le pertenecen a salida y posteriormente seleccionar la ubicacion salida.
- * @param {*} idUbicacionSalida , para cargar todas las ubicaciones que le pertenecen a ese id .
+ *función utilizada para cargar todas las ubicaciones que le pertenecen a llegaday posteriormente seleccionar la ubicacion llegada.
+ * @param {*} idUbicacionLlegada , para cargar todas las ubicaciones que le pertenecen a ese id .
  */
- function crUbicacion(idUbicacionSalida) {
+ function crUbicacion(idUbicacionLlegada) {
 
 
     $.ajax({
@@ -494,14 +494,14 @@ function cargarubicacionSalida(){
         beforeSend: function () {
 
         },
-        data: {type: "listUbicacionIdSalida", idUbicacionrange: idUbicacionSalida},
+        data: {type: "listUbicacionIdLlegada", idUbicacionrange: idUbicacionLlegada},
         success: function (res) {
 
             let info = JSON.parse(res);
             let data = JSON.parse(info.data);
 
 
-            let select = document.getElementById("CmbUbicacionSalida");
+            let select = document.getElementById("CmbUbicacionLlegada");
 
             //Limpiar select
             while (select.length > 1) {
@@ -517,7 +517,7 @@ function cargarubicacionSalida(){
                 }
             }
 
-            $("#CmbUbicacionSalida").val(idUbicacionSalida);
+            $("#CmbUbicacionLlegada").val(idUbicacionLlegada);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
