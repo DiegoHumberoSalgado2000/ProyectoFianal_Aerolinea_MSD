@@ -41,7 +41,7 @@ $(document).ready(function () {
                     lista = lista + "<td>" + arreglo[f].precio + "</td>";
                     lista = lista + "<td>" + arreglo[f].descripcion + "</td>";
                     lista = lista + "<td>" + arreglo[f].estado + "</td>";
-                    lista = lista + "<td>" +   '<a href=http://localhost/Aerolinea_MSD/Vista/Seleccion_Asientos.php?res='+arreglo[f].id+' type="button" id="Ir" class="btn btn-danger" >Seleccionar</a>' + "</td>";
+                    lista = lista + "<td>" +   '<a href=http://localhost/Aerolinea_MSD/Vista/Seleccion_Asientos.php?res='+Encrypt(arreglo[f].id)+' type="button" id="Ir" class="btn btn-danger" >Seleccionar</a>' + "</td>";
                     lista = lista + "</tr>";
                     }
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
             }
 
         } catch (error) {
-            alert("No altere la direccion url");
+            alert("No altere la dirección url");
         }
 
 

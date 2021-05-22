@@ -11,9 +11,14 @@ if(isset($_GET['res'])){
     //echo($lista);
     //print_r($codigo);
 
-
 }
 ?>
+<!--
+<script type="text/javascript">
+    datosRequeridos(datos='<?php echo $codigo ?>');
+</script>
+-->
+<input type="hidden" id="txtIdItinerarioEncri" class="form-control" value='<?php echo $codigo ?>' >
 
 <body style="overflow-x:hidden">
 <input type="hidden" class="form-control" id="txtIdItinerarioVuelo" value=<?php echo $codigo ?> >

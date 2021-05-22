@@ -57,22 +57,41 @@ $(document).ready(function () {
 
 });
 
+function Encrypt(word, key = '1239873697412580') {
+    let encJson = CryptoJS.AES.encrypt(JSON.stringify(word), key).toString()
+    let encData = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(encJson))
+    return encData
+}
+
+function Decrypt(word, key = '1239873697412580') {
+    let decData = CryptoJS.enc.Base64.parse(word).toString(CryptoJS.enc.Utf8)
+    let bytes = CryptoJS.AES.decrypt(decData, key).toString(CryptoJS.enc.Utf8)
+    return JSON.parse(bytes)
+}
+
 let codigoItinerario;
 function datosRequeridos(){
-    codigoItinerario=$("#txtIdItinerarioVuelo").val();
-    $("#txtIdPersona").val(-1);
-    $("#txtIdSillaSeleccionada").val(-1);
+    try {
+        var idItinerarioEncriptado=$("#txtIdItinerarioEncri").val()
+        codigoItinerario=Decrypt(idItinerarioEncriptado);
+        $("#txtIdPersona").val(-1);
+        $("#txtIdSillaSeleccionada").val(-1);
 
-    document.getElementById("btnReservar").disabled =true;
-    document.getElementById("btnSeleccionarSilla").disabled =true;
+        document.getElementById("btnReservar").disabled =true;
+        document.getElementById("btnSeleccionarSilla").disabled =true;
 
-    document.getElementById("txtNumeroSilla").disabled=true;
-    document.getElementById("txtPrecio").disabled=true;
-    document.getElementById("txtEstadoSilla").disabled=true;
-    document.getElementById("txtTipo").disabled=true;
-    document.getElementById("txtDescripcionSilla").disabled=true;
+        document.getElementById("txtNumeroSilla").disabled=true;
+        document.getElementById("txtPrecio").disabled=true;
+        document.getElementById("txtEstadoSilla").disabled=true;
+        document.getElementById("txtTipo").disabled=true;
+        document.getElementById("txtDescripcionSilla").disabled=true;
 
-    bloquearAsientos();
+        bloquearAsientos();
+    } catch (error) {
+        alert("No altere la dirección url");
+        deshabilitarBotones();
+    }
+
 }
 
 function reservar(){
@@ -307,6 +326,63 @@ function seleccionarSilla(){
     document.getElementById("btnReservar").disabled =false;
     quitarColorSeleccionSilla();
     agregarColorSillaSeleccionada($("#txtNumeroSilla").val());
+
+}
+
+function deshabilitarBotones(){
+    document.getElementById("btnReservar").disabled =true;
+    document.getElementById("btnSeleccionarSilla").disabled =true;
+    document.getElementById("Uno").disabled=true;
+    document.getElementById("Dos").disabled=true;
+    document.getElementById("Tres").disabled=true;
+    document.getElementById("Cuatro").disabled=true;
+    document.getElementById("Cinco").disabled=true;
+    document.getElementById("Seis").disabled=true;
+    document.getElementById("Siete").disabled=true;
+    document.getElementById("Ocho").disabled=true;
+    document.getElementById("Nueve").disabled=true;
+    document.getElementById("Diez").disabled=true;
+    document.getElementById("Once").disabled=true;
+    document.getElementById("Doce").disabled=true;
+    document.getElementById("Trece").disabled=true;
+    document.getElementById("Catorce").disabled=true;
+    document.getElementById("Quince").disabled=true;
+    document.getElementById("Dieciseis").disabled=true;
+    document.getElementById("Diecisiete").disabled=true;
+    document.getElementById("Dieciocho").disabled=true;
+    document.getElementById("Diecinieve").disabled=true;
+    document.getElementById("Veinte").disabled=true;
+    document.getElementById("VeintiUno").disabled=true;
+    document.getElementById("VeintiDos").disabled=true;
+    document.getElementById("VeintiTres").disabled=true;
+    document.getElementById("VeintiCuatro").disabled=true;
+    document.getElementById("VeintiCinco").disabled=true;
+    document.getElementById("veintiSeis").disabled=true;
+    document.getElementById("VeintiSiete").disabled=true;
+    document.getElementById("VeintiOcho").disabled=true;
+    document.getElementById("VeintiNueve").disabled=true;
+    document.getElementById("Treinta").disabled=true;
+    document.getElementById("TreintaUno").disabled=true;
+    document.getElementById("TreintaDos").disabled=true;
+    document.getElementById("TreintaTres").disabled=true;
+    document.getElementById("TreintaCuatro").disabled=true;
+    document.getElementById("TreintaCinco").disabled=true;
+    document.getElementById("TreintaSeis").disabled=true;
+    document.getElementById("TreintaSiete").disabled=true;
+    document.getElementById("TreintaOcho").disabled=true;
+    document.getElementById("TreintaNueve").disabled=true;
+    document.getElementById("Cuarenta").disabled=true;
+    document.getElementById("CuarentaUno").disabled=true;
+    document.getElementById("CuarentaDos").disabled=true;
+    document.getElementById("CuarentaTres").disabled=true;
+    document.getElementById("CuarentaCuatro").disabled=true;
+    document.getElementById("CuarentaCinco").disabled=true;
+    document.getElementById("CuarentaSeis").disabled=true;
+    document.getElementById("CuarentaSiete").disabled=true;
+    document.getElementById("CuarentaOcho").disabled=true;
+    document.getElementById("CuarentaNueve").disabled=true;
+    document.getElementById("Cincuenta").disabled=true;
+
 
 }
 
