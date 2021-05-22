@@ -31,8 +31,8 @@ class itinerarioVueloDAO{
      *Función utilizada para buscar un ubicacion de salida por el id de la ubicacion, 
      *entra como parametro un objeto de tipo ItinerarioVuelo
      */
-    public function buscarUbicacionSalidaPorId(clsItinerarioVuelo $obj) {
-        $sql ="SELECT id,nombre from ubicacion where id='" . $obj->getIdUbicacionSalida() . "'";
+    public function buscarUbicacionLlegadaPorId(clsItinerarioVuelo $obj) {
+        $sql ="SELECT id,nombre from ubicacion where id='" . $obj->getIdUbicacionLlegada() . "'";
         $this->objCon->Execute($sql);
     }
 
@@ -84,14 +84,14 @@ class itinerarioVueloDAO{
      * Función utilizada para listar una lista dependiendo de la ubicacion de ida ,
      * utilizando en la gestion del Itinerario vuelo
      */
-    public function listarubicacionSalida(clsGeneral $obj){
+    public function listarubicacionLlegada(clsGeneral $obj){
         $sql="SELECT id,nombre from ubicacion where id!='" . $obj->getId() . "' and estado='disponible' ORDER BY nombre";
         $this->objCon->Execute($sql);
     }
     /**
      *funcion utilizada para listar una Lista dependiendo del ubicacion de salidas, utilizado en la gestión del itinerario vuelo.
      */
-    public function listarUbicacionSalidaSel(clsGeneral $obj) {
+    public function listarUbicacionLlegadaSel(clsGeneral $obj) {
         $sql = "SELECT id,nombre from ubicacion where id='" . $obj->getId() . "' and estado='disponible'";
         $this->objCon->Execute($sql);
     }

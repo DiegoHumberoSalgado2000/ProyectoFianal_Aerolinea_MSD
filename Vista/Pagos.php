@@ -113,7 +113,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                             </div>
 
                         </div>
-
+                        <button type="button" id="btnCargarInformacion" class="btn btn-danger" >Cargar Informacion</button>
                     </div>
                 </div>
 
@@ -126,6 +126,8 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                             <label for="" class="col-sm-2 col-form-label">Total a Pagar</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtTotalPago" class="form-control">
+                                <input type="hidden" id="txtPrecioSilla" class="form-control">
+                                <input type="hidden" id="txtPrecioTiquete" class="form-control">
                             </div>
                         </div>
                     </div>

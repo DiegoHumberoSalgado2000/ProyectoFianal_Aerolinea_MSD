@@ -223,8 +223,25 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Total Costo</h3>
+                        <h3 class="panel-title">Resumen de Pago</h3>
                     </div>
+
+                    <div class="panel-body"> 
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Valor Tiquete</label>
+                            <div class="col-sm-5">
+                                <input type="text" id="txtValorTiquete" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">     
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Servicio Adicionales</label>
+                            <div class="col-sm-5">
+                                <input type="text" id="txtServicioAdicionales" class="form-control">
+                            </div>
+                        </div>
+                    </div>  
                     <div class="panel-body">
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">TOTAL A PAGAR</label>

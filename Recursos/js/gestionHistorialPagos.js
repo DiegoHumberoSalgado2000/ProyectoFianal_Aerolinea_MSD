@@ -9,6 +9,7 @@ $(document).ready(function () {
     Bloquear();
 });
 
+
 function cargarDatos() {
 
     var objPasajero = {
@@ -34,7 +35,8 @@ function cargarDatos() {
                     $("#txtDocumentoIdentidad").val(data[0].cedula);
                     $("#txtCorreo").val(data[0].correo);
                     $("#txtTelefono").val(data[0].telefono_celular);
-
+                    $("#txtValorTiquete").val(data[0].precio);
+                    $("#txtServicioAdicionales").val(data[0].precioSilla);
                 } else {
                     alert("No se encuentra el pasajero");
                     LimpiarTextInformacionPasajero();
@@ -64,7 +66,6 @@ function GuardarHistorialPasajero() {
         numeroVerificado: $("#txtNumeroVerificacion").val(),
         type: ""
     };
-
     if (objHistorialPagos.idReserva !== "") {
 
         if (objHistorialPagos.numeroTarjetaCredtiro !== objHistorialPagos.numeroVerificado || objHistorialPagos.numeroTarjetaCredtiro === "" && objHistorialPagos.numeroVerificado === "") {
@@ -81,7 +82,6 @@ function GuardarHistorialPasajero() {
                 data: objHistorialPagos,
                 success: function (data) {
                     var info = JSON.parse(data);
-
                     if (info.res === "Success") {
                         alert("Se pago la reserva correctamente");
                         LimpiarTextInformacionBancaria();
@@ -135,10 +135,13 @@ function DesabilitarText() {
     let txtCorreo = document.getElementById("txtCorreo");
     let txtTelefono = document.getElementById("txtTelefono");
     let txtTotalPagar = document.getElementById("txtTotalPagar");
-
+    let txtValorTiquete = document.getElementById("txtValorTiquete");
+    let txtServicioAdicionales = document.getElementById("txtServicioAdicionales");
     txtNombre.disabled = true;
     txtApellido.disabled = true;
     txtCorreo.disabled = true;
     txtTelefono.disabled = true;
     txtTotalPagar.disabled = true;
+    txtValorTiquete.disabled = true;
+    txtServicioAdicionales.disabled = true;
 }

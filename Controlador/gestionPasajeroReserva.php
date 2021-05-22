@@ -14,9 +14,11 @@ $apellido = isset($_REQUEST['apellidos']) ? $_REQUEST['apellidos'] : "";
 $cedula = isset($_REQUEST['cedula']) ? $_REQUEST['cedula'] : "";
 $correo = isset($_REQUEST['correo']) ? $_REQUEST['correo'] : "";
 $telefono = isset($_REQUEST['telefono_celular']) ? $_REQUEST['telefono_celular'] : "";
+$precioSilla = isset($_REQUEST['precioSilla']) ? $_REQUEST['precioSilla'] : "";
+$precioTiquete = isset($_REQUEST['precio']) ? $_REQUEST['precio'] : "";
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
 
-$pasajeroReserva = new DTOPasajeroReserva($nombre, $apellido, $cedula, $correo, $telefono, $id);
+$pasajeroReserva = new DTOPasajeroReserva($nombre, $apellido, $cedula, $correo, $telefono, $id, $precioSilla, $precioTiquete);
 $pasajeroReservaDAO = new pasajeroReservaDAO();
 
 
