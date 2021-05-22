@@ -13,7 +13,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 if(isset($_GET['res'])){
     $lista=$_GET['res'];
     //echo($lista);
-   // print_r($lista);
+    //print_r($lista);
 
 
 }
@@ -22,13 +22,13 @@ if(isset($_GET['res'])){
 
 
 ?>
-<!--
-<script type="text/javascript">
-    listarTabla(list='<?php echo $lista ?>');
-</script>
--->
-<input type="hidden" id="txtJson" value=<?php echo $lista ?> class="form-control">
 
+<script type="text/javascript">
+    listarTabla(datos='<?php echo $lista ?>');
+</script>
+<!--
+<input type="text" id="txtDatos" value='<?php echo $lista ?>' class="form-control">
+-->
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
 

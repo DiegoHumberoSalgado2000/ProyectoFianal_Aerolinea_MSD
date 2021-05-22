@@ -23,6 +23,20 @@ function asignarFechaHoy(){
 
 
 
+
+
+function Encrypt(word, key = '1239873697412580') {
+    let encJson = CryptoJS.AES.encrypt(JSON.stringify(word), key).toString()
+    let encData = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(encJson))
+    return encData
+}
+
+function Decrypt(word, key = '1239873697412580') {
+    let decData = CryptoJS.enc.Base64.parse(word).toString(CryptoJS.enc.Utf8)
+    let bytes = CryptoJS.AES.decrypt(decData, key).toString(CryptoJS.enc.Utf8)
+    return JSON.parse(bytes)
+}
+
 function buscarVueloReserva(){
 
 
@@ -47,7 +61,13 @@ function buscarVueloReserva(){
             }else {
                 if(info.msj === "Success"){
                     //alert(res);
-                    window.location.href='Vista/Lista_Vuelos.php?res='+res;
+
+                    var encriptado= Encrypt(res);
+                    //alert(encriptado);
+
+                    //alert(Decrypt(encriptado));
+                    window.location.href='Vista/Lista_Vuelos.php?res='+encriptado;
+
                 }else{
                     alert ("No se han encontrado vuelos")
                 }
