@@ -29,7 +29,7 @@ switch ($type) {
 
     case "cargarDatos":
 
-        $pasajeroReservaDAO->CargarDatos($pasajeroReserva);
+        $pasajeroReservaDAO->CargarDatos($cedula);
         break;
 }
 

@@ -5,8 +5,22 @@
  */
 $(document).ready(function () {
     $("#btnCargarInformacion").click(CargarDatosDetalleReserva);
+    $("#btnIrConfirmarReserva").click(EnviarInformacion);
     BloquearTextDetalleReserva();
 });
+
+
+function Encrypt(word, key = '1239873697412580') {
+    let encJson = CryptoJS.AES.encrypt(JSON.stringify(word), key).toString()
+    let encData = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(encJson))
+    return encData
+}
+
+function Decrypt(word, key = '1239873697412580') {
+    let decData = CryptoJS.enc.Base64.parse(word).toString(CryptoJS.enc.Utf8)
+    let bytes = CryptoJS.AES.decrypt(decData, key).toString(CryptoJS.enc.Utf8)
+    return JSON.parse(bytes)
+}
 
 function CargarDatosDetalleReserva() {
 
@@ -55,6 +69,43 @@ function CargarDatosDetalleReserva() {
     }
 }
 
+
+function EnviarInformacion() {
+
+    var objInformacionPasajero = {
+        cedula: $("#txtCedula").val(),
+        type: "BuscarEnviarInformacion"
+    };
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionDetalleReserva.php",
+        beforeSend: function () {
+        },
+        data: objInformacionPasajero,
+        success: function (res) {
+           
+            var info = JSON.parse(res);
+
+            if (info.res === "False") {
+                alert(info.msj);
+            } else {
+                if (info.msj === "Success") {
+                    //alert(res);
+                    var encriptado = Encrypt(res);
+                    //alert(encriptado);
+
+                    window.location.href = '../Vista/Confirmar_Pagos.php?res=' + encriptado;
+                } else {
+                    alert("No se han encontrado la informacion")
+                }
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+}
 
 function BloquearTextDetalleReserva() {
     let txtNombre = document.getElementById("txtNombre");

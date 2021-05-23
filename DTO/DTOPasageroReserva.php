@@ -8,7 +8,7 @@
 
 class DTOPasajeroReserva {
 
-    private $Nombre;
+   private $Nombre;
     private $Apellido;
     private $Cedula;
     private $Correo;
@@ -91,5 +91,4 @@ class DTOPasajeroReserva {
     function setPrecioTiquete($PrecioTiquete) {
         $this->PrecioTiquete = $PrecioTiquete;
     }
-
 }

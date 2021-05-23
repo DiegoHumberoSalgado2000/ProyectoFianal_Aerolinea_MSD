@@ -4,52 +4,87 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
-    $("#btnCargarInformacion").click(cargarDatos);
+    DatosRequeridos();
     $("#btnPagarReserva").click(GuardarHistorialPasajero);
     Bloquear();
 });
 
 
-function cargarDatos() {
+function Encrypt(word, key = '1239873697412580') {
+    let encJson = CryptoJS.AES.encrypt(JSON.stringify(word), key).toString()
+    let encData = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(encJson))
+    return encData
+}
 
-    var objPasajero = {
-        cedula: $("#txtDocumentoIdentidad").val(),
-        type: "cargarDatos"
-    };
-    if (objPasajero.cedula !== "") {
-        $.ajax({
-            type: 'post',
-            url: "../Controlador/gestionPasajeroReserva.php",
-            beforeSend: function () {
+function Decrypt(word, key = '1239873697412580') {
+    let decData = CryptoJS.enc.Base64.parse(word).toString(CryptoJS.enc.Utf8)
+    let bytes = CryptoJS.AES.decrypt(decData, key).toString(CryptoJS.enc.Utf8)
+    return JSON.parse(bytes)
+}
 
-            },
-            data: objPasajero,
-            success: function (res) {
-                var info = JSON.parse(res);
-                var data = JSON.parse(info.data);
-
-                if (info.msj === "Success") {
-                    $("#txtIdReservaPasajero").val(data[0].id);
-                    $("#txtNombre").val(data[0].nombres);
-                    $("#txtApellido").val(data[0].apellidos);
-                    $("#txtDocumentoIdentidad").val(data[0].cedula);
-                    $("#txtCorreo").val(data[0].correo);
-                    $("#txtTelefono").val(data[0].telefono_celular);
-                    $("#txtValorTiquete").val(data[0].precio);
-                    $("#txtServicioAdicionales").val(data[0].precioSilla);
-                } else {
-                    alert("No se encuentra el pasajero");
-                    LimpiarTextInformacionPasajero();
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-                alert("Verifique la ruta del archivo");
-            }
-        });
-    } else {
-        alert("No has ingresado el numero de cedula para buscar al pasajero");
+let codigoIdPasajero;
+function DatosRequeridos() {
+    try {
+        var idPasajeroIncriptado = $("#txtCedulaIncriptado").val()
+        var cedulaIncriptado = Decrypt(idPasajeroIncriptado);
+        //alert(cedulaIncriptado);
+        //cargarDatos();
+        var info = JSON.parse(cedulaIncriptado);
+        var arreglo = JSON.parse(info.data);
+        //alert(arreglo[0].cedula);
+        if (arreglo.length > 0) {
+            codigoIdPasajero = arreglo[0].cedula;
+            cargarDatos();
+        } else {
+            alert("no se recivieron los datos necesarios");
+            codigoIdPasajero = -1;
+        }
+    } catch (error) {
+        alert("No altere la dirección url");
     }
+
+}
+
+function cargarDatos() {
+    //alert(codigoIdPasajero);
+    var objPasajero = {
+        cedula: codigoIdPasajero,
+        type: "cargarDatos"
+
+    };
+    //alert(codigoIdPasajero);
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionPasajeroReserva.php",
+        beforeSend: function () {
+
+        },
+        data: objPasajero,
+        success: function (res) {
+            //alert(res);
+            var info = JSON.parse(res);
+            var data = JSON.parse(info.data);
+            //alert(info);
+            if (info.msj === "Success") {
+                $("#txtIdReservaPasajero").val(data[0].id);
+                $("#txtNombre").val(data[0].nombres);
+                $("#txtApellido").val(data[0].apellidos);
+                $("#txtDocumentoIdentidad").val(data[0].cedula);
+                $("#txtCorreo").val(data[0].correo);
+                $("#txtTelefono").val(data[0].telefono_celular);
+                $("#txtValorTiquete").val(data[0].precio);
+                $("#txtServicioAdicionales").val(data[0].precioSilla);
+            } else {
+                alert("No se encuentra el pasajero");
+
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+
 
 }
 
@@ -137,6 +172,7 @@ function DesabilitarText() {
     let txtTotalPagar = document.getElementById("txtTotalPagar");
     let txtValorTiquete = document.getElementById("txtValorTiquete");
     let txtServicioAdicionales = document.getElementById("txtServicioAdicionales");
+    let txtCedula = document.getElementById("txtDocumentoIdentidad");
     txtNombre.disabled = true;
     txtApellido.disabled = true;
     txtCorreo.disabled = true;
@@ -144,4 +180,5 @@ function DesabilitarText() {
     txtTotalPagar.disabled = true;
     txtValorTiquete.disabled = true;
     txtServicioAdicionales.disabled = true;
+    txtCedula.disabled = true;
 }

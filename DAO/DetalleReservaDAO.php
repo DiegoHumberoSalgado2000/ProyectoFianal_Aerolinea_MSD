@@ -33,4 +33,9 @@ class DetalleReservaDAO {
         $this->objCon->Execute($sql);
     }
 
+    public function buscarEnviarInformacion(DTODetalleReserva $obj) {
+        $sql = "select cedula from Pasajero where cedula='" . $obj->getCedula() . "'";
+        $this->objCon->Execute($sql);
+    }
+
 }
