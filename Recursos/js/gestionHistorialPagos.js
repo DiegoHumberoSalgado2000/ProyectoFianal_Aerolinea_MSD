@@ -103,7 +103,7 @@ function GuardarHistorialPasajero() {
     };
     if (objHistorialPagos.idReserva !== "") {
 
-        if (objHistorialPagos.numeroTarjetaCredtiro !== objHistorialPagos.numeroVerificado || objHistorialPagos.numeroTarjetaCredtiro === "" && objHistorialPagos.numeroVerificado === "") {
+        if (objHistorialPagos.numeroTarjetaCredtiro !== objHistorialPagos.numeroVerificado) {
             alert("Los numeros de la tarjeta de credito no coinciden");
         } else {
 
@@ -119,6 +119,7 @@ function GuardarHistorialPasajero() {
                     var info = JSON.parse(data);
                     if (info.res === "Success") {
                         alert("Se pago la reserva correctamente");
+                        window.location.href = '../index.php';
                         LimpiarTextInformacionBancaria();
                         LimpiarTextInformacionPasajero();
                     } else if (info.res === "False") {

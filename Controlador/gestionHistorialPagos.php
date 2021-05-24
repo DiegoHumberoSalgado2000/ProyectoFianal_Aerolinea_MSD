@@ -41,6 +41,76 @@ $patronValTarjetaDinersInf = "numero de tarjeta no valido las tarjetas Diners si
  */
 switch ($type) {
     case "guardar":
+
+        if ($tarjeraCredito == "Seleccione el tipo de targeta de Credito") {
+            echo(json_encode(['res' => 'False', "msj" => "seleccione la tarjeta de credito"
+            ]));
+            break;
+        }
+
+        if ($mesVencimiento == "Seleccione el mes de Vencimiento") {
+            echo(json_encode(['res' => 'False', "msj" => "seleccione el mes de vencimineto"
+            ]));
+            break;
+        }
+
+        if ($opcionPago == "Seleccione la cantidad de Cuotas") {
+            echo(json_encode(['res' => 'False', "msj" => "seleccione la cantidad de cuotas"
+            ]));
+            break;
+        }
+
+        if ($Avencimiento == "Seleccion el Año de Vencimiento") {
+            echo(json_encode(['res' => 'False', "msj" => "seleccione el año de vencimineto"
+            ]));
+            break;
+        }
+
+
+        if ($numeroTarjetaCredtiro == "") {
+            echo(json_encode(['res' => 'False', "msj" => "Ingrese el numero de tarjeta de credito"
+            ]));
+            break;
+        }
+
+        if ($numeroVerificado == "") {
+            echo(json_encode(['res' => 'False', "msj" => "Ingrese el numero para verificar la tarjeta de credito"
+            ]));
+            break;
+        }
+
+        if ($tarjeraCredito == "Visa") {
+            if (!preg_match($patronValTarjetaVisa, $numeroTarjetaCredtiro)) {
+                echo (json_encode(['res' => 'False', "msj" => $patronValTarjetaVisaInfo]));
+                break;
+            }
+            break;
+        }
+
+        if ($tarjeraCredito == "Mastercard") {
+            if (!preg_match($patronValMastercard, $numeroTarjetaCredtiro)) {
+                echo (json_encode(['res' => 'False', "msj" => $patronValMastercardInfo]));
+                break;
+            }
+            break;
+        }
+
+        if ($tarjeraCredito == "American Express") {
+            if (!preg_match($patronValTarjetaAmericanExpress, $numeroTarjetaCredtiro)) {
+                echo (json_encode(['res' => 'False', "msj" => $patronValTarjetaAmericanExpressInf]));
+                break;
+            }
+            break;
+        }
+
+        if ($tarjeraCredito == "Diners") {
+            if (!preg_match($patronValTarjetaDiners, $numeroTarjetaCredtiro)) {
+                echo (json_encode(['res' => 'False', "msj" => $patronValTarjetaDinersInf]));
+                break;
+            }
+            break;
+        }
+
         $HistorialPagosDAO->GuardarHistorialPagos($historialPagos);
         break;
 
