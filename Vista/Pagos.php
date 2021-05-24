@@ -4,6 +4,7 @@ include_once 'layouts/header_Pagina_Inicio.php'
 ?>
 <title>Pagos</title>
 <script src="../Recursos/js/detalleReserva.js" type="text/javascript"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 <?php
 
 include_once 'layouts/nav_Pagina_Inicio.php';
@@ -134,7 +135,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                 </div>
                 <div class="modal-footer row">
                     <div class="offset-sm-2 col-sm-12 float-right">
-                        <button type="button" class="btn btn-danger">Pagar</button>
+                        <button type="button" id="btnIrConfirmarReserva" class="btn btn-danger">Pagar</button>
                     </div>
                 </div>
             </form>

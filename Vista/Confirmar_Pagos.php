@@ -1,14 +1,22 @@
 <?php
-
 include_once 'layouts/header_Pagina_Inicio.php'
 ?>
 <title>Confirmar Pagos</title>
-<script src="../Recursos/js/gestionHistorialPagos.js" type="text/javascript"></script>  
+<script src="../Recursos/js/gestionHistorialPagos.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 <?php
-
 include_once 'layouts/nav_Pagina_Inicio.php';
 ?>
 
+<?php
+if (isset($_GET['res'])) {
+    $codigoPasajero = $_GET['res'];
+    //echo($lista);
+    //print_r($lista);
+}
+?>
+
+<input type="hidden" id="txtCedulaIncriptado" value='<?php echo $codigoPasajero ?>' class="form-control">
 
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
@@ -217,7 +225,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
                             </div>
 
                         </div>
-                        <button type="button" id="btnCargarInformacion" class="btn btn-danger" >Cargar Informacion</button>
+
                     </div>
                 </div>
 
@@ -262,6 +270,5 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 </section>
 
 <?php
-
 include_once 'layouts/footer_Pagina_Inicio.php';
 ?>

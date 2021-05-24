@@ -39,4 +39,7 @@ switch ($type) {
     case "BuscarDetalleReserva":
         $detalleReservaDAo->BuscarDetalleReserva($detalleReserva);
         break;
+    case "BuscarEnviarInformacion":
+        $detalleReservaDAo->buscarEnviarInformacion($detalleReserva);
+        break;
 }
