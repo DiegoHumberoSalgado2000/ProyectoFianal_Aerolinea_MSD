@@ -52,4 +52,14 @@ class sillaDAO{
     }
 
 
+
+    /*
+    *Función utilizada para saber si un pasajero ya seleccióno una silla con anterioridad
+    */
+    public function saberSiSeleccionoSilla($correo,$contrasena,$itinerarioVuelo){
+        $sql="SELECT id FROM reserva where id_pasajero_principal=(select id from pasajero where correo='$correo' and contrasena='$contrasena' )and id_silla=(SELECT id from silla where id=id_silla and id_itinerario_vuelo=$itinerarioVuelo)  and estado='disponible' or estado='pagado' or estado='checkin'";
+        $this->objCon->Execute($sql);
+    }
+
+
 }

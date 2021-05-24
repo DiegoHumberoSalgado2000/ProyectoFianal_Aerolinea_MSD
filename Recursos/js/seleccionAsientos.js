@@ -256,7 +256,7 @@ function buscarSilla(numSilla){
 
 function validarDatosPersona(){
 
-    var objAvion = {
+    var obj = {
         correo: $("#txtCorreoSilla").val(),
         contrasena: $("#txtContrasenaSilla").val(),
         type: "buscarPersona"
@@ -269,7 +269,7 @@ function validarDatosPersona(){
         beforeSend: function () {
 
         },
-        data: objAvion,
+        data: obj,
         success: function (res) {
             //alert(res);
             var info = JSON.parse(res);
@@ -285,12 +285,10 @@ function validarDatosPersona(){
             }else{
 
             if (info.msj === "Success") {
+
+
                 var data = JSON.parse(info.data);
-                $("#txtCorreoSilla").val(data[0].correo);
-                $("#txtContrasenaSilla").val(data[0].contrasena);
-                $("#txtIdPersona").val(data[0].id);
-                alert("Se encontró el pasajero")
-                document.getElementById("btnSeleccionarSilla").disabled =false;
+                validarSiSeleccionoSillaAnterioridad(data);
 
             } else {
                 alert("No se encontró a el pasajero. Si seleccionó alguna silla antes se quitó esa selección.");
@@ -312,6 +310,73 @@ function validarDatosPersona(){
             alert("Verifique la ruta del archivo");
         }
     });
+
+
+}
+
+function validarSiSeleccionoSillaAnterioridad(data){
+
+
+
+    var obj = {
+        correo: $("#txtCorreoSilla").val(),
+        contrasena: $("#txtContrasenaSilla").val(),
+        idItinerario:codigoItinerario,
+        type: "seleccionoSilla"
+    };
+
+
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionSilla.php",
+        beforeSend: function () {
+
+        },
+        data: obj,
+        success: function (res) {
+            //alert(res);
+            var info = JSON.parse(res);
+
+            if (info.msj === "Success") {
+
+            var arreglo = JSON.parse(info.data);
+
+            if(arreglo.length>0){
+                alert("El pasajero ya seleccióno una silla en este vuelo anteriorimente, no puede seleccionar mas sillas");
+                $("#txtIdPersona").val(-1);
+                $("#txtIdSillaSeleccionada").val(-1);
+                document.getElementById("btnReservar").disabled =true;
+                document.getElementById("btnSeleccionarSilla").disabled =true;
+                quitarColorSeleccionSilla();
+            }else{
+                $("#txtCorreoSilla").val(data[0].correo);
+                $("#txtContrasenaSilla").val(data[0].contrasena);
+                $("#txtIdPersona").val(data[0].id);
+                alert("Se encontró el pasajero")
+                document.getElementById("btnSeleccionarSilla").disabled =false;
+            }
+
+            } else {
+                $("#txtCorreoSilla").val(data[0].correo);
+                $("#txtContrasenaSilla").val(data[0].contrasena);
+                $("#txtIdPersona").val(data[0].id);
+                alert("Se encontró el pasajero")
+                document.getElementById("btnSeleccionarSilla").disabled =false;
+            }
+
+
+
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+
+
+
 
 
 }

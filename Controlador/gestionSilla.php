@@ -63,6 +63,8 @@ switch ($type) {
     case "guardarReserva":
         $sillaDAO->guardarReserva($silla,$pasajeroPrincipal,$fechaHoy,$codigo);
         break;
+
+    case "seleccionoSilla":
+        $sillaDAO->saberSiSeleccionoSilla($correo,$contrasena,$idItinerario);
+        break;
 }
-
-
