@@ -187,7 +187,7 @@ if(isset($_GET['res'])){
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Contraseña</label>
-                                                <input type="text" class="form-control" id="txtContrasenaSilla">
+                                                <input type="password" class="form-control" id="txtContrasenaSilla">
                                                 <input type="hidden" class="form-control" id="txtIdPersona">
                                             </div>
                                             <div class="modal-footer row">

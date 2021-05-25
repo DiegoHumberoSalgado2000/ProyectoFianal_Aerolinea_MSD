@@ -79,7 +79,7 @@
                                                 <label for="recipient-name" class="control-label">Nombre</label>
                                                 <input type="text" class="form-control" id="txtNombre">
                                                 <input type="hidden" id="txtIdPasajero" class="form-control">
-                                                 <input type="hidden" id="txtCondiResultado" class="form-control">
+                                                <input type="hidden" id="txtCondiResultado" class="form-control">
                                                 <input type="hidden" id="txtMsjResultado" class="form-control">
                                             </div>
                                             <div class="form-group">
@@ -175,7 +175,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Contraseña</label>
-                                                <input type="text" id="txtContrasenaLogin" name="txtContrasenaLogin" class="form-control">
+                                                <input type="password" id="txtContrasenaLogin" name="txtContrasenaLogin" class="form-control">
                                                 <input type="hidden" name="type" id="txtType">
                                             </div>
 
@@ -410,7 +410,7 @@
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-calendar-alt"></i></span>
                                     <input type="date" class="form-control" id="FechaSalida"
-                                        aria-describedby="basic-addon1">
+                                           aria-describedby="basic-addon1">
                                 </div>
                             </div>
 
@@ -420,21 +420,21 @@
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-calendar-alt"></i></span>
                                     <input type="date" class="form-control" id="FechaLlegada"
-                                        aria-describedby="basic-addon1">
+                                           aria-describedby="basic-addon1">
                                 </div>
                             </div>
 
                             <div class="ContenedorCantidadPasajeros">
-                            <h6>Seleccione numeros de Pasajeros</h6>
+                                <h6>Seleccione numeros de Pasajeros</h6>
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
                                     <div class="col-sm-2">
-                                    <input type="number" id="Origen"class="form-control" min="1" max="1" step="1" value="1" name="num"></div>
-                                
+                                        <input type="number" id="Origen"class="form-control" min="1" max="1" step="1" value="1" name="num"></div>
+
                                 </div>
                             </div>
 
-                            
+
 
                             <div class="ContenedorBotonBuscarVuelos">
                                 <button type="button" id="btnBuscarVuelo" class="boton_personalizado">Buscar Vuelo</button>
