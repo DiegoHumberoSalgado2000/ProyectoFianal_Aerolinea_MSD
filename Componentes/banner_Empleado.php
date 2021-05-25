@@ -41,7 +41,12 @@
                             <li><a href="Vista/Emp_Aerolinea.php">Menu Empleado</a></li>
                             <li><a href="">Informacion</a></li>
                             <li><a href="">Te ayudamos</a></li>
-                            <li><a href="">Cerrar Sesion</a></li>
+                            <li>
+                            <form name="formularioLogOut" id="formularioLogOut" method="post" action="Controlador/gestionLogIn.php">
+                            <input type="hidden" name="type" id="txtType">
+                            <a  value="Desconectar" id="btnDesconectar" onclick="validarLogIn('desc')" >Cerrar Sesion</a>
+                            </form>
+                            </li>
                         </ul>
 
                     </div>

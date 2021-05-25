@@ -168,18 +168,19 @@
                                         <h3>Iniciar Sesion</h3>
                                         <hr class="LineaHorizontal">
                                         <br>
-                                        <form>
+                                        <form form name="formularioLogIn" id="formularioLogIn" method="post" action="Controlador/gestionLogIn.php">
                                             <div class="form-group">
                                                 <label for="recipient-name" class="control-label">Correo</label>
-                                                <input type="email" class="form-control">
+                                                <input type="email" id="txtCorreoLogin" name="txtCorreoLogin" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">Contraseña</label>
-                                                <input type="password" class="form-control">
+                                                <input type="text" id="txtContrasenaLogin" name="txtContrasenaLogin" class="form-control">
+                                                <input type="hidden" name="type" id="txtType">
                                             </div>
 
                                             <div class="modal-footer row">
-                                                <button type="button" class="btn btn-block btn-danger">Iniciar Sesion</button>
+                                                <button type="button" class="btn btn-block btn-danger" id="btnIniciarSesion" onclick="validarLogIn('con')">Iniciar Sesion</button>
                                             </div>
                                         </form>
 

@@ -63,3 +63,28 @@ function LimpiarText() {
     $("#txtContrasena").val("");
     $("#txtDescripcion").val("");
 }
+
+
+function validarLogIn(tipo) {
+
+    $("#txtType").val(tipo);
+
+    if (tipo === "con") {
+
+        let correoLogin = $("#txtCorreoLogin").val();
+        let contrasenaLogin = $("#txtContrasenaLogin").val();
+
+
+
+        if (correoLogin !== "" && contrasenaLogin !== "") {
+            document.getElementById("formularioLogIn").submit();
+        } else {
+            alert("Ingrese todos los datos");
+            alert("hola mundo "+correoLogin+" "+contrasenaLogin);
+        }
+    } else {
+        document.getElementById("formularioLogOut").submit();
+    }
+
+
+}
