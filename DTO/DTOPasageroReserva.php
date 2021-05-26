@@ -8,7 +8,7 @@
 
 class DTOPasajeroReserva {
 
-   private $Nombre;
+    private $Nombre;
     private $Apellido;
     private $Cedula;
     private $Correo;
@@ -16,8 +16,9 @@ class DTOPasajeroReserva {
     private $idReserva;
     private $PrecioSilla;
     private $PrecioTiquete;
+    private $precioTotalPagar;
 
-    function __construct($Nombre, $Apellido, $Cedula, $Correo, $Telefono, $idReserva, $PrecioSilla, $PrecioTiquete) {
+    function __construct($Nombre, $Apellido, $Cedula, $Correo, $Telefono, $idReserva, $PrecioSilla, $PrecioTiquete, $precioTotalPagar) {
         $this->Nombre = $Nombre;
         $this->Apellido = $Apellido;
         $this->Cedula = $Cedula;
@@ -26,6 +27,7 @@ class DTOPasajeroReserva {
         $this->idReserva = $idReserva;
         $this->PrecioSilla = $PrecioSilla;
         $this->PrecioTiquete = $PrecioTiquete;
+        $this->precioTotalPagar = $precioTotalPagar;
     }
 
     function getNombre() {
@@ -60,6 +62,10 @@ class DTOPasajeroReserva {
         return $this->PrecioTiquete;
     }
 
+    function getPrecioTotalPagar() {
+        return $this->precioTotalPagar;
+    }
+
     function setNombre($Nombre) {
         $this->Nombre = $Nombre;
     }
@@ -91,4 +97,9 @@ class DTOPasajeroReserva {
     function setPrecioTiquete($PrecioTiquete) {
         $this->PrecioTiquete = $PrecioTiquete;
     }
+
+    function setPrecioTotalPagar($precioTotalPagar) {
+        $this->precioTotalPagar = $precioTotalPagar;
+    }
+
 }
