@@ -26,9 +26,6 @@
             </ul>
 
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <a href="">Cerrar Sesion</a>
-            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -62,7 +59,7 @@
                         <li class="nav-header">NAVEGACION</li>
 
                         <li class="nav-item">
-                            <a href="../Inicio_Empleado.php" class="nav-link">
+                            <a href="../index.php" class="nav-link">
                             <i class="fas fa-sign-out-alt"></i>
                                 <p>
                                     Volver a la Pagina Principal
