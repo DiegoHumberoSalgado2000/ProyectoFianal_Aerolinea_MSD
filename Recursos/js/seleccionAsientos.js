@@ -1416,4 +1416,5 @@ function LimpiarText() {
     $("#txtTelefono").val("");
     $("#txtContrasena").val("");
     $("#txtDescripcion").val("");
+
 }
