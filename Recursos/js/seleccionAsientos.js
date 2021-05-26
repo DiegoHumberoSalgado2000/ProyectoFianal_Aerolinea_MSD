@@ -866,7 +866,7 @@ function bloquearAsientos() {
         },
         data: objAvion,
         success: function (res) {
-            alert(res);
+            //alert(res);
             var info = JSON.parse(res);
             var data = JSON.parse(info.data);
 

@@ -14,7 +14,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 if(isset($_GET['res'])){
     $cedulaEncryptada=$_GET['res'];
     //echo($lista);
-    print_r($cedulaEncryptada);
+    //print_r($cedulaEncryptada);
 
 }
 
@@ -131,7 +131,7 @@ if(isset($_GET['res'])){
                             </div>
 
                         </div>
-                        <button type="button" id="btnCargarInformacion" class="btn btn-danger" >Cargar Informacion</button>
+                        <!--  <button type="button" id="btnCargarInformacion" class="btn btn-danger" >Cargar Informacion</button> --->
                     </div>
                 </div>
 

@@ -78,7 +78,7 @@ switch ($type) {
             ]));
             break;
         }
-
+        /**
         if ($tarjeraCredito == "Visa") {
             if (!preg_match($patronValTarjetaVisa, $numeroTarjetaCredtiro)) {
                 echo (json_encode(['res' => 'False', "msj" => $patronValTarjetaVisaInfo]));
@@ -110,6 +110,7 @@ switch ($type) {
             }
             break;
         }
+        */
 
         $HistorialPagosDAO->GuardarHistorialPagos($historialPagos);
         break;

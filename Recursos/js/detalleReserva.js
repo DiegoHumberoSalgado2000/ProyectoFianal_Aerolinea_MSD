@@ -27,10 +27,8 @@ function CargarDatosDetalleReserva(dato) {
 
 
     try {
-        alert("hola mundo");
 
         var cedulaDecrypt=Decrypt(dato);
-        alert(cedulaDecrypt);
         var objDetalleReserva = {
             cedula: cedulaDecrypt,
             type: "BuscarDetalleReserva"
@@ -57,6 +55,7 @@ function CargarDatosDetalleReserva(dato) {
                         $("#txtApellido").val(data[0].apellidos);
                         $("#txtTelefono").val(data[0].telefono_celular);
                         $("#txtCorreo").val(data[0].correo);
+                        $("#txtCedula").val(data[0].cedula);
                         $("#txtPrecioSilla").val(data[0].precioSilla);
                         $("#txtPrecioTiquete").val(data[0].precioTiquete);
                         $("#txtTotalPago").val(data[0].TotalPagar);
@@ -132,6 +131,7 @@ function BloquearTextDetalleReserva() {
     let txtNumeroVuelo = document.getElementById("txtNumeroVuelo");
     let txtPrecioSilla = document.getElementById("txtPrecioSilla");
     let txtPrecioTiquete = document.getElementById("txtPrecioTiquete");
+    let txtCedula=document.getElementById("txtCedula");
 
     txtNombre.disabled = true;
     txtApellido.disabled = true;
@@ -145,6 +145,7 @@ function BloquearTextDetalleReserva() {
     txtNumeroVuelo.disabled = true;
     txtPrecioSilla.disabled = true;
     txtPrecioTiquete.disabled = true;
+    txtCedula.disabled=true;
 
 }
 
