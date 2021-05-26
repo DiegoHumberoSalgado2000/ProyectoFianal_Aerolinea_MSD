@@ -39,7 +39,7 @@ function listarDatos(){
                 //id,nombres,apellidos,cedula,correo,telefono_celular,contrasena,estado,descripcion
                 document.getElementById("lblNombre").innerHTML = data[0].nombres;
                 document.getElementById("lblApellido").innerHTML = data[0].apellidos;
-                document.getElementById("txtCorreo").innerHTML = data[0].correo;
+                document.getElementById("lblCorreo").innerHTML = data[0].correo;
                 document.getElementById("lblCedula").innerHTML = data[0].cedula;
                 document.getElementById("lblEstado").innerHTML = data[0].estado;
                 document.getElementById("lblTelefono").innerHTML = data[0].telefono_celular;
