@@ -5,7 +5,7 @@ require '../DAO/HistorialPagoDAO.php';
 
 $idHistorialPagos = isset($_REQUEST['idHistorialPagos']) ? $_REQUEST['idHistorialPagos'] : "";
 $idReserva = isset($_REQUEST['idReserva']) ? $_REQUEST['idReserva'] : "";
-$totalPrecio = isset($_REQUEST['totalPrecio']) ? $_REQUEST['totalPrecio'] : "";
+$TotalAPagar = isset($_REQUEST['TotalAPagar']) ? $_REQUEST['TotalAPagar'] : "";
 $estado = isset($_REQUEST['estado']) ? $_REQUEST['estado'] : "";
 $tarjeraCredito = isset($_REQUEST['tarjeraCredito']) ? $_REQUEST['tarjeraCredito'] : "";
 $mesVencimiento = isset($_REQUEST['mesVencimiento']) ? $_REQUEST['mesVencimiento'] : "";
@@ -16,7 +16,7 @@ $numeroVerificado = isset($_REQUEST['numeroVerificado']) ? $_REQUEST['numeroVeri
 $descripcion = isset($_REQUEST['descripcion']) ? $_REQUEST['descripcion'] : "";
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
 
-$historialPagos = new ClsHistorialPago($idHistorialPagos, $idReserva, $totalPrecio, $estado, $tarjeraCredito, $mesVencimiento, $opcionPago, $Avencimiento, $numeroTarjetaCredtiro, $numeroVerificado, $descripcion);
+$historialPagos = new ClsHistorialPago($idHistorialPagos, $idReserva, $TotalAPagar, $estado, $tarjeraCredito, $mesVencimiento, $opcionPago, $Avencimiento, $numeroTarjetaCredtiro, $numeroVerificado, $descripcion);
 $HistorialPagosDAO = new HistorialPagoDAO();
 
 /**
@@ -42,7 +42,7 @@ $patronValTarjetaDinersInf = "numero de tarjeta no valido las tarjetas Diners si
 switch ($type) {
     case "guardar":
 
-        if ($tarjeraCredito == "Seleccione el tipo de targeta de Credito") {
+        if ($tarjeraCredito == "Seleccione el tipo de tarjeta de Credito") {
             echo(json_encode(['res' => 'False', "msj" => "seleccione la tarjeta de credito"
             ]));
             break;

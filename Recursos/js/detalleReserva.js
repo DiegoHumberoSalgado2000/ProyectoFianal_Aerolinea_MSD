@@ -29,6 +29,7 @@ function CargarDatosDetalleReserva(dato) {
     try {
 
         var cedulaDecrypt=Decrypt(dato);
+        //alert(cedulaDecrypt);
         var objDetalleReserva = {
             cedula: cedulaDecrypt,
             type: "BuscarDetalleReserva"

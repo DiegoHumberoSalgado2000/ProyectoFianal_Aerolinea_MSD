@@ -93,7 +93,7 @@ function GuardarHistorialPasajero() {
     let objHistorialPagos = {
 
         idReserva: $("#txtIdReservaPasajero").val(),
-        totalPrecio: $("#txtTotalPagar").val(),
+        TotalAPagar: $("#txtTotalAPagar").val(),
         tarjeraCredito: $("#CmbTargetaCredito").val(),
         mesVencimiento: $("#CmbMesVencimiento").val(),
         opcionPago: $("#CmbCantidadCuotas").val(),
@@ -106,6 +106,7 @@ function GuardarHistorialPasajero() {
 
         if (objHistorialPagos.numeroTarjetaCredtiro !== objHistorialPagos.numeroVerificado) {
             alert("Los numeros de la tarjeta de credito no coinciden");
+            
         } else {
 
             objHistorialPagos.type = 'guardar';

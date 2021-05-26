@@ -71,19 +71,19 @@ class ClsHistorialPago{
         return $this->descripcion;
     }
 
-    function setId($id): void {
+    function setId($id){
         $this->id = $id;
     }
 
-    function setId_Reserva($id_Reserva): void {
+    function setId_Reserva($id_Reserva){
         $this->id_Reserva = $id_Reserva;
     }
 
-    function setTotal_Pagos($total_Pagos): void {
+    function setTotal_Pagos($total_Pagos){
         $this->total_Pagos = $total_Pagos;
     }
 
-    function setEstado($estado): void {
+    function setEstado($estado){
         $this->estado = $estado;
     }
 

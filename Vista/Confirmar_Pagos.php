@@ -43,10 +43,10 @@ if (isset($_GET['res'])) {
                                 <input type="hidden" id="txtMsjResultado" class="form-control">
                             </div>
 
-                            <label for="" class="col-sm-2 col-form-label">Targeta de Credito</label>
+                            <label for="" class="col-sm-2 col-form-label">Tarjeta de Credito</label>
                             <div class="col-sm-5">
                                 <select  id="CmbTargetaCredito" class="form-control">
-                                    <option>Seleccione el tipo de targeta de Credito</option>
+                                    <option>Seleccione el tipo de tarjeta de Credito</option>
                                     <option>Visa</option>
                                     <option>Mastercard</option>
                                     <option>American Express</option>
@@ -155,7 +155,7 @@ if (isset($_GET['res'])) {
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Numero de Targeta</label>
+                            <label for="" class="col-sm-2 col-form-label">Numero de Tarjeta</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtNumeroTargetaCredito" class="form-control">
                             </div>
