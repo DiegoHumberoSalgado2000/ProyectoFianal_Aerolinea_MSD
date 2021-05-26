@@ -61,5 +61,12 @@ class sillaDAO{
         $this->objCon->Execute($sql);
     }
 
+    /*
+    *Función utilizada para obtener la cedula del pasajar
+    */
+    public function obtenerCedulaPasajero($pasajeroPrincipal){
+        $sql="SELECT cedula from pasajero where id=$pasajeroPrincipal";
+        $this->objCon->Execute($sql);
+    }
 
 }

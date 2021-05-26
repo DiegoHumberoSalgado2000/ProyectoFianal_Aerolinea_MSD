@@ -1,13 +1,14 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 $(document).ready(function () {
-    $("#btnCargarInformacion").click(CargarDatosDetalleReserva);
+    CargarDatosDetalleReserva(dato);
     $("#btnIrConfirmarReserva").click(EnviarInformacion);
     BloquearTextDetalleReserva();
 });
+
 
 
 function Encrypt(word, key = '1239873697412580') {
@@ -22,52 +23,62 @@ function Decrypt(word, key = '1239873697412580') {
     return JSON.parse(bytes)
 }
 
-function CargarDatosDetalleReserva() {
+function CargarDatosDetalleReserva(dato) {
 
-    var objDetalleReserva = {
-        cedula: $("#txtCedula").val(),
-        type: "BuscarDetalleReserva"
-    };
-    if (objDetalleReserva.cedula !== "") {
-        $.ajax({
-            type: 'post',
-            url: "../Controlador/gestionDetalleReserva.php",
-            beforeSend: function () {
 
-            },
-            data: objDetalleReserva,
-            success: function (res) {
-                var info = JSON.parse(res);
-                var data = JSON.parse(info.data);
+    try {
+        alert("hola mundo");
 
-                if (info.msj === "Success") {
-                    $("#txtUbicacionSalida").val(data[0].nombreUbicacionSalida);
-                    $("#txtUbicacionLlegada").val(data[0].nombreUbicacionLlegada);
-                    $("#txtFechaSalida").val(data[0].fecha_salida);
-                    $("#txtFechaLlegada").val(data[0].fecha_llegada);
-                    $("#txtNumeroVuelo").val(data[0].placa);
-                    $("#txtNombre").val(data[0].nombres);
-                    $("#txtApellido").val(data[0].apellidos);
-                    $("#txtTelefono").val(data[0].telefono_celular);
-                    $("#txtCorreo").val(data[0].correo);
-                    $("#txtPrecioSilla").val(data[0].precioSilla);
-                    $("#txtPrecioTiquete").val(data[0].precioTiquete);
-                    $("#txtTotalPago").val(data[0].TotalPagar);
+        var cedulaDecrypt=Decrypt(dato);
+        alert(cedulaDecrypt);
+        var objDetalleReserva = {
+            cedula: cedulaDecrypt,
+            type: "BuscarDetalleReserva"
+        };
+        if (objDetalleReserva.cedula !== "") {
+            $.ajax({
+                type: 'post',
+                url: "../Controlador/gestionDetalleReserva.php",
+                beforeSend: function () {
 
-                } else {
-                    alert("No se encuentra la Reserva");
-                    LimpiarText();
+                },
+                data: objDetalleReserva,
+                success: function (res) {
+                    var info = JSON.parse(res);
+                    var data = JSON.parse(info.data);
+
+                    if (info.msj === "Success") {
+                        $("#txtUbicacionSalida").val(data[0].nombreUbicacionSalida);
+                        $("#txtUbicacionLlegada").val(data[0].nombreUbicacionLlegada);
+                        $("#txtFechaSalida").val(data[0].fecha_salida);
+                        $("#txtFechaLlegada").val(data[0].fecha_llegada);
+                        $("#txtNumeroVuelo").val(data[0].placa);
+                        $("#txtNombre").val(data[0].nombres);
+                        $("#txtApellido").val(data[0].apellidos);
+                        $("#txtTelefono").val(data[0].telefono_celular);
+                        $("#txtCorreo").val(data[0].correo);
+                        $("#txtPrecioSilla").val(data[0].precioSilla);
+                        $("#txtPrecioTiquete").val(data[0].precioTiquete);
+                        $("#txtTotalPago").val(data[0].TotalPagar);
+
+                    } else {
+                        alert("No se encuentra la Reserva");
+                        LimpiarText();
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+                    alert("Verifique la ruta del archivo");
                 }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-                alert("Verifique la ruta del archivo");
-            }
 
-        });
-    } else {
-        alert("No has ingresado el numero de cedula para buscar al pasajero");
+            });
+        } else {
+            alert("No has ingresado el numero de cedula para buscar al pasajero");
+        }
+    } catch (error) {
+        alert("No altere la dirección url")
     }
+
 }
 
 

@@ -186,7 +186,7 @@ function reservarObtencionDatos(codigoReserva) {
             data: objDatos,
             success: function (res) {
                 alert("Reserva realizada con exito");
-                window.location.href = '../Vista/Pagos.php';
+                mandarCorreoPasajeroReserva(idPasajeroPrincipal);
 
 
             },
@@ -199,6 +199,44 @@ function reservarObtencionDatos(codigoReserva) {
 
     }
 
+
+}
+
+
+function mandarCorreoPasajeroReserva(idPasajeroPrincipal){
+    var objAvion = {
+        pasajeroPrincipal: idPasajeroPrincipal,
+        type: "obtenerCedulaPorId"
+    };
+
+
+    $.ajax({
+        type: 'post',
+        url: "../Controlador/gestionSilla.php",
+        beforeSend: function () {
+
+        },
+        data: objAvion,
+        success: function (res) {
+            //alert(res);
+            var info = JSON.parse(res);
+            var data = JSON.parse(info.data);
+
+            if (info.msj === "Success") {
+
+                $cedula=data[0].cedula;
+                window.location.href = "../Vista/Pagos.php?res="+Encrypt($cedula);
+
+            } else {
+                alert("No es posible obtener la cedula del pasajero")
+            }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
 
 }
 
@@ -828,7 +866,7 @@ function bloquearAsientos() {
         },
         data: objAvion,
         success: function (res) {
-            //alert(res);
+            alert(res);
             var info = JSON.parse(res);
             var data = JSON.parse(info.data);
 

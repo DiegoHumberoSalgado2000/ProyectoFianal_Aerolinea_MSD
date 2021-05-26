@@ -194,6 +194,11 @@ if(isset($_GET['res'])){
                                                 <button type="button" class="btn btn-block btn-danger" id="btnValidarDatos">Validar Datos</button>
                                             </div>
 
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label" class="close"  class="close" data-dismiss="modal">Si va a validar los datos , antes tiene que estar registrado</label>
+
+                                            </div>
+
 
                                     </div>
 

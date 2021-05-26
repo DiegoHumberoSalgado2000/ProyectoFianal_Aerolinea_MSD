@@ -67,4 +67,9 @@ switch ($type) {
     case "seleccionoSilla":
         $sillaDAO->saberSiSeleccionoSilla($correo,$contrasena,$idItinerario);
         break;
+    case "obtenerCedulaPorId":
+        $sillaDAO->obtenerCedulaPasajero($pasajeroPrincipal);
+        break;
 }
+
+

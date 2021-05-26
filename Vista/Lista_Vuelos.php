@@ -4,6 +4,7 @@ include_once 'layouts/header_lista_vuelos.php'
 
 ?>
 <title>Lista de Vuelos</title>
+<script src="../Recursos/js/listarVuelos.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Pagina_Inicio.php';
 ?>

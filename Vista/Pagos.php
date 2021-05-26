@@ -3,12 +3,29 @@
 include_once 'layouts/header_Pagina_Inicio.php'
 ?>
 <title>Pagos</title>
-<script src="../Recursos/js/detalleReserva.js" type="text/javascript"></script>  
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="../Recursos/js/detalleReserva.js" type="text/javascript"></script>
 <?php
 
 include_once 'layouts/nav_Pagina_Inicio.php';
+
+
+if(isset($_GET['res'])){
+    $cedulaEncryptada=$_GET['res'];
+    //echo($lista);
+    print_r($cedulaEncryptada);
+
+}
+
+
 ?>
+
+
+<script type="text/javascript">
+    CargarDatosDetalleReserva(dato='<?php echo $cedulaEncryptada ?>');
+</script>
+
 
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
