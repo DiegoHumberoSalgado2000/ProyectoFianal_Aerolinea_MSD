@@ -74,6 +74,7 @@ function cargarDatos() {
                 $("#txtTelefono").val(data[0].telefono_celular);
                 $("#txtValorTiquete").val(data[0].precio);
                 $("#txtServicioAdicionales").val(data[0].precioSilla);
+                $("#txtTotalAPagar").val(data[0].TotalPagar);
             } else {
                 alert("No se encuentra el pasajero");
 
@@ -170,16 +171,17 @@ function DesabilitarText() {
     let txtApellido = document.getElementById("txtApellido");
     let txtCorreo = document.getElementById("txtCorreo");
     let txtTelefono = document.getElementById("txtTelefono");
-    let txtTotalPagar = document.getElementById("txtTotalPagar");
     let txtValorTiquete = document.getElementById("txtValorTiquete");
     let txtServicioAdicionales = document.getElementById("txtServicioAdicionales");
     let txtCedula = document.getElementById("txtDocumentoIdentidad");
+    let txtTotalAPagar = document.getElementById("txtTotalAPagar");
+
     txtNombre.disabled = true;
     txtApellido.disabled = true;
     txtCorreo.disabled = true;
     txtTelefono.disabled = true;
-    txtTotalPagar.disabled = true;
     txtValorTiquete.disabled = true;
     txtServicioAdicionales.disabled = true;
     txtCedula.disabled = true;
+    txtTotalAPagar.disabled = true;
 }

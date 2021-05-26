@@ -52,6 +52,7 @@ function CargarDatosDetalleReserva() {
                     $("#txtCorreo").val(data[0].correo);
                     $("#txtPrecioSilla").val(data[0].precioSilla);
                     $("#txtPrecioTiquete").val(data[0].precioTiquete);
+                    $("#txtTotalPago").val(data[0].TotalPagar);
 
                 } else {
                     alert("No se encuentra la Reserva");

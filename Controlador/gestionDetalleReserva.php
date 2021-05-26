@@ -26,10 +26,11 @@ $fechaLlegada = isset($_REQUEST['fecha_llegada']) ? $_REQUEST['fecha_llegada'] :
 $numeroVuelo = isset($_REQUEST['placa']) ? $_REQUEST['placa'] : "";
 $precioSilla = isset($_REQUEST['precioSilla']) ? $_REQUEST['precioSilla'] : "";
 $precioTiquete = isset($_REQUEST['precioTiquete']) ? $_REQUEST['precioTiquete'] : "";
+$precioTotalPagar = isset($_REQUEST['TotalPagar']) ? $_REQUEST['TotalPagar'] : "";
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
 
 
-$detalleReserva = new DTODetalleReserva($nombre, $apellido, $cedula, $telefono, $correo, $ubicacionSalida, $ubicacionLlegada, $fechaSalida, $fechaLlegada, $numeroVuelo, $precioSilla, $precioTiquete);
+$detalleReserva = new DTODetalleReserva($nombre, $apellido, $cedula, $telefono, $correo, $ubicacionSalida, $ubicacionLlegada, $fechaSalida, $fechaLlegada, $numeroVuelo, $precioSilla, $precioTiquete,$precioTotalPagar);
 $detalleReservaDAo = new DetalleReservaDAO();
 
 /**

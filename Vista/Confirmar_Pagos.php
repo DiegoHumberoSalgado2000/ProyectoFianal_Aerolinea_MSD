@@ -254,7 +254,7 @@ if (isset($_GET['res'])) {
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">TOTAL A PAGAR</label>
                             <div class="col-sm-5">
-                                <input type="text" id="txtTotalPagar" class="form-control">
+                                <input type="text" id="txtTotalAPagar" class="form-control">
                             </div>
                         </div>
                     </div>
