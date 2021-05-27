@@ -104,8 +104,8 @@ function GuardarHistorialPasajero() {
     };
     if (objHistorialPagos.idReserva !== "") {
 
-        if (objHistorialPagos.numeroTarjetaCredtiro !== objHistorialPagos.numeroVerificado) {
-            alert("Los numeros de la tarjeta de credito no coinciden");
+        if (objHistorialPagos.numeroTarjetaCredtiro !== objHistorialPagos.numeroVerificado||objHistorialPagos.numeroTarjetaCredtiro===""&&objHistorialPagos.numeroVerificado==="") {
+            alert("Los numeros de la tarjeta de credito no coinciden o son numeros de tarjeta no validos");
             
         } else {
 

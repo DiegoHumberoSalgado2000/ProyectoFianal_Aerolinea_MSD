@@ -44,7 +44,7 @@
                             <li>
                             <form name="formularioLogOut" id="formularioLogOut" method="post" action="Controlador/gestionLogIn.php">
                             <input type="hidden" name="type" id="txtType">
-                            <a  value="Desconectar" id="btnDesconectar" onclick="validarLogIn('desc')" >Cerrar Sesion</a>
+                            <a  value="Desconectar" id="btnDesconectar" onclick="validarLogIn('desc')" >Cerrar Sesión</a>
                             </form>
                             </li>
                         </ul>

@@ -80,7 +80,7 @@ function validarLogIn(tipo) {
             document.getElementById("formularioLogIn").submit();
         } else {
             alert("Ingrese todos los datos");
-            alert("hola mundo "+correoLogin+" "+contrasenaLogin);
+            //alert("hola mundo "+correoLogin+" "+contrasenaLogin);
         }
     } else {
         document.getElementById("formularioLogOut").submit();
