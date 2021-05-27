@@ -171,7 +171,7 @@ function guardarActualizar(){
                 } else if(info.res === "False"){
                     alert(info.msj)
                 }else{
-                    alert("Error al modificar, no ah modificado datos. Si desea modificar, modifique algun dato");
+                    alert("Error al modificar, no ha modificado datos. Si desea modificar, modifique algún dato");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
