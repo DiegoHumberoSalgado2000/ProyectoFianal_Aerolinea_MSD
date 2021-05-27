@@ -125,7 +125,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h4>
+                        <h4 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h4>
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
@@ -165,7 +165,7 @@
                                             <img src="img/LogoAerolineaMSD.png" class="ImagenBannerLogoModaliniciarSesion">
                                         </div>
 
-                                        <h3>Iniciar Sesion</h3>
+                                        <h3>Iniciar Sesión</h3>
                                         <hr class="LineaHorizontal">
                                         <br>
                                         <form form name="formularioLogIn" id="formularioLogIn" method="post" action="Controlador/gestionLogIn.php">
@@ -180,7 +180,7 @@
                                             </div>
 
                                             <div class="modal-footer row">
-                                                <button type="button" class="btn btn-block btn-danger" id="btnIniciarSesion" onclick="validarLogIn('con')">Iniciar Sesion</button>
+                                                <button type="button" class="btn btn-block btn-danger" id="btnIniciarSesion" onclick="validarLogIn('con')">Iniciar Sesión</button>
                                             </div>
                                         </form>
 
