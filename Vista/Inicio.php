@@ -8,6 +8,7 @@
         <script src="Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
         <script src="Recursos/js/gestionLogin.js" type="text/javascript"></script>
         <script src="Recursos/js/gestionReserva.js" type="text/javascript"></script>
+        <script src="Recursos/js/gestionCheckIn.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
     </head>
@@ -248,18 +249,18 @@
                         <form>
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Codigo Reserva</label>
-                                <input type="text" class="form-control">
+                                <input type="text" id="codigoReserva" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="control-label">Cedula</label>
-                                <input type="number" class="form-control">
+                                <input type="number" id="cedulacheckin" class="form-control">
                             </div>
                         </form>
 
                     </div>
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-block btn-danger">INGRESAR</button>
+                        <button type="button" class="btn btn-block btn-danger" id="btnIngresarCheckIn">INGRESAR</button>
 
                     </div>
                 </div>

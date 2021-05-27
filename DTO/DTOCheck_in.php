@@ -7,6 +7,7 @@ class DTOCheck_in{
     private $telefono;
     private $correo;
     private $idReserva;
+    private $codigoReserva;
     private $silla;
     private $origen;
     private $destino;
@@ -16,7 +17,7 @@ class DTOCheck_in{
     private $idVuelo;
     private $Estado_Vuelo;
     private $Placa_Avion;
-    function __construct($nombre, $apellido, $cedula, $telefono, $correo,$idReserva, $silla, $origen, $destino, $fecha_Salida, $fecha_Llegada, $Estado_Reserva, $idVuelo, $Estado_Vuelo, $Placa_Avion)
+    function __construct($nombre, $apellido, $cedula, $telefono, $correo,$idReserva,$codigoReserva, $silla, $origen, $destino, $fecha_Salida, $fecha_Llegada, $Estado_Reserva, $idVuelo, $Estado_Vuelo, $Placa_Avion)
 
     {
         $this->nombre = $nombre;
@@ -24,7 +25,8 @@ class DTOCheck_in{
         $this->cedula = $cedula;
         $this->telefono = $telefono;
         $this->correo = $correo;
-        $this->idReserva = $idReserva; 
+        $this->idReserva = $idReserva;
+        $this->codigoReserva=$codigoReserva; 
         $this->silla = $silla;
         $this->origen = $origen;
         $this->destino = $destino;
@@ -52,6 +54,9 @@ class DTOCheck_in{
     }
     function getId_Reserva(){
         return $this->idReserva;
+    }
+    function getCodigoReserva(){
+        return $this->codigoReserva;
     }
     function getSilla(){
         return $this->silla;
@@ -97,6 +102,9 @@ class DTOCheck_in{
     }
     function setId_Reserva($idReserva){
         $this->idReserva = $idReserva;
+    }
+    function setCodigoReserva($codigoReserva){
+        $this->codigoReserva = $codigoReserva;
     }
     function setSilla($silla){
         $this->silla = $silla;

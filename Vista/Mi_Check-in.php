@@ -2,11 +2,25 @@
 include_once 'layouts/header_Check-in.php';
 ?>
 <title>Mi Check-in</title>
+<script src="../Recursos/js/gestionDatosCheckIn.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Check-in.php';
 ?>
 
+<?php
 
+if(isset($_GET['res'])){
+    $Datos=$_GET['res'];
+    //echo($lista);
+    //print_r($lista);
+
+
+}
+?>
+
+<script type="text/javascript">
+    LlenarDatos(datos='<?php echo $Datos ?>');
+</script>
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
 
@@ -75,7 +89,7 @@ include_once 'layouts/nav_Check-in.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Silla</label>
                             <div class="col-sm-5">
-                                <input type="text" id="txtEstado" class="form-control">
+                                <input type="text" id="txtNumeroSilla" class="form-control">
                             </div>
 
                         </div>
@@ -113,7 +127,7 @@ include_once 'layouts/nav_Check-in.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Estado Reserva</label>
                             <div class="col-sm-5">
-                                <input type="text" id="txtEstado Vuelo" class="form-control">
+                                <input type="text" id="txtEstadoReserva" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -130,7 +144,7 @@ include_once 'layouts/nav_Check-in.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Tipo Vuelo</label>
                             <div class="col-sm-5">
-                                <input type="text" id="txtEstado" class="form-control">
+                                <input type="text" id="txtTipoVuelo" class="form-control">
                             </div>
 
                         </div>
@@ -140,7 +154,7 @@ include_once 'layouts/nav_Check-in.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Estado del Vuelo</label>
                             <div class="col-sm-5">
-                                <input type="text" id="txtSilla" class="form-control">
+                                <input type="text" id="txtEstadoVuelo" class="form-control">
                             </div>
 
                         </div>
@@ -148,7 +162,7 @@ include_once 'layouts/nav_Check-in.php';
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Placa del Avion</label>
                             <div class="col-sm-5">
-                                <input type="text" id="txtOrigen" class="form-control">
+                                <input type="text" id="txtPlaca" class="form-control">
                             </div>
                         </div>
 
