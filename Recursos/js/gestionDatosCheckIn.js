@@ -1,6 +1,7 @@
 $(document).ready(function () {
  LlenarDatos(datos);
  BloquearTextDetalleCheckIn();
+
 });
 
 function Decrypt(word, key = '1239873697412580') {
@@ -75,4 +76,8 @@ function BloquearTextDetalleCheckIn(){
     txtTipoVuelo.disabled = true;
     txtEstadoVuelo.disabled = true;
     txtPlaca.disabled = true;
+}
+
+function limpiar(){
+    
 }
