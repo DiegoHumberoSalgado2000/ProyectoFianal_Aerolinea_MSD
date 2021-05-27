@@ -63,13 +63,6 @@ include_once 'layouts/nav_Check-in.php';
 
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Genero</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtGenero" class="form-control">
-                            </div>
-
-                        </div>
                     </div>
                 </div>
 
@@ -80,29 +73,12 @@ include_once 'layouts/nav_Check-in.php';
                     <div class="panel-body">
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Estado</label>
+                            <label for="" class="col-sm-2 col-form-label">Silla</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtEstado" class="form-control">
                             </div>
 
                         </div>
-
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Hora Salida</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtHoraSalida" class="form-control">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Silla Seleccionada</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtSilla" class="form-control">
-                            </div>
-
-                        </div>
-
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Origen</label>
                             <div class="col-sm-5">
@@ -119,14 +95,6 @@ include_once 'layouts/nav_Check-in.php';
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">FechaLlegada</label>
-                            <div class="col-sm-5">
-                                <input type="date" id="txtFechaLlegada" class="form-control">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">FechaSalida</label>
                             <div class="col-sm-5">
                                 <input type="date" id="txtFechaSalida" class="form-control">
@@ -135,15 +103,15 @@ include_once 'layouts/nav_Check-in.php';
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Tipo de Vuelo</label>
+                            <label for="" class="col-sm-2 col-form-label">FechaLlegada</label>
                             <div class="col-sm-5">
-                                <input type="text" id="txtTipo Vuelo" class="form-control">
+                                <input type="date" id="txtFechaLlegada" class="form-control">
                             </div>
 
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Estado Vuelo</label>
+                            <label for="" class="col-sm-2 col-form-label">Estado Reserva</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtEstado Vuelo" class="form-control">
                             </div>
@@ -160,20 +128,14 @@ include_once 'layouts/nav_Check-in.php';
 
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Numero de Vuelo</label>
+                            <label for="" class="col-sm-2 col-form-label">Tipo Vuelo</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtEstado" class="form-control">
                             </div>
 
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Nombre Aerolinea</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtHoraSalida" class="form-control">
-                            </div>
-
-                        </div>
+                        
 
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Estado del Vuelo</label>
@@ -190,13 +152,7 @@ include_once 'layouts/nav_Check-in.php';
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Destino</label>
-                            <div class="col-sm-5">
-                                <input type="text" id="txtDestino" class="form-control">
-                            </div>
-
-                        </div>
+                       
                     </div>
                 </div>
 
