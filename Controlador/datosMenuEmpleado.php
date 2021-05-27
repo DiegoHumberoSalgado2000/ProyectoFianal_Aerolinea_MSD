@@ -1,6 +1,6 @@
 <?php
 
-require '../DAO/datosMenuAdministradorDAO.php';
+require '../DAO/datosMenuEmpleadoDAO.php';
 
 
 
@@ -11,7 +11,7 @@ $confirmarContrasena = isset($_REQUEST['confirmarContrasena']) ? $_REQUEST['conf
 $type = isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 
 
-$dao= new datosMenuAdministradorDAO();
+$dao= new datosMenuEmpleadoDAO();
 
 $patronValTelefono = "/^[0-9]{10}$/";
 $patronValTelefonoInfo = "El telefono celular solo recibe números, Tiene que tener una longuitud de 10 números, Sin espacios";
@@ -21,10 +21,11 @@ $patronValContrasenaInfo = "La contraseña debe tener al entre 8 y 16 caracteres
 
 
 switch ($type) {
-    case "buscarAdministradorCorreo":
-        $dao->buscarAdministradorCorreo($correo);
+    case "buscarEmpleadoCorreo":
+        $dao->buscarEmpleadoCorreo($correo);
         break;
-    case "modificarAdministrador":
+
+    case "modificarEmpleado":
 
         if (!preg_match($patronValTelefono, $telefonoCelular)) {
             echo (json_encode(['res' => 'False', "msj" => $patronValTelefonoInfo]));
@@ -41,7 +42,7 @@ switch ($type) {
             break;
         }
 
-        $dao->modificarAdministrador($correo,$telefonoCelular,$contrasena);
+        $dao->modificarEmpleado($correo,$telefonoCelular,$contrasena);
         break;
 }
 

@@ -3,10 +3,23 @@ include_once 'layouts/header_Empleado.php';
 ?>
 
 <title>Menu Empleado</title>
-
+<script src="../Recursos/jquery/jquery-3.5.0.min.js"></script>
+<script src="../Recursos/js/datosMenuEmpleado.js" type="text/javascript"></script>
 <?php
+session_start();
 include_once 'layouts/nav_Empleado.php';
+
+if (isset($_SESSION["empleado"])) {
+    $correoUsuarioIdentificado=$_SESSION["empleado"];
+    //printf("<script type='text/javascript'>alert(' $correo'); </script>");
+}
+
+
 ?>
+
+<script type="text/javascript">
+    datosRequeridos(correoUsuarioIdentificado='<?php echo $correoUsuarioIdentificado ?>');
+</script>
 
 
 <div class="content-wrapper">
@@ -37,23 +50,21 @@ include_once 'layouts/nav_Empleado.php';
                                 <div class="text-center">
                                     <img src="../img/avatar4.png" class="profile-user-img img-fluid img-circle">
                                 </div>
-                                <h3 class="profile-username text-center text-success">Nombre</h3>
-                                <p class="text-muted text-center">Apellido</p>
+                                <h3 class="profile-username text-center text-success" id="lblNombre" >Nombre</h3>
+                                <p class="text-muted text-center" id="lblApellido">Apellido</p>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
-                                        <b class="ColorText">Edad</b><a class="text-muted float-right">21</a>
+                                        <b class="ColorText">Correo</b><a class="text-muted float-right" id="lblCorreo">ejemplo@ejemplo.com</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b class="ColorText">Documento ID</b><a
-                                            class="text-muted float-right">789456</a>
+                                        <b class="ColorText">Cedula</b><a class="text-muted float-right" id="lblCedula">123456789</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b class="ColorText">Usuario</b><a class="text-muted float-right">Mateo456</a>
+                                        <b class="ColorText">Estado</b><a class="text-muted float-right" id="lblEstado">ejemplo</a>
                                     </li>
                                     <li class="list-group-item">
                                         <b class="ColorText">Tipo Usuario</b>
-                                        <span
-                                            class="estiloTextTipoUsuario badge badge-primary float-right">Empleado</span>
+                                        <span class="estiloTextTipoUsuario badge badge-primary float-right">Administrador</span>
                                     </li>
 
                                 </ul>
@@ -67,51 +78,40 @@ include_once 'layouts/nav_Empleado.php';
                                 <strong class="ColorText">
                                     <i class="fas fa-phone mr-1">Telefono</i>
                                 </strong>
-                                <p class="text-muted">318563214</p>
+                                <p class="text-muted" id="lblTelefono">3175914679</p>
 
-                                <strong class="ColorText">
-                                    <i class="fas fa-map-marker-alt">Ubicacion</i>
-                                </strong>
-                                <p class="text-muted">Calle65#58.96</p>
-
-
-                                <strong class="ColorText">
-                                    <i class="fas fa-users mr-1">Genero</i>
-                                </strong>
-                                <p class="text-muted">Masculino</p>
 
 
                                 <strong class="ColorText">
                                     <i class="fas fa-envelope mr-1">Correo</i>
                                 </strong>
-                                <p class="text-muted">mateo.gomes@gmail.com</p>
-                                <button class="btn btn-block bg-gradient-danger">Editar</button>
+                                <p class="text-muted" id="lblCorreo2">ejemplo@ejemplo.com</p>
+                                <button class="btn btn-block bg-gradient-danger" id="btnEditar">Editar</button>
                             </div>
                             <div class="card-footer">
-                                <p class="text-mited">click en boton si decea editar</p>
+                                <p class="text-mited">click en boton si desea editar</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-9">
                         <div class="card card-success">
                             <div class="card-header">
-                                <h3 class="card-title">Edirtar datos Personales</h3>
+                                <h3 class="card-title">Editar datos Personales</h3>
                             </div>
                             <div class="card-body">
-                                <form action="" class="form-horizontal">
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Telefono</label>
+                                        <label for="" class="col-sm-2 col-form-label">Nombre</label>
                                         <div class="col-sm-10">
-                                            <input type="number" id="Telefono" class="form-control">
+                                            <input type="text" id="txtNombre" class="form-control">
                                         </div>
 
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Ubicacion</label>
+                                        <label for="" class="col-sm-2 col-form-label">Apellido</label>
                                         <div class="col-sm-10">
-                                            <input type="text" id="Ubicacion" class="form-control">
+                                            <input type="text" id="txtApellido" class="form-control">
                                         </div>
 
                                     </div>
@@ -119,42 +119,46 @@ include_once 'layouts/nav_Empleado.php';
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Correo</label>
                                         <div class="col-sm-10">
-                                            <input type="text" id="Correo" class="form-control">
+                                            <input type="email" id="txtCorreo" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Usuario</label>
+                                        <label for="" class="col-sm-2 col-form-label">Cedula</label>
                                         <div class="col-sm-10">
-                                            <input type="text" id="ConfirmarContraseña" class="form-control">
+                                            <input type="text" id="txtCedula" class="form-control">
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-2 col-form-label">Telefono celular</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" id="txtTelefono" class="form-control">
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Contraseña</label>
                                         <div class="col-sm-10">
-                                            <input type="password" id="Contraseña" class="form-control">
+                                            <input type="password" id="txtContrasena" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Confirmar Contraseña</label>
                                         <div class="col-sm-10">
-                                            <input type="password" id="ConfirmarContraseña" class="form-control">
+                                            <input type="password" id="txtConfirmarContrasena" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10 float-right">
-                                            <button class="btn btn-block btn-outline-success">Guardar</button>
+                                            <button class="btn btn-block btn-outline-success" id="btnGuardarActualizar">Actulizar</button>
                                         </div>
                                     </div>
-
-                                </form>
                             </div>
                             <div class="card-footer">
-                                <p class="text-muted">Cuidado de meter datos erroneos</p>
+                                <p class="text-muted">Cuidado de ingresar datos erroneos</p>
                             </div>
                         </div>
                     </div>

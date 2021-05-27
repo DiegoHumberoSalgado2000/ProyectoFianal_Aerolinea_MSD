@@ -19,7 +19,13 @@ class datosMenuAdministradorDAO{
         $this ->objCon->Execute($sql);
     }
 
-
+    /**
+     * Funcion utilizada para modificar un empleado
+     */
+    public function modificarAdministrador($correo,$telefonoCelular,$contrasena){
+        $sql = "UPDATE administrador set telefono_celular='$telefonoCelular',contrasena='$contrasena' where correo='$correo'";
+        $this->objCon->ExecuteTransaction($sql);
+    }
 
 
 }

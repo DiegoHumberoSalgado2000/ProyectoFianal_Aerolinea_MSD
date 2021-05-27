@@ -99,7 +99,6 @@ if (isset($_SESSION["administrador"])) {
                                 <h3 class="card-title">Editar datos Personales</h3>
                             </div>
                             <div class="card-body">
-                                <form action="" class="form-horizontal">
 
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Nombre</label>
@@ -157,8 +156,6 @@ if (isset($_SESSION["administrador"])) {
                                             <button class="btn btn-block btn-outline-success" id="btnGuardarActualizar">Actulizar</button>
                                         </div>
                                     </div>
-
-                                </form>
                             </div>
                             <div class="card-footer">
                                 <p class="text-muted">Cuidado de ingresar datos erroneos</p>

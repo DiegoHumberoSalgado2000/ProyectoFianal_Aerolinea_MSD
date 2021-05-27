@@ -21,13 +21,13 @@ function listarDatos(){
     document.getElementById("btnGuardarActualizar").disabled = true;
     var obj = {
         correo: correoUsuarioIdenti,
-        type: "buscarAdministradorCorreo"
+        type: "buscarEmpleadoCorreo"
     };
 
 
     $.ajax({
         type: 'post',
-        url: "../Controlador/datosMenuAdministrador.php",
+        url: "../Controlador/datosMenuEmpleado.php",
         beforeSend: function () {
 
         },
@@ -49,8 +49,9 @@ function listarDatos(){
                 document.getElementById("lblCorreo2").innerHTML = data[0].correo;
                 document.getElementById("lblNombreApellido").innerHTML = data[0].nombres+" "+data[0].apellidos;
 
+
             } else {
-                alert("Error al cargar los datos del administrador");
+                alert("Error al cargar los datos del empleado");
                 limpiar();
             }
 
@@ -71,13 +72,13 @@ function cargarEditar(){
 
     var obj = {
         correo: correoUsuarioIdenti,
-        type: "buscarAdministradorCorreo"
+        type: "buscarEmpleadoCorreo"
     };
 
 
     $.ajax({
         type: 'post',
-        url: "../Controlador/datosMenuAdministrador.php",
+        url: "../Controlador/datosMenuEmpleado.php",
         beforeSend: function () {
 
         },
@@ -104,7 +105,7 @@ function cargarEditar(){
 
                 document.getElementById("btnGuardarActualizar").disabled = false;
             } else {
-                alert("Error al cargar los datos del administrador");
+                alert("Error al cargar los datos del empleado");
                 limpiar();
             }
 
@@ -120,6 +121,9 @@ function cargarEditar(){
 
 
 }
+
+
+
 
 function limpiar(){
     $("#txtNombre").val("");
@@ -145,14 +149,14 @@ function guardarActualizar(){
         contrasena:$("#txtContrasena").val(),
         confirmarContrasena: $("#txtConfirmarContrasena").val(),
         correo:correoUsuarioIdenti,
-        type: "modificarAdministrador"
+        type: "modificarEmpleado"
 
 
     };
 
         $.ajax({
             type: 'post',
-            url: "../Controlador/datosMenuAdministrador.php",
+            url: "../Controlador/datosMenuEmpleado.php",
             beforeSend: function () {
 
             },
@@ -162,7 +166,7 @@ function guardarActualizar(){
                 var info = JSON.parse(data);
 
                 if (info.res === "Success") {
-                    alert("Se actualizó los datos del administrador correctamente");
+                    alert("Se actualizó los datos del empleado correctamente");
                     limpiar();
                 } else if(info.res === "False"){
                     alert(info.msj)

@@ -1,5 +1,5 @@
 
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -46,7 +46,7 @@
                         <img src="../img/avatar4.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a class="d-block">Mateo Gomes</a>
+                        <a class="d-block" id="lblNombreApellido">Nombre y apellido</a>
                     </div>
                 </div>
                 <!-- SidebarSearch Form -->
@@ -55,7 +55,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                with font-awesome or any other icon font library -->
                         <li class="nav-header">NAVEGACION</li>
 
                         <li class="nav-item">
