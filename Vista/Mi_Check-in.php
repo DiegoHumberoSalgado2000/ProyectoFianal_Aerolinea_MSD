@@ -21,6 +21,8 @@ if(isset($_GET['res'])){
 <script type="text/javascript">
     LlenarDatos(datos='<?php echo $Datos ?>');
 </script>
+<input type="hidden" id="txtIdReserva" class="form-control">
+
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
 
@@ -172,7 +174,7 @@ if(isset($_GET['res'])){
 
                 <div class="modal-footer row">
                     <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si quere puede descargar el pasaporte del
-                        buelo dando click en el
+                        vuelo dando click en el
                         boton de imprimir Check-in
                     </p>
                     <div class="offset-sm-2 col-sm-12 float-right">
@@ -182,12 +184,12 @@ if(isset($_GET['res'])){
 
                 <div class="modal-footer row">
 
-                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si quiere validar el chack-in debe dar
+                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si quiere validar el check-in debe dar
                         click en el boton
-                        de Aceptar para que pueda entar en la sala de abordaje del Vuelo
+                        de Aceptar para que pueda entrar en la sala de abordaje del Vuelo
                     </p>
                     <div class="offset-sm-2 col-sm-12 float-right">
-                        <button type="button" class="btn btn-danger">Aceptar</button>
+                        <button type="button" class="btn btn-danger" id="btnAceptarCheckIn">Aceptar</button>
                     </div>
                 </div>
             </form>

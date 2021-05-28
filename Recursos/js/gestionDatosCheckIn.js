@@ -1,7 +1,8 @@
 $(document).ready(function () {
  LlenarDatos(datos);
  BloquearTextDetalleCheckIn();
-
+ $("#btnAceptarCheckIn").click(RealizarCheck_In);
+ 
 });
 
 function Decrypt(word, key = '1239873697412580') {
@@ -18,18 +19,19 @@ function LlenarDatos(datos) {
         var arreglo = JSON.parse(info.data);
 
         if (info.msj === "Success") {
+        $("#txtIdReserva").val(arreglo[0].id_reserva);
         $("#txtNombre").val(arreglo[0].nombres);
         $("#txtApellido").val(arreglo[0].apellidos);
         $("#txtCedula").val(arreglo[0].cedula);
         $("#txtTelefono").val(arreglo[0].telefono_celular);
         $("#txtCorreo").val(arreglo[0].correo);
-        $("#txtNumeroSilla").val(arreglo[0].numero_silla);
+        $("#txtNumeroSilla").val(arreglo[0].silla);
         $("#txtOrigen").val(arreglo[0].origen);
         $("#txtDestino").val(arreglo[0].destino);
         $("#txtFechaSalida").val(arreglo[0].fecha_salida);
         $("#txtFechaLlegada").val(arreglo[0].fecha_llegada);
         $("#txtEstadoReserva").val(arreglo[0].estado);
-        $("#txtTipoVuelo").val(arreglo[0].tipo_Vuelo);
+        $("#txtTipoVuelo").val(arreglo[0].tipo_vuelo);
         $("#txtEstadoVuelo").val(arreglo[0].estado_vuelo);
         $("#txtPlaca").val(arreglo[0].placa);
 
@@ -47,6 +49,7 @@ function LlenarDatos(datos) {
 
 }
 function BloquearTextDetalleCheckIn(){
+    let txtIdReserva=document.getElementById("txtIdReserva");
     let txtNombre = document.getElementById("txtNombre");
     let txtApellido = document.getElementById("txtApellido");
     let txtCedula = document.getElementById("txtCedula");
@@ -62,6 +65,7 @@ function BloquearTextDetalleCheckIn(){
     let txtEstadoVuelo = document.getElementById("txtEstadoVuelo");
     let txtPlaca = document.getElementById("txtPlaca");
 
+    txtIdReserva.disabled=true;
     txtNombre.disabled = true;
     txtApellido.disabled = true;
     txtCedula.disabled = true;
@@ -79,5 +83,61 @@ function BloquearTextDetalleCheckIn(){
 }
 
 function limpiar(){
+    $("#txtIdReserva").val("");
+    $("#txtNombre").val("");
+    $("#txtApellido").val("");
+    $("#txtCorreo").val("");
+    $("#txtCedula").val("");
+    $("#txtTelefono").val("");
+    $("#txtNumeroSilla").val("");
+    $("#txtOrigen").val("");
+    $("#txtDestino").val("");
+    $("#txtFechaSalida").val("");
+    $("#txtFechaLlegada").val("");
+    $("#txtEstadoReserva").val("");
+    $("#txtTipoVuelo").val("");
+    $("#txtEstadoVuelo").val("");
+    $("#txtPlaca").val("");
     
+    
+}
+
+function RealizarCheck_In(){
+    let objCheckIn={
+        idReserva:$("#txtIdReserva").val(),
+        type: ""
+    };
+
+    if(objCheckIn.idReserva !==""){
+        objCheckIn.type='RealizarCheckIn';
+        $.ajax({
+            type: 'post',
+            url: "../Controlador/gestionCheckIn.php",
+            beforeSend :function(){
+
+            },
+            data: objCheckIn,
+            success:function(data){
+                var info = JSON.parse(data);
+
+                if(info.res === "Success"){
+                    alert("Check-in Validado,ya puede entrar a sala de abordaje del vuelo");
+                    
+                    
+
+                }else if(info.res ==="False"){
+                    alert(info.msj);
+                }else{
+                    alert("Error al realizar el Check-In");
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+                alert("Verifique la ruta del archivo");
+            }
+        });
+    }else {
+        alert("Para realizar el Check-In antes hay que buscarlo");
+    }
 }

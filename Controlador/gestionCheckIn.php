@@ -7,7 +7,7 @@ $apellido = isset($_REQUEST['apellidos']) ? $_REQUEST['apellidos'] : "";
 $cedula = isset($_REQUEST['cedula']) ? $_REQUEST['cedula'] : "";
 $correo = isset($_REQUEST['correo']) ? $_REQUEST['correo'] : "";
 $telefono = isset($_REQUEST['telefono_celular']) ? $_REQUEST['telefono_celular'] : "";
-$idReserva= isset($_REQUEST['id_Reserva']) ? $_REQUEST['id_Reserva'] : "";
+$idReserva= isset($_REQUEST['idReserva']) ? $_REQUEST['idReserva'] : "";
 $codigoReserva=isset($_REQUEST['codigoReserva']) ? $_REQUEST['codigoReserva'] : "";
 $silla=isset($_REQUEST['silla']) ? $_REQUEST['silla'] : "";
 $origen=isset($_REQUEST['origen']) ? $_REQUEST['origen'] : "";
@@ -26,5 +26,9 @@ $CheckInDAO=new check_inDAO();
 switch($type){
     case "BuscarCheck_in":
         $CheckInDAO->BuscarCheck_in($checkIn);
+        break;
+
+    case "RealizarCheckIn":
+        $CheckInDAO->RealizarCheck_in($checkIn);
         break;
 }
