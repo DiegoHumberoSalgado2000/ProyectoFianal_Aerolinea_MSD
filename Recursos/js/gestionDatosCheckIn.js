@@ -118,17 +118,12 @@ function RealizarCheck_In(){
             },
             data: objCheckIn,
             success:function(data){
+
                 var info = JSON.parse(data);
 
                 if(info.res === "Success"){
                     alert("Check-in Validado,ya puede entrar a sala de abordaje del vuelo");
-                    
-                    
-
-                }else if(info.res ==="False"){
-                    alert(info.msj);
-                }else{
-                    alert("Error al realizar el Check-In");
+                    window.location.href = "../index.php";
                 }
 
             },
