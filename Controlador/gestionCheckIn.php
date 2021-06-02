@@ -23,8 +23,44 @@ $type=isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
 $checkIn= new DTOCheck_in($nombre,$apellido,$cedula,$telefono,$correo,$idReserva,$codigoReserva,$silla,$origen,$destino,$fecha_Salida,$fecha_Llegada,$Estado_Reserva,$idVuelo,$Estado_Vuelo,$Placa_Avion);
 $CheckInDAO=new check_inDAO();
 
+$patronValCodigo="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/";/**El patron regular que distingue entre negativo y positivo */
+$patronValCodigoInfo="El codigo puede tener numeros enteros positivos y decimales positivos y no se permite numeros negativos";
+
+$patronValCedula="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/";/**El patron regular que distingue entre negativo y positivo */
+$patronValCedulaInfo="La cedula puede tener numeros enteros positivos y decimales positivos y no se permite numeros negativos";
+
 switch($type){
     case "BuscarCheck_in":
+        
+        if($codigoReserva==null && $cedula==null){
+            echo(json_encode(['res' => 'False', "msj" => "Ingrese los datos"
+            ]));
+            break;
+        }
+
+        if($codigoReserva==null){
+            echo(json_encode(['res' => 'False', "msj" => "Ingrese codigo de la reserva"
+            ]));
+            break;
+        }
+        if($cedula==null){
+            echo(json_encode(['res' => 'False', "msj" => "Ingrese cedula"
+            ]));
+            break;
+        }
+
+        if(!preg_match($patronValCodigo,$codigoReserva)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValCodigoInfo
+            ]));
+            break;
+
+        }
+        if(!preg_match($patronValCedula,$cedula)){
+            echo(json_encode(['res' => 'False', "msj" => $patronValCedulaInfo
+            ]));
+            break;
+
+        }
         $CheckInDAO->BuscarCheck_in($checkIn);
         break;
 

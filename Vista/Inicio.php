@@ -249,7 +249,7 @@
                         <form>
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Codigo Reserva</label>
-                                <input type="text" id="codigoReserva" class="form-control">
+                                <input type="number" id="codigoReserva" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="control-label">Cedula</label>
