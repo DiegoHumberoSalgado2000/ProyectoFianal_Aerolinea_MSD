@@ -155,7 +155,7 @@ if (isset($_GET['res'])) {
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Numero de Tarjeta</label>
+                            <label for="" class="col-sm-2 col-form-label">Número de Tarjeta</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtNumeroTargetaCredito" class="form-control">
                             </div>
@@ -163,7 +163,7 @@ if (isset($_GET['res'])) {
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Numero de Verificacion</label>
+                            <label for="" class="col-sm-2 col-form-label">Número de Verificacion</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtNumeroVerificacion" class="form-control">
                             </div>
