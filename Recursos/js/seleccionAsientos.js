@@ -186,8 +186,8 @@ function reservarObtencionDatos(codigoReserva) {
             data: objDatos,
             success: function (res) {
                 alert("Reserva realizada con exito");
-                mandarCorreoPasajeroReserva(idPasajeroPrincipal);
-
+                //mandarCorreoPasajeroReserva(idPasajeroPrincipal);
+                window.location.href = "../Vista/Pagos.php?res="+Encrypt(codigoReserva);
 
             },
             error: function (jqXHR, textStatus, errorThrown) {

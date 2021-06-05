@@ -10,13 +10,13 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 
 <?php
 if (isset($_GET['res'])) {
-    $codigoPasajero = $_GET['res'];
+    $codigoReserva = $_GET['res'];
     //echo($lista);
     //print_r($lista);
 }
 ?>
 
-<input type="hidden" id="txtCedulaIncriptado" value='<?php echo $codigoPasajero ?>' class="form-control">
+<input type="hidden" id="txtCodigoReserva" value='<?php echo $codigoReserva ?>' class="form-control">
 
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">

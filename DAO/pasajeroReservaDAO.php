@@ -18,11 +18,11 @@ class pasajeroReservaDAO {
     }
 
     /**
-     * Función utilizada para buscar un Pasajero, 
+     * Función utilizada para buscar un Pasajero,
      * entra como parametro un objeto de tipo Pasajero
      */
-    public function CargarDatos($cedula) {
-        $sql = "select (select s.precio from silla s join reserva res on s.id=res.id_silla join Pasajero p on p.id=res.id_pasajero_principal where p.cedula='$cedula')as precioSilla,(select sum(s.precio+it.precio) from Pasajero p join reserva res on p.id=res.id_pasajero_principal join silla s on res.id_silla=s.id join itinerario_vuelo it on s.id_itinerario_vuelo=it.id where p.cedula='$cedula')as TotalPagar,p.nombres,p.apellidos,p.cedula,p.correo,p.telefono_celular,res.id,it.precio from pasajero p join reserva res on p.id=res.id_pasajero_principal join silla s on res.id_silla=s.id join itinerario_vuelo it on s.id_itinerario_vuelo=it.id where p.cedula='$cedula'";
+    public function CargarDatos($codigoRese) {
+        $sql = "SELECT r.id,p.nombres,p.apellidos,p.cedula,p.correo,p.telefono_celular,iv.precio,s.precio as precioSilla , SUM(iv.precio+s.precio) as TotalPagar from reserva r join pasajero p on r.id_pasajero_principal=p.id join silla s on s.id=r.id_silla join itinerario_vuelo iv on iv.id=s.id_itinerario_vuelo where r.codigo=$codigoRese";
         $this->objCon->Execute($sql);
     }
 

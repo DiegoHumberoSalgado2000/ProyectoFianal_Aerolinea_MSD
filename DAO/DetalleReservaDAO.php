@@ -28,14 +28,10 @@ class DetalleReservaDAO {
      * Función utilizada para buscar el detalle de la reserva del pasajero,
      * entra como parametro un objeto tipo DetalleReserva
      */
-    public function BuscarDetalleReserva(DTODetalleReserva $obj) {
-        $sql = "select (SELECT a.placa from avion a join vuelo v on a.id=v.id_avion join itinerario_vuelo it on v.id=it.id_vuelo join silla s on it.id=s.id_itinerario_vuelo join reserva res on s.id=res.id_silla join Pasajero p on res.id_pasajero_principal=p.id where p.cedula='" . $obj->getCedula() . "')as placa,(SELECT ub.nombre from ubicacion ub join itinerario_vuelo it on ub.id=it.id_ubicacion_llegada join silla s on it.id=s.id_itinerario_vuelo join reserva res on s.id=res.id_silla join Pasajero p on res.id_pasajero_principal=p.id where p.cedula='" . $obj->getCedula() . "')as nombreUbicacionLlegada,(SELECT ub.nombre from ubicacion ub join itinerario_vuelo it on ub.id=it.id_ubicacion_salida join silla s on it.id=s.id_itinerario_vuelo join reserva res on s.id=res.id_silla join Pasajero p on res.id_pasajero_principal=p.id where p.cedula='" . $obj->getCedula() . "') as nombreUbicacionSalida,(select s.precio from silla s join reserva res on s.id=res.id_silla join Pasajero p on p.id=res.id_pasajero_principal where p.cedula='" . $obj->getCedula() . "')as precioSilla,(select it.precio from itinerario_vuelo it join silla s on it.id=s.id_itinerario_vuelo join reserva res on s.id=res.id_silla join Pasajero p on res.id_pasajero_principal=p.id where p.cedula='" . $obj->getCedula() . "')as precioTiquete,(select sum(s.precio+it.precio) from Pasajero p join reserva res on p.id=res.id_pasajero_principal join silla s on res.id_silla=s.id join itinerario_vuelo it on s.id_itinerario_vuelo=it.id where p.cedula='" . $obj->getCedula() . "')as TotalPagar,it.fecha_llegada,it.fecha_salida,p.nombres,p.apellidos,p.cedula,p.correo,p.telefono_celular from itinerario_vuelo it join silla s on it.id=s.id_itinerario_vuelo join reserva res on s.id=res.id_silla join Pasajero p on res.id_pasajero_principal=p.id where cedula='" . $obj->getCedula() . "'";
+    public function BuscarDetalleReserva($codigoReser) {
+        $sql = "select (select nombre from ubicacion where id=iv.id_ubicacion_salida) as nombreUbicacionSalida, (select nombre from ubicacion where id=iv.id_ubicacion_llegada) as nombreUbicacionLlegada, iv.fecha_salida as fecha_salida,iv.fecha_llegada as fecha_llegada, a.placa as placa,p.nombres,p.apellidos,p.telefono_celular,p.correo,p.cedula,s.precio as precioSilla, SUM(iv.precio+s.precio) as TotalPagar from reserva r join pasajero p on r.id_pasajero_principal=p.id join silla s on s.id=r.id_silla join itinerario_vuelo iv on iv.id=s.id_itinerario_vuelo join vuelo v on v.id=iv.id_vuelo join avion a on a.id=v.id_avion where r.codigo=$codigoReser";
         $this->objCon->Execute($sql);
     }
 
-    public function buscarEnviarInformacion(DTODetalleReserva $obj) {
-        $sql = "select cedula from Pasajero where cedula='" . $obj->getCedula() . "'";
-        $this->objCon->Execute($sql);
-    }
 
 }

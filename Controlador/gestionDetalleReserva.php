@@ -14,23 +14,10 @@
 require '../DTO/DTODetalleReserva.php';
 require '../DAO/DetalleReservaDAO.php';
 
-$nombre = isset($_REQUEST['nombres']) ? $_REQUEST['nombres'] : "";
-$apellido = isset($_REQUEST['apellidos']) ? $_REQUEST['apellidos'] : "";
-$cedula = isset($_REQUEST['cedula']) ? $_REQUEST['cedula'] : "";
-$telefono = isset($_REQUEST['telefono_celular']) ? $_REQUEST['telefono_celular'] : "";
-$correo = isset($_REQUEST['correo']) ? $_REQUEST['correo'] : "";
-$ubicacionSalida = isset($_REQUEST['nombreUbicacionSalida']) ? $_REQUEST['nombreUbicacionSalida'] : "";
-$ubicacionLlegada = isset($_REQUEST['nombreUbicacionLlegada']) ? $_REQUEST['nombreUbicacionLlegada'] : "";
-$fechaSalida = isset($_REQUEST['fecha_salida']) ? $_REQUEST['fecha_salida'] : "";
-$fechaLlegada = isset($_REQUEST['fecha_llegada']) ? $_REQUEST['fecha_llegada'] : "";
-$numeroVuelo = isset($_REQUEST['placa']) ? $_REQUEST['placa'] : "";
-$precioSilla = isset($_REQUEST['precioSilla']) ? $_REQUEST['precioSilla'] : "";
-$precioTiquete = isset($_REQUEST['precioTiquete']) ? $_REQUEST['precioTiquete'] : "";
-$precioTotalPagar = isset($_REQUEST['TotalPagar']) ? $_REQUEST['TotalPagar'] : "";
+$codigoReser = isset($_REQUEST['codigoReser']) ? $_REQUEST['codigoReser'] : "";
+
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
 
-
-$detalleReserva = new DTODetalleReserva($nombre, $apellido, $cedula, $telefono, $correo, $ubicacionSalida, $ubicacionLlegada, $fechaSalida, $fechaLlegada, $numeroVuelo, $precioSilla, $precioTiquete,$precioTotalPagar);
 $detalleReservaDAo = new DetalleReservaDAO();
 
 /**
@@ -38,9 +25,6 @@ $detalleReservaDAo = new DetalleReservaDAO();
  */
 switch ($type) {
     case "BuscarDetalleReserva":
-        $detalleReservaDAo->BuscarDetalleReserva($detalleReserva);
-        break;
-    case "BuscarEnviarInformacion":
-        $detalleReservaDAo->buscarEnviarInformacion($detalleReserva);
+        $detalleReservaDAo->BuscarDetalleReserva($codigoReser);
         break;
 }

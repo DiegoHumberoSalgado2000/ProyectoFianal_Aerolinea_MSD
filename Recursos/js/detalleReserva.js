@@ -4,12 +4,21 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
-    CargarDatosDetalleReserva(dato);
+    datosReqeridos(dato)
+    CargarDatosDetalleReserva();
     $("#btnIrConfirmarReserva").click(EnviarInformacion);
     BloquearTextDetalleReserva();
 });
 
+var codigoReserva;
+function datosReqeridos(dato){
+try {
+    codigoReserva=Decrypt(dato);
+} catch (error) {
+    alert("No altere la dirección url")
+}
 
+}
 
 function Encrypt(word, key = '1239873697412580') {
     let encJson = CryptoJS.AES.encrypt(JSON.stringify(word), key).toString()
@@ -23,15 +32,13 @@ function Decrypt(word, key = '1239873697412580') {
     return JSON.parse(bytes)
 }
 
-function CargarDatosDetalleReserva(dato) {
+function CargarDatosDetalleReserva() {
 
 
     try {
 
-        var cedulaDecrypt=Decrypt(dato);
-        //alert(cedulaDecrypt);
         var objDetalleReserva = {
-            cedula: cedulaDecrypt,
+            codigoReser: codigoReserva,
             type: "BuscarDetalleReserva"
         };
         if (objDetalleReserva.cedula !== "") {
@@ -84,39 +91,10 @@ function CargarDatosDetalleReserva(dato) {
 
 function EnviarInformacion() {
 
-    var objInformacionPasajero = {
-        cedula: $("#txtCedula").val(),
-        type: "BuscarEnviarInformacion"
-    };
-    $.ajax({
-        type: 'post',
-        url: "../Controlador/gestionDetalleReserva.php",
-        beforeSend: function () {
-        },
-        data: objInformacionPasajero,
-        success: function (res) {
-           
-            var info = JSON.parse(res);
+    //alert(codigoReserva);
+    var encriptado = Encrypt(codigoReserva);
+    window.location.href = '../Vista/Confirmar_Pagos.php?res=' + encriptado;
 
-            if (info.res === "False") {
-                alert(info.msj);
-            } else {
-                if (info.msj === "Success") {
-                    //alert(res);
-                    var encriptado = Encrypt(res);
-                    //alert(encriptado);
-
-                    window.location.href = '../Vista/Confirmar_Pagos.php?res=' + encriptado;
-                } else {
-                    alert("No se han encontrado la informacion")
-                }
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
-            alert("Verifique la ruta del archivo");
-        }
-    });
 }
 
 function BloquearTextDetalleReserva() {

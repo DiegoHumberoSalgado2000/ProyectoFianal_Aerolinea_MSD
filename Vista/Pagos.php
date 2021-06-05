@@ -12,7 +12,7 @@ include_once 'layouts/nav_Pagina_Inicio.php';
 
 
 if(isset($_GET['res'])){
-    $cedulaEncryptada=$_GET['res'];
+    $codigoEncryptado=$_GET['res'];
     //echo($lista);
     //print_r($cedulaEncryptada);
 
@@ -23,7 +23,7 @@ if(isset($_GET['res'])){
 
 
 <script type="text/javascript">
-    CargarDatosDetalleReserva(dato='<?php echo $cedulaEncryptada ?>');
+    datosReqeridos(dato='<?php echo $codigoEncryptado ?>');
 </script>
 
 

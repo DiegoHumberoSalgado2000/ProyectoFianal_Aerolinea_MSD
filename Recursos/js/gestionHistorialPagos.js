@@ -1,10 +1,11 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 $(document).ready(function () {
     DatosRequeridos();
+    cargarDatos();
     $("#btnPagarReserva").click(GuardarHistorialPasajero);
     Bloquear();
 });
@@ -22,23 +23,13 @@ function Decrypt(word, key = '1239873697412580') {
     return JSON.parse(bytes)
 }
 
-let codigoIdPasajero;
+var codigoReserva;
 function DatosRequeridos() {
     try {
-        var idPasajeroIncriptado = $("#txtCedulaIncriptado").val()
-        var cedulaIncriptado = Decrypt(idPasajeroIncriptado);
-        //alert(cedulaIncriptado);
-        //cargarDatos();
-        var info = JSON.parse(cedulaIncriptado);
-        var arreglo = JSON.parse(info.data);
-        //alert(arreglo[0].cedula);
-        if (arreglo.length > 0) {
-            codigoIdPasajero = arreglo[0].cedula;
-            cargarDatos();
-        } else {
-            alert("no se recivieron los datos necesarios");
-            codigoIdPasajero = -1;
-        }
+
+        var codigoReservaEncriptado = $("#txtCodigoReserva").val();
+        codigoReserva=Decrypt(codigoReservaEncriptado);
+        //alert(codigoReserva)
     } catch (error) {
         alert("No altere la dirección url");
     }
@@ -48,7 +39,7 @@ function DatosRequeridos() {
 function cargarDatos() {
     //alert(codigoIdPasajero);
     var objPasajero = {
-        cedula: codigoIdPasajero,
+        codigoRese: codigoReserva,
         type: "cargarDatos"
 
     };
