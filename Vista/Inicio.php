@@ -9,6 +9,7 @@
         <script src="Recursos/js/gestionLogin.js" type="text/javascript"></script>
         <script src="Recursos/js/gestionReserva.js" type="text/javascript"></script>
         <script src="Recursos/js/gestionCheckIn.js" type="text/javascript"></script>
+        <script src="Recursos/js/gestionMiReserva.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
     </head>
@@ -144,12 +145,12 @@
                                             <br>
                                             <br>
                                             <br>
-                                            <i class="fas fa-plane"></i> Realizatu check-in online de forma mas rapida
+                                            <i class="fas fa-plane"></i> Realiza tu check-in online de forma mas rapida
                                             <br>
                                             <br>
                                             <br>
                                             <i class="fas fa-plane"></i> Viaja con tus familiares o compañeros de trabajo de
-                                            forma mas raoida
+                                            forma mas rapida
                                             <br>
                                             <br>
                                             <br>
@@ -212,18 +213,18 @@
                         <form>
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Codigo Reserva</label>
-                                <input type="text" class="form-control">
+                                <input type="number" id="codigoMiReserva" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="control-label">Cedula</label>
-                                <input type="number" class="form-control">
+                                <input type="number" id="cedulaMiReserva" class="form-control">
                             </div>
                         </form>
 
                     </div>
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-block btn-danger">INGRESAR</button>
+                        <button type="button" class="btn btn-block btn-danger" id="btnIngresarMiReserva">INGRESAR</button>
 
                     </div>
                 </div>
