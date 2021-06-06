@@ -91,7 +91,7 @@ function CargarDatosDetalleReserva() {
 
 function EnviarInformacion() {
 
-    //alert(codigoReserva);
+    alert("El código de su reserva es "+codigoReserva);
     var encriptado = Encrypt(codigoReserva);
     window.location.href = '../Vista/Confirmar_Pagos.php?res=' + encriptado;
 

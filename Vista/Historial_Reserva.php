@@ -19,7 +19,7 @@ if (isset($_SESSION["pasajero"])) {
     $correoUsuarioIdentificado=$_SESSION["pasajero"];
     //printf("<script type='text/javascript'>alert(' $correo'); </script>");
 }else{
-    $mensaje = "Solo puede ingresar un pasajero en la vista de histrial reserva";
+    $mensaje = "Solo puede ingresar un pasajero en la vista de historial reserva";
     header('location:../index.php?msjlogIn=' . $mensaje);
 }
 
