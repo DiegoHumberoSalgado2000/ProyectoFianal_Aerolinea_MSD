@@ -39,7 +39,7 @@ if(isset($_GET['res'])){
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Informacion Vuelo</h3>
+                        <h3 class="panel-title">Información Vuelo</h3>
                     </div>
                     <div class="panel-body">
 
@@ -77,7 +77,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Numero de Vuelo</label>
+                            <label for="" class="col-sm-2 col-form-label">Número de Vuelo</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtNumeroVuelo" class="form-control">
                             </div>
@@ -118,7 +118,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Telefono</label>
+                            <label for="" class="col-sm-2 col-form-label">Télefono</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtTelefono" class="form-control">
                             </div>

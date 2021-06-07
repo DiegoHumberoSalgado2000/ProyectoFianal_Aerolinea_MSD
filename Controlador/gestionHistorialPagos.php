@@ -60,7 +60,7 @@ switch ($type) {
             break;
         }
 
-        if ($Avencimiento == "Seleccion el Año de Vencimiento") {
+        if ($Avencimiento == "Seleccione el Año de Vencimiento") {
             echo(json_encode(['res' => 'False', "msj" => "seleccione el año de vencimineto"
             ]));
             break;

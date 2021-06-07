@@ -30,7 +30,7 @@ if (isset($_GET['res'])) {
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Informacion Bancaria</h3>
+                        <h3 class="panel-title">Información Bancaria</h3>
                     </div>
                     <div class="panel-body">
 
@@ -128,7 +128,7 @@ if (isset($_GET['res'])) {
                             <label for="" class="col-sm-2 col-form-label">Año de Vencimiento</label>
                             <div class="col-sm-5">
                                 <select id="CmbAvencimiento" class="form-control">
-                                    <option>Seleccion el Año de Vencimiento</option>
+                                    <option>Seleccione el Año de Vencimiento</option>
                                     <option>2021</option>
                                     <option>2022</option>
                                     <option>2023</option>
@@ -163,7 +163,7 @@ if (isset($_GET['res'])) {
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Número de Verificacion</label>
+                            <label for="" class="col-sm-2 col-form-label">Número de Verificación</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtNumeroVerificacion" class="form-control">
                             </div>
@@ -175,7 +175,7 @@ if (isset($_GET['res'])) {
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Informacion del Pasajero</h3>
+                        <h3 class="panel-title">Información del Pasajero</h3>
                     </div>
                     <div class="panel-body">
 
@@ -204,7 +204,7 @@ if (isset($_GET['res'])) {
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Telefono</label>
+                            <label for="" class="col-sm-2 col-form-label">Télefono</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtTelefono" class="form-control">
                             </div>
@@ -219,7 +219,7 @@ if (isset($_GET['res'])) {
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Identificacion</label>
+                            <label for="" class="col-sm-2 col-form-label">Identificación</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtDocumentoIdentidad" class="form-control">
                             </div>
@@ -244,7 +244,7 @@ if (isset($_GET['res'])) {
                     </div>
                     <div class="panel-body">     
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Servicio Adicionales</label>
+                            <label for="" class="col-sm-2 col-form-label">Servicio Adicional</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtServicioAdicionales" class="form-control">
                             </div>
