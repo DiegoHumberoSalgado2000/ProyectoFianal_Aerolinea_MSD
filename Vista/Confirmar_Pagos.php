@@ -204,7 +204,7 @@ if (isset($_GET['res'])) {
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Télefono</label>
+                            <label for="" class="col-sm-2 col-form-label">Teléfono</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtTelefono" class="form-control">
                             </div>
