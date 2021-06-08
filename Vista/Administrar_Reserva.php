@@ -3,7 +3,8 @@ include_once 'layouts/header_Empleado.php';
 ?>
 
 <title>Menu Empleado</title>
-
+<script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../Recursos/js/BuscarReservaDisponible.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Empleado.php';
 ?>
@@ -36,12 +37,12 @@ include_once 'layouts/nav_Empleado.php';
                                 <div class="tab-pane active">
                                     <div class="card card-success">
                                         <div class="card-header">
-                                            <div class="card-title">Check-in</div>
+                                            <div class="card-title">Reserva</div>
                                             <div class="input-group">
-                                                <input id="buscarReserva" type="text" class="form-control float-left"
-                                                    placeholder="Ingrese el codigo de la reserva">
+                                                <input type="text" class="form-control float-left"
+                                                    placeholder="Ingrese el codigo de la reserva" id="txtCodigoReserva">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-default"><i
+                                                    <button class="btn btn-default" id="btnBuscarReserva"><i
                                                             class="fas fa-search"></i></button>
                                                 </div>
                                             </div>
@@ -59,34 +60,29 @@ include_once 'layouts/nav_Empleado.php';
                                                                     <strong class="ColorText">
                                                                         <i class="fas fa-user mr-1">Nombre</i>
                                                                     </strong>
-                                                                    <p class="text-muted"></p>
+                                                                    <p class="text-muted" id="lblNombre"></p>
 
                                                                     <strong class="ColorText">
                                                                         <i class="fas fa-user mr-1">Apellido</i>
                                                                     </strong>
-                                                                    <p class="text-muted"></p>
+                                                                    <p class="text-muted" id="lblApellido"></p>
 
 
                                                                     <strong class="ColorText">
                                                                         <i class="fas fa-id-card mr-1">Cedula</i>
                                                                     </strong>
-                                                                    <p class="text-muted"></p>
+                                                                    <p class="text-muted" id="lblCedula"></p>
 
 
                                                                     <strong class="ColorText">
-                                                                        <i class="fas fa-phone mr-1">Telefono</i>
+                                                                        <i class="fas fa-phone mr-1">Teléfono</i>
                                                                     </strong>
-                                                                    <p class="text-muted"></p>
+                                                                    <p class="text-muted" id="lblTelefono"></p>
 
                                                                     <strong class="ColorText">
                                                                         <i class="fas fa-envelope mr-1">Correo</i>
                                                                     </strong>
-                                                                    <p class="text-muted"></p>
-
-                                                                    <strong class="ColorText">
-                                                                        <i class="fas fa-users mr-1">Genero</i>
-                                                                    </strong>
-                                                                    <p class="text-muted"></p>
+                                                                    <p class="text-muted" id="lblCorreo"></p>
 
                                                                 </div>
 
@@ -95,7 +91,7 @@ include_once 'layouts/nav_Empleado.php';
                                                         <div class="col-md-9">
                                                             <div class="card card-success">
                                                                 <div class="card-header">
-                                                                    <h3 class="card-title">Informacion de Reserva
+                                                                    <h3 class="card-title">Información de Reserva
                                                                     </h3>
                                                                 </div>
                                                                 <div class="card-body">
@@ -103,34 +99,41 @@ include_once 'layouts/nav_Empleado.php';
 
                                                                         <div class="form-group row">
                                                                             <label for=""
-                                                                                class="col-sm-2 col-form-label">Estado</label>
+                                                                                class="col-sm-2 col-form-label">Tipo
+                                                                                Vuelo</label>
                                                                             <div class="col-sm-10">
-                                                                                <select id="CmbEstadoReserva"
+                                                                                <input type="text" id="txtTipoVuelo"
                                                                                     class="form-control">
-                                                                                <option>Seleccine el estado</option>
-                                                                                <option>Desabilitado</option>
-                                                                                <option>Activo</option>
-                                                                                </select>
                                                                             </div>
-
                                                                         </div>
 
                                                                         <div class="form-group row">
                                                                             <label for=""
-                                                                                class="col-sm-2 col-form-label">Hora Salida</label>
+                                                                                class="col-sm-2 col-form-label">Estado Reserva</label>
                                                                             <div class="col-sm-10">
-                                                                                <input type="date" id="FechaSalida"
+                                                                                <input type="text"
+                                                                                    id="txtEstadoReserva"
                                                                                     class="form-control">
                                                                             </div>
-
                                                                         </div>
+
 
                                                                         <div class="form-group row">
                                                                             <label for=""
                                                                                 class="col-sm-2 col-form-label">Silla</label>
                                                                             <div class="col-sm-10">
-                                                                                <input type="text" id="SillaSeleccionada"
+                                                                                <input type="text"
+                                                                                    id="txtSillaSeleccionada"
                                                                                     class="form-control">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group row">
+                                                                            <label for=""
+                                                                                class="col-sm-2 col-form-label">Descripción</label>
+                                                                            <div class="col-sm-10">
+                                                                                <textarea class="form-control"
+                                                                                    id="txtDescripcion"></textarea>
                                                                             </div>
                                                                         </div>
 
@@ -138,8 +141,7 @@ include_once 'layouts/nav_Empleado.php';
                                                                             <label for=""
                                                                                 class="col-sm-2 col-form-label">Origen</label>
                                                                             <div class="col-sm-10">
-                                                                                <input type="text"
-                                                                                    id="Origen"
+                                                                                <input type="text" id="txtOrigen"
                                                                                     class="form-control">
                                                                             </div>
                                                                         </div>
@@ -149,67 +151,42 @@ include_once 'layouts/nav_Empleado.php';
                                                                             <label for=""
                                                                                 class="col-sm-2 col-form-label">Destino</label>
                                                                             <div class="col-sm-10">
-                                                                                <input type="text" id="Destino"
+                                                                                <input type="text" id="txtDestino"
                                                                                     class="form-control">
                                                                             </div>
                                                                         </div>
 
                                                                         <div class="form-group row">
                                                                             <label for=""
-                                                                                class="col-sm-2 col-form-label">Fecha Llegada</label>
+                                                                                class="col-sm-2 col-form-label">Fecha
+                                                                                Llegada</label>
                                                                             <div class="col-sm-10">
-                                                                                <input type="date"
-                                                                                    id="FechaLlegada"
+                                                                                <input type="date" id="txtFechaLlegada"
                                                                                     class="form-control">
                                                                             </div>
                                                                         </div>
 
                                                                         <div class="form-group row">
                                                                             <label for=""
-                                                                                class="col-sm-2 col-form-label">Fecha Salida</label>
+                                                                                class="col-sm-2 col-form-label">Fecha
+                                                                                Salida</label>
                                                                             <div class="col-sm-10">
-                                                                                <input type="date"
-                                                                                    id="FechaSalida"
+                                                                                <input type="date" id="txtFechaSalida"
                                                                                     class="form-control">
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="form-group row">
-                                                                            <label for=""
-                                                                                class="col-sm-2 col-form-label">Tipo Vuelo</label>
-                                                                            <div class="col-sm-10">
-                                                                                <input type="text"
-                                                                                    id="TipoVuelo"
-                                                                                    class="form-control">
-                                                                            </div>
-                                                                        </div>
 
-                                                                        <div class="form-group row">
-                                                                            <label for=""
-                                                                                class="col-sm-2 col-form-label">Estado Vuelo</label>
-                                                                            <div class="col-sm-10">
-                                                                                <input type="text"
-                                                                                    id="EstadoVuelo"
-                                                                                    class="form-control">
-                                                                            </div>
-                                                                        </div>
 
-                                                                        <div class="card-footer">
-                                                                            <div
-                                                                                class="offset-sm-2 col-sm-12 float-right">
-                                                                                <button
-                                                                                    class="btn btn-block btn-primary">Check-in</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
                                                                 </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -217,6 +194,7 @@ include_once 'layouts/nav_Empleado.php';
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
 </div>
