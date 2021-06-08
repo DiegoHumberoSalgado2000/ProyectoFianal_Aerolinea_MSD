@@ -3,6 +3,7 @@ include_once 'layouts/header.php';
 ?>
 <title>Menu Administrador</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../Recursos/js/gestionHistorialPagoReserva.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Administrador.php';
 ?>
@@ -54,7 +55,7 @@ include_once 'layouts/nav_Administrador.php';
                                             <th>Tipo Vuelo</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="table-active" id="ListaAviones">
+                                    <tbody class="table-active" id="ListaHistorialPagoReserva">
 
                                     </tbody>
                                 </table>

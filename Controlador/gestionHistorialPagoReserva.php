@@ -8,12 +8,13 @@
 
 require '../DAO/HistorialPagoReservaDAO.php';
 
-$type = isset($_REQUEST['type']) ? $_REQUEST['type'] : "";
+$type = isset($_REQUEST['type'])? $_REQUEST['type'] : "";
 
 $historialPagoReservaDao=new HistorialPagoReservaDAO();
 
 
 switch ($type) {
+    
     case "list":
     $historialPagoReservaDao->listar();
         break;
