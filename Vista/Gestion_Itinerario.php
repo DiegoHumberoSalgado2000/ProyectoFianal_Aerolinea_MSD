@@ -1,4 +1,9 @@
 <?php
+ob_start();
+//Con esto, se pueden enviar los headers en cualquier lugar del documento.
+?>
+
+<?php
 include_once 'layouts/header.php';
 ?>
 <title>Menu Administrador</title>
@@ -7,6 +12,14 @@ include_once 'layouts/header.php';
 <script src="../Recursos/js/gestionUbicacion.js" type="text/javascript"></script>
 <?php
 include_once 'layouts/nav_Administrador.php';
+session_start();
+if (isset($_SESSION["administrador"])) {
+    $correoUsuarioIdentificado=$_SESSION["administrador"];
+    //printf("<script type='text/javascript'>alert(' $correo'); </script>");
+}else{
+    $mensaje = "Solo puede ingresar un administrador en esta vista";
+    header('location:../index.php?msjlogIn=' . $mensaje);
+}
 ?>
 
 
@@ -254,4 +267,8 @@ include_once 'layouts/nav_Administrador.php';
 
 <?php
 include_once 'layouts/footer.php';
+?>
+
+<?php
+ob_end_flush();
 ?>

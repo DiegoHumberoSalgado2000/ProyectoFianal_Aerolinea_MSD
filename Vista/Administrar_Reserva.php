@@ -1,4 +1,9 @@
 <?php
+ob_start();
+//Con esto, se pueden enviar los headers en cualquier lugar del documento.
+?>
+
+<?php
 include_once 'layouts/header_Empleado.php';
 ?>
 
@@ -6,7 +11,15 @@ include_once 'layouts/header_Empleado.php';
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
 <script src="../Recursos/js/BuscarReservaDisponible.js" type="text/javascript"></script>
 <?php
+session_start();
 include_once 'layouts/nav_Empleado.php';
+if (isset($_SESSION["empleado"])) {
+    $correoUsuarioIdentificado=$_SESSION["empleado"];
+    //printf("<script type='text/javascript'>alert(' $correo'); </script>");
+}else{
+    $mensaje = "Solo puede ingresar un empleado en esta vista";
+    header('location:../index.php?msjlogIn=' . $mensaje);
+}
 ?>
 
 <div class="content-wrapper">
@@ -201,4 +214,8 @@ include_once 'layouts/nav_Empleado.php';
 
 <?php
 include_once 'layouts/footer_Empleado.php';
+?>
+
+<?php
+ob_end_flush();
 ?>
