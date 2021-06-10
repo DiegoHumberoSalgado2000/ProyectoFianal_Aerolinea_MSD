@@ -178,7 +178,7 @@ if(isset($_GET['res'])){
                         boton de imprimir Check-in
                     </p>
                     <div class="offset-sm-2 col-sm-12 float-right">
-                        <button type="button" class="btn btn-danger">imprimir Check-in</button>
+                        <button type="button" class="btn btn-danger"id="btnImprimirCheckIn">imprimir Check-in</button>
                     </div>
                 </div>
 

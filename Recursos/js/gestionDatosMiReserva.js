@@ -1,8 +1,7 @@
 $(document).ready(function () {
-    LlenarDatos(datos);
     BloquearTextDetalleMiReserva();
-    
-    
+    LlenarDatos();
+    $("#btnCancelarReserva").click(cancelarReserva);
    });
    function Decrypt(word, key = '1239873697412580') {
     let decData = CryptoJS.enc.Base64.parse(word).toString(CryptoJS.enc.Utf8)
@@ -10,9 +9,9 @@ $(document).ready(function () {
     return JSON.parse(bytes)
 }
 
-function LlenarDatos(datos) {
+function LlenarDatos() {
 
-    //var datos=$("#txtDatos").val();
+    var datos=$("#txtDatos").val();
     try {
         var json=Decrypt(datos);
         var info = JSON.parse(json);
@@ -48,6 +47,42 @@ function LlenarDatos(datos) {
 
 
 }
+function cancelarReserva(){
+    let objCheckIn={
+        idReserva:$("#txtIdReserva").val(),
+        type: ""
+    };
+
+    if(objCheckIn.idReserva !==""){
+        objCheckIn.type='CancelarReserva';
+        $.ajax({
+            type: 'post',
+            url: "../Controlador/gestionMiReserva.php",
+            beforeSend :function(){
+
+            },
+            data: objCheckIn,
+            success:function(data){
+
+                var info = JSON.parse(data);
+
+                if(info.res === "Success"){
+                    alert("Se Cancela la reserva Correctamente");
+                    window.location.href = "../index.php";
+                }
+                    
+                
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+                alert("Verifique la ruta del archivo");
+            }
+        });
+    }else {
+        alert("Para realizar el Check-In antes hay que buscarlo");
+    }
+}
 function BloquearTextDetalleMiReserva(){
     let txtIdReserva=document.getElementById("txtIdReserva");
     let txtNombre = document.getElementById("txtNombre");
@@ -61,9 +96,7 @@ function BloquearTextDetalleMiReserva(){
     let txtFechaSalida = document.getElementById("txtFechaSalida");
     let txtFechaLlegada = document.getElementById("txtFechaLlegada");
     let txtEstadoReserva = document.getElementById("txtEstadoReserva");
-    let txtTipoVuelo = document.getElementById("txtTipoVuelo");
-    let txtEstadoVuelo = document.getElementById("txtEstadoVuelo");
-    let txtPlaca = document.getElementById("txtPlaca");
+   
 
     txtIdReserva.disabled=true;
     txtNombre.disabled = true;
@@ -77,9 +110,7 @@ function BloquearTextDetalleMiReserva(){
     txtFechaSalida.disabled = true;
     txtFechaLlegada.disabled = true;
     txtEstadoReserva.disabled = true;
-    txtTipoVuelo.disabled = true;
-    txtEstadoVuelo.disabled = true;
-    txtPlaca.disabled = true;
+    
 }
 
 function limpiar(){

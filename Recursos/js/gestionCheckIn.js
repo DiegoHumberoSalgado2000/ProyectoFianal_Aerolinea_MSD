@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $("#btnIngresarCheckIn").click(buscarCheckIn);
+   
     
 });
 
@@ -47,3 +48,5 @@ function buscarCheckIn(){
         }
     });
 }
+
+

@@ -2,6 +2,7 @@ $(document).ready(function () {
  LlenarDatos(datos);
  BloquearTextDetalleCheckIn();
  $("#btnAceptarCheckIn").click(RealizarCheck_In);
+ $("#btnImprimirCheckIn").click(imprimirCheckIn);
  
 });
 
@@ -125,6 +126,8 @@ function RealizarCheck_In(){
                     alert("Check-in Validado,ya puede entrar a sala de abordaje del vuelo");
                     window.location.href = "../index.php";
                 }
+                    
+                
 
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -135,4 +138,30 @@ function RealizarCheck_In(){
     }else {
         alert("Para realizar el Check-In antes hay que buscarlo");
     }
+}
+function imprimirCheckIn2(){
+    var obj={
+        idReserva:$("#txtIdReserva").val(),
+        
+    };
+    $.ajax({
+        type:'post',
+        url:"../Libraries/pdf.php",
+        beforeSend:function(){
+        },
+        data:obj,
+        success:function(res){
+           alert(res)
+           window.location.href = "../Vista/Pagos.php?res="+Encrypt(codigoReserva);
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown);
+            alert("Verifique la ruta del archivo");
+        }
+    });
+}
+function imprimirCheckIn(){
+    window.location.href = "../Libraries/pdf.php?idReserva="+$("#txtIdReserva").val();
 }

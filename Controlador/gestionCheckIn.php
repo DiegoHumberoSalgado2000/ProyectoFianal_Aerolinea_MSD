@@ -67,4 +67,7 @@ switch($type){
     case "RealizarCheckIn":
         $CheckInDAO->RealizarCheck_in($checkIn);
         break;
+
+       
+
 }

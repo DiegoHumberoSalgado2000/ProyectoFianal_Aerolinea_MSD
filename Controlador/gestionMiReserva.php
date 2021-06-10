@@ -71,5 +71,6 @@ switch($type){
     case "CancelarReserva":
 
         $miReservaDAO->CancelarReserva($miReserva);
+        break;
 
 }

@@ -26,5 +26,7 @@ class check_inDAO {
         $sql="UPDATE reserva set estado='Check-in' where id='" . $obj->getId_Reserva() . "'";
         $this->objCon->ExecuteTransaction($sql);
     }
+
+
 }
 

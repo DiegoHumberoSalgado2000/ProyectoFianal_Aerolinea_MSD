@@ -14,10 +14,14 @@ if(isset($_GET['res'])){
     //print_r($lista);
 }
 ?>
-<script type="text/javascript">
+<!---<script type="text/javascript"> 
+
     LlenarDatos(datos='<?php echo $Datos ?>');
+
 </script>
+-->
 <input type="hidden" id="txtIdReserva" class="form-control">
+<input type="hidden" id="txtDatos" value='<?php echo $Datos ?>' class="form-control">
 
 <section class="ContenedorFormularioReserva">
     <div class="panel panel-primary">
