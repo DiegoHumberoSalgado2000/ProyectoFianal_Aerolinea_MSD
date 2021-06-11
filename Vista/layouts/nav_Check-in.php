@@ -33,7 +33,7 @@
                         <ul class="nav navbar-nav">
 
                             <li class="active"><a href="../index.php">Inicio</a></li>
-                            <li><a href="">Informacion</a></li>
+                            <li><a href="">Información</a></li>
                             <li><a href="">Te ayudamos</a></li>
                         </ul>
 

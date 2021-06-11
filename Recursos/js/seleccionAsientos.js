@@ -185,7 +185,7 @@ function reservarObtencionDatos(codigoReserva) {
             },
             data: objDatos,
             success: function (res) {
-                alert("Reserva realizada con exito");
+                alert("Reserva realizada con éxito");
                 //mandarCorreoPasajeroReserva(idPasajeroPrincipal);
                 window.location.href = "../Vista/Pagos.php?res="+Encrypt(codigoReserva);
 
@@ -228,7 +228,7 @@ function mandarCorreoPasajeroReserva(idPasajeroPrincipal){
                 window.location.href = "../Vista/Pagos.php?res="+Encrypt($cedula);
 
             } else {
-                alert("No es posible obtener la cedula del pasajero")
+                alert("No es posible obtener la cédula del pasajero")
             }
 
         },
@@ -329,7 +329,7 @@ function validarDatosPersona() {
                     validarSiSeleccionoSillaAnterioridad(data);
 
                 } else {
-                    alert("No se encontró a el pasajero. Si seleccionó alguna silla antes se quitó esa selección.");
+                    alert("No se encontró al asajero. Si seleccionó alguna silla antes se quitó esa selección.");
                     $("#txtIdPersona").val(-1);
                     $("#txtIdSillaSeleccionada").val(-1);
                     document.getElementById("btnReservar").disabled = true;
@@ -380,7 +380,7 @@ function validarSiSeleccionoSillaAnterioridad(data) {
                 var arreglo = JSON.parse(info.data);
 
                 if (arreglo.length > 0) {
-                    alert("El pasajero ya seleccióno una silla en este vuelo anteriorimente, no puede seleccionar mas sillas");
+                    alert("El pasajero ya seleccionó una silla en este vuelo anteriormente, no puede seleccionar más sillas");
                     $("#txtIdPersona").val(-1);
                     $("#txtIdSillaSeleccionada").val(-1);
                     document.getElementById("btnReservar").disabled = true;
@@ -1175,7 +1175,7 @@ function bloquearAsientos() {
                                 }
                                 break;
                             default:
-                                alert("Hola mundo")
+                                
                         }
                     }
                 } else {
@@ -1187,7 +1187,7 @@ function bloquearAsientos() {
 
 
             } else {
-                alert("No se han encotrado las sillas");
+                alert("No se han encontrado las sillas");
             }
 
         },
@@ -1373,7 +1373,7 @@ function RegistrarPasajero() {
         type: ""
     };
     if (objPasajero.idPasajero !== "") {
-        alert("No se puede guardar, ya que buscó antes un avion. oprima el boton cancelar y luego intente nuevamente.")
+        alert("No se puede guardar, ya que buscó antes un avión. oprima el botón cancelar y luego intente nuevamente.")
     } else {
         objPasajero.type = 'guardar';
         $.ajax({
@@ -1387,12 +1387,12 @@ function RegistrarPasajero() {
                 var info = JSON.parse(data);
 
                 if (info.res === "Success") {
-                    alert("Se ha registrado con exito");
+                    alert("Se ha registrado con éxito");
                     LimpiarText();
                 } else if (info.res === "False") {
                     alert(info.msj)
                 } else {
-                    alert("Transacción fallida, Este usuario ya esta registrado");
+                    alert("Transacción fallida, Este usuario ya está registrado");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {

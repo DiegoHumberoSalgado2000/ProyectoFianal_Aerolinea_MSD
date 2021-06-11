@@ -59,7 +59,7 @@ function buscarPasajero() {
             }
         });
     } else {
-        alert("No has ingresado el numero de cedula para buscar al pasajero");
+        alert("No has ingresado el número de cédula para buscar al pasajero");
     }
 
 }
@@ -94,13 +94,13 @@ function modificarPasajero() {
                 var info = JSON.parse(data);
 
                 if (info.res === "Success") {
-                    alert("Se modifico correctamente");
+                    alert("Se modificó correctamente");
                     listaPasajero();
                     cancelar();
                 } else if (info.res === "False") {
                     alert(info.msj)
                 } else {
-                    alert("Error al modificar, no ha modificado datos. Si desea modificar, modifique algun dato");
+                    alert("Error al modificar, no ha modificado datos. Si desea modificar, modifique algún dato");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -134,7 +134,7 @@ function eliminarPasajero() {
                 var info = JSON.parse(res);
 
                 if (info.res === "Success") {
-                    alert("Eliminado con exito");
+                    alert("Eliminado con éxito");
                     listaPasajero();
                     cancelar();
                 } else {
@@ -183,7 +183,7 @@ function listaPasajero() {
                 }
                 $("#ListaPasajero").html(lista);
             } else {
-                $("#ListaPasajero").html("<b>No se encuentra informacion</b>");
+                $("#ListaPasajero").html("<b>No se encuentra información</b>");
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {

@@ -3,7 +3,7 @@
 
 
 ?>
-<title>Lista de reservas </title>
+<title>Lista de reservas</title>
 
 <script src="../Recursos/jquery/jquery-3.5.0.min.js"></script>
 <script src="../Recursos/js/gestionHistorialReserva.js" type="text/javascript"></script>
@@ -62,9 +62,9 @@ if (isset($_SESSION["pasajero"])) {
                                                             <tr>
                                                                 <th>código reserva</th>
                                                                 <th>Vuelo</th>
-                                                                <th>Ubicacion Salida</th>
+                                                                <th>Ubicación Salida</th>
                                                                 <th>fecha Salida</th>
-                                                                <th>Ubicacion llegada</th>
+                                                                <th>Ubicación llegada</th>
                                                                 <th>fecha llegada</th>
                                                                 <th>Precio vuelo</th>
                                                                 <th>Número silla</th>

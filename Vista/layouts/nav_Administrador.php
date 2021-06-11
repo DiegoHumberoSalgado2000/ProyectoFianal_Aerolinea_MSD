@@ -21,7 +21,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a  class="nav-link">Menu Administrador</a>
+                    <a  class="nav-link">Menú Administrador</a>
                 </li>
             </ul>
 
@@ -56,13 +56,13 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-                        <li class="nav-header">NAVEGACION</li>
+                        <li class="nav-header">NAVEGACIÓN</li>
 
                         <li class="nav-item">
                             <a href="../index.php" class="nav-link">
                             <i class="fas fa-sign-out-alt"></i>
                                 <p>
-                                    Volver a la Pagina Principal
+                                    Volver a la Página Principal
                                 </p>
                             </a>
                         </li>
@@ -72,7 +72,7 @@
                             <a href="../Vista/Gestion_Aviones.php" class="nav-link">
                             <i class="fas fa-plane"></i>
                                 <p>
-                                    Gestion Aviones
+                                    Gestión Aviones
                                 </p>
                             </a>
                         </li>
@@ -81,7 +81,7 @@
                             <a href="../Vista/Gestion_Vuelos.php" class="nav-link">
                             <i class="fas fa-plane-departure"></i>
                                 <p>
-                                    Gestion Vuelos
+                                    Gestión Vuelos
                                 </p>
                             </a>
                         </li>
@@ -90,7 +90,7 @@
                             <a href="../Vista/Gestion_Itinerario.php" class="nav-link">
                             <i class="fas fa-suitcase-rolling"></i>
                                 <p>
-                                    Gestion Itinerario
+                                    Gestión Itinerario
                                 </p>
                             </a>
                         </li>
@@ -99,7 +99,7 @@
                             <a href="../Vista/Gestion_Empleados.php" class="nav-link">
                             <i class="fas fa-user-tie"></i>
                                 <p>
-                                    Gestion Empleados
+                                    Gestión Empleados
                                 </p>
                             </a>
                         </li>
@@ -108,7 +108,7 @@
                             <a href="../Vista/Gestion_Reserva_Pasajero.php" class="nav-link">
                             <i class="fas fa-money-check"></i>
                                 <p>
-                                    Gestion Reserva Pasajero
+                                    Gestión Reserva Pasajero
                                 </p>
                             </a>
                         </li>
@@ -117,7 +117,7 @@
                             <a href="../Vista/Gestion_Pasajero.php" class="nav-link">
                             <i class="fas fa-user-cog"></i>
                                 <p>
-                                    Gestion Pasajero
+                                    Gestión Pasajero
                                 </p>
                             </a>
                         </li>

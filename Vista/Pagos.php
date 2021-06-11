@@ -45,7 +45,7 @@ if(isset($_GET['res'])){
 
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Ubicacion de Salida</label>
+                            <label for="" class="col-sm-2 col-form-label">Ubicación de Salida</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtUbicacionSalida" class="form-control">
                             </div>
@@ -53,7 +53,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Ubicacion de Llegada</label>
+                            <label for="" class="col-sm-2 col-form-label">Ubicación de Llegada</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtUbicacionLlegada" class="form-control">
                             </div>
@@ -110,7 +110,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Cedula</label>
+                            <label for="" class="col-sm-2 col-form-label">Cédula</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtCedula" class="form-control">
                             </div>

@@ -40,7 +40,7 @@ function listarVuelo(){
                 $("#ListaVuelo").html(lista);
 
             } else {
-                $("#ListaVuelo").html("<b>No se encuentra informacion</b>");
+                $("#ListaVuelo").html("<b>No se encuentra información</b>");
 
             }
         },
@@ -68,7 +68,7 @@ function guardarVuelo() {
 
 
         if (objVuelo.idVuelo !== "") {
-            alert("No se puede guardar, ya que buscó antes un Vuelo. oprima el boton cancelar y luego intente nuevamente.")
+            alert("No se puede guardar, ya que buscó antes un Vuelo. oprima el botón cancelar y luego intente nuevamente.")
         } else {
             objVuelo.type = 'guardar';
         $.ajax({
@@ -89,7 +89,7 @@ function guardarVuelo() {
                 } else if(info.res === "False"){
                     alert(info.msj)
                 }else{
-                    alert("Transacción fallida, verifique que el avion no se encuentre registrada");
+                    alert("Transacción fallida, verifique que el avión no se encuentre registrada");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -137,7 +137,7 @@ function modificarVuelo() {
             } else if(info.res === "False"){
                 alert(info.msj)
             }else{
-                alert("Transacción fallida, verifique que el avion se encuentre registrado");
+                alert("Transacción fallida, verifique que el avión se encuentre registrado");
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -228,7 +228,7 @@ function eliminarVuelo() {
                 var info = JSON.parse(res);
 
                 if (info.res === "Success") {
-                    alert("Eliminado con exito");
+                    alert("Eliminado con éxito");
                     listarVuelo();
                     cancelar();
                 } else {

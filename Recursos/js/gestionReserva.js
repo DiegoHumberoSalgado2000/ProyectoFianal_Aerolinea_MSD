@@ -105,7 +105,7 @@ function habilitar(){
 function vldLlegada() {
     let idUbicacionsalida = $("#cmdLlegada").val();
     if (idUbicacionsalida === "-1") {
-        alert("Por favor, seleccione una ubicación de llegada valida 😉");
+        alert("Por favor, seleccione una ubicación de llegada válida");
     }
 
 }
@@ -174,7 +174,7 @@ function cargarubicacionLlegada(){
             }
         });
     }else{
-        alert("Por favor, seleccione una ubicacion de salida");
+        alert("Por favor, seleccione una ubicación de salida");
     }
 
 }

@@ -35,7 +35,7 @@ function buscarReserva(){
                     window.location.href='Vista/Mi_Reserva.php?res='+encriptado;
 
                 }else{
-                    alert("No se han encontrado reserva o su reserva no cumple con el plazo minimo de 8 dias antes del Vuelo")
+                    alert("No se han encontrado reserva o su reserva no cumple con el plazo mínimo de 8 días antes del Vuelo")
                 }
             }
 

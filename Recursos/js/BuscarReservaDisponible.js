@@ -37,7 +37,7 @@ if(objReserva.codigoReser!== ""){
                $("#txtFechaLlegada").val(data[0].fecha_llegada);
                $("#txtFechaSalida").val(data[0].fecha_salida);
            }else{
-            alert("Esta reserva no esta disponible");
+            alert("Esta reserva no está disponible");
            LimpiarText();
            }
        },
@@ -48,7 +48,7 @@ if(objReserva.codigoReser!== ""){
        
     });
 }else{
-    alert("Ingrese el codigo de la reserva");
+    alert("Ingrese el código de la reserva");
 }
    
 }

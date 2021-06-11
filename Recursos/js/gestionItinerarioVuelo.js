@@ -77,7 +77,7 @@ function guardarItinerarioVuelo(){
 
 
     if(objItinerarioVuelo.idItinerarioVuelo!==""){
-        alert("No se puede guardar, ya que buscó antes un registro de itinerario. oprima el boton cancelar y luego intente nuevamente.")
+        alert("No se puede guardar, ya que buscó antes un registro de itinerario. oprima el botón cancelar y luego intente nuevamente.")
     }else{
         objItinerarioVuelo.type='guardar';
 
@@ -144,13 +144,13 @@ function ModificarItinerarioVuelo(){
                 var info =JSON.parse(data);
 
                 if(info.res ==="Success"){
-                    alert("Modificado con exito");
+                    alert("Modificado con éxito");
                     listarItinearioVuelo();
                     cancelarItinerario();
                 }else if(info.res === "False"){
                     alert(info.msj)
                 }else{
-                    alert("Error al modificar, no ah modificado datos. Si desea modificar, modifique algun dato");
+                    alert("Error al modificar, no ha modificado datos. Si desea modificar, modifique algún dato");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -241,7 +241,7 @@ function eliminarItinerarioVuelo(){
                 var info =JSON.parse(res);
 
                 if(info.res==="Success"){
-                    alert("Eliminado con exito");
+                    alert("Eliminado con éxito");
                     listarItinearioVuelo();
                     cancelarItinerario();
                 }else{
@@ -315,7 +315,7 @@ function vldUbicacionLlegada() {
     let idUbicacionsalida = $("#CmbUbicacionSalida").val();
 
     if (idUbicacionsalida === "-1") {
-        alert("Por favor, seleccione una marca valida 😉");
+        alert("Por favor, seleccione una marca válida");
     }
 
 }
@@ -441,7 +441,7 @@ function cargarubicacionLlegada(){
         });
 
     }else{
-        alert("Por favor, seleccione una ubicacion de ida");
+        alert("Por favor, seleccione una ubicación de ida");
     }
     
 }

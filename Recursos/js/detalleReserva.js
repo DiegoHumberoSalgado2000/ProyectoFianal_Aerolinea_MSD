@@ -80,7 +80,7 @@ function CargarDatosDetalleReserva() {
 
             });
         } else {
-            alert("No has ingresado el numero de cedula para buscar al pasajero");
+            alert("No ha ingresado el número de cédula para buscar al pasajero");
         }
     } catch (error) {
         alert("No altere la dirección url")

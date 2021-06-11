@@ -43,10 +43,10 @@ if (isset($_GET['res'])) {
                                 <input type="hidden" id="txtMsjResultado" class="form-control">
                             </div>
 
-                            <label for="" class="col-sm-2 col-form-label">Tarjeta de Credito</label>
+                            <label for="" class="col-sm-2 col-form-label">Tarjeta de Crédito</label>
                             <div class="col-sm-5">
                                 <select  id="CmbTargetaCredito" class="form-control">
-                                    <option>Seleccione el tipo de tarjeta de Credito</option>
+                                    <option>Seleccione el tipo de tarjeta de Crédito</option>
                                     <option>Visa</option>
                                     <option>Mastercard</option>
                                     <option>American Express</option>
@@ -261,7 +261,7 @@ if (isset($_GET['res'])) {
                 </div>
                 <div class="modal-footer row">
                     <div class="offset-sm-2 col-sm-12 float-right">
-                        <button type="button" class="btn btn-danger" id="btnPagarReserva">PAGAR =></button>
+                        <button type="button" class="btn btn-danger" id="btnPagarReserva">PAGAR</button>
                     </div>
                 </div>
             </form>

@@ -41,7 +41,7 @@ function listaHistorialPagoReserva() {
               }
               $("#ListaHistorialPagoReserva").html(lista);
             }else{
-                $("#ListaHistorialPagoReserva").html("<b>No se encuentra informacion</b>");
+                $("#ListaHistorialPagoReserva").html("<b>No se encuentra información</b>");
             }
         },
         error:function(jqXHR,textStatus,errorThrown){

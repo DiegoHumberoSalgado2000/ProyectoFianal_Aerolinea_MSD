@@ -55,12 +55,12 @@ if(isset($_GET['res'])){
                                                         <thead class="table-success">
                                                             <tr>
                                                                 <th>Vuelo</th>
-                                                                <th>Ubicacion Salida</th>
+                                                                <th>Ubicación Salida</th>
                                                                 <th>fecha Salida</th>
-                                                                <th>Ubicacion llegada</th>
+                                                                <th>Ubicación llegada</th>
                                                                 <th>fecha llegada</th>
                                                                 <th>Precio</th>
-                                                                <th>Descripcion</th>
+                                                                <th>Descripción</th>
                                                                 <th>Estado</th>
                                                                 <th>Seleccionar</th>
 
@@ -104,12 +104,12 @@ if(isset($_GET['res'])){
                                                         <thead class="table-success">
                                                             <tr>
                                                                 <th>Vuelo</th>
-                                                                <th>Ubicacion Salida</th>
+                                                                <th>Ubicación Salida</th>
                                                                 <th>fecha Salida</th>
-                                                                <th>Ubicacion llegada</th>
+                                                                <th>Ubicación llegada</th>
                                                                 <th>fecha llegada</th>
                                                                 <th>Precio</th>
-                                                                <th>Descripcion</th>
+                                                                <th>Descripción</th>
                                                                 <th>Estado</th>
                                                                 <th>Seleccionar</th>
                                                             </tr>
@@ -138,8 +138,8 @@ if(isset($_GET['res'])){
                  adicional asociada a esta transacción a mi correo electrónico.</b>
 
                 <div class="modal-footer row">
-                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Al dar click en continuar acepta las politicas
-                    y condiciones de la Aerolinea</p>
+                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Al dar click en continuar acepta las políticas
+                    y condiciones de la Aerolínea</p>
                     <div class="offset-sm-2 col-sm-12 float-right">
                         <button type="button" class="btn btn-danger">Continuar</button>
                     </div>

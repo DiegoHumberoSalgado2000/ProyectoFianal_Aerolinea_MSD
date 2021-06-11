@@ -47,7 +47,7 @@ $(document).ready(function () {
 
                     $("#tablaVuelos").html(lista);
                 }else{
-                    $("#tablaVuelos").html("<b>No se encuentra informacion</b>");
+                    $("#tablaVuelos").html("<b>No se encuentra información</b>");
                 }
             } else {
                 alert("No se encuentra vuelo con esos datos");

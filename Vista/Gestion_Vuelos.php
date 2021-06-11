@@ -6,7 +6,7 @@ ob_start();
 <?php
 include_once 'layouts/header.php';
 ?>
-<title>Menu Administrador</title>
+<title>Menú Administrador</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
 <script src="../Recursos/js/gestionVuelo.js" type="text/javascript"></script>
 <?php
@@ -27,12 +27,12 @@ if (isset($_SESSION["administrador"])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Gestion Vuelos</h1>
+                    <h1>Gestión Vuelos</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../Vista/adm_Aerolinea.php">Inicio</a></li>
-                        <li class="breadcrumb-item active">Pagina Administrador</li>
+                        <li class="breadcrumb-item active">Página Administrador</li>
                     </ol>
                 </div>
             </div>
@@ -63,17 +63,17 @@ if (isset($_SESSION["administrador"])) {
 
                                     </div>
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Avion</label>
+                                        <label for="" class="col-sm-2 col-form-label">Avión</label>
                                         <div class="col-sm-9">
                                             <select type="text" id="selAvion" class="form-control">
-                                                <option value="-1">Seleccione Avion</option>
+                                                <option value="-1">Seleccione Avión</option>
                                             </select>
                                         </div>
 
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Descripcion</label>
+                                        <label for="" class="col-sm-2 col-form-label">Descripción</label>
                                         <div class="col-sm-9">
                                         <textarea class="form-control" id="txtDescripcion"></textarea>
                                         <input type="hidden" id="txtIdVuelo" class="form-control">
@@ -113,15 +113,15 @@ if (isset($_SESSION["administrador"])) {
                     <div class="col-md-12">
                         <div class="card card-success">
                             <div class="card-header">
-                                <h3 class="card-title">Lista Vuelos</h3>
+                                <h3 class="card-title">Lista De Vuelos</h3>
                             </div>
                             <div class="card-body p-0">
                                 <table class="table table-over text-nowrap">
                                     <thead class="table-success">
                                         <tr>
                                             <th>Tipo Vuelo</th>
-                                            <th>Avion</th>
-                                            <th>Descripcion</th>
+                                            <th>Avión</th>
+                                            <th>Descripción</th>
                                             <th>Estado</th>
                                             
                                         </tr>

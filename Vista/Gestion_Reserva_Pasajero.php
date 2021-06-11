@@ -5,7 +5,7 @@ ob_start();
 <?php
 include_once 'layouts/header.php';
 ?>
-<title>Menu Administrador</title>
+<title>Menú Administrador</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
 <script src="../Recursos/js/BuscarReservaDisponible.js" type="text/javascript"></script>
 <?php
@@ -26,12 +26,12 @@ if (isset($_SESSION["administrador"])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Gestion Reserva Pasajero</h1>
+                    <h1>Gestión Reserva Pasajero</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../Vista/adm_Aerolinea.php">Inicio</a></li>
-                        <li class="breadcrumb-item active">Pagina Administrador</li>
+                        <li class="breadcrumb-item active">Página Administrador</li>
                     </ol>
                 </div>
             </div>
@@ -80,7 +80,7 @@ if (isset($_SESSION["administrador"])) {
 
 
                                                                     <strong class="ColorText">
-                                                                        <i class="fas fa-id-card mr-1">Cedula</i>
+                                                                        <i class="fas fa-id-card mr-1">Cédula</i>
                                                                     </strong>
                                                                     <p class="text-muted" id="lblCedula"></p>
 

@@ -24,7 +24,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Registrarme</h4>
+                        <h4 class="modal-title" id="exampleModalLabel">Crea tu cuenta</h4>
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
@@ -33,25 +33,25 @@
                                     <div class="col-12 col-sm-6 ContenedorColoriniciarSesion">
                                         <b class="ColorTextoModalIniciarSesion">
                                             <br>
-                                            Crea tu cuenta de usuario y poder disfrutar de
-                                            todos nuetros beneficios
+                                            Crea tu cuenta de usuario y puedes disfrutar de
+                                            todos nuestros beneficios
                                             <br>
                                             <hr class="LineaHorizontal">
                                             <br>
-                                            <i class="fas fa-plane"></i> Realizar tus compras de manera 100% segura y rapida
+                                            <i class="fas fa-plane"></i> Realiza tus compras de manera 100% segura y rápida
                                             <br>
                                             <br>
                                             <br>
-                                            <i class="fas fa-plane"></i> Realizatu check-in online de forma mas rapida
+                                            <i class="fas fa-plane"></i> Realiza tu check-in online de forma más rápida
                                             <br>
                                             <br>
                                             <br>
                                             <i class="fas fa-plane"></i> Viaja con tus familiares o compañeros de trabajo de
-                                            forma mas raoida
+                                            forma más rápida
                                             <br>
                                             <br>
                                             <br>
-                                            <i class="fas fa-plane"></i> Enterate primero de nuetros mejores descuentos
+                                            <i class="fas fa-plane"></i> Entérate primero de nuestros mejores descuentos
                                             <br>
                                             <br>
                                             <br>
@@ -97,7 +97,7 @@
                                                 <input type="email" class="form-control" id="txtCorreo">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">Telefono</label>
+                                                <label for="message-text" class="control-label">Teléfono</label>
                                                 <input type="phone" class="form-control" id="txtTelefono">
                                             </div>
                                             <div class="form-group">
@@ -137,24 +137,24 @@
                                         <b class="ColorTextoModalIniciarSesion">
                                             <br>
                                             Crea tu cuenta de usuario y poder disfrutar de
-                                            todos nuetros beneficios
+                                            todos nuestros beneficios
                                             <br>
                                             <hr class="LineaHorizontal">
                                             <br>
-                                            <i class="fas fa-plane"></i> Realizar tus compras de manera 100% segura y rapida
+                                            <i class="fas fa-plane"></i> Realizar tus compras de manera 100% segura y rápida
                                             <br>
                                             <br>
                                             <br>
-                                            <i class="fas fa-plane"></i> Realiza tu check-in online de forma mas rapida
+                                            <i class="fas fa-plane"></i> Realiza tu check-in online de forma más rápida
                                             <br>
                                             <br>
                                             <br>
                                             <i class="fas fa-plane"></i> Viaja con tus familiares o compañeros de trabajo de
-                                            forma mas rapida
+                                            forma más rápida
                                             <br>
                                             <br>
                                             <br>
-                                            <i class="fas fa-plane"></i> Enterate primero de nuetros mejores descuentos
+                                            <i class="fas fa-plane"></i> Entérate primero de nuestros mejores descuentos
                                             <br>
                                             <br>
                                             <br>
@@ -207,16 +207,16 @@
                         <h4 class="modal-title" id="exampleModalLabel">Mi Reserva</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Para gestionar tu reserva del vuelo ingrese
-                            el codigo de reserva y el numero de cedula
+                        <p>Para gestionar tu reserva del vuelo digite
+                            el código de reserva y el número de cédula
                         </p>
                         <form>
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Codigo Reserva</label>
+                                <label for="recipient-name" class="control-label">Código Reserva</label>
                                 <input type="number" id="codigoMiReserva" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="control-label">Cedula</label>
+                                <label for="message-text" class="control-label">Cédula</label>
                                 <input type="number" id="cedulaMiReserva" class="form-control">
                             </div>
                         </form>
@@ -242,18 +242,18 @@
                         <h4 class="modal-title" id="exampleModalLabel">Web Check-in</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Realize tu Check-in, desde 48 horas antes
+                        <p>Realice tu Check-in, desde 48 horas antes
                             de vuelos internacionales o nacionales.
-                            Recuerde que es indispencible para pasar
-                            a la sala de abordage
+                            Recuerde que es indispensable para pasar
+                            a la sala de a abordage
                         </p>
                         <form>
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Codigo Reserva</label>
+                                <label for="recipient-name" class="control-label">Código Réserva</label>
                                 <input type="number" id="codigoReserva" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="control-label">Cedula</label>
+                                <label for="message-text" class="control-label">Cédula</label>
                                 <input type="number" id="cedulacheckin" class="form-control">
                             </div>
                         </form>
@@ -278,33 +278,30 @@
                 <li data-target="#myCarousel" data-slide-to="3"></li>
                 <li data-target="#myCarousel" data-slide-to="4"></li>
             </ol>
-
+            
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
                     <div class="fill" style="background-image:url('img/aeropuertos-lujo-portada.jpg');"></div>
                     <div class="carousel-caption slide-up">
-                        <h1 class="banner_heading">Providing The <span>Highest </span>Lorem</h1>
-                        <p class="banner_txt">Lorem ipsum dolor sit amet sit legimus copiosae instructior eiut vix denique
-                            fierentis ea saperet inimicu utqui dolor oratio mnesarchum.</p>
+                        <h1 class="banner_heading">Flexibilidad <span> para </span> tus vuelos</h1>
+                        <p class="banner_txt">¡Pensamos en ti! Por eso, te damos la mayor flexibilidad en tus vuelos para que los gestiones sin ninguna complicación.</p>
                     </div>
                 </div>
 
                 <div class="item">
                     <div class="fill" style="background-image:url('img/pixabaynubes-2.jpg');"></div>
                     <div class="carousel-caption slide-up">
-                        <h1 class="banner_heading">Providing The <span>Highest </span>Lorem</h1>
-                        <p class="banner_txt">Lorem ipsum dolor sit amet sit legimus copiosae instructior eiut vix denique
-                            fierentis ea saperet inimicu utqui dolor oratio mnesarchum.</p>
+                        <h1 class="banner_heading">Durante <span>el </span>Vuelo</h1>
+                        <p class="banner_txt">Relájate y disfruta de nuestro servicio a bordo</p>
                     </div>
                 </div>
 
                 <div class="item">
                     <div class="fill" style="background-image:url('img/Airport inside (1)_2.jpg');"></div>
                     <div class="carousel-caption slide-up">
-                        <h1 class="banner_heading">Providing The <span>Highest </span>Lorem</h1>
-                        <p class="banner_txt">Lorem ipsum dolor sit amet sit legimus copiosae instructior eiut vix denique
-                            fierentis ea saperet inimicu utqui dolor oratio mnesarchum.</p>
+                        <h1 class="banner_heading">Consulta <span>y cambia </span>Tu vuelo</h1>
+                        <p class="banner_txt">Revisa el estado de tu reserva, realiza cambios para vuelos sin afectaciones de fecha y hora o modifica tus datos de contacto</p>
                     </div>
                 </div>
 
@@ -312,18 +309,16 @@
                     <div class="fill"
                          style="background-image:url('img/night-lights-airport-the-plane-wallpaper-preview.jpg');"></div>
                     <div class="carousel-caption slide-up">
-                        <h1 class="banner_heading">Providing The <span>Highest </span>Lorem</h1>
-                        <p class="banner_txt">Lorem ipsum dolor sit amet sit legimus copiosae instructior eiut vix denique
-                            fierentis ea saperet inimicu utqui dolor oratio mnesarchum.</p>
+                        <h1 class="banner_heading">Requisitos <span>Para tu </span>Viaje</h1>
+                        <p class="banner_txt">Infórmate sobre las medidas que debes cumplir para ingresar a tu destino: pruebas de COVID-19, cuarentenas y más.</p>
                     </div>
                 </div>
 
                 <div class="item">
                     <div class="fill" style="background-image:url('img/plane-1666083_1280.jpg');"></div>
                     <div class="carousel-caption slide-up">
-                        <h1 class="banner_heading">Providing The <span>Highest </span>Lorem</h1>
-                        <p class="banner_txt">Lorem ipsum dolor sit amet sit legimus copiosae instructior eiut vix denique
-                            fierentis ea saperet inimicu utqui dolor oratio mnesarchum.</p>
+                        <h1 class="banner_heading">Viaja <span>Seguro </span>y con tranquilidad</h1>
+                        <p class="banner_txt">Sigue nuestras recomendaciones de bioseguridad antes, durante y después de tu vuelo para que estés tranquilo en todo tu viaje..</p>
                     </div>
                 </div>
             </div>
@@ -358,7 +353,7 @@
                                     <ul class="show">
                                         <li><a>Reservar Vuelos</a></li>
                                         <li><a href="" data-target="#Mi_Reserva" data-toggle="modal" type="button">Mi
-                                                Reserva</a></li>
+                                                Réserva</a></li>
                                         <li><a href="" data-target="#Mi_Checkin" data-toggle="modal" type="button">Mi
                                                 Check-in</a></li>
                                     </ul>
@@ -389,7 +384,7 @@
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-plane-departure"></i></span>
                                     <select type="text" class="form-control" id="cmbSalida" aria-describedby="basic-addon1">
-                                        <option value="-1">Seleccione la ubicacion de salida</option>
+                                        <option value="-1">Seleccione la ubicación de salida</option>
 
                                     </select>
                                 </div>
@@ -401,7 +396,7 @@
                                     <span class="input-group-addon" id="basic-addon1"><i
                                             class="fas fa-plane-arrival"></i></span>
                                     <select type="text" class="form-control" id="cmdLlegada" aria-describedby="basic-addon1">
-                                        <option value="-1">Seleccione la ubicacion de llegada</option>
+                                        <option value="-1">Seleccione la ubicación de llegada</option>
                                     </select>
                                 </div>
                             </div>
@@ -427,7 +422,7 @@
                             </div>
 
                             <div class="ContenedorCantidadPasajeros">
-                                <h6>Seleccione numeros de Pasajeros</h6>
+                                <h6>Seleccione números de Pasajeros</h6>
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
                                     <div class="col-sm-2">
@@ -552,7 +547,7 @@
                             <!-- End portfolio-head -->
                             <div class="portfolio-content">
                                 <h5 class="title">¡Nueva MyAerolineaMSD app!</h5>
-                                <p>Compra y gestiona tus vuelos desde el cel disfrutando un diseño renovado, más rápido y
+                                <p>Compra y gestiona tus vuelos desde el celular disfrutando un diseño renovado, más rápido y
                                     simple.</p>
                             </div>
                             <!-- End portfolio-content -->

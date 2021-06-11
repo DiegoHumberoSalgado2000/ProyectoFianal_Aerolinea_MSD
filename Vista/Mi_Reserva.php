@@ -56,7 +56,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Cedula</label>
+                            <label for="" class="col-sm-2 col-form-label">Cédula</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtCedula" class="form-control">
                             </div>
@@ -64,7 +64,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Telefono</label>
+                            <label for="" class="col-sm-2 col-form-label">Télefono</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtTelefono" class="form-control">
                             </div>
@@ -84,7 +84,7 @@ if(isset($_GET['res'])){
 
                 <div class="panel  panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Informacion de la Reserva</h3>
+                        <h3 class="panel-title">Información de la Reserva</h3>
                     </div>
                     <div class="panel-body">
 
@@ -135,8 +135,8 @@ if(isset($_GET['res'])){
                     </div>
                 </div>
                 <div class="modal-footer row">
-                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si quiere cancelar su reserva solo tiene
-                        como plaso minimo de 8 dias antes del Vuelo</p>
+                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si desea cancelar su reserva solo tiene
+                        como plazo mínimo de 8 dias antes del Vuelo</p>
                     <br>
                     <div class="offset-sm-2 col-sm-12 float-right">
                         <button type="button" class="btn btn-danger" id="btnCancelarReserva">Cancelar Reserva</button>

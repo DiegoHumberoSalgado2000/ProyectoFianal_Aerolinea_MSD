@@ -40,24 +40,24 @@ if(isset($_GET['res'])){
                                         <b class="ColorTextoModalIniciarSesion">
                                             <br>
                                             Crea tu cuenta de usuario y poder disfrutar de
-                                            todos nuetros beneficios
+                                            todos nuestros beneficios
                                             <br>
                                             <hr class="LineaHorizontal">
                                             <br>
-                                            <i class="fas fa-plane"></i> Realizar tus compras de manera 100% segura y rapida
+                                            <i class="fas fa-plane"></i> Realizar tus compras de manera 100% segura y rápida
                                             <br>
                                             <br>
                                             <br>
-                                            <i class="fas fa-plane"></i> Realizatu check-in online de forma mas rapida
+                                            <i class="fas fa-plane"></i> Realiza tu check-in online de forma más rápida
                                             <br>
                                             <br>
                                             <br>
                                             <i class="fas fa-plane"></i> Viaja con tus familiares o compañeros de trabajo de
-                                            forma mas raoida
+                                            forma más rápida
                                             <br>
                                             <br>
                                             <br>
-                                            <i class="fas fa-plane"></i> Enterate primero de nuetros mejores descuentos
+                                            <i class="fas fa-plane"></i> Entérate primero de nuestros mejores descuentos
                                             <br>
                                             <br>
                                             <br>
@@ -95,7 +95,7 @@ if(isset($_GET['res'])){
                                                 <input type="text" class="form-control" id="txtApellido">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">Cedula</label>
+                                                <label for="message-text" class="control-label">Cédula</label>
                                                 <input type="text" class="form-control" id="txtCedula">
                                             </div>
                                             <div class="form-group">
@@ -103,7 +103,7 @@ if(isset($_GET['res'])){
                                                 <input type="email" class="form-control" id="txtCorreo">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">Telefono</label>
+                                                <label for="message-text" class="control-label">Télefono</label>
                                                 <input type="phone" class="form-control" id="txtTelefono">
                                             </div>
                                             <div class="form-group">
@@ -149,7 +149,7 @@ if(isset($_GET['res'])){
                                         <hr class="LineaHorizontal">
                                         <form action="">
                                             <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Numero silla</label>
+                                                <label for="recipient-name" class="control-label">Número silla</label>
                                                 <input type="text" class="form-control" id="txtNumeroSilla">
                                             </div>
                                             <div class="form-group">
@@ -165,7 +165,7 @@ if(isset($_GET['res'])){
                                                 <input type="email" class="form-control" id="txtTipo">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">Descripcion</label>
+                                                <label for="message-text" class="control-label">Descripción</label>
                                                 <textarea class="form-control"  rows="5" id="txtDescripcionSilla"></textarea>
                                                 <input type="hidden" class="form-control" id="txtIdSilla">
                                             </div>
@@ -338,8 +338,8 @@ if(isset($_GET['res'])){
                 <br>
                 <div class="modal-footer row">
                     <p class="ColorTextoModalIniciarSesion estiloTextReserva">Al dar click en continuar acepta las
-                        politicas
-                        y condiciones de la Aerolinea</p>
+                        políticas
+                        y condiciones de la Aerolínea</p>
                     <div class="offset-sm-2 col-sm-12 float-right">
                         <button type="button" id="btnReservar" class="btn btn-danger">Reservar</button>
                     </div>

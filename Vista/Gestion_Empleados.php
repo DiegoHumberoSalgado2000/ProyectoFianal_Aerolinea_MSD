@@ -31,12 +31,12 @@ if (isset($_SESSION["administrador"])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Gestion Empleados</h1>
+                    <h1>Gestión Empleados</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../Vista/adm_Aerolinea.php">Inicio</a></li>
-                        <li class="breadcrumb-item active">Pagina Administrador</li>
+                        <li class="breadcrumb-item active">Página Administrador</li>
                     </ol>
                 </div>
             </div>
@@ -57,7 +57,7 @@ if (isset($_SESSION["administrador"])) {
                                 <form action="" class="form-horizontal">
 
                                 <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Cedula</label>
+                                        <label for="" class="col-sm-2 col-form-label">Cédula</label>
                                         <div class="col-sm-9">
                                             <input type="number" id="txtCedula" class="form-control">
                                             <input type="hidden" id="txtIdEmpleado" class="form-control">
@@ -93,7 +93,7 @@ if (isset($_SESSION["administrador"])) {
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Telefono</label>
+                                        <label for="" class="col-sm-2 col-form-label">Teléfono</label>
                                         <div class="col-sm-9">
                                             <input type="phone" id="txtTelefono" class="form-control">
                                         </div>
@@ -152,9 +152,9 @@ if (isset($_SESSION["administrador"])) {
                                         <tr>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
-                                            <th>Cedula</th>
+                                            <th>Cédula</th>
                                             <th>Correo</th>
-                                            <th>Telefono</th>
+                                            <th>Teléfono</th>
                                             <th>Estado</th>
                                             <th>Descripción</th>
                                             

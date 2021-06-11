@@ -34,7 +34,7 @@
 
                             <li class="active"><a href="../index.php">Inicio</a></li>
                             <li><a href="" data-target="#Registrarse" data-toggle="modal" type="button">Registrarse</a></li>
-                            <li><a href="">Informacion</a></li>
+                            <li><a href="">Información</a></li>
                             <li><a href="">Te ayudamos</a></li>
                         </ul>
 

@@ -57,7 +57,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Cedula</label>
+                            <label for="" class="col-sm-2 col-form-label">Cédula</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtCedula" class="form-control">
                             </div>
@@ -65,7 +65,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Telefono</label>
+                            <label for="" class="col-sm-2 col-form-label">Télefono</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtTelefono" class="form-control">
                             </div>
@@ -162,7 +162,7 @@ if(isset($_GET['res'])){
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Placa del Avion</label>
+                            <label for="" class="col-sm-2 col-form-label">Placa del Avión</label>
                             <div class="col-sm-5">
                                 <input type="text" id="txtPlaca" class="form-control">
                             </div>
@@ -173,19 +173,19 @@ if(isset($_GET['res'])){
                 </div>
 
                 <div class="modal-footer row">
-                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si quere puede descargar el pasaporte del
-                        vuelo dando click en el
-                        boton de imprimir Check-in
+                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si desea puede descargar el pasaporte del
+                        vuelo dando click en él
+                        botón de imprimir Check-in
                     </p>
                     <div class="offset-sm-2 col-sm-12 float-right">
-                        <button type="button" class="btn btn-danger"id="btnImprimirCheckIn">imprimir Check-in</button>
+                        <button type="button" class="btn btn-danger"id="btnImprimirCheckIn">Imprimir Check-in</button>
                     </div>
                 </div>
 
                 <div class="modal-footer row">
 
-                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si quiere validar el check-in debe dar
-                        click en el boton
+                    <p class="ColorTextoModalIniciarSesion estiloTextReserva">Si desea validar el check-in debe dar
+                        clic en el botón
                         de Aceptar para que pueda entrar en la sala de abordaje del Vuelo
                     </p>
                     <div class="offset-sm-2 col-sm-12 float-right">

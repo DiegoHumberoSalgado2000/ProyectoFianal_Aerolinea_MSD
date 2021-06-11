@@ -6,7 +6,7 @@ ob_start();
 <?php
 include_once 'layouts/header.php';
 ?>
-<title>Menu Administrador</title>
+<title>Menú Administrador</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
 <script src="../Recursos/js/gestionItinerarioVuelo.js" type="text/javascript"></script>
 <script src="../Recursos/js/gestionUbicacion.js" type="text/javascript"></script>
@@ -28,7 +28,7 @@ if (isset($_SESSION["administrador"])) {
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ubicacion</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Ubicación</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -36,14 +36,14 @@ if (isset($_SESSION["administrador"])) {
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Ubicacion</label>
+                        <label for="recipient-name" class="col-form-label">Ubicación</label>
                         <input type="text" class="form-control" id="txtUbicacion">
                         <input type="hidden" id="txtIdUbicacion" class="form-control">
                         <input type="hidden" id="txtCondiResultadoUbicacion" class="form-control">
                         <input type="hidden" id="txtMsjResultadoUbicacion" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Descripcion:</label>
+                        <label for="message-text" class="col-form-label">Descripción</label>
                         <textarea class="form-control" id="txtDescripcionUbicacion"></textarea>
                     </div>
                 </form>
@@ -77,13 +77,13 @@ if (isset($_SESSION["administrador"])) {
                         <input type="text" class="form-control" id="recipient-name">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Descripccion:</label>
+                        <label for="message-text" class="col-form-label">Descripción</label>
                         <textarea class="form-control" id="message-text"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Ubicacion</label>
+                        <label for="message-text" class="col-form-label">Ubicación</label>
                         <select class="form-control" id="message-text">
-                            <option>Seleccione la Ubicacion</option>
+                            <option>Seleccione la Ubicación</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -115,7 +115,7 @@ if (isset($_SESSION["administrador"])) {
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../Vista/adm_Aerolinea.php">Inicio</a></li>
-                        <li class="breadcrumb-item active">Pagina Administrador</li>
+                        <li class="breadcrumb-item active">Página Administrador</li>
                     </ol>
                 </div>
             </div>
@@ -130,17 +130,17 @@ if (isset($_SESSION["administrador"])) {
 
                         <div class="card card-success">
                             <div class="card-header">
-                                <h3 class="card-title">Gestion</h3>
+                                <h3 class="card-title">Gestión</h3>
                             </div>
                             <div class="card-body">
                                 <button data-toggle="modal" data-target="#GestionUbicacion" type="button"
-                                    class="btn btn-block btn-outline-warning btn-sm">Ubicacion</button>
+                                    class="btn btn-block btn-outline-warning btn-sm">Ubicación</button>
 
                                 <button data-toggle="modal" data-target="#GestionAeropuerto" type="button"
                                     class="btn btn-block btn-outline-warning btn-sm">Aeropuerto</button>
                             </div>
                             <div class="card-footer">
-                                <p class="text-mited">click en botones para gestionar</p>
+                                <p class="text-mited">clic en botones para gestionar</p>
                             </div>
                         </div>
 

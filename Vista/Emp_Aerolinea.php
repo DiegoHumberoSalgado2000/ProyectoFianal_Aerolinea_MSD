@@ -7,7 +7,7 @@ ob_start();
 include_once 'layouts/header_Empleado.php';
 ?>
 
-<title>Menu Empleado</title>
+<title>Menú Empleado</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js"></script>
 <script src="../Recursos/js/datosMenuEmpleado.js" type="text/javascript"></script>
 <?php
@@ -40,7 +40,7 @@ if (isset($_SESSION["empleado"])) {
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../Vista/Emp_Aerolinea.php">Inicio</a></li>
-                        <li class="breadcrumb-item active">Pagina Empleado</li>
+                        <li class="breadcrumb-item active">Página Empleado</li>
                     </ol>
                 </div>
             </div>
@@ -83,7 +83,7 @@ if (isset($_SESSION["empleado"])) {
                             </div>
                             <div class="card-body">
                                 <strong class="ColorText">
-                                    <i class="fas fa-phone mr-1">Telefono</i>
+                                    <i class="fas fa-phone mr-1">Teléfono</i>
                                 </strong>
                                 <p class="text-muted" id="lblTelefono">3175914679</p>
 
@@ -96,7 +96,7 @@ if (isset($_SESSION["empleado"])) {
                                 <button class="btn btn-block bg-gradient-danger" id="btnEditar">Editar</button>
                             </div>
                             <div class="card-footer">
-                                <p class="text-mited">click en boton si desea editar</p>
+                                <p class="text-mited">clic en botón si desea editar</p>
                             </div>
                         </div>
                     </div>
@@ -131,14 +131,14 @@ if (isset($_SESSION["empleado"])) {
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Cedula</label>
+                                        <label for="" class="col-sm-2 col-form-label">Cédula</label>
                                         <div class="col-sm-10">
                                             <input type="text" id="txtCedula" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Telefono celular</label>
+                                        <label for="" class="col-sm-2 col-form-label">Teléfono celular</label>
                                         <div class="col-sm-10">
                                             <input type="number" id="txtTelefono" class="form-control">
                                         </div>
@@ -160,12 +160,12 @@ if (isset($_SESSION["empleado"])) {
 
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10 float-right">
-                                            <button class="btn btn-block btn-outline-success" id="btnGuardarActualizar">Actulizar</button>
+                                            <button class="btn btn-block btn-outline-success" id="btnGuardarActualizar">Actualizar</button>
                                         </div>
                                     </div>
                             </div>
                             <div class="card-footer">
-                                <p class="text-muted">Cuidado de ingresar datos erroneos</p>
+                                <p class="text-muted">Cuidado de ingresar datos erróneos</p>
                             </div>
                         </div>
                     </div>

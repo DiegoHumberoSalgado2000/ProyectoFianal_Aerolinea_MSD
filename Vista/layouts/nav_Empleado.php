@@ -21,7 +21,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a  class="nav-link">Menu Empleado</a>
+                    <a  class="nav-link">Menú Empleado</a>
                 </li>
             </ul>
 
@@ -56,13 +56,13 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-                        <li class="nav-header">NAVEGACION</li>
+                        <li class="nav-header">NAVEGACIÓN</li>
 
                         <li class="nav-item">
                             <a href="../index.php" class="nav-link">
                             <i class="fas fa-sign-out-alt"></i>
                                 <p>
-                                    Volver a la Pagina Principal
+                                    Volver a la Página Principal
                                 </p>
                             </a>
                         </li>

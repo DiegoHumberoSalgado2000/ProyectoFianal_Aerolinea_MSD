@@ -42,7 +42,7 @@ function listarEmpleado(){
                 }
                 $("#ListaEmpleados").html(lista);
             }else{
-                $("#ListaEmpleados").html("<b>No se encuentra informacion</b>");
+                $("#ListaEmpleados").html("<b>No se encuentra información</b>");
             }
         },
         error:function(jqXHR,textStatus,errorThrown){
@@ -71,7 +71,7 @@ function guardarEmpleado(){
         };
 
         if(objEmpleado.idEmpleado !== ""){
-            alert("No se puede guardar, ya que buscó antes un avion. oprima el boton cancelar y luego intente nuevamente.")
+            alert("No se puede guardar, ya que buscó antes un avión. oprima el botón cancelar y luego intente nuevamente.")
         }else{
             objEmpleado.type='guardar';
          $.ajax({
@@ -85,13 +85,13 @@ function guardarEmpleado(){
                 var info =JSON.parse(data);
 
                 if(info.res=== "Success"){
-                    alert("Se guardo correctamente");
+                    alert("Se guardó correctamente");
                     listarEmpleado();
                     cancelar();
                 }else if(info.res === "False"){
                     alert(info.msj)
                 }else{
-                    alert("Transacción fallida, verifique que la cedula no se encuentre registrada");
+                    alert("Transacción fallida, verifique que la cédula no se encuentre registrada");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -190,13 +190,13 @@ function modificarEmpleado(){
             var info =JSON.parse(data);
 
             if(info.res=== "Success"){
-                alert("Se modifico correctamente");
+                alert("Se modificó correctamente");
                 listarEmpleado();
                 cancelar();
             }else if(info.res === "False"){
                 alert(info.msj)
             }else{
-                alert("Error al modificar, no ha modificado datos. Si desea modificar, modifique algun dato");
+                alert("Error al modificar, no ha modificado datos. Si desea modificar, modifique algún dato");
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -232,7 +232,7 @@ function eliminarEmpleado(){
                 var info = JSON.parse(res);
 
                 if(info.res === "Success"){
-                    alert("Eliminado con exito");
+                    alert("Eliminado con éxito");
                     listarEmpleado();
                     cancelar();
                 }else{

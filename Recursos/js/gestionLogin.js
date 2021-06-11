@@ -19,7 +19,7 @@ function RegistrarPasajero() {
         type: ""
     };
     if (objPasajero.idPasajero !== "") {
-        alert("No se puede guardar, ya que buscó antes un avion. oprima el boton cancelar y luego intente nuevamente.")
+        alert("No se puede guardar, ya que buscó antes un avión. oprima el botón cancelar y luego intente nuevamente.")
     } else {
         objPasajero.type = 'guardar';
         $.ajax({
@@ -33,12 +33,12 @@ function RegistrarPasajero() {
                 var info = JSON.parse(data);
 
                 if (info.res === "Success") {
-                    alert("Se ha registrado con exito");
+                    alert("Se ha registrado con éxito");
                     LimpiarText();
                 } else if (info.res === "False") {
                     alert(info.msj)
                 } else {
-                    alert("Transacción fallida, Este usuario ya esta registrado");
+                    alert("Transacción fallida, Este usuario ya está registrado");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {

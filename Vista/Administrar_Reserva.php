@@ -7,7 +7,7 @@ ob_start();
 include_once 'layouts/header_Empleado.php';
 ?>
 
-<title>Menu Empleado</title>
+<title>Menú Empleado</title>
 <script src="../Recursos/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
 <script src="../Recursos/js/BuscarReservaDisponible.js" type="text/javascript"></script>
 <?php
@@ -33,7 +33,7 @@ if (isset($_SESSION["empleado"])) {
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../Vista/Emp_Aerolinea.php">Inicio</a></li>
-                        <li class="breadcrumb-item active">Pagina Empleado</li>
+                        <li class="breadcrumb-item active">Página Empleado</li>
                     </ol>
                 </div>
             </div>
@@ -82,7 +82,7 @@ if (isset($_SESSION["empleado"])) {
 
 
                                                                     <strong class="ColorText">
-                                                                        <i class="fas fa-id-card mr-1">Cedula</i>
+                                                                        <i class="fas fa-id-card mr-1">Cédula</i>
                                                                     </strong>
                                                                     <p class="text-muted" id="lblCedula"></p>
 

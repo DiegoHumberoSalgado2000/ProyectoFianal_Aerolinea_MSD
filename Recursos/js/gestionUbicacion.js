@@ -23,7 +23,7 @@ function guardarUbicacion(){
     };
 
     if(objUbicacion.idUbicacion!==""){
-        alert("No se puede guardar, ya que buscó antes la ubicación. oprima el boton cancelar y luego intente nuevamente.")
+        alert("No se puede guardar, ya que buscó antes la ubicación. oprima el botón cancelar y luego intente nuevamente.")
     }else{
         objUbicacion.type='guardar';
 
@@ -38,7 +38,7 @@ function guardarUbicacion(){
                 var info =JSON.parse(data);
 
                 if(info.res=== "Success"){
-                    alert("Se guardo correctamente");
+                    alert("Se guardó correctamente");
                     cancelar();
                 }else if(info.res === "False"){
                     alert(info.msj)
@@ -135,7 +135,7 @@ function ModificarUbicacion(){
                 }else if(info.res === "False"){
                     alert(info.msj)
                 }else{
-                    alert("Error al modificar,no ha modificado datos. Si desea modificar, modifique algun dato");
+                    alert("Error al modificar,no ha modificado datos. Si desea modificar, modifique algún dato");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {

@@ -73,11 +73,11 @@ function guardarAvion(cantidad) {
 
         };
         if(cantidad>19){
-            alert("hay 20 aviones resgistrados, no puede registrar mas")
+            alert("Hay 20 aviones registrados, no puede registrar más")
         }else{
 
         if (objAvion.idAvion !== "") {
-            alert("No se puede guardar, ya que buscó antes un avion. oprima el boton cancelar y luego intente nuevamente.")
+            alert("No se puede guardar, ya que buscó antes un avión. oprima el botón cancelar y luego intente nuevamente.")
         } else {
             objAvion.type = 'guardar';
             $.ajax({
@@ -189,7 +189,7 @@ function modificarAvion() {
                 } else if(info.res === "False"){
                     alert(info.msj)
                 }else{
-                    alert("Error al modificar, no ah modificado datos. Si desea modificar, modifique algun dato");
+                    alert("Error al modificar, no ha modificado datos. Si desea modificar, modifique algún dato");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -248,7 +248,7 @@ function buscarAvion(){
 
 
             } else {
-                alert("No se encuentra el avion");
+                alert("No se encuentra el avión");
                 limpiar();
             }
 
@@ -536,7 +536,7 @@ function cargarMarca() {
             }
         });
     }else{
-        alert("Por favor, seleccione un fabricante valido :)");
+        alert("Por favor, seleccione un fabricante válido");
     }
 }
 
